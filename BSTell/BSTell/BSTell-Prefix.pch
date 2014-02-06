@@ -13,4 +13,20 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+#import "UIFramework.h"
+#import "ZCSNotficationMgr.h"
+#import "NEDebugTool.h"
+#import "UIParamsCfg.h"
+#import "UIImage+Extend.h"
+#import "UIComUtil.h"
+//#import "CarServiceNetDataMgr.h"
+//#import "AppConfig.h"
+#import "SVProgressHUD.h"
+#import "UIBaseFactory.h"
+//#import "AppMSGDef.h"
+#import "PlanformTool.h"
+
+#import "CarServiceNetDataMgr.h"
+
+#import "AppConfig.h"
 #endif

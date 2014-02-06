@@ -1,0 +1,119 @@
+10
+
+dir
+0
+svn://118.123.13.55/Mail/kxmailiphone/BSTell/code/BSTell/BSTell
+svn://118.123.13.55
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+f5e20469-18e1-424a-8dac-31e99ebc9bf5
+
+UserSettingViewController.h
+file
+
+
+
+add
+
+SettingViewController.h
+file
+
+
+
+add
+
+BidViewController.h
+file
+
+
+
+add
+
+images
+dir
+
+
+
+add
+
+MainPageViewController.h
+file
+
+
+
+add
+
+MyInfoViewController.h
+file
+
+
+
+add
+
+UserSettingViewController.m
+file
+
+
+
+add
+
+MsgInfoViewController.h
+file
+
+
+
+add
+
+SettingViewController.m
+file
+
+
+
+add
+
+BidViewController.m
+file
+
+
+
+add
+
+MainPageViewController.m
+file
+
+
+
+add
+
+MyInfoViewController.m
+file
+
+
+
+add
+
+MsgInfoViewController.m
+file
+
+
+
+add
+
