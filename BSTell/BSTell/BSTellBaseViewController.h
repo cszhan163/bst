@@ -6,8 +6,8 @@
 //  Copyright (c) 2014年 cszhan. All rights reserved.
 //
 
-#import "UIImageNetBaseViewController.h"
+#import "UISimpleNetBaseViewController.h"
 
-@interface BSTellBaseViewController : UIImageNetBaseViewController<UIBaseViewControllerDelegate>
+@interface BSTellBaseViewController : UISimpleNetBaseViewController<UIBaseViewControllerDelegate>
 
 @end

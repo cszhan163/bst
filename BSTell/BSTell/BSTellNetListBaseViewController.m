@@ -1,18 +1,18 @@
 //
-//  BSTellBaseViewController.m
+//  BSTellNetListBaseViewController.m
 //  BSTell
 //
-//  Created by cszhan on 14-1-31.
+//  Created by cszhan on 14-2-7.
 //  Copyright (c) 2014年 cszhan. All rights reserved.
 //
 
-#import "BSTellBaseViewController.h"
+#import "BSTellNetListBaseViewController.h"
 
-@interface BSTellBaseViewController ()
+@interface BSTellNetListBaseViewController ()
 
 @end
 
-@implementation BSTellBaseViewController
+@implementation BSTellNetListBaseViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,6 +22,16 @@
     }
     return self;
 }
+- (void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    if([self.dataArray count] == 0 &&!isFromViewUnload)
+    {
+        currentPageNum = 1;
+        [self shouldLoadOlderData:tweetieTableView];
+    }
+    
+}
 
 - (void)viewDidLoad
 {
@@ -30,22 +40,16 @@
     mainView.topBarView.backgroundColor = HexRGB(1, 159, 233);
     mainView.backgroundColor = HexRGB(239, 239, 241);
     self.delegate = self;
-    //[self performSelectorInBackground:@selector(shouldLoadData) withObject:nil];
-    [self shouldLoadData];
 }
-- (void)shouldLoadData{
 
-
-}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)viewWillAppear:(BOOL)animated{
-    
-    [super viewWillAppear:animated];
-    
+- (void) shouldLoadOlderData:(NTESMBTweetieTableView *) tweetieTableView
+{
+    [super shouldLoadOlderData:tweetieTableView];
+    //[self startShowLoadingView];
 }
-
 @end

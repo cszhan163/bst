@@ -177,8 +177,8 @@
 #pragma mark tableview
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return  5;
-    //return [self.dataArray count];
+	//return  5;
+    return [self.dataArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -205,77 +205,55 @@
         
     }
     /*
-     "driveflg": "1",
-     "starttime": "17:54",
-     "distance": "12",
-     "time": "43",
-     "oil": "25",
-     "startadr": "张江地铁",
-     "endadr": "人民广场",
-     "startadr2": "121.607931, 31.211412",
-     "endadr2": "121.48117, 31.236416",
-     "rotate": "86",
-     "speed": "34",
-     "water temp": "64",
-     "oiltest": "8",
-     "drivetest": "7"
+     返回JSON数据参数	参数名称	参数类型
+     wtid	场次Id
+     ggmc	公告title
+     ggid	公告id
+     joinStatus	参加状态	1 参加
+     0 未参加
+     hzjc	卖家简称
+     dfyj	买家保证金
+     kssj	竞价开始时间
+     jssj	竞价结束时间
+     isCanJoin	可参加状态	1 可参加
+     0 不可参加
+     ssdl	所属大类	
+
      */
-    UIImage *bgImage = nil;
+    NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
+    int index = 0;
+    NSString *value = @"";
+    //id
+    value = [item objectForKey:@"wtid"];
+    [cell setCellItemValue:value withIndex:index++];
+    //
+    value = [item objectForKey:@"ggmc"];
+    [cell setCellItemValue:value withIndex:index++];
     
+    //sell company
+    value = [item objectForKey:@"hzjc"];
     
-//    NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
-//    NSDictionary *data = item;//[item objectForKey:@"DayDetailInfo"];
-//    //cell = (PlantTableViewCell*)cell;
-//    NSString *flag = [data objectForKey:@"driveflg"];
-//    //flag = @"1";
-//    int time = [[data objectForKey:@"drivingLong"]intValue];
-//    //baoNormalFormat
-//    float distance = [[data objectForKey:@"distance"]floatValue];
-//    float oilvolume = [[data objectForKey:@"oil"]floatValue];
-//    
-//    
-//    NSString *timeStr = [data objectForKey:@"startTime"];
-//    
-//    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-//    //[dateFormat setDateStyle:NSDateFormatterMediumStyle];
-//    //[dateFormat setTimeStyle:NSDateFormatterFullStyle];
-//    [dateFormat setDateFormat:@"yyyyMMddHHmmss"];
-//    NSString *temp = [dateFormat stringFromDate:[NSDate date]];
-//    NSDate *startDate = [dateFormat dateFromString:timeStr];
-//    [dateFormat setDateFormat:@"HH:mm"];
-//    NSString *dateStr = [dateFormat stringFromDate:startDate];
-//    /*
-//     NSArray *timeArr  = [timeStr componentsSeparatedByString:@" "];
-//     timeArr[1];
-//     */
-//    SafeRelease(dateFormat);
+    [cell setCellItemValue:value withIndex:index++];
     
+    //起拍价
+    value = [item objectForKey:@"dfyj"];
+    
+    [cell setCellItemValue:value withIndex:index++];
+    
+    //是否参加
+    value = [item objectForKey:@"isCanJoin"];
+    if([value intValue]){
+        [cell setCellItemValue:@"已参加" withIndex:index++];
+    }
+    else{
+        [cell setCellItemValue:@"未参加" withIndex:index++];
+    }
+    //[cell setCellItemValue:value withIndex:index++];
     //time
-//    origin = cell.mTimeImageView.frame.origin;
-//    if([flag isEqualToString:@"0"]){
-//        UIImageWithFileName(bgImage, @"time.png");
-//        cell.mTimeImageView.image = bgImage;
-//        
-//    }
-//    else{
-//        UIImageWithFileName(bgImage, @"time-red.png");
-//        cell.mTimeImageView.image = bgImage;
-//        
-//    }
-//    cell.mTimeImageView.frame = CGRectMake(origin.x, origin.y,bgImage.size.width/kScale, bgImage.size.height/kScale);
-    
-//    NSString *latLogStr = [data objectForKey:@"startadr2"];
-//    NSArray *latLogArr  = [latLogStr componentsSeparatedByString:@","];
-    /*
-     mStartPoint.latitude =
-     mStartPoint.longitude = [latLogArr[0]floatValue]/kGPSMaxScale;
-     */
-    //NSString *startLocationKey = @"";
-    
-    //distance
-  
-    
-	//cell.textLabel.text = [NSString stringWithFormat:@"%d", indexPath.row];
+    NSString *startString = [item  objectForKey:@"kssj"];
+    NSString *endString = [item objectForKey:@"jssj"];
+    value  = [NSString  stringWithFormat:@"%@ %@",startString,endString];
+    [cell setCellItemValue:value withIndex:index++];
     
     return cell;
 }
@@ -316,5 +294,79 @@
         SafeRelease(bidMainVc);
     }
 }
+#pragma mark -
+#pragma mark -network
+- (void) shouldLoadOlderData:(NTESMBTweetieTableView *) tweetieTableView{
 
+    //NSString *catStr = [NSString stringWithFormat:@"%d",self.goodGroupNum];
+    NSString *pageNumStr = [NSString stringWithFormat:@"%d",currentPageNum];
+    /*
+     @"001",@"hydm",
+     @"10",@"limit",
+     @"1",@"offset",
+     zc	专场代码
+     wtzt
+     rqStart	竞价日期1
+     rqEnd	竞价日期2
+     */
+    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                           //catStr,@"cat",
+                           pageNumStr, @"offset",
+                           @"1",@"zc",
+                           @"",@"wtzt",
+                           @"001",@"hydm",
+                           @"10",@"limit",
+                           @"",@"rqStart",
+                           @"",@"rqEnd",
+                           nil];
+    CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
+    self.request = [carServiceNetDataMgr  queryAuctionWts4Move:param];
+}
+-(void)didNetDataOK:(NSNotification*)ntf
+{
+    
+    
+    
+    id obj = [ntf object];
+    id respRequest = [obj objectForKey:@"request"];
+    id data = [obj objectForKey:@"data"];
+    NSString *resKey = [obj objectForKey:@"key"];//[respRequest resourceKey];
+    //NSString *resKey = [respRequest resourceKey];
+    if([resKey isEqualToString:kResBidListData])
+    {
+        //        if ([self.externDelegate respondsToSelector:@selector(commentDidSendOK:)]) {
+        //            [self.externDelegate commentDidSendOK:self];
+        //        }
+        //        kNetEndSuccStr(@"评论成功",self.view);
+        //        [self dismissModalViewControllerAnimated:YES];
+        
+        self.dataArray = [data objectForKey:@"data"];
+        for(id item in self.dataArray){
+           
+        }
+        [tweetieTableView reloadData];
+        
+        [self performSelectorOnMainThread:@selector(updateUIData:) withObject:data waitUntilDone:NO];
+        
+    }
+    if(self.request ==respRequest && [resKey isEqualToString:@"addreply"])
+    {
+        //        if ([self.externDelegate respondsToSelector:@selector(commentDidSendOK:)]) {
+        //            [self.externDelegate commentDidSendOK:self];
+        //        }
+        //        kNetEndSuccStr(@"回复成功",self.view);
+        //        [self dismissModalViewControllerAnimated:YES];
+    }
+    
+    //self.view.userInteractionEnabled = YES;
+}
+- (void)updateUIData:(NSDictionary*)netData{
+    kNetEnd(self.view);
+    
+    
+}
+-(void)didNetDataFailed:(NSNotification*)ntf
+{
+    //kNetEndWithErrorAutoDismiss
+}
 @end

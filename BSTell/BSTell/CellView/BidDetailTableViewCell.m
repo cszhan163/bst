@@ -12,6 +12,7 @@
 
     CGFloat currCellHeight;
     CGFloat cellHeitht;
+    CGFloat valueHeight;
     UILabel *headerLabel;
 }
 @end
@@ -41,7 +42,7 @@
         
         currCellHeight = 40.f;
         
-        
+        valueHeight = 25.f;
         //NSArray *widthArray = ;
         /*
         for(int i = 0;i<colNum;i++){
@@ -85,7 +86,8 @@
         SafeRelease(itemLabel);
         //[rowArray addObject:itemLabel];
     }
-    currY = currY+cellHeitht*2;
+    currY = currY+cellHeitht;
+    currX = 0.f;
     for(int i = 0;i<columCount;i++)
     {
         UILabel *itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX,currY,[widthArray[i]floatValue],18)];
@@ -97,10 +99,10 @@
         currX = currX+[widthArray[i]floatValue]+1;
         [self addSubview:itemLabel];
         SafeRelease(itemLabel);
-        //[rowArray addObject:itemLabel];
+        [rowArray addObject:itemLabel];
     }
     [self.mCellItemArray addObject:rowArray];
-
+    currY = currY+valueHeight;
     currCellHeight = currY;
     
 }
@@ -112,5 +114,9 @@
     // Drawing code
 }
 */
-
+- (BOOL)setCellItemValue:(NSString*)value withRow:(NSInteger)row withCol:(NSInteger)col{
+    UILabel *textLabel =  self.mCellItemArray[row][col];
+    textLabel.text = value;
+    return YES;
+}
 @end

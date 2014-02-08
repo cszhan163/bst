@@ -12,6 +12,7 @@
 		042FE0C1189B465F004B26F3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FE0C0189B465F004B26F3 /* SystemConfiguration.framework */; };
 		042FE0C3189B46A4004B26F3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FE0C2189B46A4004B26F3 /* libz.dylib */; };
 		042FE0C5189B4742004B26F3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FE0C4189B4742004B26F3 /* MobileCoreServices.framework */; };
+		044EE26418A4C5E3007A3EDA /* BSTellNetListBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044EE26318A4C5E3007A3EDA /* BSTellNetListBaseViewController.m */; };
 		04DFD3FD189B5FB800A3BDDF /* tabbarbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DFD3FC189B5FB800A3BDDF /* tabbarbg.png */; };
 		04DFD400189B641B00A3BDDF /* tabitemtopsplit.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DFD3FF189B641B00A3BDDF /* tabitemtopsplit.png */; };
 		04DFD405189B6BC300A3BDDF /* UICarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD404189B6BC300A3BDDF /* UICarTableViewCell.m */; };
@@ -149,6 +150,8 @@
 		042FE0C0189B465F004B26F3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		042FE0C2189B46A4004B26F3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		042FE0C4189B4742004B26F3 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		044EE26218A4C5E3007A3EDA /* BSTellNetListBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSTellNetListBaseViewController.h; sourceTree = "<group>"; };
+		044EE26318A4C5E3007A3EDA /* BSTellNetListBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSTellNetListBaseViewController.m; sourceTree = "<group>"; };
 		04DFD3FC189B5FB800A3BDDF /* tabbarbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbarbg.png; path = ../tabbarbg.png; sourceTree = "<group>"; };
 		04DFD3FF189B641B00A3BDDF /* tabitemtopsplit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabitemtopsplit.png; path = ../tabitemtopsplit.png; sourceTree = "<group>"; };
 		04DFD403189B6BC300A3BDDF /* UICarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICarTableViewCell.h; sourceTree = "<group>"; };
@@ -677,6 +680,8 @@
 				04F6E5E9189A8FD50057BD72 /* SettingViewController.m */,
 				04DFD416189B94BF00A3BDDF /* BSTellBaseViewController.h */,
 				04DFD417189B94BF00A3BDDF /* BSTellBaseViewController.m */,
+				044EE26218A4C5E3007A3EDA /* BSTellNetListBaseViewController.h */,
+				044EE26318A4C5E3007A3EDA /* BSTellNetListBaseViewController.m */,
 			);
 			path = BSTell;
 			sourceTree = "<group>";
@@ -959,6 +964,7 @@
 				04E65D1A18A269B8008FA65A /* SBJsonStreamParserState.m in Sources */,
 				04F6E5DE189A8F020057BD72 /* MainPageViewController.m in Sources */,
 				04E65D1818A269B8008FA65A /* SBJsonStreamParserAccumulator.m in Sources */,
+				044EE26418A4C5E3007A3EDA /* BSTellNetListBaseViewController.m in Sources */,
 				04E65D0B18A269B8008FA65A /* jqEncode.mm in Sources */,
 				04E65D1418A269B8008FA65A /* UIBadgeView.m in Sources */,
 				04E65D1918A269B8008FA65A /* SBJsonStreamParserAdapter.m in Sources */,

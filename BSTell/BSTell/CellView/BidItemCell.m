@@ -20,7 +20,7 @@
 #define kCellItemPending  30.f
 
 
-static  NSString* kTitleTextArray[] = {@"场次编号",@"场次名称",@"买方单位",@"保证金",@"参加状态",@"",@"竞买时间",@""};
+static  NSString* kTitleTextArray[] = {@"场次编号",@"场次名称",@"卖方单位",@"保证金",@"参加状态",@"",@"竞买时间",@""};
 
 @implementation BidItemCell
 @synthesize userIconImageView;
@@ -62,18 +62,19 @@ static  NSString* kTitleTextArray[] = {@"场次编号",@"场次名称",@"买方�
                 [self addSubview:item];
                 SafeRelease(item);
                 startX = startX+kTitleLabelWidth+5.f;
-                
+                CGRect labelRect = item.frame;
                 if(i ==3||i== 2){
                     if(j==1){
                     
                     }
                     else{
-                        
+                        rect = CGRectMake(labelRect.origin.x+item.frame.size.width,startY ,kValueLabelWidth*2, kTitleLabelHeight);
                     }
                 }
-                CGRect labelRect = item.frame;
-                rect = CGRectMake(labelRect.origin.x+item.frame.size.width,startY ,kValueLabelWidth, kTitleLabelHeight);
-                item = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:12] withTextColor:[UIColor blackColor] withText:@"111" withFrame:rect];
+                else{
+                    rect = CGRectMake(labelRect.origin.x+item.frame.size.width,startY ,kValueLabelWidth, kTitleLabelHeight);
+                }
+                item = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:12] withTextColor:[UIColor blackColor] withText:@"" withFrame:rect];
                 item.textAlignment = NSTextAlignmentLeft;
                 [self addSubview:item];
                 SafeRelease(item);
@@ -87,7 +88,7 @@ static  NSString* kTitleTextArray[] = {@"场次编号",@"场次名称",@"买方�
     }
     return self;
 }
-- (BOOL)setCellItemValue:(NSString*)value WithIndex:(NSInteger)index{
+- (BOOL)setCellItemValue:(NSString*)value withIndex:(NSInteger)index{
     if(index>=[self.labelArray count])
         return NO;
     UILabel *item = [self.labelArray objectAtIndex:index];

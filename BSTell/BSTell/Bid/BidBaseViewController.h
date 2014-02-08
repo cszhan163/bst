@@ -9,9 +9,9 @@
 #import "UIBaseViewController.h"
 #import "NENavItemController.h"
 //#import "BaoCarNetBaseViewController.h"
-#import "BSTellBaseViewController.h"
+#import "BSTellNetListBaseViewController.h"
 @protocol BidBaseViewControllerDataSouceDelegate;
-@interface BidBaseViewController : BSTellBaseViewController{
+@interface BidBaseViewController : BSTellNetListBaseViewController{
     @public
     NENavItemController *navItemCtrl;
     //DateStruct   *mCurrDate;

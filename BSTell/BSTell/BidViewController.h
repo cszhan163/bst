@@ -8,9 +8,9 @@
 
 #import "UIBaseViewController.h"
 //#import "UIImageNetBaseViewController.h"
-#import "BSTellBaseViewController.h"
+#import "BSTellNetListBaseViewController.h"
 //@class UIImageNetBaseViewController;
 //@protocol UIBaseViewControllerDelegate;
-@interface BidViewController:BSTellBaseViewController
+@interface BidViewController:BSTellNetListBaseViewController
 
 @end

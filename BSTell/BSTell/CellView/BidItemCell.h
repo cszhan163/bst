@@ -20,5 +20,5 @@
 @property(nonatomic,retain)IBOutlet UINetActiveIndicatorButton *relationBtn;
 @property(nonatomic,retain)IBOutlet UIImageView *userIconImageView;
 +(id)getFromNibFile;
-- (BOOL)setCellItemValue:(NSString*)value WithIndex:(NSInteger)index;
+- (BOOL)setCellItemValue:(NSString*)value withIndex:(NSInteger)index;
 @end

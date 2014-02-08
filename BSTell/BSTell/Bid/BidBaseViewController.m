@@ -10,7 +10,7 @@
 
 
 
-#define kLeftPendingX  10
+#define kLeftPendingX  0
 #define kTopPendingY  8
 #define kHeaderItemPendingY 8
 

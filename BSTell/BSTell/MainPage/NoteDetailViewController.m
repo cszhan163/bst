@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    tweetieTableView.hidden = YES;
+    //tweetieTableView.hidden = YES;
     
     CGFloat currY = kMBAppTopToolBarHeight;
     UILabel *headerView = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:18.f] withTextColor:[UIColor blackColor] withText:@"1月21日15:30上海公司32交易保证金相关说明" withFrame:CGRectMake(0.f,currY,kDeviceScreenWidth,44.f)];

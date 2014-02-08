@@ -54,4 +54,7 @@ ZCSNetClientNetInterfaceMgrDelegate>
 - (id)getCarBand;
 - (id)getCarSeries:(NSString*)brand;
 - (id)getCarModel:(NSString*)seriesSeq;
+
+
+- (void)getAccountInfo:(NSDictionary*)param;
 @end

@@ -20,7 +20,7 @@
     AppMainUIViewManage *appMg = [AppMainUIViewManage getSingleTone];
     appMg.window = self.window;
     [appMg addMainViewUI];
-    //[self startLoginRequest];
+    [self startLoginRequest];
     
     return YES;
 }
@@ -46,9 +46,13 @@
 {
     CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
     
-    [carServiceNetDataMgr  queryBidPubmsg4Move:nil];
-    [carServiceNetDataMgr  querySitePubmsg4Move:nil];
-    [carServiceNetDataMgr queryAuctionPps4Move:nil];
+    //[carServiceNetDataMgr  queryBidPubmsg4Move:nil];
+    //[carServiceNetDataMgr  querySitePubmsg4Move:nil];
+    //[carServiceNetDataMgr queryAuctionPps4Move:nil];
+    //[carServiceNetDataMgr queryAuctionPpInfo4Move:nil];
+    //[carServiceNetDataMgr getAccountInfo:nil];
+    [carServiceNetDataMgr getOrderList:nil];
+    [carServiceNetDataMgr getOrderDetail:nil];
     
 //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"结果"
 //                                                    message:responseData

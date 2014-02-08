@@ -105,6 +105,22 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
     }
     [connect sendRequest];
 }
+
+- (void)sendFinalOkData:(id)data withKey:(NSString*)key{
+    NSDictionary *item = [NSDictionary dictionaryWithObjectsAndKeys:
+                          data,@"data",
+                          key,@"key",
+                          nil];
+    [ZCSNotficationMgr postMSG:kZCSNetWorkOK obj:item];
+}
+- (void)sendFinalFailedData:(id)data withKey:(NSString*)key{
+    NSDictionary *item = [NSDictionary dictionaryWithObjectsAndKeys:
+                          data,@"data",
+                          key,@"key",
+                          nil];
+    [ZCSNotficationMgr postMSG:kZCSNetWorkRequestFailed obj:item];
+}
+
 #pragma mark -
 #pragma mark -public New
 - (void)querySitePubmsg4Move:(NSDictionary*)param{
@@ -127,7 +143,18 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
 - (void)querySitePubmsg4MoveFailed:(NSString*)error{
     
 }
+- (void)getBidPubmsgById4Move:(NSDictionary*)param{
 
+    /*
+     公告ID	ggid
+     会员代码	hydm
+     */
+    param = [NSDictionary dictionaryWithObjectsAndKeys:
+             @"0",@"ggid",
+             @"0",@"hydm",
+             nil];
+    [self sendRequest:@"getBidPubmsgById4Move" withVersion:@"v10" withParam:param withOkBack:@selector(queryBidPubmsg4MoveOk:) withFailedBack:@selector(queryBidPubmsg4MoveFailed:)];
+}
 #pragma mark -
 #pragma mark -bid
 - (void)queryBidPubmsg4Move:(NSDictionary*)param{
@@ -144,6 +171,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
      */
     param = [NSDictionary dictionaryWithObjectsAndKeys:
              @"0",@"gglx",
+             @"0",@"zc",
              @"10",@"limit",
              @"1",@"offset",
              nil];
@@ -160,6 +188,105 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
 
 - (void)queryAuctionPps4Move:(NSDictionary*)param{
     /*
+    
+     hydm	会员代码
+     zc	专场代码
+     wtzt	场次状态
+     limit	数据条数默认10条
+     offset	第几页
+     rqStart	竞价日期1
+     rqEnd	竞价日期2
+     */
+    if(param == nil){
+        param = [NSDictionary dictionaryWithObjectsAndKeys:
+             @"001",@"hydm",
+             @"10",@"limit",
+             @"1",@"offset",
+             nil];
+    }
+    [self sendRequest:@"queryAuctionPps4Move" withVersion:@"v10" withParam:param withOkBack:@selector(queryAuctionPps4MoveOk:) withFailedBack:@selector(queryAuctionPps4MoveFailed:)];
+
+
+}
+- (void)queryAuctionPps4MoveOk:(NSString*)result{
+    
+#if 0
+    [NSJSONSerialization )JSONObjectWithData:(NSData *)data options:(NSJSONReadingOptions)opt error:(NSError **)error;];
+#else
+    id data = [result JSONValue];
+
+    NSDictionary  *finalData = nil;
+#if 0
+    NSMutableArray *key_value_array = [NSMutableArray array];
+    for(id key in data){
+        
+        id value = [data  objectForKey:key];
+        /*
+        if([value  isKindOfClass:[NSArray Class]]){
+            
+        }
+        */
+        [key_value_array addObject:key];
+        [key_value_array addObject:value];
+    }
+    NSMutableArray *finalDataArray = [NSMutableArray array];
+    int itemNumber = [key_value_array count]/2;
+    for(int i = 0;i< itemNumber;i++){
+        NSMutableDictionary *item =[NSMutableDictionary dictionary];
+        [finalDataArray addObject:item];
+    }
+    for(int i = 0;i< itemNumber;i=i+2){
+        NSString *key = key_value_array[i];
+        int itemCount  = [key_value_array[i+1] count];
+        id value  = nil;
+        for(int j = 0;j<itemCount;j++){
+           value  = [key_value_array[i+1] objectAtIndex:j];
+            [finalDataArray[j] setValue:value forKey:key];
+        }
+    }
+    data = finalDataArray;
+    finalData = [NSDictionary dictionaryWithObject:data forKey:@"data"];
+#else
+    finalData = data;
+#endif
+    
+#endif
+    
+    [self sendFinalOkData:finalData withKey:kResBidListData];
+}
+- (void)queryAuctionPps4MoveFailed:(NSString*)error{
+    [self sendFinalFailedData:error withKey:kResBidListData];
+}
+- (void)queryAuctionWts4Move:(NSDictionary*)param{
+    /*
+     
+     hydm	会员代码
+     zc	专场代码
+     wtzt	场次状态
+     limit	数据条数默认10条
+     offset	第几页
+     rqStart	竞价日期1
+     rqEnd	竞价日期2
+     */
+    if(param == nil){
+        param = [NSDictionary dictionaryWithObjectsAndKeys:
+                 @"001",@"hydm",
+                 @"1",@"zc",
+                 @"001",@"wtzt",
+                 @"10",@"limit",
+                 @"1",@"offset",
+                 @"",@"rqStart",
+                 @"",@"rqEnd",
+                 
+                 nil];
+    }
+    [self sendRequest:@"queryAuctionWts4Move" withVersion:@"v10" withParam:param withOkBack:@selector(queryAuctionPps4MoveOk:) withFailedBack:@selector(queryAuctionPps4MoveFailed:)];
+    
+    
+}
+- (void)queryAuctionPpInfo4Move:(NSDictionary*)param{
+
+    /*
      hydm	会员代码
      limit	数据条数默认10条
      offset	第几页
@@ -167,18 +294,151 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
      */
     param = [NSDictionary dictionaryWithObjectsAndKeys:
              @"001",@"hydm",
-             @"10",@"limit",
-             @"1",@"offset",
+             @"10",@"id",
+             //@"1",@"offset",
              nil];
-    [self sendRequest:@"queryBidPubmsg4Move" withVersion:@"v10" withParam:param withOkBack:@selector(queryBidPubmsg4MoveOk:) withFailedBack:@selector(queryBidPubmsg4MoveFailed:)];
-
-
+    [self sendRequest:@"queryAuctionPpInfo4Move" withVersion:@"v10" withParam:param withOkBack:@selector(queryBidDetailOk:) withFailedBack:@selector(queryBidDetailFailed:)];
 }
-- (void)getAccountInfo:(NSDictionary*)param{
+- (void)queryBidDetailOk:(NSString*)result{
 
+    id data = [result JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kResBidItemData];
+}
+- (void)queryBidDetailFailed:(NSString*)error{
 
+    [self sendFinalFailedData:error withKey:kResBidItemData];
+}
+
+- (void)getAuctionWtInfo:(NSDictionary*)param{
+
+    /*
+     hydm	会员代码
+     limit	数据条数默认10条
+     offset	第几页
+     
+     */
+    if(param == nil){
+    param = [NSDictionary dictionaryWithObjectsAndKeys:
+             @"001",@"wtid",
+             //@"10",@"id",
+             //@"1",@"offset",
+             nil];
+    }
+    [self sendRequest:@"getAuctionWtInfo" withVersion:@"v10" withParam:param withOkBack:@selector(getAuctionWtInfoOk:) withFailedBack:@selector(getAuctionWtInfoFailed:)];
+}
+- (void)getAuctionWtInfoOk:(NSString*)result{
+    
+    id data = [result JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kResBidItemData];
+}
+- (void)getAuctionWtInfoFailed:(NSString*)error{
+    
+    [self sendFinalFailedData:error withKey:kResBidItemData];
+}
+#pragma mark -
+#pragma mark agreement 
+
+- (void)showAgreement4Move:(NSDictionary*)param{
+    
+    /*
+     接口参数	参数名称
+     wtid	场次号
+     hydm	会员代码
+     *
+     */
+    if(param == nil){
+        param = [NSDictionary dictionaryWithObjectsAndKeys:
+                 @"001",@"hydm",
+                 @"",@"wtid",
+                 nil];
+    }
+    [self sendRequest:@"showAgreement4Move" withVersion:@"v10" withParam:param withOkBack:@selector(showAgreement4MoveOk:) withFailedBack:@selector(showAgreement4MoveFailed:)];
+}
+- (void)showAgreement4MoveOk:(NSString*)result{
+    
+    id data = [result JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kResBidAgreementData];
+}
+- (void)showAgreement4MoveFailed:(NSString*)error{
+    
+    [self sendFinalFailedData:error withKey:kResBidAgreementData];
+}
+- (void)joinBuy4Move:(NSDictionary*)param{
+    
+    /*
+     wtid	场次号
+     hydm	会员代码
+     czy	操作员代码
+     *
+     */
+    if(param == nil){
+        param = [NSDictionary dictionaryWithObjectsAndKeys:
+                 @"001",@"hydm",
+                 @"",@"wtid",
+                 @"",@"czy",
+                 nil];
+    }
+    [self sendRequest:@"joinBuy4Move" withVersion:@"v10" withParam:param withOkBack:@selector(queryBidPubmsg4MoveOk:) withFailedBack:@selector(queryBidPubmsg4MoveFailed:)];
 }
 #pragma mark -
 #pragma mark user
 
+- (void)getAccountInfo:(NSDictionary*)param{
+    
+    /*
+     *
+     */
+    if(param == nil){
+    param = [NSDictionary dictionaryWithObjectsAndKeys:
+             @"001",@"hydm",
+             nil];
+    }
+    [self sendRequest:@"getAccountInfo" withVersion:@"v10" withParam:param withOkBack:@selector(queryBidPubmsg4MoveOk:) withFailedBack:@selector(queryBidPubmsg4MoveFailed:)];
+}
+
+- (void)getOrderList:(NSDictionary*)param{
+
+    /*
+     *
+     */
+    if(param == nil){
+    param = [NSDictionary dictionaryWithObjectsAndKeys:
+             @"001",@"hydm",
+             @"10",@"limit",
+             @"1",@"offset",
+             nil];
+    }
+    [self sendRequest:@"getOrderList" withVersion:@"v10" withParam:param withOkBack:@selector(getOrderListOk:) withFailedBack:@selector(getOrderListFailed:)];
+
+}
+- (void)getOrderListOk:(NSString*)result{
+    
+}
+- (void)getOrderListFailed:(NSString*)error{
+    
+}
+- (void)getOrderDetail:(NSDictionary*)param{
+    if(param == nil){
+        param = [NSDictionary dictionaryWithObjectsAndKeys:
+                 @"001",@"orderId",
+                 nil];
+    }
+    [self sendRequest:@"getOrderDetail" withVersion:@"v10" withParam:param withOkBack:@selector(getOrderDetailOk:) withFailedBack:@selector(getOrderDetailFailed:)];
+    
+}
+- (void)getOrderDetailOk:(NSString*)result{
+
+}
+- (void)getOrderDetailFailed:(NSString*)error{
+    
+}
 @end

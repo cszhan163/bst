@@ -11,7 +11,7 @@
 #import "BidStartViewController.h"
 #import "BidEndViewController.h"
 
-#define  kOilNavControllerItemWidth   200
+#define  kOilNavControllerItemWidth   160
 
 @interface BidMainViewController ()
 
@@ -32,6 +32,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self setNavgationBarTitle:@"竞买出价"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,9 +65,9 @@
 -(NETopNavBar*)topNavBarForNavItemController:(BidBaseViewController*)controller{
     
     NSMutableArray *btnArray = [NSMutableArray array];
-    CGFloat currX = 0.f;
+    CGFloat currX = 40.f;
     UIButton *btn = [UIComUtil createButtonWithNormalBGImageName:nil withSelectedBGImageName:@"bid_caterlog_mask.png"  withTitle:@"已开始竞价" withTag:0];
-    btn.titleLabel.font = [UIFont systemFontOfSize:18];
+    btn.titleLabel.font = [UIFont systemFontOfSize:14];
     [btn setTitleColor:HexRGB(153, 153, 153) forState:UIControlStateNormal];
     [btn setTitleColor:HexRGB(231, 234, 236) forState:UIControlStateSelected];
 
@@ -77,7 +78,7 @@
     btn = [UIComUtil createButtonWithNormalBGImageName:nil  withSelectedBGImageName:@"bid_caterlog_mask.png" withTitle:@"未开始竞价" withTag:1];
     
     btn.frame = CGRectMake(currX, 10.f,btn.frame.size.width, btn.frame.size.height);
-    btn.titleLabel.font = [UIFont systemFontOfSize:18];
+    btn.titleLabel.font = [UIFont systemFontOfSize:14];
     [btn setTitleColor:HexRGB(153, 153, 153) forState:UIControlStateNormal];
     [btn setTitleColor:HexRGB(231, 234, 236) forState:UIControlStateSelected];
     
@@ -95,7 +96,7 @@
      btn.frame = CGRectMake(160.f, 10.f,150, 30.f);
      [btnArray addObject:btn];
      */
-    NETopNavBar *topNavBar = [[NETopNavBar alloc]initWithFrame:CGRectMake(0.f, 0.f, 300,40)withBgImage:nil withBtnArray:btnArray selIndex:0];
+    NETopNavBar *topNavBar = [[NETopNavBar alloc]initWithFrame:CGRectMake(0.f, 0.f,320.f,40)withBgImage:nil withBtnArray:btnArray selIndex:0];
     topNavBar.backgroundColor = [UIColor blueColor];
     //topNavBar.delegate = self;
     return topNavBar;
@@ -138,6 +139,9 @@
 }
 - (void)updateUIData:(NSDictionary*)data{
     
+    [tweetieTableView reloadData];
+    return;
+    
     NSArray *economicData = [data objectForKey:@"safeData"];
     economicData = [economicData sortedArrayUsingComparator:^(id param1,id param2){
         
@@ -163,6 +167,7 @@
     CarDriveMannerDataGraphViewController *analysisVc = [navItemCtrl.navControllersArr objectAtIndex:1];
     [analysisVc updateUIData:newData];
      */
+    
 }
 
 

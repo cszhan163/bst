@@ -126,10 +126,12 @@
 #define kCarInfoQuery                   @"queryVehInfo"
 #define kCarInfoUpdate                  @"updateVehicleInfo"
 
-//router
-#define kResRouterDataMoth              @"queryTripCalanderMonth"
-#define kResRouterDataDay               @"queryTripDay"
-#define kResRouterNow                   @"queryTripNow"
+//bid
+#define kResBidListData              @"queryAuctionWts4Move"
+#define kResBidItemData               @"queryAuctionPpInfo4Move"
+
+#define kResBidAgreementData                   @"showAgreement4Move"
+
 #define kResRouterLatest                @"queryLastTripID"
 #define kResRouterHistory               @"queryTripHistory"
 
