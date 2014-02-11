@@ -129,8 +129,17 @@
         [self performSelectorOnMainThread:@selector(updateUIData:) withObject:data waitUntilDone:NO];
         
     }
+    if([resKey isEqualToString:kResBidAgreeAction]){
+        [self performSelectorOnMainThread:@selector(bidAgreeAction:) withObject:nil  waitUntilDone:NO];
+    }
     
     //self.view.userInteractionEnabled = YES;
+}
+- (void)bidAgreeAction:(id)data{
+
+    BidMainViewController *bidMainVc = [[BidMainViewController alloc]init];
+    [self.navigationController pushViewController:bidMainVc animated:YES];
+    SafeRelease(bidMainVc);
 }
 - (void)updateUIData:(NSDictionary*)netData{
     kNetEnd(self.view);
@@ -145,10 +154,18 @@
 - (void)pressConfirmButton:(id)sender{
 
     if([sender tag] == 0){
-        BidMainViewController *bidMainVc = [[BidMainViewController alloc]init];
-        [self.navigationController pushViewController:bidMainVc animated:YES];
-        SafeRelease(bidMainVc);
-    
+        
+        /*
+         
+         */
+        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                               @"001",@"hydm",
+                               @"",@"wtid",
+                               @"",@"czy",
+                               nil];
+        CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
+        self.request = [carServiceNetDataMgr  joinBuy4Move:param];
+       
     }
     else{
     

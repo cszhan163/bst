@@ -8,7 +8,13 @@
 
 #import "BidDetailTableViewCell.h"
 #import "ExcellLikeCellBase.h"
-@interface BidDetailTableViewCell : ExcellLikeCellBase
+@interface BidDetailTableViewCell : ExcellLikeCellBase{
+
+    CGFloat currCellHeight;
+    CGFloat cellHeitht;
+    CGFloat valueHeight;
+    UILabel *headerLabel;
+}
 - (void)setHeaderLabelText:(NSString*)text;
 - (id)initWithFrame:(CGRect)frame withRowCount:(NSInteger) rowNum withColumCount:(NSInteger)colNum withColumWidthArray:(NSArray*)widthArray;
 - (id)initWithFrame:(CGRect)frame withRowCount:(NSInteger) rowNum withColumCount:(NSInteger)colNum withCellHeight:(CGFloat)height withHeaderTitle:(NSString*)title;

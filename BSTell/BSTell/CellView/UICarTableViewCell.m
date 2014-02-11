@@ -27,11 +27,18 @@
     // Configure the view for the selected state
 }
 - (void)setFrame:(CGRect)frame {
-    inset = 9.f;
-    if(kIsIOS7Check){
-        frame.origin.x += inset;
-        frame.size.width -= 2 * inset;
+    //inset = 9.f;
+    if(self.isPendingX){
+        if(kIsIOS7Check){
+            frame.origin.x += inset;
+            frame.size.width -= 2 * inset;
+        }
     }
     [super setFrame:frame];
+}
+- (void)setPendingX:(CGFloat)pendingx{
+    self.isPendingX = YES;
+    inset = pendingx;
+    
 }
 @end

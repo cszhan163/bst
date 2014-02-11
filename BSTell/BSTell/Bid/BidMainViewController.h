@@ -10,6 +10,6 @@
 
 #import "BidBaseViewController.h"
 
-@interface BidMainViewController : BidBaseViewController
+@interface BidMainViewController :BidBaseViewController
 
 @end

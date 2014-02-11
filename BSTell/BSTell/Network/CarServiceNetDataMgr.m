@@ -252,10 +252,10 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
     
 #endif
     
-    [self sendFinalOkData:finalData withKey:kResBidListData];
+    [self sendFinalOkData:finalData withKey:kResBidAllListData];
 }
 - (void)queryAuctionPps4MoveFailed:(NSString*)error{
-    [self sendFinalFailedData:error withKey:kResBidListData];
+    [self sendFinalFailedData:error withKey:kResBidAllListData];
 }
 - (void)queryAuctionWts4Move:(NSDictionary*)param{
     /*
@@ -280,10 +280,23 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
                  
                  nil];
     }
-    [self sendRequest:@"queryAuctionWts4Move" withVersion:@"v10" withParam:param withOkBack:@selector(queryAuctionPps4MoveOk:) withFailedBack:@selector(queryAuctionPps4MoveFailed:)];
+    [self sendRequest:@"queryAuctionWts4Move" withVersion:@"v10" withParam:param withOkBack:@selector(queryAuctionWts4MoveOk:) withFailedBack:@selector(queryAuctionWts4MoveFailed:)];
     
     
 }
+- (void)queryAuctionWts4MoveOk:(NSString*)result{
+    
+    id data = [result JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kResBidListData];
+}
+- (void)queryAuctionWts4MoveFailed:(NSString*)error{
+    
+    [self sendFinalFailedData:error withKey:kResBidListData];
+}
+
 - (void)queryAuctionPpInfo4Move:(NSDictionary*)param{
 
     /*
@@ -356,6 +369,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
         param = [NSDictionary dictionaryWithObjectsAndKeys:
                  @"001",@"hydm",
                  @"",@"wtid",
+                 
                  nil];
     }
     [self sendRequest:@"showAgreement4Move" withVersion:@"v10" withParam:param withOkBack:@selector(showAgreement4MoveOk:) withFailedBack:@selector(showAgreement4MoveFailed:)];
@@ -387,7 +401,19 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
                  @"",@"czy",
                  nil];
     }
-    [self sendRequest:@"joinBuy4Move" withVersion:@"v10" withParam:param withOkBack:@selector(queryBidPubmsg4MoveOk:) withFailedBack:@selector(queryBidPubmsg4MoveFailed:)];
+    [self sendRequest:@"joinBuy4Move" withVersion:@"v10" withParam:param withOkBack:@selector(joinBuy4MoveOk:) withFailedBack:@selector(joinBuy4MoveFailed:)];
+}
+- (void)joinBuy4MoveOk:(NSString*)result{
+    
+    id data = [result JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kResBidAgreeAction];
+}
+- (void)joinBuy4MoveFailed:(NSString*)error{
+    
+    [self sendFinalFailedData:error withKey:kResBidAgreeAction];
 }
 #pragma mark -
 #pragma mark user

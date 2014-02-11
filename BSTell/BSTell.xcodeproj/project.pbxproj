@@ -12,6 +12,11 @@
 		042FE0C1189B465F004B26F3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FE0C0189B465F004B26F3 /* SystemConfiguration.framework */; };
 		042FE0C3189B46A4004B26F3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FE0C2189B46A4004B26F3 /* libz.dylib */; };
 		042FE0C5189B4742004B26F3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FE0C4189B4742004B26F3 /* MobileCoreServices.framework */; };
+		0431106C18A6941A008109F7 /* bid_started_cell_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0431106B18A6941A008109F7 /* bid_started_cell_bg.png */; };
+		0431107018A6944A008109F7 /* BidStartedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431106F18A6944A008109F7 /* BidStartedTableViewCell.m */; };
+		0431107318A698A7008109F7 /* BidItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431107218A698A7008109F7 /* BidItemDetailViewController.m */; };
+		0431107618A69A1C008109F7 /* LeftTitleListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431107518A69A1C008109F7 /* LeftTitleListCell.m */; };
+		0431107818A7E4B6008109F7 /* arrow_detail.png in Resources */ = {isa = PBXBuildFile; fileRef = 0431107718A7E4B6008109F7 /* arrow_detail.png */; };
 		044EE26418A4C5E3007A3EDA /* BSTellNetListBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044EE26318A4C5E3007A3EDA /* BSTellNetListBaseViewController.m */; };
 		04DFD3FD189B5FB800A3BDDF /* tabbarbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DFD3FC189B5FB800A3BDDF /* tabbarbg.png */; };
 		04DFD400189B641B00A3BDDF /* tabitemtopsplit.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DFD3FF189B641B00A3BDDF /* tabitemtopsplit.png */; };
@@ -49,17 +54,10 @@
 		04E65C8B18A257C0008FA65A /* bid_caterlog_mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E65C8918A257C0008FA65A /* bid_caterlog_mask.png */; };
 		04E65C8C18A257C0008FA65A /* bid_price_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E65C8A18A257C0008FA65A /* bid_price_btn.png */; };
 		04E65C9118A2594F008FA65A /* BidBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C9018A2594F008FA65A /* BidBaseViewController.m */; };
-		04E65C9718A25C09008FA65A /* BidStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C9618A25C09008FA65A /* BidStartViewController.m */; };
-		04E65C9A18A25C21008FA65A /* BidEndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C9918A25C21008FA65A /* BidEndViewController.m */; };
+		04E65C9718A25C09008FA65A /* BidStartedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C9618A25C09008FA65A /* BidStartedViewController.m */; };
+		04E65C9A18A25C21008FA65A /* BidPrepareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C9918A25C21008FA65A /* BidPrepareViewController.m */; };
 		04E65CFB18A269B8008FA65A /* arrivalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C9E18A269B8008FA65A /* arrivalData.m */; };
 		04E65CFC18A269B8008FA65A /* arrivalDetailData.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CA018A269B8008FA65A /* arrivalDetailData.m */; };
-		04E65CFD18A269B8008FA65A /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CA318A269B8008FA65A /* ASIAuthenticationDialog.m */; };
-		04E65CFE18A269B8008FA65A /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CA618A269B8008FA65A /* ASIDownloadCache.m */; };
-		04E65CFF18A269B8008FA65A /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CA818A269B8008FA65A /* ASIFormDataRequest.m */; };
-		04E65D0018A269B8008FA65A /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CAA18A269B8008FA65A /* ASIHTTPRequest.m */; };
-		04E65D0118A269B8008FA65A /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CAE18A269B8008FA65A /* ASIInputStream.m */; };
-		04E65D0218A269B8008FA65A /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CB018A269B8008FA65A /* ASINetworkQueue.m */; };
-		04E65D0318A269B8008FA65A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CB318A269B8008FA65A /* Reachability.m */; };
 		04E65D0418A269B8008FA65A /* global.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CB618A269B8008FA65A /* global.m */; };
 		04E65D0518A269B8008FA65A /* AES128.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CB918A269B8008FA65A /* AES128.m */; };
 		04E65D0618A269B8008FA65A /* bchemMW.cer in Resources */ = {isa = PBXBuildFile; fileRef = 04E65CBA18A269B8008FA65A /* bchemMW.cer */; };
@@ -150,6 +148,14 @@
 		042FE0C0189B465F004B26F3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		042FE0C2189B46A4004B26F3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		042FE0C4189B4742004B26F3 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		0431106B18A6941A008109F7 /* bid_started_cell_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bid_started_cell_bg.png; sourceTree = "<group>"; };
+		0431106E18A6944A008109F7 /* BidStartedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidStartedTableViewCell.h; sourceTree = "<group>"; };
+		0431106F18A6944A008109F7 /* BidStartedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidStartedTableViewCell.m; sourceTree = "<group>"; };
+		0431107118A698A7008109F7 /* BidItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidItemDetailViewController.h; sourceTree = "<group>"; };
+		0431107218A698A7008109F7 /* BidItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidItemDetailViewController.m; sourceTree = "<group>"; };
+		0431107418A69A1C008109F7 /* LeftTitleListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftTitleListCell.h; sourceTree = "<group>"; };
+		0431107518A69A1C008109F7 /* LeftTitleListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftTitleListCell.m; sourceTree = "<group>"; };
+		0431107718A7E4B6008109F7 /* arrow_detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_detail.png; sourceTree = "<group>"; };
 		044EE26218A4C5E3007A3EDA /* BSTellNetListBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSTellNetListBaseViewController.h; sourceTree = "<group>"; };
 		044EE26318A4C5E3007A3EDA /* BSTellNetListBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSTellNetListBaseViewController.m; sourceTree = "<group>"; };
 		04DFD3FC189B5FB800A3BDDF /* tabbarbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbarbg.png; path = ../tabbarbg.png; sourceTree = "<group>"; };
@@ -200,32 +206,14 @@
 		04E65C8A18A257C0008FA65A /* bid_price_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bid_price_btn.png; sourceTree = "<group>"; };
 		04E65C8F18A2594F008FA65A /* BidBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidBaseViewController.h; sourceTree = "<group>"; };
 		04E65C9018A2594F008FA65A /* BidBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidBaseViewController.m; sourceTree = "<group>"; };
-		04E65C9518A25C09008FA65A /* BidStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidStartViewController.h; sourceTree = "<group>"; };
-		04E65C9618A25C09008FA65A /* BidStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidStartViewController.m; sourceTree = "<group>"; };
-		04E65C9818A25C21008FA65A /* BidEndViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidEndViewController.h; sourceTree = "<group>"; };
-		04E65C9918A25C21008FA65A /* BidEndViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidEndViewController.m; sourceTree = "<group>"; };
+		04E65C9518A25C09008FA65A /* BidStartedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidStartedViewController.h; sourceTree = "<group>"; };
+		04E65C9618A25C09008FA65A /* BidStartedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidStartedViewController.m; sourceTree = "<group>"; };
+		04E65C9818A25C21008FA65A /* BidPrepareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidPrepareViewController.h; sourceTree = "<group>"; };
+		04E65C9918A25C21008FA65A /* BidPrepareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidPrepareViewController.m; sourceTree = "<group>"; };
 		04E65C9D18A269B8008FA65A /* arrivalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = arrivalData.h; sourceTree = "<group>"; };
 		04E65C9E18A269B8008FA65A /* arrivalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = arrivalData.m; sourceTree = "<group>"; };
 		04E65C9F18A269B8008FA65A /* arrivalDetailData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = arrivalDetailData.h; sourceTree = "<group>"; };
 		04E65CA018A269B8008FA65A /* arrivalDetailData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = arrivalDetailData.m; sourceTree = "<group>"; };
-		04E65CA218A269B8008FA65A /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
-		04E65CA318A269B8008FA65A /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
-		04E65CA418A269B8008FA65A /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
-		04E65CA518A269B8008FA65A /* ASIDownloadCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDownloadCache.h; sourceTree = "<group>"; };
-		04E65CA618A269B8008FA65A /* ASIDownloadCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDownloadCache.m; sourceTree = "<group>"; };
-		04E65CA718A269B8008FA65A /* ASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIFormDataRequest.h; sourceTree = "<group>"; };
-		04E65CA818A269B8008FA65A /* ASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIFormDataRequest.m; sourceTree = "<group>"; };
-		04E65CA918A269B8008FA65A /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequest.h; sourceTree = "<group>"; };
-		04E65CAA18A269B8008FA65A /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequest.m; sourceTree = "<group>"; };
-		04E65CAB18A269B8008FA65A /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestConfig.h; sourceTree = "<group>"; };
-		04E65CAC18A269B8008FA65A /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestDelegate.h; sourceTree = "<group>"; };
-		04E65CAD18A269B8008FA65A /* ASIInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIInputStream.h; sourceTree = "<group>"; };
-		04E65CAE18A269B8008FA65A /* ASIInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIInputStream.m; sourceTree = "<group>"; };
-		04E65CAF18A269B8008FA65A /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
-		04E65CB018A269B8008FA65A /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
-		04E65CB118A269B8008FA65A /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
-		04E65CB218A269B8008FA65A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		04E65CB318A269B8008FA65A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		04E65CB418A269B8008FA65A /* Commondefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Commondefines.h; sourceTree = "<group>"; };
 		04E65CB518A269B8008FA65A /* global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = global.h; sourceTree = "<group>"; };
 		04E65CB618A269B8008FA65A /* global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = global.m; sourceTree = "<group>"; };
@@ -377,6 +365,8 @@
 		04DFD402189B6BC300A3BDDF /* CellView */ = {
 			isa = PBXGroup;
 			children = (
+				0431106E18A6944A008109F7 /* BidStartedTableViewCell.h */,
+				0431106F18A6944A008109F7 /* BidStartedTableViewCell.m */,
 				04DFD45F189D8D1700A3BDDF /* BidDetailTableViewCell.h */,
 				04DFD460189D8D1700A3BDDF /* BidDetailTableViewCell.m */,
 				04DFD45C189D8CE600A3BDDF /* ExcellLikeCellBase.h */,
@@ -388,6 +378,8 @@
 				04DFD404189B6BC300A3BDDF /* UICarTableViewCell.m */,
 				04DFD433189CEF0400A3BDDF /* NoteItemCell.h */,
 				04DFD434189CEF0400A3BDDF /* NoteItemCell.m */,
+				0431107418A69A1C008109F7 /* LeftTitleListCell.h */,
+				0431107518A69A1C008109F7 /* LeftTitleListCell.m */,
 			);
 			path = CellView;
 			sourceTree = "<group>";
@@ -395,6 +387,7 @@
 		04DFD40F189B833D00A3BDDF /* bid */ = {
 			isa = PBXGroup;
 			children = (
+				0431106B18A6941A008109F7 /* bid_started_cell_bg.png */,
 				04E65C8918A257C0008FA65A /* bid_caterlog_mask.png */,
 				04E65C8A18A257C0008FA65A /* bid_price_btn.png */,
 				04E65C83189FF31B008FA65A /* bid_confirm_bg.png */,
@@ -446,10 +439,12 @@
 				04DFD44E189D7C9000A3BDDF /* BidDetailViewController.m */,
 				04DFD44F189D7C9000A3BDDF /* BidMainViewController.h */,
 				04DFD450189D7C9000A3BDDF /* BidMainViewController.m */,
-				04E65C9518A25C09008FA65A /* BidStartViewController.h */,
-				04E65C9618A25C09008FA65A /* BidStartViewController.m */,
-				04E65C9818A25C21008FA65A /* BidEndViewController.h */,
-				04E65C9918A25C21008FA65A /* BidEndViewController.m */,
+				04E65C9518A25C09008FA65A /* BidStartedViewController.h */,
+				04E65C9618A25C09008FA65A /* BidStartedViewController.m */,
+				04E65C9818A25C21008FA65A /* BidPrepareViewController.h */,
+				04E65C9918A25C21008FA65A /* BidPrepareViewController.m */,
+				0431107118A698A7008109F7 /* BidItemDetailViewController.h */,
+				0431107218A698A7008109F7 /* BidItemDetailViewController.m */,
 			);
 			path = Bid;
 			sourceTree = "<group>";
@@ -458,7 +453,6 @@
 			isa = PBXGroup;
 			children = (
 				04E65C9C18A269B8008FA65A /* arrivalData */,
-				04E65CA118A269B8008FA65A /* ASI */,
 				04E65CB418A269B8008FA65A /* Commondefines.h */,
 				04E65CB518A269B8008FA65A /* global.h */,
 				04E65CB618A269B8008FA65A /* global.m */,
@@ -480,31 +474,6 @@
 				04E65CA018A269B8008FA65A /* arrivalDetailData.m */,
 			);
 			path = arrivalData;
-			sourceTree = "<group>";
-		};
-		04E65CA118A269B8008FA65A /* ASI */ = {
-			isa = PBXGroup;
-			children = (
-				04E65CA218A269B8008FA65A /* ASIAuthenticationDialog.h */,
-				04E65CA318A269B8008FA65A /* ASIAuthenticationDialog.m */,
-				04E65CA418A269B8008FA65A /* ASICacheDelegate.h */,
-				04E65CA518A269B8008FA65A /* ASIDownloadCache.h */,
-				04E65CA618A269B8008FA65A /* ASIDownloadCache.m */,
-				04E65CA718A269B8008FA65A /* ASIFormDataRequest.h */,
-				04E65CA818A269B8008FA65A /* ASIFormDataRequest.m */,
-				04E65CA918A269B8008FA65A /* ASIHTTPRequest.h */,
-				04E65CAA18A269B8008FA65A /* ASIHTTPRequest.m */,
-				04E65CAB18A269B8008FA65A /* ASIHTTPRequestConfig.h */,
-				04E65CAC18A269B8008FA65A /* ASIHTTPRequestDelegate.h */,
-				04E65CAD18A269B8008FA65A /* ASIInputStream.h */,
-				04E65CAE18A269B8008FA65A /* ASIInputStream.m */,
-				04E65CAF18A269B8008FA65A /* ASINetworkQueue.h */,
-				04E65CB018A269B8008FA65A /* ASINetworkQueue.m */,
-				04E65CB118A269B8008FA65A /* ASIProgressDelegate.h */,
-				04E65CB218A269B8008FA65A /* Reachability.h */,
-				04E65CB318A269B8008FA65A /* Reachability.m */,
-			);
-			path = ASI;
 			sourceTree = "<group>";
 		};
 		04E65CB718A269B8008FA65A /* JQclass */ = {
@@ -742,6 +711,7 @@
 		04F6E5C1189A8C620057BD72 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0431107718A7E4B6008109F7 /* arrow_detail.png */,
 				04DFD438189D35A500A3BDDF /* mainpage */,
 				04E65C8718A099AB008FA65A /* note_detail_header_bg.png */,
 				04DFD436189D355200A3BDDF /* back_home.png */,
@@ -879,6 +849,7 @@
 				04DFD441189D35B200A3BDDF /* button-3.png in Resources */,
 				04DFD456189D7D7B00A3BDDF /* bid_detail_header.png in Resources */,
 				04DFD43E189D35B200A3BDDF /* button-1.png in Resources */,
+				0431107818A7E4B6008109F7 /* arrow_detail.png in Resources */,
 				04DFD413189B83B800A3BDDF /* bid_cell_bg.png in Resources */,
 				04DFD440189D35B200A3BDDF /* button-4.png in Resources */,
 				04F6E5CE189A8C630057BD72 /* tableitem3.png in Resources */,
@@ -888,6 +859,7 @@
 				04F6E56F189A864D0057BD72 /* InfoPlist.strings in Resources */,
 				04F6E5D3189A8C630057BD72 /* tableitemsel3.png in Resources */,
 				04E65D2318A269B8008FA65A /* udid.plist in Resources */,
+				0431106C18A6941A008109F7 /* bid_started_cell_bg.png in Resources */,
 				04DFD43F189D35B200A3BDDF /* button-2.png in Resources */,
 				04DFD411189B835A00A3BDDF /* bid_start_btn.png in Resources */,
 				04DFD447189D491D00A3BDDF /* note_split_line.png in Resources */,
@@ -925,8 +897,8 @@
 				04F6E57B189A864D0057BD72 /* ViewController.m in Sources */,
 				04E65D1518A269B8008FA65A /* NSObject+SBJson.m in Sources */,
 				04E65C9118A2594F008FA65A /* BidBaseViewController.m in Sources */,
-				04E65D0118A269B8008FA65A /* ASIInputStream.m in Sources */,
 				04E65D1318A269B8008FA65A /* JQTabBar.m in Sources */,
+				0431107318A698A7008109F7 /* BidItemDetailViewController.m in Sources */,
 				04E65D0E18A269B8008FA65A /* JQNetworkHelper.m in Sources */,
 				04DFD409189B6BEF00A3BDDF /* BidItemCell.m in Sources */,
 				04E65D0D18A269B8008FA65A /* jqLoading.m in Sources */,
@@ -934,22 +906,19 @@
 				04E65D0418A269B8008FA65A /* global.m in Sources */,
 				04E65D1018A269B8008FA65A /* JQSHA256encode.m in Sources */,
 				04E65D1118A269B8008FA65A /* NSData+Gzip.m in Sources */,
-				04E65CFD18A269B8008FA65A /* ASIAuthenticationDialog.m in Sources */,
 				04DFD431189CEE5900A3BDDF /* NoteDetailViewController.m in Sources */,
-				04E65D0218A269B8008FA65A /* ASINetworkQueue.m in Sources */,
 				04E65D1618A269B8008FA65A /* SBJsonParser.m in Sources */,
 				04E65D1718A269B8008FA65A /* SBJsonStreamParser.m in Sources */,
 				04E65D1B18A269B8008FA65A /* SBJsonStreamWriter.m in Sources */,
 				04DFD405189B6BC300A3BDDF /* UICarTableViewCell.m in Sources */,
 				04E65CFC18A269B8008FA65A /* arrivalDetailData.m in Sources */,
-				04E65C9718A25C09008FA65A /* BidStartViewController.m in Sources */,
+				04E65C9718A25C09008FA65A /* BidStartedViewController.m in Sources */,
 				04F6E5A7189A87700057BD72 /* NTESMBMainMenuController.m in Sources */,
 				04E65CFB18A269B8008FA65A /* arrivalData.m in Sources */,
 				04DFD418189B94BF00A3BDDF /* BSTellBaseViewController.m in Sources */,
 				04E65D2018A269B8008FA65A /* SBJsonWriter.m in Sources */,
 				04E65D0F18A269B8008FA65A /* jqPopSelectList.m in Sources */,
-				04E65C9A18A25C21008FA65A /* BidEndViewController.m in Sources */,
-				04E65D0318A269B8008FA65A /* Reachability.m in Sources */,
+				04E65C9A18A25C21008FA65A /* BidPrepareViewController.m in Sources */,
 				04F6E575189A864D0057BD72 /* AppDelegate.m in Sources */,
 				04DFD453189D7C9000A3BDDF /* BidMainViewController.m in Sources */,
 				04E65D0818A269B8008FA65A /* jqAlertCenter.m in Sources */,
@@ -964,6 +933,7 @@
 				04E65D1A18A269B8008FA65A /* SBJsonStreamParserState.m in Sources */,
 				04F6E5DE189A8F020057BD72 /* MainPageViewController.m in Sources */,
 				04E65D1818A269B8008FA65A /* SBJsonStreamParserAccumulator.m in Sources */,
+				0431107618A69A1C008109F7 /* LeftTitleListCell.m in Sources */,
 				044EE26418A4C5E3007A3EDA /* BSTellNetListBaseViewController.m in Sources */,
 				04E65D0B18A269B8008FA65A /* jqEncode.mm in Sources */,
 				04E65D1418A269B8008FA65A /* UIBadgeView.m in Sources */,
@@ -971,15 +941,13 @@
 				04DFD435189CEF0400A3BDDF /* NoteItemCell.m in Sources */,
 				04F6E571189A864D0057BD72 /* main.m in Sources */,
 				04E65D0C18A269B8008FA65A /* JQHTTPSConnect.m in Sources */,
+				0431107018A6944A008109F7 /* BidStartedTableViewCell.m in Sources */,
 				04F6E5DB189A8EE30057BD72 /* BidViewController.m in Sources */,
 				04F6E5EA189A8FD50057BD72 /* SettingViewController.m in Sources */,
 				04E65D1F18A269B8008FA65A /* SBJsonUTF8Stream.m in Sources */,
-				04E65CFF18A269B8008FA65A /* ASIFormDataRequest.m in Sources */,
 				04DFD432189CEE5900A3BDDF /* NoteListViewController.m in Sources */,
-				04E65CFE18A269B8008FA65A /* ASIDownloadCache.m in Sources */,
 				04F6E5A6189A87700057BD72 /* NEMainTabBarController.m in Sources */,
 				04DFD461189D8D1700A3BDDF /* BidDetailTableViewCell.m in Sources */,
-				04E65D0018A269B8008FA65A /* ASIHTTPRequest.m in Sources */,
 				04E65D0A18A269B8008FA65A /* jqDrawUnlock.m in Sources */,
 				04E65D1C18A269B8008FA65A /* SBJsonStreamWriterAccumulator.m in Sources */,
 				04E65D0918A269B8008FA65A /* JQConnect_bsteelPay.m in Sources */,

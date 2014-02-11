@@ -130,14 +130,18 @@
 #define kResBidListData              @"queryAuctionWts4Move"
 #define kResBidItemData               @"queryAuctionPpInfo4Move"
 
+#define kResBidAllListData                       @"queryAuctionPps4Move"
+
 #define kResBidAgreementData                   @"showAgreement4Move"
+#define kResBidAgreeAction                      @"joinBuy4Move"
+
 
 #define kResRouterLatest                @"queryLastTripID"
 #define kResRouterHistory               @"queryTripHistory"
 
 //drive
 #define kResDriveDataMoth                       @"queryDriveMonthData"
-#define kResDriveActionAnalysis                 @"querySafeAnalyse"
+
 #define kResDriveOilAnalysis                    @"queryEconomicAnalyse"
 #define kResDriveMaintainData                   @"queryMaintain"
 //check

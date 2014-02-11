@@ -10,10 +10,7 @@
 
 @interface BidDetailTableViewCell(){
 
-    CGFloat currCellHeight;
-    CGFloat cellHeitht;
-    CGFloat valueHeight;
-    UILabel *headerLabel;
+    
 }
 @end
 @implementation BidDetailTableViewCell
@@ -95,7 +92,7 @@
         itemLabel.textColor = [UIColor blackColor];
         itemLabel.backgroundColor = [UIColor clearColor];
         itemLabel.textAlignment = NSTextAlignmentCenter;
-        itemLabel.text = @"";
+        itemLabel.text = @"kk";
         currX = currX+[widthArray[i]floatValue]+1;
         [self addSubview:itemLabel];
         SafeRelease(itemLabel);

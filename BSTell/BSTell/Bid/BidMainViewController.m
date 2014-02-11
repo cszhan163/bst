@@ -8,13 +8,17 @@
 
 #import "BidMainViewController.h"
 
-#import "BidStartViewController.h"
-#import "BidEndViewController.h"
+#import "BidStartedViewController.h"
+#import "BidPrepareViewController.h"
 
 #define  kOilNavControllerItemWidth   160
 
-@interface BidMainViewController ()
+@interface BidMainViewController (){
 
+    NSInteger currIndex;
+}
+@property(nonatomic,strong) NSArray *startedDataArray;
+@property(nonatomic,strong) NSArray *prepareDataArray;
 @end
 
 @implementation BidMainViewController
@@ -24,6 +28,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.startedDataArray = [NSMutableArray array];
+        self.prepareDataArray = [NSMutableArray array];
     }
     return self;
 }
@@ -34,7 +40,10 @@
 	// Do any additional setup after loading the view.
     [self setNavgationBarTitle:@"竞买出价"];
 }
+- (void)viewWillAppear:(BOOL)animated{
 
+
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -43,16 +52,17 @@
 
 -(NSArray*)viewControllersForNavItemController:(BidBaseViewController*)controller{
     NSMutableArray *vcArray = [NSMutableArray array];
-    BidStartViewController *vcCtl = [[BidStartViewController alloc]init];
+    BidStartedViewController *vcCtl = [[BidStartedViewController alloc]init];
     /*
     vcCtl.isNeedInitDateMonth = NO;
     vcCtl.mCurrDate = self.mCurrDate;
     */
     vcCtl.view.backgroundColor = [UIColor clearColor];
+    vcCtl.parentNav = self.navigationController;
     //vcCtl.view.backgroundColor = [UIColor redColor];
     [vcArray addObject:vcCtl];
     SafeRelease(vcCtl);
-    BidEndViewController *vcGraphCtl = [[BidEndViewController alloc]init];
+    BidPrepareViewController *vcGraphCtl = [[BidPrepareViewController alloc]init];
     vcGraphCtl.view.backgroundColor = [UIColor clearColor];
     /*
     vcGraphCtl.isNeedInitDateMonth = NO;
@@ -101,8 +111,28 @@
     //topNavBar.delegate = self;
     return topNavBar;
 }
+
+- (void)selectTopNavItem:(id)navObj{
+    //[navItemCtrl didSelectorTopNavItem:navObj];
+    [super selectTopNavItem:navObj];
+    currIndex = [navObj intValue];
+    if(currIndex == 0){
+        
+        if([self.startedDataArray count] == 0){
+             BidStartedViewController *oilDataVc = [navItemCtrl.navControllersArr objectAtIndex:0];
+        }
+        else{
+        
+        
+        }
+    }
+    
+}
+
 #pragma mark -
 #pragma mark network
+
+
 
 - (void)loadAnalaysisData{
     
@@ -113,8 +143,16 @@
     NSString *month = [NSString stringWithFormat:@"%02d",self.mCurrDate.month];
     NSString *year = [NSString stringWithFormat:@"%d",self.mCurrDate.year];
     NSString *carId = [AppSetting getUserCarId:[AppSetting getLoginUserId]];
-    self.request = [cardShopMgr  getDriveActionAnalysisDataByCarId:carId withMoth:month withYear:year];
-    */
+     */
+    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   @"001",@"hydm",
+                                   @"10",@"limit",
+                                   @"1",@"offset",
+                                    @"1",@"startflg",
+                                   nil];
+
+    self.request = [cardShopMgr  queryAuctionPps4Move:param];
+    
 }
 
 -(void)didNetDataOK:(NSNotification*)ntf
@@ -125,21 +163,32 @@
     id data = [obj objectForKey:@"data"];
     NSString *resKey = [obj objectForKey:@"key"];
     //NSString *resKey = [respRequest resourceKey];
-    if(self.request ==respRequest && [resKey isEqualToString:kResDriveActionAnalysis])
+    if([resKey isEqualToString:kResBidAllListData])
     {
+        //kNetEnd(self.view);
         self.data = data;
         //self.dataArray = [data objectForKey:@"economicData"];
         [self  performSelectorOnMainThread:@selector(updateUIData:) withObject:data waitUntilDone:NO ];
         //[mDataDict setObject:netData forKey:mMothDateKey];
         //}
-        kNetEnd(self.view);
+        //
         
     }
     
 }
 - (void)updateUIData:(NSDictionary*)data{
     
-    [tweetieTableView reloadData];
+    //[tweetieTableView reloadData];
+    
+    BidStartedViewController *oilDataVc = [navItemCtrl.navControllersArr objectAtIndex:0];
+    
+    oilDataVc.dataArray = [data objectForKey:@"data"];
+    [oilDataVc updateUIData:nil];
+    
+    /*
+    CarDriveMannerDataGraphViewController *analysisVc = [navItemCtrl.navControllersArr objectAtIndex:1];
+    [analysisVc updateUIData:newData];
+    */
     return;
     
     NSArray *economicData = [data objectForKey:@"safeData"];
@@ -161,12 +210,9 @@
     //[data ]
     NSMutableDictionary *newData = [NSMutableDictionary dictionaryWithDictionary:data];
     [newData setValue:economicData forKey:@"safeData"];
-    /*
-    CarDriveMannerDataViewController *oilDataVc = [navItemCtrl.navControllersArr objectAtIndex:0];
-    [oilDataVc updateUIData:newData];
-    CarDriveMannerDataGraphViewController *analysisVc = [navItemCtrl.navControllersArr objectAtIndex:1];
-    [analysisVc updateUIData:newData];
-     */
+    
+    
+    
     
 }
 

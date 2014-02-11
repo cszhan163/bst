@@ -61,6 +61,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [tweetieTableView setDragEffect:YES];
+    tweetieTableView.hasDownDragEffect = YES;
     //[[DBManage getSingletone]setDelegate:self];
     //    CGPoint insertPoint = CGPointMake(167,50);
     //    int width = 300;

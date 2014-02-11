@@ -11,4 +11,6 @@
 @interface UICarTableViewCell : UITableViewCell{
     CGFloat inset;
 }
+@property(nonatomic,assign)BOOL isPendingX;
+- (void)setPendingX:(CGFloat)pendingx;
 @end

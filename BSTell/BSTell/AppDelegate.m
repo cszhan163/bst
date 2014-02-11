@@ -51,8 +51,8 @@
     //[carServiceNetDataMgr queryAuctionPps4Move:nil];
     //[carServiceNetDataMgr queryAuctionPpInfo4Move:nil];
     //[carServiceNetDataMgr getAccountInfo:nil];
-    [carServiceNetDataMgr getOrderList:nil];
-    [carServiceNetDataMgr getOrderDetail:nil];
+    //[carServiceNetDataMgr getOrderList:nil];
+    //[carServiceNetDataMgr getOrderDetail:nil];
     
 //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"结果"
 //                                                    message:responseData

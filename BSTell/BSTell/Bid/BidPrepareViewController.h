@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UISimpleNetBaseViewController.h"
-@interface BidEndViewController : UISimpleNetBaseViewController
+#import "BSTellNetListBaseViewController.h"
+@interface BidPrepareViewController : BSTellNetListBaseViewController
 
 @end

@@ -27,6 +27,7 @@
         // Initialization code
         self.mCellItemArray = [NSMutableArray array];
         self.mLineColor = kCellSplitLineColor;
+        self.mClounmWidthArray = [NSMutableArray array];
         
     }
     return self;
@@ -45,10 +46,11 @@
     self.mLineColor = color;
 }
 - (void)layoutSubviews{
-    [super layoutSubviews];
+  
     CGFloat currX = 0.f;
     if(!isHiddenGrid){
-        for(int i = 0;i<[mClounmWidthArray count]-1;i++)
+        int count = [mClounmWidthArray count]-1;
+        for(int i = 0;i<count;i++)
         {
             id item = [mClounmWidthArray objectAtIndex:i];
             CGFloat lineOffsetX = [item floatValue];
@@ -67,6 +69,7 @@
         [self addSubview:seperateLine];
         SafeRelease(seperateLine);
     }
+      [super layoutSubviews];
 }
 - (void)setRowLineHidden:(BOOL)status{
     //seperateLine.hidden = status;

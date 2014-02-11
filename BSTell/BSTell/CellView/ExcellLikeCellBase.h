@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ExcellLikeCellBase : UITableViewCell
+#import "UICarTableViewCell.h"
+
+@interface ExcellLikeCellBase : UICarTableViewCell
 @property(nonatomic,strong)NSMutableArray *mCellItemArray;
 @property(nonatomic,strong)UIColor *mLineColor;
 
