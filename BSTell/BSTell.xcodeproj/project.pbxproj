@@ -18,6 +18,11 @@
 		0431107618A69A1C008109F7 /* LeftTitleListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431107518A69A1C008109F7 /* LeftTitleListCell.m */; };
 		0431107818A7E4B6008109F7 /* arrow_detail.png in Resources */ = {isa = PBXBuildFile; fileRef = 0431107718A7E4B6008109F7 /* arrow_detail.png */; };
 		044EE26418A4C5E3007A3EDA /* BSTellNetListBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044EE26318A4C5E3007A3EDA /* BSTellNetListBaseViewController.m */; };
+		04D6AF9618AA7FA4002967C4 /* AppMainUIViewMangae.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D6AF8B18AA7FA4002967C4 /* AppMainUIViewMangae.m */; };
+		04D6AF9718AA7FA4002967C4 /* BaoCarNetBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D6AF8D18AA7FA4002967C4 /* BaoCarNetBaseViewController.m */; };
+		04D6AF9818AA7FA4002967C4 /* CardShopBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D6AF8F18AA7FA4002967C4 /* CardShopBaseViewController.m */; };
+		04D6AF9918AA7FA4002967C4 /* NEMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D6AF9118AA7FA4002967C4 /* NEMainTabBarController.m */; };
+		04D6AF9A18AA7FA4002967C4 /* NTESMBMainMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D6AF9318AA7FA4002967C4 /* NTESMBMainMenuController.m */; };
 		04DFD3FD189B5FB800A3BDDF /* tabbarbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DFD3FC189B5FB800A3BDDF /* tabbarbg.png */; };
 		04DFD400189B641B00A3BDDF /* tabitemtopsplit.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DFD3FF189B641B00A3BDDF /* tabitemtopsplit.png */; };
 		04DFD405189B6BC300A3BDDF /* UICarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD404189B6BC300A3BDDF /* UICarTableViewCell.m */; };
@@ -104,9 +109,6 @@
 		04F6E586189A864E0057BD72 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F6E568189A864D0057BD72 /* UIKit.framework */; };
 		04F6E58E189A864E0057BD72 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04F6E58C189A864E0057BD72 /* InfoPlist.strings */; };
 		04F6E590189A864E0057BD72 /* BSTellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E58F189A864E0057BD72 /* BSTellTests.m */; };
-		04F6E5A6189A87700057BD72 /* NEMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5A1189A87700057BD72 /* NEMainTabBarController.m */; };
-		04F6E5A7189A87700057BD72 /* NTESMBMainMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5A3189A87700057BD72 /* NTESMBMainMenuController.m */; };
-		04F6E5AC189A8B790057BD72 /* AppMainUIViewMangae.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5AB189A8B790057BD72 /* AppMainUIViewMangae.m */; };
 		04F6E5CC189A8C630057BD72 /* tableitem1.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F6E5C3189A8C630057BD72 /* tableitem1.png */; };
 		04F6E5CD189A8C630057BD72 /* tableitem2.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F6E5C4189A8C630057BD72 /* tableitem2.png */; };
 		04F6E5CE189A8C630057BD72 /* tableitem3.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F6E5C5189A8C630057BD72 /* tableitem3.png */; };
@@ -158,6 +160,18 @@
 		0431107718A7E4B6008109F7 /* arrow_detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_detail.png; sourceTree = "<group>"; };
 		044EE26218A4C5E3007A3EDA /* BSTellNetListBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSTellNetListBaseViewController.h; sourceTree = "<group>"; };
 		044EE26318A4C5E3007A3EDA /* BSTellNetListBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSTellNetListBaseViewController.m; sourceTree = "<group>"; };
+		04D6AF8A18AA7FA4002967C4 /* AppMainUIViewManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMainUIViewManage.h; sourceTree = "<group>"; };
+		04D6AF8B18AA7FA4002967C4 /* AppMainUIViewMangae.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppMainUIViewMangae.m; sourceTree = "<group>"; };
+		04D6AF8C18AA7FA4002967C4 /* BaoCarNetBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaoCarNetBaseViewController.h; sourceTree = "<group>"; };
+		04D6AF8D18AA7FA4002967C4 /* BaoCarNetBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaoCarNetBaseViewController.m; sourceTree = "<group>"; };
+		04D6AF8E18AA7FA4002967C4 /* CardShopBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardShopBaseViewController.h; sourceTree = "<group>"; };
+		04D6AF8F18AA7FA4002967C4 /* CardShopBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardShopBaseViewController.m; sourceTree = "<group>"; };
+		04D6AF9018AA7FA4002967C4 /* NEMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEMainTabBarController.h; sourceTree = "<group>"; };
+		04D6AF9118AA7FA4002967C4 /* NEMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEMainTabBarController.m; sourceTree = "<group>"; };
+		04D6AF9218AA7FA4002967C4 /* NTESMBMainMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESMBMainMenuController.h; sourceTree = "<group>"; };
+		04D6AF9318AA7FA4002967C4 /* NTESMBMainMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESMBMainMenuController.m; sourceTree = "<group>"; };
+		04D6AF9418AA7FA4002967C4 /* UIFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFramework.h; sourceTree = "<group>"; };
+		04D6AF9518AA7FA4002967C4 /* UIFrameworkMSG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFrameworkMSG.h; sourceTree = "<group>"; };
 		04DFD3FC189B5FB800A3BDDF /* tabbarbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbarbg.png; path = ../tabbarbg.png; sourceTree = "<group>"; };
 		04DFD3FF189B641B00A3BDDF /* tabitemtopsplit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabitemtopsplit.png; path = ../tabitemtopsplit.png; sourceTree = "<group>"; };
 		04DFD403189B6BC300A3BDDF /* UICarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICarTableViewCell.h; sourceTree = "<group>"; };
@@ -302,14 +316,6 @@
 		04F6E58D189A864E0057BD72 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		04F6E58F189A864E0057BD72 /* BSTellTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BSTellTests.m; sourceTree = "<group>"; };
 		04F6E599189A87480057BD72 /* ZCSUIFrameWork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZCSUIFrameWork.xcodeproj; path = ../../BaseLib/UIFramework/ZCSUIFrameWork/ZCSUIFrameWork.xcodeproj; sourceTree = "<group>"; };
-		04F6E5A0189A87700057BD72 /* NEMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NEMainTabBarController.h; sourceTree = "<group>"; };
-		04F6E5A1189A87700057BD72 /* NEMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NEMainTabBarController.m; sourceTree = "<group>"; };
-		04F6E5A2189A87700057BD72 /* NTESMBMainMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESMBMainMenuController.h; sourceTree = "<group>"; };
-		04F6E5A3189A87700057BD72 /* NTESMBMainMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESMBMainMenuController.m; sourceTree = "<group>"; };
-		04F6E5A4189A87700057BD72 /* UIFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFramework.h; sourceTree = "<group>"; };
-		04F6E5A5189A87700057BD72 /* UIFrameworkMSG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFrameworkMSG.h; sourceTree = "<group>"; };
-		04F6E5AA189A8B790057BD72 /* AppMainUIViewManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMainUIViewManage.h; sourceTree = "<group>"; };
-		04F6E5AB189A8B790057BD72 /* AppMainUIViewMangae.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppMainUIViewMangae.m; sourceTree = "<group>"; };
 		04F6E5C3189A8C630057BD72 /* tableitem1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableitem1.png; sourceTree = "<group>"; };
 		04F6E5C4189A8C630057BD72 /* tableitem2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableitem2.png; sourceTree = "<group>"; };
 		04F6E5C5189A8C630057BD72 /* tableitem3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableitem3.png; sourceTree = "<group>"; };
@@ -362,6 +368,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04D6AF8918AA7FA4002967C4 /* UIFramework */ = {
+			isa = PBXGroup;
+			children = (
+				04D6AF8A18AA7FA4002967C4 /* AppMainUIViewManage.h */,
+				04D6AF8B18AA7FA4002967C4 /* AppMainUIViewMangae.m */,
+				04D6AF8C18AA7FA4002967C4 /* BaoCarNetBaseViewController.h */,
+				04D6AF8D18AA7FA4002967C4 /* BaoCarNetBaseViewController.m */,
+				04D6AF8E18AA7FA4002967C4 /* CardShopBaseViewController.h */,
+				04D6AF8F18AA7FA4002967C4 /* CardShopBaseViewController.m */,
+				04D6AF9018AA7FA4002967C4 /* NEMainTabBarController.h */,
+				04D6AF9118AA7FA4002967C4 /* NEMainTabBarController.m */,
+				04D6AF9218AA7FA4002967C4 /* NTESMBMainMenuController.h */,
+				04D6AF9318AA7FA4002967C4 /* NTESMBMainMenuController.m */,
+				04D6AF9418AA7FA4002967C4 /* UIFramework.h */,
+				04D6AF9518AA7FA4002967C4 /* UIFrameworkMSG.h */,
+			);
+			name = UIFramework;
+			path = ../UIFramework;
+			sourceTree = "<group>";
+		};
 		04DFD402189B6BC300A3BDDF /* CellView */ = {
 			isa = PBXGroup;
 			children = (
@@ -587,8 +613,8 @@
 		04F6E558189A864D0057BD72 = {
 			isa = PBXGroup;
 			children = (
+				04D6AF8918AA7FA4002967C4 /* UIFramework */,
 				04F6E599189A87480057BD72 /* ZCSUIFrameWork.xcodeproj */,
-				04F6E59F189A87700057BD72 /* UIFramework */,
 				04F6E56A189A864D0057BD72 /* BSTell */,
 				04F6E589189A864E0057BD72 /* BSTellTests */,
 				04F6E563189A864D0057BD72 /* Frameworks */,
@@ -690,22 +716,6 @@
 				04F6E59E189A87480057BD72 /* libZCSUIFrameWork.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		04F6E59F189A87700057BD72 /* UIFramework */ = {
-			isa = PBXGroup;
-			children = (
-				04F6E5AA189A8B790057BD72 /* AppMainUIViewManage.h */,
-				04F6E5AB189A8B790057BD72 /* AppMainUIViewMangae.m */,
-				04F6E5A0189A87700057BD72 /* NEMainTabBarController.h */,
-				04F6E5A1189A87700057BD72 /* NEMainTabBarController.m */,
-				04F6E5A2189A87700057BD72 /* NTESMBMainMenuController.h */,
-				04F6E5A3189A87700057BD72 /* NTESMBMainMenuController.m */,
-				04F6E5A4189A87700057BD72 /* UIFramework.h */,
-				04F6E5A5189A87700057BD72 /* UIFrameworkMSG.h */,
-			);
-			name = UIFramework;
-			path = ../../UIFramework;
 			sourceTree = "<group>";
 		};
 		04F6E5C1189A8C620057BD72 /* images */ = {
@@ -891,7 +901,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04F6E5AC189A8B790057BD72 /* AppMainUIViewMangae.m in Sources */,
 				04DFD451189D7C9000A3BDDF /* BidConfirmViewController.m in Sources */,
 				04E65D1218A269B8008FA65A /* SFHFKeychainUtils.m in Sources */,
 				04F6E57B189A864D0057BD72 /* ViewController.m in Sources */,
@@ -902,10 +911,13 @@
 				04E65D0E18A269B8008FA65A /* JQNetworkHelper.m in Sources */,
 				04DFD409189B6BEF00A3BDDF /* BidItemCell.m in Sources */,
 				04E65D0D18A269B8008FA65A /* jqLoading.m in Sources */,
+				04D6AF9918AA7FA4002967C4 /* NEMainTabBarController.m in Sources */,
 				04E65D1E18A269B8008FA65A /* SBJsonTokeniser.m in Sources */,
 				04E65D0418A269B8008FA65A /* global.m in Sources */,
+				04D6AF9618AA7FA4002967C4 /* AppMainUIViewMangae.m in Sources */,
 				04E65D1018A269B8008FA65A /* JQSHA256encode.m in Sources */,
 				04E65D1118A269B8008FA65A /* NSData+Gzip.m in Sources */,
+				04D6AF9818AA7FA4002967C4 /* CardShopBaseViewController.m in Sources */,
 				04DFD431189CEE5900A3BDDF /* NoteDetailViewController.m in Sources */,
 				04E65D1618A269B8008FA65A /* SBJsonParser.m in Sources */,
 				04E65D1718A269B8008FA65A /* SBJsonStreamParser.m in Sources */,
@@ -913,9 +925,9 @@
 				04DFD405189B6BC300A3BDDF /* UICarTableViewCell.m in Sources */,
 				04E65CFC18A269B8008FA65A /* arrivalDetailData.m in Sources */,
 				04E65C9718A25C09008FA65A /* BidStartedViewController.m in Sources */,
-				04F6E5A7189A87700057BD72 /* NTESMBMainMenuController.m in Sources */,
 				04E65CFB18A269B8008FA65A /* arrivalData.m in Sources */,
 				04DFD418189B94BF00A3BDDF /* BSTellBaseViewController.m in Sources */,
+				04D6AF9718AA7FA4002967C4 /* BaoCarNetBaseViewController.m in Sources */,
 				04E65D2018A269B8008FA65A /* SBJsonWriter.m in Sources */,
 				04E65D0F18A269B8008FA65A /* jqPopSelectList.m in Sources */,
 				04E65C9A18A25C21008FA65A /* BidPrepareViewController.m in Sources */,
@@ -946,10 +958,10 @@
 				04F6E5EA189A8FD50057BD72 /* SettingViewController.m in Sources */,
 				04E65D1F18A269B8008FA65A /* SBJsonUTF8Stream.m in Sources */,
 				04DFD432189CEE5900A3BDDF /* NoteListViewController.m in Sources */,
-				04F6E5A6189A87700057BD72 /* NEMainTabBarController.m in Sources */,
 				04DFD461189D8D1700A3BDDF /* BidDetailTableViewCell.m in Sources */,
 				04E65D0A18A269B8008FA65A /* jqDrawUnlock.m in Sources */,
 				04E65D1C18A269B8008FA65A /* SBJsonStreamWriterAccumulator.m in Sources */,
+				04D6AF9A18AA7FA4002967C4 /* NTESMBMainMenuController.m in Sources */,
 				04E65D0918A269B8008FA65A /* JQConnect_bsteelPay.m in Sources */,
 				04E65D2118A269B8008FA65A /* KeychainItemWrapper.m in Sources */,
 				04E65D2718A27457008FA65A /* CarServiceNetDataMgr.m in Sources */,
