@@ -119,7 +119,10 @@
     if(currIndex == 0){
         
         if([self.startedDataArray count] == 0){
+            /*
              BidStartedViewController *oilDataVc = [navItemCtrl.navControllersArr objectAtIndex:0];
+            [oilDataVc shouldLoadOlderData:nil];
+             */
         }
         else{
         
@@ -136,85 +139,10 @@
 
 - (void)loadAnalaysisData{
     
-    CarServiceNetDataMgr *cardShopMgr = [CarServiceNetDataMgr getSingleTone];
     
-    //kNetStartShow(@"数据加载...", self.view);
-    /*
-    NSString *month = [NSString stringWithFormat:@"%02d",self.mCurrDate.month];
-    NSString *year = [NSString stringWithFormat:@"%d",self.mCurrDate.year];
-    NSString *carId = [AppSetting getUserCarId:[AppSetting getLoginUserId]];
-     */
-    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                                   @"001",@"hydm",
-                                   @"10",@"limit",
-                                   @"1",@"offset",
-                                    @"1",@"startflg",
-                                   nil];
-
-    self.request = [cardShopMgr  queryAuctionPps4Move:param];
     
 }
 
--(void)didNetDataOK:(NSNotification*)ntf
-{
-    
-    id obj = [ntf object];
-    id respRequest = [obj objectForKey:@"request"];
-    id data = [obj objectForKey:@"data"];
-    NSString *resKey = [obj objectForKey:@"key"];
-    //NSString *resKey = [respRequest resourceKey];
-    if([resKey isEqualToString:kResBidAllListData])
-    {
-        //kNetEnd(self.view);
-        self.data = data;
-        //self.dataArray = [data objectForKey:@"economicData"];
-        [self  performSelectorOnMainThread:@selector(updateUIData:) withObject:data waitUntilDone:NO ];
-        //[mDataDict setObject:netData forKey:mMothDateKey];
-        //}
-        //
-        
-    }
-    
-}
-- (void)updateUIData:(NSDictionary*)data{
-    
-    //[tweetieTableView reloadData];
-    
-    BidStartedViewController *oilDataVc = [navItemCtrl.navControllersArr objectAtIndex:0];
-    
-    oilDataVc.dataArray = [data objectForKey:@"data"];
-    [oilDataVc updateUIData:nil];
-    
-    /*
-    CarDriveMannerDataGraphViewController *analysisVc = [navItemCtrl.navControllersArr objectAtIndex:1];
-    [analysisVc updateUIData:newData];
-    */
-    return;
-    
-    NSArray *economicData = [data objectForKey:@"safeData"];
-    economicData = [economicData sortedArrayUsingComparator:^(id param1,id param2){
-        
-        id arg1 = [param1 objectForKey:@"day"];
-        id arg2 = [param2 objectForKey:@"day"];
-        if([arg1 intValue]>[arg2 intValue]){
-            return NSOrderedDescending;
-        }
-        else if([arg1 intValue]<[arg1 intValue]){
-            return NSOrderedAscending;
-        }
-        else{
-            return NSOrderedSame;
-        }
-        
-    }];
-    //[data ]
-    NSMutableDictionary *newData = [NSMutableDictionary dictionaryWithDictionary:data];
-    [newData setValue:economicData forKey:@"safeData"];
-    
-    
-    
-    
-}
 
 
 @end

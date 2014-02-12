@@ -428,7 +428,23 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
              @"001",@"hydm",
              nil];
     }
-    [self sendRequest:@"getAccountInfo" withVersion:@"v10" withParam:param withOkBack:@selector(queryBidPubmsg4MoveOk:) withFailedBack:@selector(queryBidPubmsg4MoveFailed:)];
+    [self sendRequest:@"getAccountInfo" withVersion:@"v10" withParam:param withOkBack:@selector(getAccountInfoOk:) withFailedBack:@selector(getAccountInfoFailed:)];
+}
+- (void)getAccountInfoOk:(NSString*)result{
+    
+    id data = [result JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kCarUserInfo];
+
+}
+- (void)getAccountInfoFailed:(NSString*)error{
+    id data = [error JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalFailedData:finalData withKey:kCarUserInfo];
 }
 
 - (void)getOrderList:(NSDictionary*)param{

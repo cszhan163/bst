@@ -115,9 +115,12 @@
 //user
 #define kCarUserRegister                @"userRegister"
 #define kCarUserLogin                   @"userLogin"
-#define kCarUserUpdatePass              @"updateUserPassword"
+
+#define kCarUserInfo              @"getAccountInfo"
+#define kCarUserOrderList                @"getOrderList"
+
+
 #define kCarUserUpdatePhone             @"updateUserPhoneNumber"
-#define kCarUserLocation                @"setLocationEnable"
 #define kCarBrandQuery                  @"queryVehcileBrand"
 #define kCarSeriesQuery                 @"queryVehcileSeries"
 #define kCarModelQuery                 @"queryVehcileModel"

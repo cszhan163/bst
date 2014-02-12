@@ -13,6 +13,7 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+#import "ZCSNetClientConfig.h"
 #import "UIFramework.h"
 #import "ZCSNotficationMgr.h"
 #import "NEDebugTool.h"

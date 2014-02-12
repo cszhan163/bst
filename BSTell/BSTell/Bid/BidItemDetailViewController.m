@@ -50,7 +50,8 @@
    
   
     */
-    leftTitleCellView = [[LeftTitleListCell alloc] initWithFrame:CGRectMake(0.f, 0.f, 300.f, 300.f) withTitleArray:@[@"物资编号",
+    leftTitleCellView = [[LeftTitleListCell alloc] initWithFrame:CGRectMake(0.f, 0.f, 300.f, 300.f) withTitleArray:@[@"场次",
+                                                                                                                     @"物资编号",
                                                                                                                       @"资源数",
                                                                                                                       @"起拍价",
                                                                                                                       @"当前价",
@@ -79,9 +80,20 @@
     [self.view addSubview:confirmTextBgView];
     SafeRelease(confirmTextBgView);
     
+    UITextField *textFiled = [[UITextField alloc]initWithFrame:CGRectMake(20.f,confirmTextBgView.frame.size.height-35.f,80.f, 15.f)];
+    textFiled.borderStyle = UITextBorderStyleRoundedRect;
+    [confirmTextBgView addSubview:textFiled];
+    SafeRelease(textFiled);
     
     
-                                            
+    
+    UIButton *bidBtn = [UIComUtil createButtonWithNormalBGImageName:@"bid_price_btn.png" withHightBGImageName:@"bid_price_btn.png" withTitle:@"出价" withTag:0];
+    [confirmTextBgView addSubview:bidBtn];
+    bidBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    [bidBtn addTarget:self action:@selector(startBidPrice:) forControlEvents:UIControlEventTouchUpInside];
+    bidBtn.frame = CGRectMake(100.f+20.f,confirmTextBgView.frame.size.height-35.f, bidBtn.frame.size.width, bidBtn.frame.size.height);
+    
+    
     
 	// Do any additional setup after loading the view.
 }

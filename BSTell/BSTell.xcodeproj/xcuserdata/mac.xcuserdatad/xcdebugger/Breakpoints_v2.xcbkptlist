@@ -41,7 +41,7 @@
                   symbolName = "-[ExcellLikeCellBase layoutSubviews]"
                   moduleName = "BSTell"
                   urlString = "file://localhost/Users/mac/Desktop/work/BSTell/code/BSTell/BSTell/CellView/ExcellLikeCellBase.m"
-                  timestampString = "413807476.312076"
+                  timestampString = "413912405.935111"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
@@ -55,7 +55,7 @@
                   symbolName = "-[ExcellLikeCellBase layoutSubviews]"
                   moduleName = "BSTell"
                   urlString = "file://localhost/Users/mac/Desktop/work/BSTell/code/BSTell/BSTell/CellView/ExcellLikeCellBase.m"
-                  timestampString = "413807476.312403"
+                  timestampString = "413912405.935494"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
@@ -71,12 +71,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BSTell/Bid/BidPrepareViewController.m"
-            timestampString = "413736196.911056"
+            filePath = "BSTell/BSTellNetListBaseViewController.m"
+            timestampString = "413910079.590747"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "-shouldLoadOlderData:"
             landmarkType = "5">
          </BreakpointContent>
@@ -87,12 +87,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BSTell/Bid/BidBaseViewController.m"
-            timestampString = "413737376.286582"
+            filePath = "BSTell/Bid/BidMainViewController.m"
+            timestampString = "413910857.438898"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "-selectTopNavItem:"
             landmarkType = "5">
          </BreakpointContent>
@@ -103,12 +103,28 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BSTell/BSTellNetListBaseViewController.m"
-            timestampString = "413740036.300205"
+            filePath = "BSTell/Bid/BidMainViewController.m"
+            timestampString = "413908073.144068"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "-selectTopNavItem:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BSTell/Bid/BidStartedViewController.m"
+            timestampString = "413908142.958436"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "-shouldLoadOlderData:"
             landmarkType = "5">
          </BreakpointContent>
@@ -119,13 +135,77 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BSTell/Bid/BidItemDetailViewController.m"
-            timestampString = "413807473.159434"
+            filePath = "BSTell/Bid/BidPrepareViewController.m"
+            timestampString = "413908173.174956"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
-            landmarkName = "-updateUIData:"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "-shouldLoadOlderData:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BSTell/Bid/BidStartedViewController.m"
+            timestampString = "413908415.833388"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "-shouldLoadOlderData:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BSTell/Bid/BidStartedViewController.m"
+            timestampString = "413908417.083206"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "-shouldLoadOlderData:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BSTell/Network/CarServiceNetDataMgr.m"
+            timestampString = "413912888.06505"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "434"
+            endingLineNumber = "434"
+            landmarkName = "-getAccountInfoOk:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BSTell/Network/CarServiceNetDataMgr.m"
+            timestampString = "413912891.641863"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "437"
+            endingLineNumber = "437"
+            landmarkName = "-getAccountInfoFailed:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

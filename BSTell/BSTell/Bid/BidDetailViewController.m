@@ -306,6 +306,7 @@
      */
     index = 0;
     row = 0;
+    netData = [[netData objectForKey:@"data"]objectAtIndex:0];
     value = [netData objectForKey:@"goodId"];
     [tableView setCellItemValue:value withRow:0 withCol:index++];
     

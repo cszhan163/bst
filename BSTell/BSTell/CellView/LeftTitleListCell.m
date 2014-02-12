@@ -29,7 +29,7 @@
  计价单位
  场次名称
  */
-
+#define kTitleFontSize 12
 @implementation LeftTitleListCell
 
 - (id)initWithFrame:(CGRect)frame withTitleArray:(NSArray*)titleArray
@@ -52,7 +52,7 @@
         for(int i = 0;i<columCount;i++)
         {
             UILabel *itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX,currY,60,14)];
-            itemLabel.font = [UIFont systemFontOfSize:12];
+            itemLabel.font = [UIFont systemFontOfSize:kTitleFontSize];
             itemLabel.textColor = [UIColor blackColor];
             itemLabel.backgroundColor = [UIColor clearColor];
             //itemLabel.textAlignment = NSTextAlignmentCenter;
@@ -62,7 +62,7 @@
             SafeRelease(itemLabel);
             
             itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX+60.f,currY,100,14)];
-            itemLabel.font = [UIFont systemFontOfSize:12];
+            itemLabel.font = [UIFont systemFontOfSize:kTitleFontSize];
             itemLabel.textColor = [UIColor blackColor];
             itemLabel.backgroundColor = [UIColor clearColor];
             //itemLabel.textAlignment = NSTextAlignmentCenter;
@@ -71,7 +71,7 @@
             SafeRelease(itemLabel);
             [self.mCellItemArray addObject:itemLabel];
             
-             currY = currY+14.f;
+             currY = currY+13.f;
         }
         
     }
