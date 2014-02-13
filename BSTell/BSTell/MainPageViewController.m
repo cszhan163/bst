@@ -111,6 +111,7 @@ static  NSString* kTitleTextArray[] = {@"咨讯中心",@"网站公告",@"交易�
             break;
         case 3:{
             NoteListViewController *noteListVc = [[NoteListViewController alloc]init];
+            noteListVc.type = 1;
             [noteListVc setNavgationBarTitle:[sender titleLabel].text];
             [self.navigationController pushViewController:noteListVc animated:YES];
             SafeRelease(noteListVc);

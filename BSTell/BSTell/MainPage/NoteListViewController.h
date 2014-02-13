@@ -6,8 +6,8 @@
 //  Copyright (c) 2014年 cszhan. All rights reserved.
 //
 
-#import "BSTellBaseViewController.h"
+#import "BSTellNetListBaseViewController.h"
 
-@interface NoteListViewController : BSTellBaseViewController
-
+@interface NoteListViewController : BSTellNetListBaseViewController
+@property(nonatomic,assign) NoteType type;
 @end

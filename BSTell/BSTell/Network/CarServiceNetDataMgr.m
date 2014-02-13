@@ -138,7 +138,11 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
 }
 - (void)querySitePubmsg4MoveOK:(NSString*)result{
     
+    id data = [result JSONValue];
     
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kResNoteNewsData];
 }
 - (void)querySitePubmsg4MoveFailed:(NSString*)error{
     
@@ -149,11 +153,51 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
      公告ID	ggid
      会员代码	hydm
      */
+    if(param == nil){
     param = [NSDictionary dictionaryWithObjectsAndKeys:
              @"0",@"ggid",
              @"0",@"hydm",
              nil];
-    [self sendRequest:@"getBidPubmsgById4Move" withVersion:@"v10" withParam:param withOkBack:@selector(queryBidPubmsg4MoveOk:) withFailedBack:@selector(queryBidPubmsg4MoveFailed:)];
+    }
+    [self sendRequest:@"getBidPubmsgById4Move" withVersion:@"v10" withParam:param withOkBack:@selector(getBidPubmsgById4MoveOk:) withFailedBack:@selector(getBidPubmsgById4MoveFailed:)];
+}
+- (void)getBidPubmsgById4MoveOk:(NSString*)result{
+    
+    id data = [result JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kResNoteBidDetail];
+}
+- (void)getBidPubmsgById4MoveFailed:(NSString*)error{
+    
+}
+
+//getSitePubmsgById4Move
+- (void)getSitePubmsgById4Move:(NSDictionary*)param{
+    
+    /*
+     公告ID	ggid
+     会员代码	hydm
+     */
+    if(param == nil){
+        param = [NSDictionary dictionaryWithObjectsAndKeys:
+                 @"0",@"ggid",
+                 @"0",@"hydm",
+                 nil];
+    }
+    [self sendRequest:@"getSitePubmsgById4Move" withVersion:@"v10" withParam:param withOkBack:@selector(getSitePubmsgById4MoveOk:) withFailedBack:@selector(getSitePubmsgById4MoveFailed:)];
+}
+- (void)getSitePubmsgById4MoveOk:(NSString*)result{
+    
+    id data = [result JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kResNoteNewsDetail];
+}
+- (void)getSitePubmsgById4MoveFailed:(NSString*)error{
+    
 }
 #pragma mark -
 #pragma mark -bid
@@ -169,18 +213,25 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
      limit	数据条数默认10条
      offset	第几页
      */
-    param = [NSDictionary dictionaryWithObjectsAndKeys:
-             @"0",@"gglx",
-             @"0",@"zc",
-             @"10",@"limit",
-             @"1",@"offset",
-             nil];
+    if(param == nil){
+        param = [NSDictionary dictionaryWithObjectsAndKeys:
+                 @"0",@"gglx",
+                 @"0",@"zc",
+                 @"10",@"limit",
+                 @"1",@"offset",
+                 nil];
+    }
     [self sendRequest:@"queryBidPubmsg4Move" withVersion:@"v10" withParam:param withOkBack:@selector(queryBidPubmsg4MoveOk:) withFailedBack:@selector(queryBidPubmsg4MoveFailed:)];
 
 }
 - (void)queryBidPubmsg4MoveOk:(NSString*)result{
   
+    id data = [result JSONValue];
     
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kResNoteBidData];
+
 }
 - (void)queryBidPubmsg4MoveFailed:(NSString*)error{
 

@@ -139,8 +139,10 @@
 #define kResBidAgreeAction                      @"joinBuy4Move"
 
 
-#define kResRouterLatest                @"queryLastTripID"
-#define kResRouterHistory               @"queryTripHistory"
+#define kResNoteNewsData                @"querySitePubmsg4Move"
+#define kResNoteNewsDetail              @"getSitePubmsgById4Move"
+#define kResNoteBidData                 @"queryBidPubmsg4Move"
+#define kResNoteBidDetail               @"getBidPubmsgById4Move"
 
 //drive
 #define kResDriveDataMoth                       @"queryDriveMonthData"

@@ -9,5 +9,5 @@
 #import "BSTellBaseViewController.h"
 
 @interface NoteDetailViewController : BSTellBaseViewController
-
+@property(nonatomic,strong) NSString *noteId;
 @end

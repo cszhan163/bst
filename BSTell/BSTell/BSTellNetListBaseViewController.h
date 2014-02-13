@@ -10,4 +10,5 @@
 
 @interface BSTellNetListBaseViewController : UIImageNetBaseViewController
 @property(nonatomic,assign)NSInteger pageNum;
+@property(nonatomic,strong) NSString *userId;
 @end
