@@ -23,7 +23,7 @@
 
 #import "SettingViewController.h"
 #import "BidViewController.h"
-#import "MsgInfoViewController.h"
+//#import "MsgMainViewController.h"
 #import "MainPageViewController.h"
 #import "MyInfoViewController.h"
 
@@ -40,7 +40,7 @@
 
 @class GMusicPlayMgr;
 #define kLoginViewControllerClass @"CardShopLoginViewController"
-static NSString * TabMainClassArray[kTabCountMax] ={@"BidViewController",@"MsgInfoViewController",@"MainPageViewController",@"MyInfoViewController",@"SettingViewController"};
+static NSString * TabMainClassArray[kTabCountMax] ={@"BidViewController",@"MsgMainViewController",@"MainPageViewController",@"MyInfoViewController",@"SettingViewController"};
 
 static AppMainUIViewManage *sharedObj = nil;
 static NETabNavBar *currentTabBar = nil;

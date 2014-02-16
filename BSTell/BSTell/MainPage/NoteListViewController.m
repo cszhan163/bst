@@ -11,8 +11,11 @@
 
 #import "NoteDetailViewController.h"
 
-@interface NoteListViewController ()
+@interface NoteListViewController (){
 
+    
+}
+@property(nonatomic,strong)UILabel *secondClassLabel;
 @end
 
 @implementation NoteListViewController
@@ -29,9 +32,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //UIImageView *sencodLevelBgView = [UIImageView alloc]initWithImage:<#(UIImage *)#>
+    
+    self.secondClassLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:12.f] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(0.f, 0.f, kDeviceScreenWidth, 30.f)];
+    self.secondClassLabel.backgroundColor = [UIColor blueColor];
+    
+    //[tweetieTableView setTableHeaderView:secondClassLabel];
+    SafeRelease(self.secondClassLabel);
+    
 	// Do any additional setup after loading the view.
 }
+- (void)setHiddenTableHeaderView:(BOOL)status{
 
+    if(status){
+        [tweetieTableView setTableHeaderView:nil];
+    }
+    else{
+        [tweetieTableView setTableHeaderView:self.secondClassLabel];
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

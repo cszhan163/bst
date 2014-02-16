@@ -88,6 +88,12 @@
     [self loadAnalaysisData];
 	// Do any additional setup after loading the view.
 }
+#pragma mark -
+#pragma mark overide method
+- (void)loadAnalaysisData{
+
+
+}
 - (void)selectTopNavItem:(id)navObj{
     [navItemCtrl didSelectorTopNavItem:navObj];
 }

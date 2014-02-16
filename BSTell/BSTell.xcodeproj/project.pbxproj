@@ -133,6 +133,12 @@
 		BDE7BD7C18B0D16800A82198 /* MarketMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7A18B0D16800A82198 /* MarketMsgViewController.m */; };
 		BDE7BD7F18B0D18400A82198 /* MediaMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7E18B0D18400A82198 /* MediaMsgViewController.m */; };
 		BDE7BD8218B0D1F200A82198 /* MsgMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD8118B0D1F200A82198 /* MsgMainViewController.m */; };
+		BDE7BD8A18B10D0C00A82198 /* hotmsg_gray01.png in Resources */ = {isa = PBXBuildFile; fileRef = BDE7BD8618B10D0C00A82198 /* hotmsg_gray01.png */; };
+		BDE7BD8B18B10D0C00A82198 /* hotmsg_gray02.png in Resources */ = {isa = PBXBuildFile; fileRef = BDE7BD8718B10D0C00A82198 /* hotmsg_gray02.png */; };
+		BDE7BD8C18B10D0C00A82198 /* hotmsg_gray03.png in Resources */ = {isa = PBXBuildFile; fileRef = BDE7BD8818B10D0C00A82198 /* hotmsg_gray03.png */; };
+		BDE7BD8D18B10D0C00A82198 /* hotmsg_gray04.png in Resources */ = {isa = PBXBuildFile; fileRef = BDE7BD8918B10D0C00A82198 /* hotmsg_gray04.png */; };
+		BDE7BD8F18B10DC300A82198 /* hotmsg_cell_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BDE7BD8E18B10DC300A82198 /* hotmsg_cell_bg.png */; };
+		BDE7BD9218B10EE400A82198 /* InfoClassTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD9118B10EE400A82198 /* InfoClassTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -356,6 +362,13 @@
 		BDE7BD7E18B0D18400A82198 /* MediaMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaMsgViewController.m; sourceTree = "<group>"; };
 		BDE7BD8018B0D1F200A82198 /* MsgMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgMainViewController.h; sourceTree = "<group>"; };
 		BDE7BD8118B0D1F200A82198 /* MsgMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgMainViewController.m; sourceTree = "<group>"; };
+		BDE7BD8618B10D0C00A82198 /* hotmsg_gray01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hotmsg_gray01.png; sourceTree = "<group>"; };
+		BDE7BD8718B10D0C00A82198 /* hotmsg_gray02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hotmsg_gray02.png; sourceTree = "<group>"; };
+		BDE7BD8818B10D0C00A82198 /* hotmsg_gray03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hotmsg_gray03.png; sourceTree = "<group>"; };
+		BDE7BD8918B10D0C00A82198 /* hotmsg_gray04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hotmsg_gray04.png; sourceTree = "<group>"; };
+		BDE7BD8E18B10DC300A82198 /* hotmsg_cell_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hotmsg_cell_bg.png; sourceTree = "<group>"; };
+		BDE7BD9018B10EE400A82198 /* InfoClassTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoClassTableViewCell.h; sourceTree = "<group>"; };
+		BDE7BD9118B10EE400A82198 /* InfoClassTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoClassTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -435,6 +448,8 @@
 				04DFD434189CEF0400A3BDDF /* NoteItemCell.m */,
 				0431107418A69A1C008109F7 /* LeftTitleListCell.h */,
 				0431107518A69A1C008109F7 /* LeftTitleListCell.m */,
+				BDE7BD9018B10EE400A82198 /* InfoClassTableViewCell.h */,
+				BDE7BD9118B10EE400A82198 /* InfoClassTableViewCell.m */,
 			);
 			path = CellView;
 			sourceTree = "<group>";
@@ -752,6 +767,7 @@
 		04F6E5C1189A8C620057BD72 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				BDE7BD8418B10CBE00A82198 /* info */,
 				04D5358618ABCDA600728B75 /* me */,
 				04D5358218ABCD6200728B75 /* search.png */,
 				0431107718A7E4B6008109F7 /* arrow_detail.png */,
@@ -797,6 +813,18 @@
 				BDE7BD8118B0D1F200A82198 /* MsgMainViewController.m */,
 			);
 			path = Info;
+			sourceTree = "<group>";
+		};
+		BDE7BD8418B10CBE00A82198 /* info */ = {
+			isa = PBXGroup;
+			children = (
+				BDE7BD8E18B10DC300A82198 /* hotmsg_cell_bg.png */,
+				BDE7BD8618B10D0C00A82198 /* hotmsg_gray01.png */,
+				BDE7BD8718B10D0C00A82198 /* hotmsg_gray02.png */,
+				BDE7BD8818B10D0C00A82198 /* hotmsg_gray03.png */,
+				BDE7BD8918B10D0C00A82198 /* hotmsg_gray04.png */,
+			);
+			name = info;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -895,13 +923,16 @@
 				04DFD3FD189B5FB800A3BDDF /* tabbarbg.png in Resources */,
 				04DFD457189D7D7B00A3BDDF /* bid_detail_table.png in Resources */,
 				04E65C80189FF151008FA65A /* bid_btn.png in Resources */,
+				BDE7BD8F18B10DC300A82198 /* hotmsg_cell_bg.png in Resources */,
 				04E65C8818A099AB008FA65A /* note_detail_header_bg.png in Resources */,
 				04F6E57D189A864D0057BD72 /* Images.xcassets in Resources */,
 				04E65C82189FF260008FA65A /* bid_confirm_btn.png in Resources */,
 				04DFD40A189B6BEF00A3BDDF /* BidItemCell.xib in Resources */,
 				04E65C8C18A257C0008FA65A /* bid_price_btn.png in Resources */,
 				04DFD449189D492A00A3BDDF /* round.png in Resources */,
+				BDE7BD8C18B10D0C00A82198 /* hotmsg_gray03.png in Resources */,
 				04F6E5CD189A8C630057BD72 /* tableitem2.png in Resources */,
+				BDE7BD8A18B10D0C00A82198 /* hotmsg_gray01.png in Resources */,
 				04F6E5CC189A8C630057BD72 /* tableitem1.png in Resources */,
 				04E65D0618A269B8008FA65A /* bchemMW.cer in Resources */,
 				04DFD441189D35B200A3BDDF /* button-3.png in Resources */,
@@ -924,6 +955,7 @@
 				04DFD411189B835A00A3BDDF /* bid_start_btn.png in Resources */,
 				04D5358518ABCD8400728B75 /* bid_delegate_bg.png in Resources */,
 				04DFD447189D491D00A3BDDF /* note_split_line.png in Resources */,
+				BDE7BD8B18B10D0C00A82198 /* hotmsg_gray02.png in Resources */,
 				04D5358318ABCD6200728B75 /* search.png in Resources */,
 				04DFD444189D35C900A3BDDF /* logo.png in Resources */,
 				04DFD400189B641B00A3BDDF /* tabitemtopsplit.png in Resources */,
@@ -932,6 +964,7 @@
 				04F6E5D2189A8C630057BD72 /* tableitemsel2.png in Resources */,
 				04F6E5CF189A8C630057BD72 /* tableitem4.png in Resources */,
 				04E65C84189FF31B008FA65A /* bid_confirm_bg.png in Resources */,
+				BDE7BD8D18B10D0C00A82198 /* hotmsg_gray04.png in Resources */,
 				04DFD442189D35B200A3BDDF /* button-5.png in Resources */,
 				04F6E5D0189A8C630057BD72 /* tableitemsel0.png in Resources */,
 				04DFD437189D355200A3BDDF /* back_home.png in Resources */,
@@ -983,6 +1016,7 @@
 				04E65CFB18A269B8008FA65A /* arrivalData.m in Sources */,
 				04DFD418189B94BF00A3BDDF /* BSTellBaseViewController.m in Sources */,
 				04D6AF9718AA7FA4002967C4 /* BaoCarNetBaseViewController.m in Sources */,
+				BDE7BD9218B10EE400A82198 /* InfoClassTableViewCell.m in Sources */,
 				04E65D2018A269B8008FA65A /* SBJsonWriter.m in Sources */,
 				04E65D0F18A269B8008FA65A /* jqPopSelectList.m in Sources */,
 				04E65C9A18A25C21008FA65A /* BidPrepareViewController.m in Sources */,

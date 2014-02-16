@@ -8,6 +8,6 @@
 
 #import "MarketMsgViewcontroller.h"
 
-@implementation MarketMsgViecontroller
+@implementation MarketMsgViewController
 
 @end

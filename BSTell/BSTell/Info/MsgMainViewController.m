@@ -43,7 +43,7 @@
     NSMutableArray *vcArray = [NSMutableArray array];
     
     for(int i = 0;i<[kNavViewControllerArray count];i++){
-        
+        NSLog(@"%@",NSStringFromClass(NSClassFromString(kNavViewControllerArray[i])));
         BSTellNetListBaseViewController *vcCtl = [[NSClassFromString(kNavViewControllerArray[i]) alloc]init];
         vcCtl.parentNav = self.navigationController;
         [vcArray addObject:vcCtl];
@@ -76,7 +76,7 @@
 -(NETopNavBar*)topNavBarForNavItemController:(BidBaseViewController*)controller{
     
     NSMutableArray *btnArray = [NSMutableArray array];
-    CGFloat currX = 40.f;
+    CGFloat currX = 10.f;
     UIButton *btn = [UIComUtil createButtonWithNormalBGImageName:nil withSelectedBGImageName:@"bid_caterlog_mask.png"  withTitle:@"热点关注" withTag:0];
     btn.titleLabel.font = [UIFont systemFontOfSize:14];
     [btn setTitleColor:HexRGB(153, 153, 153) forState:UIControlStateNormal];
@@ -87,7 +87,7 @@
     [btnArray addObject:btn];
     
     
-    currX = currX+80.f;
+    currX = 40+currX+70.f;
     btn = [UIComUtil createButtonWithNormalBGImageName:nil  withSelectedBGImageName:@"bid_caterlog_mask.png" withTitle:@"媒体聚焦" withTag:1];
     
     btn.frame = CGRectMake(currX, 10.f,btn.frame.size.width, btn.frame.size.height);
@@ -97,7 +97,7 @@
     
     [btnArray addObject:btn];
     
-    currX = currX+80.f;
+    currX = 40+currX+70.f;
     btn = [UIComUtil createButtonWithNormalBGImageName:nil  withSelectedBGImageName:@"bid_caterlog_mask.png" withTitle:@"媒体视角" withTag:2];
     
     btn.frame = CGRectMake(currX, 10.f,btn.frame.size.width, btn.frame.size.height);

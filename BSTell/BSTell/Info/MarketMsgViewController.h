@@ -8,6 +8,6 @@
 
 #import "BSTellNetListBaseViewController.h"
 
-@interface MarketMsgViecontroller : BSTellNetListBaseViewController
+@interface MarketMsgViewController : BSTellNetListBaseViewController
 
 @end
