@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "BSTellNetListBaseViewController.h"
 @interface BidStartedViewController : BSTellNetListBaseViewController
-@property(nonatomic,assign)UINavigationController *parentNav;
+
 @end

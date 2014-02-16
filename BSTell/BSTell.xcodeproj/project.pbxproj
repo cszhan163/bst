@@ -129,6 +129,10 @@
 		04F6E5EA189A8FD50057BD72 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5E9189A8FD50057BD72 /* SettingViewController.m */; };
 		04F6E5EB189A929E0057BD72 /* libZCSUIFrameWork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F6E59E189A87480057BD72 /* libZCSUIFrameWork.a */; };
 		04F6E5ED189A93AF0057BD72 /* tableitem0.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F6E5EC189A93AF0057BD72 /* tableitem0.png */; };
+		BDE7BD7B18B0D16800A82198 /* HotMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */; };
+		BDE7BD7C18B0D16800A82198 /* MarketMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7A18B0D16800A82198 /* MarketMsgViewController.m */; };
+		BDE7BD7F18B0D18400A82198 /* MediaMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7E18B0D18400A82198 /* MediaMsgViewController.m */; };
+		BDE7BD8218B0D1F200A82198 /* MsgMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD8118B0D1F200A82198 /* MsgMainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -344,6 +348,14 @@
 		04F6E5E8189A8FD50057BD72 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		04F6E5E9189A8FD50057BD72 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		04F6E5EC189A93AF0057BD72 /* tableitem0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableitem0.png; sourceTree = "<group>"; };
+		BDE7BD7718B0D16800A82198 /* HotMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotMsgViewController.h; sourceTree = "<group>"; };
+		BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotMsgViewController.m; sourceTree = "<group>"; };
+		BDE7BD7918B0D16800A82198 /* MarketMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketMsgViewController.h; sourceTree = "<group>"; };
+		BDE7BD7A18B0D16800A82198 /* MarketMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketMsgViewController.m; sourceTree = "<group>"; };
+		BDE7BD7D18B0D18400A82198 /* MediaMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaMsgViewController.h; sourceTree = "<group>"; };
+		BDE7BD7E18B0D18400A82198 /* MediaMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaMsgViewController.m; sourceTree = "<group>"; };
+		BDE7BD8018B0D1F200A82198 /* MsgMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgMainViewController.h; sourceTree = "<group>"; };
+		BDE7BD8118B0D1F200A82198 /* MsgMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgMainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -668,6 +680,7 @@
 		04F6E56A189A864D0057BD72 /* BSTell */ = {
 			isa = PBXGroup;
 			children = (
+				BDE7BD7618B0D16800A82198 /* Info */,
 				04E65D2418A27457008FA65A /* Network */,
 				04E65C9B18A269B8008FA65A /* BSTeelNet */,
 				04DFD44A189D7C9000A3BDDF /* Bid */,
@@ -769,6 +782,21 @@
 				04F6E5CB189A8C630057BD72 /* tableitemsel4.png */,
 			);
 			path = TAB;
+			sourceTree = "<group>";
+		};
+		BDE7BD7618B0D16800A82198 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				BDE7BD7718B0D16800A82198 /* HotMsgViewController.h */,
+				BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */,
+				BDE7BD7918B0D16800A82198 /* MarketMsgViewController.h */,
+				BDE7BD7A18B0D16800A82198 /* MarketMsgViewController.m */,
+				BDE7BD7D18B0D18400A82198 /* MediaMsgViewController.h */,
+				BDE7BD7E18B0D18400A82198 /* MediaMsgViewController.m */,
+				BDE7BD8018B0D1F200A82198 /* MsgMainViewController.h */,
+				BDE7BD8118B0D1F200A82198 /* MsgMainViewController.m */,
+			);
+			path = Info;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -933,6 +961,8 @@
 				04E65D1318A269B8008FA65A /* JQTabBar.m in Sources */,
 				0431107318A698A7008109F7 /* BidItemDetailViewController.m in Sources */,
 				04E65D0E18A269B8008FA65A /* JQNetworkHelper.m in Sources */,
+				BDE7BD7C18B0D16800A82198 /* MarketMsgViewController.m in Sources */,
+				BDE7BD8218B0D1F200A82198 /* MsgMainViewController.m in Sources */,
 				04DFD409189B6BEF00A3BDDF /* BidItemCell.m in Sources */,
 				04E65D0D18A269B8008FA65A /* jqLoading.m in Sources */,
 				04D6AF9918AA7FA4002967C4 /* NEMainTabBarController.m in Sources */,
@@ -942,6 +972,7 @@
 				04E65D1018A269B8008FA65A /* JQSHA256encode.m in Sources */,
 				04E65D1118A269B8008FA65A /* NSData+Gzip.m in Sources */,
 				04D6AF9818AA7FA4002967C4 /* CardShopBaseViewController.m in Sources */,
+				BDE7BD7F18B0D18400A82198 /* MediaMsgViewController.m in Sources */,
 				04DFD431189CEE5900A3BDDF /* NoteDetailViewController.m in Sources */,
 				04E65D1618A269B8008FA65A /* SBJsonParser.m in Sources */,
 				04E65D1718A269B8008FA65A /* SBJsonStreamParser.m in Sources */,
@@ -958,6 +989,7 @@
 				04F6E575189A864D0057BD72 /* AppDelegate.m in Sources */,
 				04DFD453189D7C9000A3BDDF /* BidMainViewController.m in Sources */,
 				04E65D0818A269B8008FA65A /* jqAlertCenter.m in Sources */,
+				BDE7BD7B18B0D16800A82198 /* HotMsgViewController.m in Sources */,
 				04E65D1D18A269B8008FA65A /* SBJsonStreamWriterState.m in Sources */,
 				04E65D0718A269B8008FA65A /* EGORefreshTableHeaderView.m in Sources */,
 				04F6E5E4189A8F2E0057BD72 /* MsgInfoViewController.m in Sources */,
