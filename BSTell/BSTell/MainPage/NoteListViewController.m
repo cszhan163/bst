@@ -34,7 +34,7 @@
     [super viewDidLoad];
     
     //UIImageView *sencodLevelBgView = [UIImageView alloc]initWithImage:<#(UIImage *)#>
-    
+    [self setHiddenLeftBtn:NO];
     self.secondClassLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:12.f] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(0.f, 0.f, kDeviceScreenWidth, 30.f)];
     self.secondClassLabel.backgroundColor = [UIColor blueColor];
     

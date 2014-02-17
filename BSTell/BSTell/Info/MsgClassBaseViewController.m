@@ -1,24 +1,32 @@
 //
-//  HotMsgViewController.m
+//  MsgClassBaseViewController.m
 //  BSTell
 //
-//  Created by cszhan on 14-2-16.
+//  Created by cszhan on 14-2-17.
 //  Copyright (c) 2014年 cszhan. All rights reserved.
 //
 
-#import "HotMsgViewController.h"
+#import "MsgClassBaseViewController.h"
 #import "InfoClassTableViewCell.h"
 #import "NoteListViewController.h"
 
-@implementation HotMsgViewController
+@implementation MsgClassBaseViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self setHiddenLeftBtn:YES];
-    mainView.topBarView.backgroundColor = [UIColor clearColor];
+    if(self.classLevel == 0)
+        [self setHiddenLeftBtn:YES];
+    if(self.topBarColor == nil)
+        mainView.topBarView.backgroundColor = [UIColor clearColor];
+    else
+        mainView.topBarView.backgroundColor = self.topBarColor;
     tweetieTableView.normalEdgeInset = UIEdgeInsetsMake(15.f, 0.f, 0.f, 0.f);
+}
+- (void)setTopBarViewBackGroundColor:(UIColor*)color{
+    
+    self.topBarColor = color;
 }
 #pragma mark -
 #pragma mark tableview
@@ -51,7 +59,7 @@
         cell.clipsToBounds = YES;
         
     }
-    NSString *imageFileName = [NSString stringWithFormat:@"hotmsg_gray%02d.png",indexPath.row+1];
+    NSString *imageFileName = [NSString stringWithFormat:@"button_gray%02d.png",indexPath.row+1];
     UIImageWithFileName(UIImage *image,imageFileName);
     assert(image);
     cell.classImageView.image = image;
@@ -90,5 +98,14 @@
     SafeRelease(vc);
     
 }
-
+-(void)didNetDataOK:(NSNotification*)ntf
+{
+    
+    
+    
+    id obj = [ntf object];
+    id respRequest = [obj objectForKey:@"request"];
+    id data = [obj objectForKey:@"data"];
+   
+}
 @end

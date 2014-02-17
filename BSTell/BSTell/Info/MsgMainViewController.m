@@ -11,6 +11,30 @@
 
 #define kNavViewControllerArray  @[@"HotMsgViewController",@"MarketMsgViewController",@"MediaMsgViewController"]
 
+
+
+#define  kMarketClassTitleArray \
+@[@"煤焦油产业链专区",\
+@"工业萘产业链专区",\
+@"芳烃产业链专区",\
+@"纯苯下游专区"]
+
+#define kHotClassTitleArray  \
+@[@"交易快报",\
+@"行业焦点",\
+@"分析指南",\
+@"报告"]
+
+#define kMeidaClassTitleArray \
+@[@"行业资讯",\
+@"财经资讯",\
+@"新浪财经",\
+@"华尔街见闻"]
+
+
+
+#define kTopLevelTitleArray @[kHotClassTitleArray,kMarketClassTitleArray,kMeidaClassTitleArray]
+
 @interface MsgMainViewController ()
 
 @end
@@ -46,6 +70,7 @@
         NSLog(@"%@",NSStringFromClass(NSClassFromString(kNavViewControllerArray[i])));
         BSTellNetListBaseViewController *vcCtl = [[NSClassFromString(kNavViewControllerArray[i]) alloc]init];
         vcCtl.parentNav = self.navigationController;
+        vcCtl.dataArray = kTopLevelTitleArray[i];
         [vcArray addObject:vcCtl];
         SafeRelease(vcCtl);
     }
@@ -92,9 +117,10 @@
     
     btn.frame = CGRectMake(currX, 10.f,btn.frame.size.width, btn.frame.size.height);
     btn.titleLabel.font = [UIFont systemFontOfSize:14];
+    /*
     [btn setTitleColor:HexRGB(153, 153, 153) forState:UIControlStateNormal];
     [btn setTitleColor:HexRGB(231, 234, 236) forState:UIControlStateSelected];
-    
+     */
     [btnArray addObject:btn];
     
     currX = 40+currX+70.f;
@@ -102,9 +128,10 @@
     
     btn.frame = CGRectMake(currX, 10.f,btn.frame.size.width, btn.frame.size.height);
     btn.titleLabel.font = [UIFont systemFontOfSize:14];
+    /*
     [btn setTitleColor:HexRGB(153, 153, 153) forState:UIControlStateNormal];
     [btn setTitleColor:HexRGB(231, 234, 236) forState:UIControlStateSelected];
-    
+    */
     [btnArray addObject:btn];
 
     
@@ -121,7 +148,7 @@
      [btnArray addObject:btn];
      */
     NETopNavBar *topNavBar = [[NETopNavBar alloc]initWithFrame:CGRectMake(0.f, 0.f,320.f,40)withBgImage:nil withBtnArray:btnArray selIndex:0];
-    topNavBar.backgroundColor = [UIColor blueColor];
+    topNavBar.backgroundColor = HexRGB(190, 221, 238);
     //topNavBar.delegate = self;
     return topNavBar;
 }
