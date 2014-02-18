@@ -20,6 +20,7 @@
     if (self) {
         // Custom initialization
         self.dataArray = [NSMutableArray array];
+        self.userId = @"";
     }
     return self;
 }

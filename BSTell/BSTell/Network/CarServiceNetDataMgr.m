@@ -514,7 +514,11 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
 
 }
 - (void)getOrderListOk:(NSString*)result{
+    id data = [result JSONValue];
     
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kCarUserOrderList];
 }
 - (void)getOrderListFailed:(NSString*)error{
     
@@ -529,7 +533,11 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
     
 }
 - (void)getOrderDetailOk:(NSString*)result{
-
+    id data = [result JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kCarUserOrderDetail];
 }
 - (void)getOrderDetailFailed:(NSString*)error{
     

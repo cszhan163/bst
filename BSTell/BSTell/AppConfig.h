@@ -119,6 +119,7 @@
 #define kCarUserInfo              @"getAccountInfo"
 #define kCarUserOrderList                @"getOrderList"
 
+#define kCarUserOrderDetail             @"getOrderDetail"
 
 #define kCarUserUpdatePhone             @"updateUserPhoneNumber"
 #define kCarBrandQuery                  @"queryVehcileBrand"

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04255BB418B3AE580006F9E0 /* split_line.png in Resources */ = {isa = PBXBuildFile; fileRef = 04255BB318B3AE580006F9E0 /* split_line.png */; };
+		04255BB918B3B12B0006F9E0 /* info_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 04255BB818B3B12B0006F9E0 /* info_btn.png */; };
+		04255BBB18B3B6F80006F9E0 /* info_order_cell_bg_all.png in Resources */ = {isa = PBXBuildFile; fileRef = 04255BBA18B3B6F80006F9E0 /* info_order_cell_bg_all.png */; };
+		04255BBD18B3B7380006F9E0 /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04255BBC18B3B7380006F9E0 /* OrderTableViewCell.xib */; };
+		04255BC018B3B7EF0006F9E0 /* OrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04255BBF18B3B7EF0006F9E0 /* OrderTableViewCell.m */; };
+		04255BC318B3BB440006F9E0 /* OrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04255BC218B3BB440006F9E0 /* OrderListViewController.m */; };
+		04255BC618B3BC720006F9E0 /* OrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04255BC518B3BC720006F9E0 /* OrderDetailViewController.m */; };
 		042FE0BD189B4626004B26F3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FE0BC189B4626004B26F3 /* CFNetwork.framework */; };
 		042FE0BF189B462D004B26F3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FE0BE189B462D004B26F3 /* AudioToolbox.framework */; };
 		042FE0C1189B465F004B26F3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FE0C0189B465F004B26F3 /* SystemConfiguration.framework */; };
@@ -169,6 +176,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04255BB318B3AE580006F9E0 /* split_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = split_line.png; sourceTree = "<group>"; };
+		04255BB818B3B12B0006F9E0 /* info_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_btn.png; sourceTree = "<group>"; };
+		04255BBA18B3B6F80006F9E0 /* info_order_cell_bg_all.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_order_cell_bg_all.png; sourceTree = "<group>"; };
+		04255BBC18B3B7380006F9E0 /* OrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
+		04255BBE18B3B7EF0006F9E0 /* OrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTableViewCell.h; sourceTree = "<group>"; };
+		04255BBF18B3B7EF0006F9E0 /* OrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTableViewCell.m; sourceTree = "<group>"; };
+		04255BC118B3BB440006F9E0 /* OrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListViewController.h; sourceTree = "<group>"; };
+		04255BC218B3BB440006F9E0 /* OrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListViewController.m; sourceTree = "<group>"; };
+		04255BC418B3BC720006F9E0 /* OrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailViewController.h; sourceTree = "<group>"; };
+		04255BC518B3BC720006F9E0 /* OrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailViewController.m; sourceTree = "<group>"; };
 		042FE0BC189B4626004B26F3 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		042FE0BE189B462D004B26F3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		042FE0C0189B465F004B26F3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -472,6 +489,9 @@
 				0431107518A69A1C008109F7 /* LeftTitleListCell.m */,
 				BDE7BD9018B10EE400A82198 /* InfoClassTableViewCell.h */,
 				BDE7BD9118B10EE400A82198 /* InfoClassTableViewCell.m */,
+				04255BBC18B3B7380006F9E0 /* OrderTableViewCell.xib */,
+				04255BBE18B3B7EF0006F9E0 /* OrderTableViewCell.h */,
+				04255BBF18B3B7EF0006F9E0 /* OrderTableViewCell.m */,
 			);
 			path = CellView;
 			sourceTree = "<group>";
@@ -789,6 +809,8 @@
 		04F6E5C1189A8C620057BD72 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				04255BB818B3B12B0006F9E0 /* info_btn.png */,
+				04255BB318B3AE580006F9E0 /* split_line.png */,
 				04F854E918B25CFB0026BCA4 /* infoclass */,
 				BDE7BD8418B10CBE00A82198 /* info */,
 				04D5358618ABCDA600728B75 /* me */,
@@ -853,6 +875,10 @@
 				04F854D618B25BC00026BCA4 /* MsgClassBaseViewController.m */,
 				04F854EA18B266820026BCA4 /* MsgClassLevel2ViewController.h */,
 				04F854EB18B266820026BCA4 /* MsgClassLevel2ViewController.m */,
+				04255BC118B3BB440006F9E0 /* OrderListViewController.h */,
+				04255BC218B3BB440006F9E0 /* OrderListViewController.m */,
+				04255BC418B3BC720006F9E0 /* OrderDetailViewController.h */,
+				04255BC518B3BC720006F9E0 /* OrderDetailViewController.m */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -860,6 +886,7 @@
 		BDE7BD8418B10CBE00A82198 /* info */ = {
 			isa = PBXGroup;
 			children = (
+				04255BBA18B3B6F80006F9E0 /* info_order_cell_bg_all.png */,
 				BDE7BD8E18B10DC300A82198 /* hotmsg_cell_bg.png */,
 				BDE7BD8618B10D0C00A82198 /* hotmsg_gray01.png */,
 				BDE7BD8718B10D0C00A82198 /* hotmsg_gray02.png */,
@@ -967,9 +994,11 @@
 				04E65C80189FF151008FA65A /* bid_btn.png in Resources */,
 				BDE7BD8F18B10DC300A82198 /* hotmsg_cell_bg.png in Resources */,
 				04E65C8818A099AB008FA65A /* note_detail_header_bg.png in Resources */,
+				04255BB918B3B12B0006F9E0 /* info_btn.png in Resources */,
 				04F6E57D189A864D0057BD72 /* Images.xcassets in Resources */,
 				04E65C82189FF260008FA65A /* bid_confirm_btn.png in Resources */,
 				04DFD40A189B6BEF00A3BDDF /* BidItemCell.xib in Resources */,
+				04255BBD18B3B7380006F9E0 /* OrderTableViewCell.xib in Resources */,
 				04F854E718B25CF40026BCA4 /* button_gray07.png in Resources */,
 				04E65C8C18A257C0008FA65A /* bid_price_btn.png in Resources */,
 				04DFD449189D492A00A3BDDF /* round.png in Resources */,
@@ -979,6 +1008,7 @@
 				04F6E5CD189A8C630057BD72 /* tableitem2.png in Resources */,
 				BDE7BD8A18B10D0C00A82198 /* hotmsg_gray01.png in Resources */,
 				04F6E5CC189A8C630057BD72 /* tableitem1.png in Resources */,
+				04255BB418B3AE580006F9E0 /* split_line.png in Resources */,
 				04E65D0618A269B8008FA65A /* bchemMW.cer in Resources */,
 				04DFD441189D35B200A3BDDF /* button-3.png in Resources */,
 				04DFD456189D7D7B00A3BDDF /* bid_detail_header.png in Resources */,
@@ -998,6 +1028,7 @@
 				04F6E56F189A864D0057BD72 /* InfoPlist.strings in Resources */,
 				04F6E5D3189A8C630057BD72 /* tableitemsel3.png in Resources */,
 				04E65D2318A269B8008FA65A /* udid.plist in Resources */,
+				04255BBB18B3B6F80006F9E0 /* info_order_cell_bg_all.png in Resources */,
 				0431106C18A6941A008109F7 /* bid_started_cell_bg.png in Resources */,
 				04DFD43F189D35B200A3BDDF /* button-2.png in Resources */,
 				04DFD411189B835A00A3BDDF /* bid_start_btn.png in Resources */,
@@ -1058,7 +1089,9 @@
 				04D6AF9818AA7FA4002967C4 /* CardShopBaseViewController.m in Sources */,
 				BDE7BD7F18B0D18400A82198 /* MediaMsgViewController.m in Sources */,
 				04DFD431189CEE5900A3BDDF /* NoteDetailViewController.m in Sources */,
+				04255BC018B3B7EF0006F9E0 /* OrderTableViewCell.m in Sources */,
 				04E65D1618A269B8008FA65A /* SBJsonParser.m in Sources */,
+				04255BC318B3BB440006F9E0 /* OrderListViewController.m in Sources */,
 				04E65D1718A269B8008FA65A /* SBJsonStreamParser.m in Sources */,
 				04E65D1B18A269B8008FA65A /* SBJsonStreamWriter.m in Sources */,
 				04DFD405189B6BC300A3BDDF /* UICarTableViewCell.m in Sources */,
@@ -1106,6 +1139,7 @@
 				04D6AF9A18AA7FA4002967C4 /* NTESMBMainMenuController.m in Sources */,
 				04E65D0918A269B8008FA65A /* JQConnect_bsteelPay.m in Sources */,
 				04E65D2118A269B8008FA65A /* KeychainItemWrapper.m in Sources */,
+				04255BC618B3BC720006F9E0 /* OrderDetailViewController.m in Sources */,
 				04E65D2718A27457008FA65A /* CarServiceNetDataMgr.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
