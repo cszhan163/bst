@@ -6,8 +6,8 @@
 //  Copyright (c) 2014年 cszhan. All rights reserved.
 //
 
-#import "BSTellNetListBaseViewController.h"
+#import "MsgClassBaseViewController.h"
 
-@interface HotMsgViewController : BSTellNetListBaseViewController
+@interface HotMsgViewController : MsgClassBaseViewController
 
 @end

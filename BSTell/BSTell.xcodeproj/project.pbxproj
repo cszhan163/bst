@@ -129,6 +129,16 @@
 		04F6E5EA189A8FD50057BD72 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5E9189A8FD50057BD72 /* SettingViewController.m */; };
 		04F6E5EB189A929E0057BD72 /* libZCSUIFrameWork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F6E59E189A87480057BD72 /* libZCSUIFrameWork.a */; };
 		04F6E5ED189A93AF0057BD72 /* tableitem0.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F6E5EC189A93AF0057BD72 /* tableitem0.png */; };
+		04F854D718B25BC00026BCA4 /* MsgClassBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F854D618B25BC00026BCA4 /* MsgClassBaseViewController.m */; };
+		04F854E118B25CF40026BCA4 /* button_gray01.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F854D918B25CF40026BCA4 /* button_gray01.png */; };
+		04F854E218B25CF40026BCA4 /* button_gray02.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F854DA18B25CF40026BCA4 /* button_gray02.png */; };
+		04F854E318B25CF40026BCA4 /* button_gray03.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F854DB18B25CF40026BCA4 /* button_gray03.png */; };
+		04F854E418B25CF40026BCA4 /* button_gray04.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F854DC18B25CF40026BCA4 /* button_gray04.png */; };
+		04F854E518B25CF40026BCA4 /* button_gray05.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F854DD18B25CF40026BCA4 /* button_gray05.png */; };
+		04F854E618B25CF40026BCA4 /* button_gray06.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F854DE18B25CF40026BCA4 /* button_gray06.png */; };
+		04F854E718B25CF40026BCA4 /* button_gray07.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F854DF18B25CF40026BCA4 /* button_gray07.png */; };
+		04F854E818B25CF40026BCA4 /* button_gray08.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F854E018B25CF40026BCA4 /* button_gray08.png */; };
+		04F854EC18B266820026BCA4 /* MsgClassLevel2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F854EB18B266820026BCA4 /* MsgClassLevel2ViewController.m */; };
 		BDE7BD7B18B0D16800A82198 /* HotMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */; };
 		BDE7BD7C18B0D16800A82198 /* MarketMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7A18B0D16800A82198 /* MarketMsgViewController.m */; };
 		BDE7BD7F18B0D18400A82198 /* MediaMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7E18B0D18400A82198 /* MediaMsgViewController.m */; };
@@ -354,6 +364,18 @@
 		04F6E5E8189A8FD50057BD72 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		04F6E5E9189A8FD50057BD72 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		04F6E5EC189A93AF0057BD72 /* tableitem0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableitem0.png; sourceTree = "<group>"; };
+		04F854D518B25BC00026BCA4 /* MsgClassBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgClassBaseViewController.h; sourceTree = "<group>"; };
+		04F854D618B25BC00026BCA4 /* MsgClassBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgClassBaseViewController.m; sourceTree = "<group>"; };
+		04F854D918B25CF40026BCA4 /* button_gray01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_gray01.png; sourceTree = "<group>"; };
+		04F854DA18B25CF40026BCA4 /* button_gray02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_gray02.png; sourceTree = "<group>"; };
+		04F854DB18B25CF40026BCA4 /* button_gray03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_gray03.png; sourceTree = "<group>"; };
+		04F854DC18B25CF40026BCA4 /* button_gray04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_gray04.png; sourceTree = "<group>"; };
+		04F854DD18B25CF40026BCA4 /* button_gray05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_gray05.png; sourceTree = "<group>"; };
+		04F854DE18B25CF40026BCA4 /* button_gray06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_gray06.png; sourceTree = "<group>"; };
+		04F854DF18B25CF40026BCA4 /* button_gray07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_gray07.png; sourceTree = "<group>"; };
+		04F854E018B25CF40026BCA4 /* button_gray08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_gray08.png; sourceTree = "<group>"; };
+		04F854EA18B266820026BCA4 /* MsgClassLevel2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgClassLevel2ViewController.h; sourceTree = "<group>"; };
+		04F854EB18B266820026BCA4 /* MsgClassLevel2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgClassLevel2ViewController.m; sourceTree = "<group>"; };
 		BDE7BD7718B0D16800A82198 /* HotMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotMsgViewController.h; sourceTree = "<group>"; };
 		BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotMsgViewController.m; sourceTree = "<group>"; };
 		BDE7BD7918B0D16800A82198 /* MarketMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketMsgViewController.h; sourceTree = "<group>"; };
@@ -767,6 +789,7 @@
 		04F6E5C1189A8C620057BD72 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				04F854E918B25CFB0026BCA4 /* infoclass */,
 				BDE7BD8418B10CBE00A82198 /* info */,
 				04D5358618ABCDA600728B75 /* me */,
 				04D5358218ABCD6200728B75 /* search.png */,
@@ -800,6 +823,21 @@
 			path = TAB;
 			sourceTree = "<group>";
 		};
+		04F854E918B25CFB0026BCA4 /* infoclass */ = {
+			isa = PBXGroup;
+			children = (
+				04F854D918B25CF40026BCA4 /* button_gray01.png */,
+				04F854DA18B25CF40026BCA4 /* button_gray02.png */,
+				04F854DB18B25CF40026BCA4 /* button_gray03.png */,
+				04F854DC18B25CF40026BCA4 /* button_gray04.png */,
+				04F854DD18B25CF40026BCA4 /* button_gray05.png */,
+				04F854DE18B25CF40026BCA4 /* button_gray06.png */,
+				04F854DF18B25CF40026BCA4 /* button_gray07.png */,
+				04F854E018B25CF40026BCA4 /* button_gray08.png */,
+			);
+			name = infoclass;
+			sourceTree = "<group>";
+		};
 		BDE7BD7618B0D16800A82198 /* Info */ = {
 			isa = PBXGroup;
 			children = (
@@ -811,6 +849,10 @@
 				BDE7BD7E18B0D18400A82198 /* MediaMsgViewController.m */,
 				BDE7BD8018B0D1F200A82198 /* MsgMainViewController.h */,
 				BDE7BD8118B0D1F200A82198 /* MsgMainViewController.m */,
+				04F854D518B25BC00026BCA4 /* MsgClassBaseViewController.h */,
+				04F854D618B25BC00026BCA4 /* MsgClassBaseViewController.m */,
+				04F854EA18B266820026BCA4 /* MsgClassLevel2ViewController.h */,
+				04F854EB18B266820026BCA4 /* MsgClassLevel2ViewController.m */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -928,8 +970,11 @@
 				04F6E57D189A864D0057BD72 /* Images.xcassets in Resources */,
 				04E65C82189FF260008FA65A /* bid_confirm_btn.png in Resources */,
 				04DFD40A189B6BEF00A3BDDF /* BidItemCell.xib in Resources */,
+				04F854E718B25CF40026BCA4 /* button_gray07.png in Resources */,
 				04E65C8C18A257C0008FA65A /* bid_price_btn.png in Resources */,
 				04DFD449189D492A00A3BDDF /* round.png in Resources */,
+				04F854E418B25CF40026BCA4 /* button_gray04.png in Resources */,
+				04F854E618B25CF40026BCA4 /* button_gray06.png in Resources */,
 				BDE7BD8C18B10D0C00A82198 /* hotmsg_gray03.png in Resources */,
 				04F6E5CD189A8C630057BD72 /* tableitem2.png in Resources */,
 				BDE7BD8A18B10D0C00A82198 /* hotmsg_gray01.png in Resources */,
@@ -946,6 +991,9 @@
 				04E65C8B18A257C0008FA65A /* bid_caterlog_mask.png in Resources */,
 				04D5358A18ABCDE500728B75 /* myinfo_btn.png in Resources */,
 				04DFD415189B944E00A3BDDF /* btn-back.png in Resources */,
+				04F854E818B25CF40026BCA4 /* button_gray08.png in Resources */,
+				04F854E218B25CF40026BCA4 /* button_gray02.png in Resources */,
+				04F854E118B25CF40026BCA4 /* button_gray01.png in Resources */,
 				04F6E5D1189A8C630057BD72 /* tableitemsel1.png in Resources */,
 				04F6E56F189A864D0057BD72 /* InfoPlist.strings in Resources */,
 				04F6E5D3189A8C630057BD72 /* tableitemsel3.png in Resources */,
@@ -961,11 +1009,13 @@
 				04DFD400189B641B00A3BDDF /* tabitemtopsplit.png in Resources */,
 				04F6E5ED189A93AF0057BD72 /* tableitem0.png in Resources */,
 				04F6E5D4189A8C630057BD72 /* tableitemsel4.png in Resources */,
+				04F854E518B25CF40026BCA4 /* button_gray05.png in Resources */,
 				04F6E5D2189A8C630057BD72 /* tableitemsel2.png in Resources */,
 				04F6E5CF189A8C630057BD72 /* tableitem4.png in Resources */,
 				04E65C84189FF31B008FA65A /* bid_confirm_bg.png in Resources */,
 				BDE7BD8D18B10D0C00A82198 /* hotmsg_gray04.png in Resources */,
 				04DFD442189D35B200A3BDDF /* button-5.png in Resources */,
+				04F854E318B25CF40026BCA4 /* button_gray03.png in Resources */,
 				04F6E5D0189A8C630057BD72 /* tableitemsel0.png in Resources */,
 				04DFD437189D355200A3BDDF /* back_home.png in Resources */,
 			);
@@ -1000,6 +1050,7 @@
 				04E65D0D18A269B8008FA65A /* jqLoading.m in Sources */,
 				04D6AF9918AA7FA4002967C4 /* NEMainTabBarController.m in Sources */,
 				04E65D1E18A269B8008FA65A /* SBJsonTokeniser.m in Sources */,
+				04F854D718B25BC00026BCA4 /* MsgClassBaseViewController.m in Sources */,
 				04E65D0418A269B8008FA65A /* global.m in Sources */,
 				04D6AF9618AA7FA4002967C4 /* AppMainUIViewMangae.m in Sources */,
 				04E65D1018A269B8008FA65A /* JQSHA256encode.m in Sources */,
@@ -1048,6 +1099,7 @@
 				04F6E5EA189A8FD50057BD72 /* SettingViewController.m in Sources */,
 				04E65D1F18A269B8008FA65A /* SBJsonUTF8Stream.m in Sources */,
 				04DFD432189CEE5900A3BDDF /* NoteListViewController.m in Sources */,
+				04F854EC18B266820026BCA4 /* MsgClassLevel2ViewController.m in Sources */,
 				04DFD461189D8D1700A3BDDF /* BidDetailTableViewCell.m in Sources */,
 				04E65D0A18A269B8008FA65A /* jqDrawUnlock.m in Sources */,
 				04E65D1C18A269B8008FA65A /* SBJsonStreamWriterAccumulator.m in Sources */,
