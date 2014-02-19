@@ -43,7 +43,13 @@
     mainView.backgroundColor = HexRGB(239, 239, 241);
     self.delegate = self;
 }
-
+- (void)setTopNavBarHidden:(BOOL)status{
+    if(status){
+        mainView.topBarView.backgroundColor = [UIColor clearColor];
+        [self setHiddenLeftBtn:YES];
+        [self setHiddenRightBtn:YES];
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -53,5 +59,21 @@
 {
     [super shouldLoadOlderData:tweetieTableView];
     //[self startShowLoadingView];
+}
+-(void)didNetDataOK:(NSNotification*)ntf
+{
+    
+    //[super didNetDataOK:ntf];
+    isRefreshing = NO;
+    currentPageNum = currentPageNum+1;
+    if (self.reflushType == Reflush_OLDE)
+    {
+        [tweetieTableView closeBottomView];
+    }
+    else
+    {
+        [tweetieTableView closeInfoView];
+    }
+    
 }
 @end

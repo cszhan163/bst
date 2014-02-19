@@ -70,14 +70,82 @@
             [self addSubview:itemLabel];
             SafeRelease(itemLabel);
             [self.mCellItemArray addObject:itemLabel];
-            
-             currY = currY+13.f;
+            currY = currY+13.f;
         }
         
     }
     return self;
 }
 
+- (id)initWithFrame:(CGRect)frame withTitleArray:(NSArray*)titleArray withTitleAttributeArray:(NSArray*)titleAtrArray withValueAttributeArray:(NSArray*)valueAtrArray withHeightArray:(NSArray*)heightArray
+{
+    
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Initialization code
+        self.frame = frame;
+        self.clipsToBounds = YES;
+        if(kDeviceCheckIphone5){
+            //currY = 5.f;
+        }
+        [self initWithTitleArray:titleAtrArray withTitleAttributeArray:titleAtrArray withValueAttributeArray:valueAtrArray withHeightArray:heightArray];
+        
+    }
+    return self;
+}
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withTitleArray:(NSArray*)titleArray withTitleAttributeArray:(NSArray*)titleAtrArray withValueAttributeArray:(NSArray*)valueAtrArray withHeightArray:(NSArray*)heightArray{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        [self initWithTitleArray:titleArray withTitleAttributeArray:titleAtrArray withValueAttributeArray:valueAtrArray withHeightArray:heightArray];
+    }
+    return self;
+
+}
+#define kItemPendingX 80
+- (void)initWithTitleArray:(NSArray*)titleArray withTitleAttributeArray:(NSArray*)titleAtrArray withValueAttributeArray:(NSArray*)valueAtrArray withHeightArray:(NSArray*)heightArray{
+
+    // Initialization code
+ 
+    self.clipsToBounds = YES;
+    if(kDeviceCheckIphone5){
+        //currY = 5.f;
+    }
+    
+    [self setRowLineHidden:YES];
+    [self setClounmLineHidden:YES];
+    CGFloat currX = 20.f;
+    CGFloat currY = 10.f;
+    int columCount = [titleArray count];
+    for(int i = 0;i<columCount;i++)
+    {
+        NSDictionary *titleDict = titleAtrArray[i];
+        float  height = [heightArray[i]floatValue];
+        UILabel *itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX,currY,kItemPendingX,height)];
+        itemLabel.font = [titleDict objectForKey:@"font"];
+        itemLabel.textColor = [titleDict objectForKey:@"color"];
+        itemLabel.backgroundColor = [UIColor clearColor];
+        //itemLabel.textAlignment = NSTextAlignmentCenter;
+        itemLabel.text = titleArray[i];
+        
+        
+        NSDictionary *valueDict = titleAtrArray[i];
+        
+        [self addSubview:itemLabel];
+        SafeRelease(itemLabel);
+        
+        itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX+kItemPendingX,currY,100,height)];
+        itemLabel.font = [valueDict objectForKey:@"font"];
+        itemLabel.textColor = [valueDict objectForKey:@"color"];
+        itemLabel.backgroundColor = [UIColor clearColor];
+        //itemLabel.textAlignment = NSTextAlignmentCenter;
+        itemLabel.text = @"";
+        [self addSubview:itemLabel];
+        SafeRelease(itemLabel);
+        [self.mCellItemArray addObject:itemLabel];
+        currY = currY+height;
+    }
+
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -90,5 +158,13 @@
     UILabel *textLabel =  self.mCellItemArray[row];
     textLabel.text = value;
     return YES;
+}
+- (BOOL)setCellItemValue:(NSString*)value withRow:(NSInteger)row withCol:(NSInteger)col{
+    /*
+    UILabel *textLabel =  self.mCellItemArray[row];
+    textLabel.text = value;
+    return YES;
+    */
+    return [self setCellItemValue:value withRow:col ];// withCol:<#(NSInteger)#>]
 }
 @end

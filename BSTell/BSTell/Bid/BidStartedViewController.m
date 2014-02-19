@@ -11,7 +11,21 @@
 
 #import "BidItemDetailViewController.h"
 
+#import "BidDetailTableViewCell_V2.h"
+
 #define kHeaderColounmItemWidthArray @[@80.f,@80.f,@80.f]
+
+#define kCellTitleColorArray @[[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor]]
+
+#define kCellTitleFontArray  @[[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:16],[UIFont systemFontOfSize:16],[UIFont systemFontOfSize:14]]
+
+
+#define kCellValueColorArray @[[UIColor blackColor],[UIColor blueColor],[UIColor greenColor],[UIColor redColor]]
+
+#define kCellValueFontArray  @[[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:16],[UIFont systemFontOfSize:16],[UIFont systemFontOfSize:14]]
+
+
+#define kCellItemHeightArray @[@20.f,@25.f,@25.f,@20.f]
 
 @implementation BidStartedViewController
 
@@ -27,6 +41,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   
+    [self setTopNavBarHidden:YES];
+    CGRect rect =  tweetieTableView.frame;
+    tweetieTableView.frame = CGRectMake(rect.origin.x, rect.origin.y, kDeviceScreenWidth, rect.size.height-43.f);
 	// Do any additional setup after loading the view.
 }
 
@@ -48,7 +66,7 @@
 	static NSString *CellIdentifier = @"Cell";
     
     
-    BidStartedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    LeftTitleListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
         
@@ -59,12 +77,46 @@
             if ([oneObject isKindOfClass:[BidItemCell class]])
                 cell = (BidItemCell*)oneObject;
 #else
-        cell = [[BidStartedTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-#endif
+        NSMutableArray *titleArray = [NSMutableArray array];
         
+       NSMutableArray *valueArray = [NSMutableArray array];
+        for (int i = 0; i<4; i++) {
+             NSMutableDictionary *itemDict = [NSMutableDictionary dictionary];
+            [itemDict setObject:kCellTitleColorArray[i] forKey:@"color"];
+            [itemDict setObject:kCellTitleFontArray[i] forKey:@"font"];
+            [titleArray addObject:itemDict];
+        }
+        
+        for (int i = 0; i<4; i++) {
+            NSMutableDictionary *itemDict = [NSMutableDictionary dictionary];
+            [itemDict setObject:kCellValueColorArray[i] forKey:@"color"];
+            [itemDict setObject:kCellValueFontArray[i] forKey:@"font"];
+            [valueArray addObject:itemDict];
+        }
+        
+        cell = [[BidDetailTableViewCell_V2 alloc]
+                initWithStyle:UITableViewCellStyleDefault
+                reuseIdentifier:CellIdentifier
+                withTitleArray:@[
+                                 @"场次",
+                                 @"品名",
+                                 @"当前价",
+                                 @"结束时间"
+                                 ]
+                withTitleAttributeArray:titleArray
+                withValueAttributeArray:valueArray
+                withHeightArray:kCellItemHeightArray];
+        [cell setActionTarget:self withSelecotr:@selector(bidConfirmAlert:)];
+        
+#endif
+#if 0
          [cell addColumWithKeyTitleArray:@[@"场次",@"物资号",@"当前价"] withColumWidthArray:kHeaderColounmItemWidthArray];
          
          [cell addColumWithKeyTitleArray:@[@"结束时间",@"竞价梯度",@"我的出价"] withColumWidthArray:kHeaderColounmItemWidthArray];
+#else
+        
+        
+#endif
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = [UIColor clearColor];
@@ -94,6 +146,7 @@
     //[cell setCellItemValue:value withIndex:index++];
     [cell setCellItemValue:value withRow:row withCol:index++];
     //
+#if 0
     value = [item objectForKey:@"id"];
    [cell setCellItemValue:value withRow:row withCol:index++];
     
@@ -117,14 +170,30 @@
     value = [item objectForKey:@"myPrice"];
    
     [cell setCellItemValue:value withRow:row withCol:index++];
+#else
     
+    
+    
+    value = [item objectForKey:@"goodName"];
+    [cell setCellItemValue:value withRow:row withCol:index++];
+    
+    //sell company
+    value = [item objectForKey:@"dqj"];
+    
+    [cell setCellItemValue:value withRow:row withCol:index++];
+    //sell company
+    value = [item objectForKey:@"jssj"];
+    
+    [cell setCellItemValue:value withRow:row withCol:index++];
+    
+#endif
     //time
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    return 125.f;
+    return 106.f;//125.f;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -229,5 +298,20 @@
     
     
     
+}
+#pragma mark -
+#pragma mark -button action
+
+- (void)bidConfirmAlert:(id)sender{
+    int i = [sender tag];
+    NSDictionary *item = self.dataArray[i];
+    NSString *sessionId = [item objectForKey:@"wtmc"];
+    NSString *goodName = [item objectForKey:@"goodName"];
+    NSString *price = [item objectForKey:@"dqj"];
+    
+    NSString *msg = [NSString stringWithFormat:@"请确认是否对下列物资出价\n 场次:%@ \n 品名:%@ \n 出价:%0.2f",sessionId,goodName,[price floatValue]];
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"出价确认" message:msg delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
+    [alertView show];
+    SafeAutoRelease(alertView);
 }
 @end

@@ -57,11 +57,13 @@
     confirmTextBgView.image = image;
     confirmTextBgView.userInteractionEnabled = YES;
     [self.view addSubview:confirmTextBgView];
+    
     SafeRelease(confirmTextBgView);
     //
     contentTextView = [[UITextView alloc]initWithFrame:CGRectMake(kLeftPendingX,kLeftPendingX-10.f,kDeviceScreenWidth-2*kLeftPendingX-20, 250.f)];
     contentTextView.font = [UIFont systemFontOfSize:10];
     contentTextView.editable = NO;
+    contentTextView.backgroundColor = [UIColor clearColor];
     //contentTextView.scrollEnabled = YES;
     [confirmTextBgView addSubview:contentTextView];
     SafeRelease(contentTextView);

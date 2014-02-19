@@ -155,8 +155,8 @@
     
     CGSize btnsize= oilAnalaysisBtn.frame.size;
     //currY = 10.f;
-    currY = currY+50.f;
-     oilAnalaysisBtn.frame = CGRectMake(10.f,currY,btnsize.width,btnsize.height);
+    currY = currY+40.f;
+     oilAnalaysisBtn.frame = CGRectMake((kDeviceScreenWidth-btnsize.width)/2.f,currY,btnsize.width,btnsize.height);
     [oilAnalaysisBtn addTarget:self action:@selector(logOutConfirm:) forControlEvents:UIControlEventTouchUpInside];
     //[logInfo addSubview:oilAnalaysisBtn];
     //

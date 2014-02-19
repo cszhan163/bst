@@ -11,7 +11,7 @@
 
 
 #define kLeftPendingX  0
-#define kTopPendingY  8
+#define kTopPendingY  0.f
 #define kHeaderItemPendingY 8
 
 @interface BidBaseViewController ()
@@ -67,7 +67,7 @@
     //topNavBar.delegate = navItemCtrl;
     
     [tableViewBg addSubview:navItemCtrl.view];
-    navItemCtrl.view.frame = CGRectMake(0.f,-20.f,kDeviceScreenWidth,kDeviceScreenHeight-kMBAppStatusBar-kMBAppTopToolBarHeight+20.f);
+    navItemCtrl.view.frame = CGRectMake(0.f,3.f,kDeviceScreenWidth,kDeviceScreenHeight-kMBAppStatusBar-kMBAppTopToolBarHeight);
     
 //    if(kIsIOS7Check){
 //        navItemCtrl.view.frame = CGRectMake(0.f,-20.f,kDeviceScreenWidth,kDeviceScreenHeight-kMBAppStatusBar-kMBAppBottomToolBarHeght-kMBAppTopToolBarHeight+100);

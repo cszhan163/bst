@@ -12,4 +12,5 @@
 @property(nonatomic,assign)UINavigationController *parentNav;
 @property(nonatomic,assign)NSInteger pageNum;
 @property(nonatomic,strong) NSString *userId;
+- (void)setTopNavBarHidden:(BOOL)status;
 @end

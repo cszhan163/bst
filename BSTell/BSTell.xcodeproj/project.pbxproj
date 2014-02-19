@@ -146,6 +146,12 @@
 		04F854E718B25CF40026BCA4 /* button_gray07.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F854DF18B25CF40026BCA4 /* button_gray07.png */; };
 		04F854E818B25CF40026BCA4 /* button_gray08.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F854E018B25CF40026BCA4 /* button_gray08.png */; };
 		04F854EC18B266820026BCA4 /* MsgClassLevel2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F854EB18B266820026BCA4 /* MsgClassLevel2ViewController.m */; };
+		BD884AF918B4CBE900E354B7 /* logo57.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884AF818B4CBE900E354B7 /* logo57.png */; };
+		BD884AFD18B4CC0500E354B7 /* logo96.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884AFA18B4CC0500E354B7 /* logo96.png */; };
+		BD884AFE18B4CC0500E354B7 /* logo114.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884AFB18B4CC0500E354B7 /* logo114.png */; };
+		BD884AFF18B4CC0500E354B7 /* logo120.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884AFC18B4CC0500E354B7 /* logo120.png */; };
+		BD884B0218B50A5800E354B7 /* BidDetailTableViewCell_V2.m in Sources */ = {isa = PBXBuildFile; fileRef = BD884B0118B50A5800E354B7 /* BidDetailTableViewCell_V2.m */; };
+		BD884B0418B5198300E354B7 /* bid_cell_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884B0318B5198300E354B7 /* bid_cell_btn.png */; };
 		BDE7BD7B18B0D16800A82198 /* HotMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */; };
 		BDE7BD7C18B0D16800A82198 /* MarketMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7A18B0D16800A82198 /* MarketMsgViewController.m */; };
 		BDE7BD7F18B0D18400A82198 /* MediaMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7E18B0D18400A82198 /* MediaMsgViewController.m */; };
@@ -393,6 +399,13 @@
 		04F854E018B25CF40026BCA4 /* button_gray08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_gray08.png; sourceTree = "<group>"; };
 		04F854EA18B266820026BCA4 /* MsgClassLevel2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgClassLevel2ViewController.h; sourceTree = "<group>"; };
 		04F854EB18B266820026BCA4 /* MsgClassLevel2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgClassLevel2ViewController.m; sourceTree = "<group>"; };
+		BD884AF818B4CBE900E354B7 /* logo57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo57.png; sourceTree = "<group>"; };
+		BD884AFA18B4CC0500E354B7 /* logo96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo96.png; sourceTree = "<group>"; };
+		BD884AFB18B4CC0500E354B7 /* logo114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo114.png; sourceTree = "<group>"; };
+		BD884AFC18B4CC0500E354B7 /* logo120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo120.png; sourceTree = "<group>"; };
+		BD884B0018B50A5800E354B7 /* BidDetailTableViewCell_V2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidDetailTableViewCell_V2.h; sourceTree = "<group>"; };
+		BD884B0118B50A5800E354B7 /* BidDetailTableViewCell_V2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidDetailTableViewCell_V2.m; sourceTree = "<group>"; };
+		BD884B0318B5198300E354B7 /* bid_cell_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bid_cell_btn.png; sourceTree = "<group>"; };
 		BDE7BD7718B0D16800A82198 /* HotMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotMsgViewController.h; sourceTree = "<group>"; };
 		BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotMsgViewController.m; sourceTree = "<group>"; };
 		BDE7BD7918B0D16800A82198 /* MarketMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketMsgViewController.h; sourceTree = "<group>"; };
@@ -492,6 +505,8 @@
 				04255BBC18B3B7380006F9E0 /* OrderTableViewCell.xib */,
 				04255BBE18B3B7EF0006F9E0 /* OrderTableViewCell.h */,
 				04255BBF18B3B7EF0006F9E0 /* OrderTableViewCell.m */,
+				BD884B0018B50A5800E354B7 /* BidDetailTableViewCell_V2.h */,
+				BD884B0118B50A5800E354B7 /* BidDetailTableViewCell_V2.m */,
 			);
 			path = CellView;
 			sourceTree = "<group>";
@@ -499,6 +514,7 @@
 		04DFD40F189B833D00A3BDDF /* bid */ = {
 			isa = PBXGroup;
 			children = (
+				BD884B0318B5198300E354B7 /* bid_cell_btn.png */,
 				04D5358418ABCD8400728B75 /* bid_delegate_bg.png */,
 				0431106B18A6941A008109F7 /* bid_started_cell_bg.png */,
 				04E65C8918A257C0008FA65A /* bid_caterlog_mask.png */,
@@ -772,6 +788,10 @@
 		04F6E56B189A864D0057BD72 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BD884AFA18B4CC0500E354B7 /* logo96.png */,
+				BD884AFB18B4CC0500E354B7 /* logo114.png */,
+				BD884AFC18B4CC0500E354B7 /* logo120.png */,
+				BD884AF818B4CBE900E354B7 /* logo57.png */,
 				04F6E56C189A864D0057BD72 /* BSTell-Info.plist */,
 				04F6E56D189A864D0057BD72 /* InfoPlist.strings */,
 				04F6E570189A864D0057BD72 /* main.m */,
@@ -993,6 +1013,7 @@
 				04DFD457189D7D7B00A3BDDF /* bid_detail_table.png in Resources */,
 				04E65C80189FF151008FA65A /* bid_btn.png in Resources */,
 				BDE7BD8F18B10DC300A82198 /* hotmsg_cell_bg.png in Resources */,
+				BD884AFE18B4CC0500E354B7 /* logo114.png in Resources */,
 				04E65C8818A099AB008FA65A /* note_detail_header_bg.png in Resources */,
 				04255BB918B3B12B0006F9E0 /* info_btn.png in Resources */,
 				04F6E57D189A864D0057BD72 /* Images.xcassets in Resources */,
@@ -1004,6 +1025,7 @@
 				04DFD449189D492A00A3BDDF /* round.png in Resources */,
 				04F854E418B25CF40026BCA4 /* button_gray04.png in Resources */,
 				04F854E618B25CF40026BCA4 /* button_gray06.png in Resources */,
+				BD884AFD18B4CC0500E354B7 /* logo96.png in Resources */,
 				BDE7BD8C18B10D0C00A82198 /* hotmsg_gray03.png in Resources */,
 				04F6E5CD189A8C630057BD72 /* tableitem2.png in Resources */,
 				BDE7BD8A18B10D0C00A82198 /* hotmsg_gray01.png in Resources */,
@@ -1014,6 +1036,7 @@
 				04DFD456189D7D7B00A3BDDF /* bid_detail_header.png in Resources */,
 				04DFD43E189D35B200A3BDDF /* button-1.png in Resources */,
 				0431107818A7E4B6008109F7 /* arrow_detail.png in Resources */,
+				BD884AFF18B4CC0500E354B7 /* logo120.png in Resources */,
 				04D5358818ABCDBD00728B75 /* myinfo_split_bg.png in Resources */,
 				04DFD413189B83B800A3BDDF /* bid_cell_bg.png in Resources */,
 				04DFD440189D35B200A3BDDF /* button-4.png in Resources */,
@@ -1026,10 +1049,12 @@
 				04F854E118B25CF40026BCA4 /* button_gray01.png in Resources */,
 				04F6E5D1189A8C630057BD72 /* tableitemsel1.png in Resources */,
 				04F6E56F189A864D0057BD72 /* InfoPlist.strings in Resources */,
+				BD884AF918B4CBE900E354B7 /* logo57.png in Resources */,
 				04F6E5D3189A8C630057BD72 /* tableitemsel3.png in Resources */,
 				04E65D2318A269B8008FA65A /* udid.plist in Resources */,
 				04255BBB18B3B6F80006F9E0 /* info_order_cell_bg_all.png in Resources */,
 				0431106C18A6941A008109F7 /* bid_started_cell_bg.png in Resources */,
+				BD884B0418B5198300E354B7 /* bid_cell_btn.png in Resources */,
 				04DFD43F189D35B200A3BDDF /* button-2.png in Resources */,
 				04DFD411189B835A00A3BDDF /* bid_start_btn.png in Resources */,
 				04D5358518ABCD8400728B75 /* bid_delegate_bg.png in Resources */,
@@ -1119,6 +1144,7 @@
 				04E65D1A18A269B8008FA65A /* SBJsonStreamParserState.m in Sources */,
 				04F6E5DE189A8F020057BD72 /* MainPageViewController.m in Sources */,
 				04E65D1818A269B8008FA65A /* SBJsonStreamParserAccumulator.m in Sources */,
+				BD884B0218B50A5800E354B7 /* BidDetailTableViewCell_V2.m in Sources */,
 				0431107618A69A1C008109F7 /* LeftTitleListCell.m in Sources */,
 				044EE26418A4C5E3007A3EDA /* BSTellNetListBaseViewController.m in Sources */,
 				04E65D0B18A269B8008FA65A /* jqEncode.mm in Sources */,
@@ -1257,7 +1283,6 @@
 		04F6E594189A864E0057BD72 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1279,7 +1304,6 @@
 		04F6E595189A864E0057BD72 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

@@ -61,6 +61,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+     tweetieTableView.bounces = YES;
     [tweetieTableView setDragEffect:YES];
     tweetieTableView.hasDownDragEffect = YES;
     //[[DBManage getSingletone]setDelegate:self];
@@ -327,7 +328,7 @@
 -(void)didNetDataOK:(NSNotification*)ntf
 {
     
-    
+    [super didNetDataOK:ntf];
     
     id obj = [ntf object];
     id respRequest = [obj objectForKey:@"request"];
@@ -341,8 +342,11 @@
         //        }
         //        kNetEndSuccStr(@"评论成功",self.view);
         //        [self dismissModalViewControllerAnimated:YES];
-        
-        self.dataArray = [data objectForKey:@"data"];
+        NSArray *retData = [data objectForKey:@"data"];
+        //if([self.dataArray count])
+        {
+            [self.dataArray addObjectsFromArray:retData];
+        }
         for(id item in self.dataArray){
            
         }

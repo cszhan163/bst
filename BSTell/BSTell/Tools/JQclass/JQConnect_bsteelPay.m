@@ -368,7 +368,7 @@
         postString = nil;
     }
     if (MethodString != nil) {
-        [MethodString release];
+       // [MethodString release];
         MethodString = nil;
     }
     if (appCode != nil) {
