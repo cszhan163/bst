@@ -68,6 +68,7 @@
     vcGraphCtl.isNeedInitDateMonth = NO;
     vcGraphCtl.mCurrDate = self.mCurrDate;
      */
+    vcGraphCtl.parentNav = self.navigationController;
     [vcArray addObject:vcGraphCtl];
     SafeRelease(vcGraphCtl);
     return  vcArray;

@@ -40,13 +40,13 @@
         SafeRelease(detailView);
         detailView.frame = CGRectMake(0.f, 0.f, image.size.width/kScale, image.size.height/kScale);
         detailView.center = CGPointMake(290-20.f,62);
-        
+        /*
         UIButton *bidBtn = [UIComUtil createButtonWithNormalBGImageName:@"bid_price_btn.png" withHightBGImageName:@"bid_price_btn.png" withTitle:@"出价" withTag:0];
         [self addSubview:bidBtn];
         bidBtn.titleLabel.font = [UIFont systemFontOfSize:12];
         [bidBtn addTarget:self action:@selector(startBidPrice:) forControlEvents:UIControlEventTouchUpInside];
         bidBtn.frame = CGRectMake(170.f, 100.f, bidBtn.frame.size.width, bidBtn.frame.size.height);
-        
+        */
         
     }
     

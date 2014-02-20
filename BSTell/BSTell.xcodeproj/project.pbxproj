@@ -14,6 +14,10 @@
 		04255BC018B3B7EF0006F9E0 /* OrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04255BBF18B3B7EF0006F9E0 /* OrderTableViewCell.m */; };
 		04255BC318B3BB440006F9E0 /* OrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04255BC218B3BB440006F9E0 /* OrderListViewController.m */; };
 		04255BC618B3BC720006F9E0 /* OrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04255BC518B3BC720006F9E0 /* OrderDetailViewController.m */; };
+		042762E818B6594C006D816A /* bid_prepare_bg_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 042762E618B6594C006D816A /* bid_prepare_bg_1.png */; };
+		042762E918B6594C006D816A /* bid_prepare_bg_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 042762E718B6594C006D816A /* bid_prepare_bg_2.png */; };
+		042762ED18B65EEC006D816A /* BidPrepareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042762EC18B65EEC006D816A /* BidPrepareTableViewCell.m */; };
+		042762EF18B6675A006D816A /* info_order_cell_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 042762EE18B6675A006D816A /* info_order_cell_bg.png */; };
 		042FE0BD189B4626004B26F3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FE0BC189B4626004B26F3 /* CFNetwork.framework */; };
 		042FE0BF189B462D004B26F3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FE0BE189B462D004B26F3 /* AudioToolbox.framework */; };
 		042FE0C1189B465F004B26F3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 042FE0C0189B465F004B26F3 /* SystemConfiguration.framework */; };
@@ -192,6 +196,11 @@
 		04255BC218B3BB440006F9E0 /* OrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListViewController.m; sourceTree = "<group>"; };
 		04255BC418B3BC720006F9E0 /* OrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailViewController.h; sourceTree = "<group>"; };
 		04255BC518B3BC720006F9E0 /* OrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailViewController.m; sourceTree = "<group>"; };
+		042762E618B6594C006D816A /* bid_prepare_bg_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bid_prepare_bg_1.png; sourceTree = "<group>"; };
+		042762E718B6594C006D816A /* bid_prepare_bg_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bid_prepare_bg_2.png; sourceTree = "<group>"; };
+		042762EB18B65EEC006D816A /* BidPrepareTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidPrepareTableViewCell.h; sourceTree = "<group>"; };
+		042762EC18B65EEC006D816A /* BidPrepareTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidPrepareTableViewCell.m; sourceTree = "<group>"; };
+		042762EE18B6675A006D816A /* info_order_cell_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_order_cell_bg.png; sourceTree = "<group>"; };
 		042FE0BC189B4626004B26F3 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		042FE0BE189B462D004B26F3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		042FE0C0189B465F004B26F3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -487,6 +496,8 @@
 			children = (
 				0431106E18A6944A008109F7 /* BidStartedTableViewCell.h */,
 				0431106F18A6944A008109F7 /* BidStartedTableViewCell.m */,
+				042762EB18B65EEC006D816A /* BidPrepareTableViewCell.h */,
+				042762EC18B65EEC006D816A /* BidPrepareTableViewCell.m */,
 				04DFD45F189D8D1700A3BDDF /* BidDetailTableViewCell.h */,
 				04DFD460189D8D1700A3BDDF /* BidDetailTableViewCell.m */,
 				04DFD45C189D8CE600A3BDDF /* ExcellLikeCellBase.h */,
@@ -514,6 +525,8 @@
 		04DFD40F189B833D00A3BDDF /* bid */ = {
 			isa = PBXGroup;
 			children = (
+				042762E618B6594C006D816A /* bid_prepare_bg_1.png */,
+				042762E718B6594C006D816A /* bid_prepare_bg_2.png */,
 				BD884B0318B5198300E354B7 /* bid_cell_btn.png */,
 				04D5358418ABCD8400728B75 /* bid_delegate_bg.png */,
 				0431106B18A6941A008109F7 /* bid_started_cell_bg.png */,
@@ -906,6 +919,7 @@
 		BDE7BD8418B10CBE00A82198 /* info */ = {
 			isa = PBXGroup;
 			children = (
+				042762EE18B6675A006D816A /* info_order_cell_bg.png */,
 				04255BBA18B3B6F80006F9E0 /* info_order_cell_bg_all.png */,
 				BDE7BD8E18B10DC300A82198 /* hotmsg_cell_bg.png */,
 				BDE7BD8618B10D0C00A82198 /* hotmsg_gray01.png */,
@@ -1008,6 +1022,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042762E818B6594C006D816A /* bid_prepare_bg_1.png in Resources */,
 				04DFD459189D899E00A3BDDF /* bid_join_btn.png in Resources */,
 				04DFD3FD189B5FB800A3BDDF /* tabbarbg.png in Resources */,
 				04DFD457189D7D7B00A3BDDF /* bid_detail_table.png in Resources */,
@@ -1051,6 +1066,7 @@
 				04F6E56F189A864D0057BD72 /* InfoPlist.strings in Resources */,
 				BD884AF918B4CBE900E354B7 /* logo57.png in Resources */,
 				04F6E5D3189A8C630057BD72 /* tableitemsel3.png in Resources */,
+				042762EF18B6675A006D816A /* info_order_cell_bg.png in Resources */,
 				04E65D2318A269B8008FA65A /* udid.plist in Resources */,
 				04255BBB18B3B6F80006F9E0 /* info_order_cell_bg_all.png in Resources */,
 				0431106C18A6941A008109F7 /* bid_started_cell_bg.png in Resources */,
@@ -1068,6 +1084,7 @@
 				04F854E518B25CF40026BCA4 /* button_gray05.png in Resources */,
 				04F6E5D2189A8C630057BD72 /* tableitemsel2.png in Resources */,
 				04F6E5CF189A8C630057BD72 /* tableitem4.png in Resources */,
+				042762E918B6594C006D816A /* bid_prepare_bg_2.png in Resources */,
 				04E65C84189FF31B008FA65A /* bid_confirm_bg.png in Resources */,
 				BDE7BD8D18B10D0C00A82198 /* hotmsg_gray04.png in Resources */,
 				04DFD442189D35B200A3BDDF /* button-5.png in Resources */,
@@ -1153,6 +1170,7 @@
 				04DFD435189CEF0400A3BDDF /* NoteItemCell.m in Sources */,
 				04F6E571189A864D0057BD72 /* main.m in Sources */,
 				04E65D0C18A269B8008FA65A /* JQHTTPSConnect.m in Sources */,
+				042762ED18B65EEC006D816A /* BidPrepareTableViewCell.m in Sources */,
 				0431107018A6944A008109F7 /* BidStartedTableViewCell.m in Sources */,
 				04F6E5DB189A8EE30057BD72 /* BidViewController.m in Sources */,
 				04F6E5EA189A8FD50057BD72 /* SettingViewController.m in Sources */,

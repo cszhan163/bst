@@ -15,6 +15,7 @@
     CGFloat valueHeight;
     UILabel *headerLabel;
 }
+- (void)setHeaderLabelHiddenStatus:(BOOL)status;
 - (void)setHeaderLabelText:(NSString*)text;
 - (id)initWithFrame:(CGRect)frame withRowCount:(NSInteger) rowNum withColumCount:(NSInteger)colNum withColumWidthArray:(NSArray*)widthArray;
 - (id)initWithFrame:(CGRect)frame withRowCount:(NSInteger) rowNum withColumCount:(NSInteger)colNum withCellHeight:(CGFloat)height withHeaderTitle:(NSString*)title;

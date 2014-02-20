@@ -14,7 +14,9 @@
 }
 @end
 @implementation BidDetailTableViewCell
-
+- (void)setHeaderLabelHiddenStatus:(BOOL)status{
+    headerLabel.hidden = status;
+}
 - (id)initWithFrame:(CGRect)frame withRowCount:(NSInteger) rowNum withColumCount:(NSInteger)colNum withCellHeight:(CGFloat)height withHeaderTitle:(NSString*)title;
 {
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([self class])];
@@ -101,6 +103,43 @@
     [self.mCellItemArray addObject:rowArray];
     currY = currY+valueHeight;
     currCellHeight = currY;
+    
+}
+- (void)addColumWithKeyTitleArray:(NSArray*)titleArray withColumWidthArray:(NSArray*)widthArray withTitleAttributeArray:(NSArray*)titleAtrArray withValueAttributeArray:(NSArray*)valueAtrArray withHeightArray:(NSArray*)heightArray{
+
+    CGFloat currX = 0.f;
+    CGFloat currY = 0.f;
+    int columCount = [titleArray count];
+    for(int i = 0;i<columCount;i++)
+    {
+        NSDictionary *titleDict = titleAtrArray[i];
+        float  height = [heightArray[i]floatValue];
+        UILabel *itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX,currY,[widthArray[i]floatValue],height)];
+        itemLabel.font = [titleDict objectForKey:@"font"];
+        itemLabel.textColor = [titleDict objectForKey:@"color"];
+        itemLabel.backgroundColor = [UIColor clearColor];
+        //itemLabel.textAlignment = NSTextAlignmentCenter;
+        itemLabel.text = titleArray[i];
+        
+        
+        NSDictionary *valueDict = titleAtrArray[i];
+        
+        [self addSubview:itemLabel];
+        SafeRelease(itemLabel);
+     
+        itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX,currY+height,100,height)];
+        itemLabel.font = [valueDict objectForKey:@"font"];
+        itemLabel.textColor = [valueDict objectForKey:@"color"];
+        itemLabel.backgroundColor = [UIColor clearColor];
+        //itemLabel.textAlignment = NSTextAlignmentCenter;
+        itemLabel.text = @"";
+        [self addSubview:itemLabel];
+        SafeRelease(itemLabel);
+        [self.mCellItemArray addObject:itemLabel];
+        currY = currY+height;
+    }
+
+    
     
 }
 /*

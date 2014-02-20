@@ -41,7 +41,7 @@
                   symbolName = "-[ExcellLikeCellBase layoutSubviews]"
                   moduleName = "BSTell"
                   urlString = "file://localhost/Users/mac/Desktop/work/BSTell/code/BSTell/BSTell/CellView/ExcellLikeCellBase.m"
-                  timestampString = "414433976.563784"
+                  timestampString = "414607578.082631"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
@@ -55,7 +55,7 @@
                   symbolName = "-[ExcellLikeCellBase layoutSubviews]"
                   moduleName = "BSTell"
                   urlString = "file://localhost/Users/mac/Desktop/work/BSTell/code/BSTell/BSTell/CellView/ExcellLikeCellBase.m"
-                  timestampString = "414433976.564175"
+                  timestampString = "414607578.083071"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
@@ -77,23 +77,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "155"
             endingLineNumber = "155"
-            landmarkName = "-shouldLoadOlderData:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BSTell/Bid/BidPrepareViewController.m"
-            timestampString = "413908173.174956"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "-shouldLoadOlderData:"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -109,7 +93,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "154"
             endingLineNumber = "154"
-            landmarkName = "-shouldLoadOlderData:"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -125,23 +109,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "153"
             endingLineNumber = "153"
-            landmarkName = "-shouldLoadOlderData:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BSTell/Bid/BidBaseViewController.m"
-            timestampString = "414341600.812619"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "-selectTopNavItem:"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
