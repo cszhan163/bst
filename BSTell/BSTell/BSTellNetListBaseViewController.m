@@ -42,6 +42,10 @@
     mainView.topBarView.backgroundColor = HexRGB(1, 159, 233);
     mainView.backgroundColor = HexRGB(239, 239, 241);
     self.delegate = self;
+    
+    tweetieTableView.bounces = YES;
+    [tweetieTableView setDragEffect:YES];
+    tweetieTableView.hasDownDragEffect = YES;
 }
 - (void)setTopNavBarHidden:(BOOL)status{
     if(status){
@@ -75,5 +79,34 @@
         [tweetieTableView closeInfoView];
     }
     
+}
+#pragma mark -
+#pragma mark - override fun
+
+- (void)reloadNetData:(id)data{
+    
+    if([data objectForKey:@"data"]){
+        NSArray *retData = [data objectForKey:@"data"];
+        if([retData isKindOfClass:[NSArray class]])
+        {
+            [self.dataArray addObjectsFromArray:retData];
+        }
+        for(id item in self.dataArray){
+            
+        }
+    }
+    else{
+    
+        id retData =  data;
+        if([retData isKindOfClass:[NSArray class]])
+        {
+            [self.dataArray addObjectsFromArray:retData];
+        }
+        for(id item in self.dataArray){
+            
+        }
+
+    }
+    [tweetieTableView reloadData];
 }
 @end

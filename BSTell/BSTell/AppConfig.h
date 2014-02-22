@@ -134,6 +134,8 @@
 #define kResBidListData              @"queryAuctionWts4Move"
 #define kResBidItemData               @"queryAuctionPpInfo4Move"
 
+#define kResBidSaveData                 @"saveAuction4Move"
+
 #define kResBidAllListData                       @"queryAuctionPps4Move"
 
 #define kResBidAgreementData                   @"showAgreement4Move"

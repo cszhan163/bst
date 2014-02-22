@@ -188,6 +188,7 @@
     
 #endif
     //time
+    cell.tag = indexPath.row;
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -198,7 +199,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
+    NSDictionary *item = self.dataArray[indexPath.row];
+    
+    NSString *goodId = [item objectForKey:@"goodId"];
+    
     BidItemDetailViewController *vc = [[BidItemDetailViewController alloc]initWithNibName:nil bundle:nil];
+    vc.bidType = Bid_Prepare;
+    vc.goodId = goodId;
     [vc  setNavgationBarTitle:@"详情"];
     /*
      vc.delegate = self;
@@ -237,7 +244,6 @@
                            nil];
     
     self.request = [cardShopMgr  queryAuctionPps4Move:param];
-    return;
 }
 -(void)didNetDataOK:(NSNotification*)ntf
 {
@@ -256,6 +262,10 @@
         //[mDataDict setObject:netData forKey:mMothDateKey];
         //}
         //
+        
+    }
+    if([resKey isEqualToString:kResBidAllListData]){
+    
         
     }
     
@@ -305,6 +315,8 @@
 - (void)bidConfirmAlert:(id)sender{
     int i = [sender tag];
     NSDictionary *item = self.dataArray[i];
+    currBidItem = item;
+    
     NSString *sessionId = [item objectForKey:@"wtmc"];
     NSString *goodName = [item objectForKey:@"goodName"];
     NSString *price = [item objectForKey:@"dqj"];
@@ -313,5 +325,64 @@
     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"出价确认" message:msg delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
     [alertView show];
     SafeAutoRelease(alertView);
+}
+// Called when a button is clicked. The view will be automatically dismissed after this call returns
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex == 1){
+    
+    
+        CarServiceNetDataMgr *cardShopMgr = [CarServiceNetDataMgr getSingleTone];
+        
+        //kNetStartShow(@"数据加载...", self.view);
+        /*
+         NSString *month = [NSString stringWithFormat:@"%02d",self.mCurrDate.month];
+         NSString *year = [NSString stringWithFormat:@"%d",self.mCurrDate.year];
+         NSString *carId = [AppSetting getUserCarId:[AppSetting getLoginUserId]];
+         */
+        /*
+         
+         报价类型
+         price
+         价格
+         id
+         拼盘号
+         hydm
+         
+         会员代码
+         jjms
+         竞价模式
+         
+         1 公开增价
+         2 自由报价
+         bpfs
+         报盘方式
+         
+         1 单价
+         2 总价
+
+         
+         
+         "委托出价",
+         "一口价",
+         "自由报价模式出价",
+         "公开增价模式出价",
+         "公开降价模式出价",
+         "取消委托出价"
+         分别对应0，1，2，3，4，5，其它
+         */
+        NSString *myPrice = [currBidItem objectForKey:@"myPrice"];
+        assert(myPrice);
+        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                               self.userId,@"hydm",
+                               @"10",@"bjlb",
+                               myPrice,@"price",
+                               [currBidItem objectForKey:@"id"],@"id",
+                               nil];
+        
+        self.request = [cardShopMgr  saveAuction4Move:param];
+        
+        
+    }
+
 }
 @end

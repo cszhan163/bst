@@ -10,7 +10,10 @@
 
 #import "OrderListViewController.h"
 
-#define kLeftPendingX 30.f
+#define kLeftTextPendingX  28.f
+#define kLeftPendingX 190.f
+
+#define USE_SPLIT 0
 
 @interface MyInfoViewController (){
 
@@ -33,39 +36,53 @@
     return self;
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [self  shouldLoadData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+    [self setHiddenLeftBtn:YES];
     CGFloat currY = kMBAppTopToolBarHeight+80.f;
-    userNameLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(kLeftPendingX,currY,300.f, 30.f)];
+    userNameLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(kLeftTextPendingX,currY,300.f, 30.f)];
     userNameLabel.textAlignment = NSTextAlignmentLeft;
-    currY = currY+30.f;
+  
     
     [self.view addSubview:userNameLabel];
     SafeRelease(userNameLabel);
+      currY = currY+50.f;
     
+#if USE_SPLIT
     UIView *split = [UIComUtil createSplitViewWithFrame:CGRectMake(0.f,currY,kDeviceScreenWidth,2.f) withColor:[UIColor grayColor]];
     [self.view addSubview:split];
     SafeRelease(split);
+#endif
+    
+    UIImageWithFileName(UIImage*image, @"info_account_bg.png");
+    
+    UIImageView *accountView = [[UIImageView alloc]initWithFrame:CGRectMake(0.f, currY,image.size.width/kScale, image.size.height/kScale)];
+    accountView.image = image;
+    [self.view addSubview: accountView];
+    SafeRelease(accountView);
+    accountView.frame = CGRectMake(0.f, currY, image.size.width/kScale, image.size.height/kScale);
     
     
-    
-    userAccountLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:14] withTextColor:[UIColor blueColor] withText:@"" withFrame:CGRectMake(kLeftPendingX,currY,300.f, 30.f)];
+    userAccountLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blueColor] withText:@"" withFrame:CGRectMake(kLeftPendingX,currY+10.f,300.f, 30.f)];
     currY = currY+30.f;
     userAccountLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:userAccountLabel];
     SafeRelease(userAccountLabel);
     
     
-    userAvaiableLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:14] withTextColor:[UIColor greenColor] withText:@"" withFrame:CGRectMake(kLeftPendingX,currY,300.f, 30.f)];
+    userAvaiableLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor greenColor] withText:@"" withFrame:CGRectMake(kLeftPendingX,currY+8.f,300.f, 30.f)];
     userAvaiableLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:userAvaiableLabel];
     SafeRelease(userAvaiableLabel);
     
     currY = currY+30.f;
-    userLockLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:12] withTextColor:[UIColor redColor] withText:@"" withFrame:CGRectMake(kLeftPendingX,currY,300.f, 30.f)];
+    userLockLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:14] withTextColor:[UIColor redColor] withText:@"" withFrame:CGRectMake(kLeftPendingX,currY+6.f,300.f, 30.f)];
     userLockLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:userLockLabel];
     SafeRelease(userLockLabel);
@@ -73,18 +90,19 @@
     
     currY = currY+30.f;
     
+#if USE_SPLIT
     split = [UIComUtil createSplitViewWithFrame:CGRectMake(0.f,currY,kDeviceScreenWidth,2.f) withColor:[UIColor grayColor]];
     [self.view addSubview:split];
     SafeRelease(split);
-
+#endif
     
     
-    UIButton *oilAnalaysisBtn = [UIComUtil createButtonWithNormalBGImageName:@"info_btn.png" withHightBGImageName:@"info_btn.png" withTitle:@"我的信息" withTag:0];
+    UIButton *oilAnalaysisBtn = [UIComUtil createButtonWithNormalBGImageName:@"info_btn.png" withHightBGImageName:@"info_btn.png" withTitle:@"我的订单" withTag:0];
     
     CGSize btnsize= oilAnalaysisBtn.frame.size;
     //currY = 10.f;
     currY = currY+30.f;
-    oilAnalaysisBtn.frame = CGRectMake(kLeftPendingX,currY,btnsize.width,btnsize.height);
+    oilAnalaysisBtn.frame = CGRectMake(kLeftTextPendingX,currY,btnsize.width,btnsize.height);
     [oilAnalaysisBtn addTarget:self action:@selector(myInforAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:oilAnalaysisBtn];
     
@@ -93,8 +111,9 @@
     
     currY = currY +30.f;
     
-    userAgreeLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:14] withTextColor:[UIColor blueColor] withText:@"" withFrame:CGRectMake(kLeftPendingX,currY,300.f, 30.f)];
+    userAgreeLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:14] withTextColor:[UIColor blueColor] withText:@"" withFrame:CGRectMake(kLeftTextPendingX,currY,300.f, 30.f)];
     userAgreeLabel.hidden = YES;
+    userAgreeLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:userAgreeLabel];
     SafeRelease(userAgreeLabel);
     
@@ -175,9 +194,10 @@
     //contentTextView.text = [netData objectForKey:@"agreement"];
     
     userNameLabel.text = @"上海化工交易公司";
-    
-    NSString *moneyValue = [netData objectForKey:@"availability"];
-    
+    NSString *moneyValue = nil;
+#if 0
+    moneyValue = [netData objectForKey:@"availability"];
+
     userAccountLabel.text = [NSString stringWithFormat:@"您的帐户余额: %@ 元",moneyValue];
     //您的帐户上的自由资金余额:             元
     moneyValue = [netData objectForKey:@"balance"];
@@ -187,11 +207,35 @@
     moneyValue = [netData objectForKey:@"locked"];
     
     userLockLabel.text = [NSString stringWithFormat:@"您的锁定资金: %@ 元",moneyValue];
+#else
+    moneyValue = [netData objectForKey:@"availability"];
+    
+    userAccountLabel.text = [NSString stringWithFormat:@" %@ ",moneyValue];
+    //您的帐户上的自由资金余额:             元
+    moneyValue = [netData objectForKey:@"balance"];
+    
+    userAvaiableLabel.text = [NSString stringWithFormat:@"%@ ",moneyValue];
+    
+    moneyValue = [netData objectForKey:@"locked"];
+    
+    userLockLabel.text = [NSString stringWithFormat:@" %@ ",moneyValue];
+#endif
     
     moneyValue = [netData objectForKey:@"unconfirmed"];
     
-    userAgreeLabel.text = [NSString stringWithFormat:@"您共有%d笔竞购合同未做到货确认",[moneyValue intValue]];
+    if([moneyValue intValue]>0){
+    
+        userAgreeLabel.text = [NSString stringWithFormat:@"您共有%d笔竞购合同未做到货确认",[moneyValue intValue]];
+        userAgreeLabel.hidden = NO;
+    }
+    else{
+    
+        userAccountLabel.hidden = YES;
+        
+    }
     
     
+    
+
 }
 @end

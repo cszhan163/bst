@@ -267,7 +267,7 @@
 {
     
     
-    
+    [super didNetDataOK:ntf];
     id obj = [ntf object];
     id respRequest = [obj objectForKey:@"request"];
     id data = [obj objectForKey:@"data"];
@@ -282,11 +282,7 @@
         //        kNetEndSuccStr(@"评论成功",self.view);
         //        [self dismissModalViewControllerAnimated:YES];
         
-        self.dataArray = [data objectForKey:@"data"];
-        for(id item in self.dataArray){
-            
-        }
-        [tweetieTableView reloadData];
+        [self reloadNetData:data];
         
         [self performSelectorOnMainThread:@selector(updateUIData:) withObject:data waitUntilDone:NO];
         

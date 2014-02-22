@@ -148,6 +148,7 @@
     headerView.text = headerText;
     
     NSString *moneyValue = [netData objectForKey:@"dfyj"];
+    
     /*
     bidMoneyLabel.text = [NSString stringWithFormat:@"您的竞价所需锁定的保证金: %@ 元",moneyValue];
     //您的帐户上的自由资金余额:             元

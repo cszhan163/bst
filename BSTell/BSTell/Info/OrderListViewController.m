@@ -29,6 +29,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    
+    
+    [self setNavgationBarTitle:@"我的订单"];
+    tweetieTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,7 +69,10 @@
 #endif
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = [UIColor clearColor];
+       
         cell.clipsToBounds = YES;
+        //cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
+        cell.contentView.frame = CGRectMake(10.f, 0.f, 300, cell.frame.size.height);
         
     }
     NSDictionary *item = self.dataArray[indexPath.row];
@@ -80,10 +88,12 @@
     cell.goodsIdLabel.text = [item objectForKey:@"goodId"];
     cell.classNameLabel.text = [item objectForKey:@"goodName"];
     if([[item objectForKey:@"acutionResult"] intValue]){
-        
+        //cell.contentView.backgroundColor =
+        //  235
+        cell.contentView.backgroundColor = HexRGB(234, 234, 235);
     }
     else{
-        
+        cell.contentView.backgroundColor = HexRGB( 255,254,185);
     }
     return cell;
 }
@@ -144,6 +154,7 @@
 }
 -(void)didNetDataOK:(NSNotification*)ntf
 {
+    [super didNetDataOK:ntf];
     id obj = [ntf object];
     id respRequest = [obj objectForKey:@"request"];
     id data = [obj objectForKey:@"data"];
@@ -157,11 +168,7 @@
         //        kNetEndSuccStr(@"评论成功",self.view);
         //        [self dismissModalViewControllerAnimated:YES];
         
-        self.dataArray = [data objectForKey:@"data"];
-        for(id item in self.dataArray){
-            
-        }
-        [tweetieTableView reloadData];
+        [self reloadNetData:data];
         
         [self performSelectorOnMainThread:@selector(updateUIData:) withObject:data waitUntilDone:NO];
         

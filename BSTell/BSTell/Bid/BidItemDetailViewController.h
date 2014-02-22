@@ -7,7 +7,12 @@
 //
 
 #import "BSTellBaseViewController.h"
-
+typedef enum bidType{
+    Bid_Stated,
+    Bid_Prepare,
+}BidType;
 @interface BidItemDetailViewController : BSTellBaseViewController
-
+@property(nonatomic,strong)NSDictionary *bidItem;
+@property(nonatomic,assign)BidType bidType;
+@property (nonatomic,strong) NSString *goodId;
 @end

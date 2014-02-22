@@ -356,11 +356,13 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
      offset	第几页
      
      */
-    param = [NSDictionary dictionaryWithObjectsAndKeys:
-             @"001",@"hydm",
-             @"10",@"id",
-             //@"1",@"offset",
-             nil];
+    if(param == nil){
+        param = [NSDictionary dictionaryWithObjectsAndKeys:
+                 @"001",@"hydm",
+                 @"10",@"id",
+                 //@"1",@"offset",
+                 nil];
+    }
     [self sendRequest:@"queryAuctionPpInfo4Move" withVersion:@"v10" withParam:param withOkBack:@selector(queryBidDetailOk:) withFailedBack:@selector(queryBidDetailFailed:)];
 }
 - (void)queryBidDetailOk:(NSString*)result{
@@ -405,6 +407,38 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
     
     [self sendFinalFailedData:error withKey:kResBidItemData];
 }
+
+- (void)saveAuction4Move:(NSDictionary*)param{
+
+    
+    /*
+     hydm	会员代码
+     limit	数据条数默认10条
+     offset	第几页
+     
+     */
+    if(param == nil){
+        param = [NSDictionary dictionaryWithObjectsAndKeys:
+                 @"001",@"wtid",
+                 //@"10",@"id",
+                 //@"1",@"offset",
+                 nil];
+    }
+    [self sendRequest:@"saveAuction4Move" withVersion:@"v10" withParam:param withOkBack:@selector(saveAuction4MoveOk:) withFailedBack:@selector(saveAuction4MoveFailed:)];
+
+}
+- (void)saveAuction4MoveOk:(NSString*)result{
+    id data = [result JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kResBidSaveData];
+}
+- (void)saveAuction4MoveFailed:(NSString*)error{
+    
+    [self sendFinalFailedData:error withKey:kResBidSaveData];
+}
+
 #pragma mark -
 #pragma mark agreement 
 

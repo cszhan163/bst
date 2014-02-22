@@ -8,9 +8,21 @@
 
 #import "BidItemDetailViewController.h"
 #import "LeftTitleListCell.h"
+
+#define kLeftPendingX  10
+
+
 @interface BidItemDetailViewController (){
 
     LeftTitleListCell *leftTitleCellView;
+    
+    UILabel     *currBidPriceLabel;
+    UILabel     *bidStepPriceLabel;
+    UILabel     *delegateBidPriceLabel;
+    
+    UITextField *customBidPriceTextFiled;
+    
+    UIButton *bidStatusBtn;
 
 }
 @end
@@ -31,6 +43,8 @@
     [super viewDidLoad];
     
     CGFloat currY = kMBAppTopToolBarHeight;
+    CGFloat buttomHeight = 120.f;
+#if 0
     UILabel *headerView = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:18.f] withTextColor:[UIColor blackColor] withText:@"交易保证金相关说明" withFrame:CGRectMake(0.f,currY,kDeviceScreenWidth,44.f)];
     headerView.backgroundColor = HexRGB(190, 221, 238);
     [self.view addSubview:headerView];
@@ -39,18 +53,28 @@
     
     
     currY = currY+60.f;
+#else
+    currY = currY+10.f;
+#endif
     
     UIImageWithFileName(UIImage *image , @"bid_confirm_bg.png");
     
-    UIImageView *confirmTextBgView = [[UIImageView alloc]initWithFrame:CGRectMake(10.f, currY, image.size.width/kScale, image.size.height/kScale)];
+#if 1
+    UIScrollView *confirmTextBgView = [[UIScrollView alloc] initWithFrame:CGRectMake(kLeftPendingX, currY, image.size.width/kScale, kDeviceScreenHeight-kMBAppBottomToolBarHeght-kMBAppTopToolBarHeight-kMBAppStatusBar-buttomHeight)];
+    confirmTextBgView.bounces = NO;
+    
+    confirmTextBgView.layer.contents = (id)image.CGImage;
+    
+    //confirmTextBgView.frame = CGRectMake(10, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
+    
+#else
+    UIImageView *confirmTextBgView = [[UIImageView alloc]initWithFrame:CGRectMake(kLeftPendingX, currY, image.size.width/kScale, image.size.height/kScale)];
     confirmTextBgView.image = image;
     confirmTextBgView.userInteractionEnabled = YES;
-    
+#endif
     /*
-   
-  
     */
-    leftTitleCellView = [[LeftTitleListCell alloc] initWithFrame:CGRectMake(0.f, 0.f, 300.f, 300.f) withTitleArray:@[@"场次",
+    leftTitleCellView = [[LeftTitleListCell alloc] initWithFrame:CGRectMake(0.f, 0.f, 300.f, 350.f) withTitleArray:@[                           @"场次",
                                                                                                                      @"物资编号",
                                                                                                                       @"资源数",
                                                                                                                       @"起拍价",
@@ -80,21 +104,64 @@
     [self.view addSubview:confirmTextBgView];
     SafeRelease(confirmTextBgView);
     
-    UITextField *textFiled = [[UITextField alloc]initWithFrame:CGRectMake(20.f,confirmTextBgView.frame.size.height-35.f,80.f, 15.f)];
-    textFiled.borderStyle = UITextBorderStyleRoundedRect;
-    [confirmTextBgView addSubview:textFiled];
-    SafeRelease(textFiled);
+    confirmTextBgView.contentSize = leftTitleCellView.frame.size;
     
     
+    currY = currY+confirmTextBgView.frame.size.height;
+    
+    
+    
+    
+    currY = currY+5.f;
+    
+    currBidPriceLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:14] withTextColor:[UIColor blackColor] withText:@"当前价:--" withFrame:CGRectMake(kLeftPendingX, currY, 120.f, 20.f)];
+    currBidPriceLabel.textAlignment = NSTextAlignmentLeft;
+    [self.view addSubview:currBidPriceLabel];
+    SafeRelease(currBidPriceLabel);
+    
+    bidStepPriceLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:14] withTextColor:[UIColor blackColor] withText:@"竞价梯度:--" withFrame:CGRectMake(kLeftPendingX+160.f, currY, 140.f, 20.f)];
+    bidStepPriceLabel.textAlignment = NSTextAlignmentRight;
+    [self.view addSubview:bidStepPriceLabel];
+    SafeRelease(bidStepPriceLabel);
+    
+    
+    //next line
+    currY = currY+20.f;
+    
+    customBidPriceTextFiled = [[UITextField alloc]initWithFrame:CGRectMake(kLeftPendingX,currY,80.f, 20.f)];
+    customBidPriceTextFiled.borderStyle = UITextBorderStyleRoundedRect;
+    [self.view  addSubview:customBidPriceTextFiled];
+    SafeRelease(customBidPriceTextFiled);
+    
+    delegateBidPriceLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:14] withTextColor:[UIColor greenColor] withText:@"当前委托:--" withFrame:CGRectMake(kLeftPendingX+160.f, currY, 140.f, 20.f)];
+    
+    delegateBidPriceLabel.textAlignment = NSTextAlignmentRight;
+    
+    [self.view addSubview:delegateBidPriceLabel];
+    SafeRelease(delegateBidPriceLabel);
+    
+    
+    currY = currY+15.f;
     
     UIButton *bidBtn = [UIComUtil createButtonWithNormalBGImageName:@"bid_price_btn.png" withHightBGImageName:@"bid_price_btn.png" withTitle:@"出价" withTag:0];
-    [confirmTextBgView addSubview:bidBtn];
-    bidBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    [self.view  addSubview:bidBtn];
+    bidBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [bidBtn addTarget:self action:@selector(startBidPrice:) forControlEvents:UIControlEventTouchUpInside];
-    bidBtn.frame = CGRectMake(100.f+20.f,confirmTextBgView.frame.size.height-35.f, bidBtn.frame.size.width, bidBtn.frame.size.height);
+    bidBtn.frame = CGRectMake(20.f,currY+15.f, bidBtn.frame.size.width, bidBtn.frame.size.height);
     
     
+    bidBtn = [UIComUtil createButtonWithNormalBGImageName:@"bid_item_price.png" withHightBGImageName:@"bid_item_price.png" withTitle:@"+1" withTag:1];
+    [self.view  addSubview:bidBtn];
+    bidBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    [bidBtn addTarget:self action:@selector(startBidPrice:) forControlEvents:UIControlEventTouchUpInside];
+    bidBtn.frame = CGRectMake(kDeviceScreenWidth/2-bidBtn.frame.size.width/2,currY, bidBtn.frame.size.width, bidBtn.frame.size.height);
     
+    
+    bidStatusBtn = [UIComUtil createButtonWithNormalBGImageName:@"bid_price_btn.png" withHightBGImageName:@"bid_price_btn.png" withTitle:@"委托出价" withTag:2];
+    [self.view  addSubview:bidStatusBtn];
+    bidStatusBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    [bidStatusBtn addTarget:self action:@selector(startBidPrice:) forControlEvents:UIControlEventTouchUpInside];
+    bidStatusBtn.frame = CGRectMake(kDeviceScreenWidth-20.f-bidStatusBtn.frame.size.width,currY+15.f, bidStatusBtn.frame.size.width, bidStatusBtn.frame.size.height);
 	// Do any additional setup after loading the view.
 }
 
@@ -109,8 +176,8 @@
     
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            //catStr,@"cat",
-                           @"001",@"hydm",
-                           @"10",@"id",
+                           self.userId,@"hydm",
+                           self.goodId,@"id",
                            nil];
     CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
     self.request = [carServiceNetDataMgr  queryAuctionPpInfo4Move:param];
@@ -160,125 +227,30 @@
    
     NSDictionary *item = netData;
     //id
-    value = [item objectForKey:@"wtmc"];
-    //[cell setCellItemValue:value withIndex:index++];
-    [leftTitleCellView setCellItemValue:value withRow:row++];
-    //
-    value = [item objectForKey:@"goodid"];
-    [leftTitleCellView setCellItemValue:value withRow:row++];
-    
-    //sell company
-    value = [item objectForKey:@"zys"];
-    
-    [leftTitleCellView setCellItemValue:value withRow:row++];
-    
-    //sell company
-    value = [item objectForKey:@"goodName"];
-    
-    [leftTitleCellView setCellItemValue:value withRow:row++];
-    
-    //sell company
-    value = [item objectForKey:@"package"];
-    
-    [leftTitleCellView setCellItemValue:value withRow:row++];
-    
-    //sell company
-    value = [item objectForKey:@"place"];
-    
-    [leftTitleCellView setCellItemValue:value withRow:row++];
-    
-    //sell company
-    value = [item objectForKey:@"QS"];
-    
-    [leftTitleCellView setCellItemValue:value withRow:row++];
-    
-    //sell company
-    /*
-     weight	重量
-     unit	计量单位
-     */
-    value = [item objectForKey:@"weight"];
-    
-    [leftTitleCellView setCellItemValue:value withRow:row++];
-    
-    //sell company  	附件
-    value = [item objectForKey:@"unit"];
-    
-    [leftTitleCellView setCellItemValue:value withRow:row++];
-    
-    //sell company
-    value = [item objectForKey:@"warehouse"];
-    
-    [leftTitleCellView setCellItemValue:value withRow:row++];
-    
-    //sell company
-    value = [item objectForKey:@"attachment"];
-    
-    [leftTitleCellView setCellItemValue:value withRow:row++];
-    
-    //sell company 	竞价状态
-    value = [item objectForKey:@"auctionStatus"];
-    
-    [leftTitleCellView setCellItemValue:value withRow:row++];
-    
-    /*
-    jssj	结束时间
-    bpfs	报盘方式
-    bjtd	拼盘梯度
-    */
-    //sell company 	竞价状态
-    value = [item objectForKey:@"jssj"];
-    
-    [leftTitleCellView setCellItemValue:value withRow:row++];
-    
-    
-    //sell company 	竞价状态
-    value = [item objectForKey:@"bpfs"];
-    
-    [leftTitleCellView setCellItemValue:value withRow:row++];
-    
-    
-    //sell company 	竞价状态
-    value = [item objectForKey:@"bjtd"];
-    
-    [leftTitleCellView setCellItemValue:value withRow:row++];
-    
-    //sell company 	竞价状态
-    /*
-     	起拍价
-          */
-    value = [item objectForKey:@"qpj"];
-    
-    [leftTitleCellView setCellItemValue:value withRow:row++];
-    
-    //sell company 	竞价状态 	当前价
     value = [item objectForKey:@"dqj"];
+    //[cell setCellItemValue:value withIndex:index++];
+    currBidPriceLabel.text = [NSString stringWithFormat:@"当前价:%0.2lf",[value floatValue]];
     
-    [leftTitleCellView setCellItemValue:value withRow:row++];
+    value = [item objectForKey:@"bjtd"];
+    bidStepPriceLabel.text = [NSString stringWithFormat:@"竞价梯度:%0.2lf",[value floatValue]];
     
-    /*
-     我的出价
-     */
-    value = [item objectForKey:@"myPrice"];
+    value = [item objectForKey:@"wtprice"];
+    delegateBidPriceLabel.text = [NSString stringWithFormat:@"当前委托:%0.2lf",[value floatValue]];
     
-     [leftTitleCellView setCellItemValue:value withRow:row++];
+    value = [item objectForKey:@"wtprice"];
+    if([value isEqualToString:@"0"]){
+        
+        [bidStatusBtn setTitle:@"取消委托" forState:UIControlStateNormal];
+        [bidStatusBtn setTitle:@"取消委托" forState:UIControlStateSelected];
+    }
+    else{
+        
+        [bidStatusBtn setTitle:@"委托出价" forState:UIControlStateNormal];
+        [bidStatusBtn setTitle:@"委托出价" forState:UIControlStateSelected];
+        
+    }
     
-    /*
-     	竞价状态
-     	计价单位
-     */
-    value = [item objectForKey:@"auctionStatus"];
-    
-    [leftTitleCellView setCellItemValue:value withRow:row++];
-    
-    value = [item objectForKey:@"priceUnit"];
-    
-    [leftTitleCellView setCellItemValue:value withRow:row++];
-    
-    
-    value = [item objectForKey:@"note"];
-    
-    [leftTitleCellView setCellItemValue:value withRow:row++];
+    [leftTitleCellView setCellItemValue:value withRow:index++];
     
     
 }
@@ -286,5 +258,23 @@
 {
     //kNetEndWithErrorAutoDismiss
 }
+#pragma mark -
+#pragma mark -
 
+- (void)startBidPrice:(id)sender{
+    NSInteger index = [sender tag];
+    switch (index) {
+        case 0:
+            
+            break;
+        case 1:
+            
+            break;
+        case 2:
+            break;
+        default:
+            break;
+    }
+
+}
 @end

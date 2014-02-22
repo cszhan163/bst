@@ -10,11 +10,16 @@
 
 #import "NoteListViewController.h"
 
+#import "OrderListViewController.h"
+
+#import "BidMainViewController.h"
+
+
 #define kItemLeftPendingX    6.f
 
-#define kItemPendingY   9.f
+#define kItemPendingY   2.f
 
-static  NSString* kTitleTextArray[] = {@"咨讯中心",@"网站公告",@"交易公告",@"登录",@"到货确认"};
+static  NSString* kTitleTextArray[] = {@"我要出价",@"网站公告",@"交易公告",@"登录",@"到货确认"};
 
 @interface MainPageViewController ()
 
@@ -45,11 +50,23 @@ static  NSString* kTitleTextArray[] = {@"咨讯中心",@"网站公告",@"交易�
     SafeRelease(logoImageView);
     
     logoImageView.frame = CGRectMake(0.f, 0.f, image.size.width/kScale, image.size.height/kScale);
-    logoImageView.center = CGPointMake(kDeviceScreenWidth/kScale, 50.f);
+    logoImageView.center = CGPointMake(kDeviceScreenWidth/kScale, 20.f);
     
     
-    CGFloat currY = 50.f,startX = 0.f,startY = 0.f;
-    currY = currY+160.f;
+    UIImageWithFileName(image, @"image.png");
+    CGFloat currY = logoImageView.frame.size.height+5.f,startX = 0.f,startY = 0.f;
+    
+    
+    logoImageView = [[UIImageView alloc]initWithImage:image];
+    [self.view addSubview:logoImageView];
+    SafeRelease(logoImageView);
+    
+    logoImageView.frame = CGRectMake(5.f, currY, image.size.width/kScale, image.size.height/kScale-30.f);
+    //logoImageView.center = CGPointMake(kDeviceScreenWidth/kScale, 40.f);
+    
+    
+    
+    currY = currY+190.f;
     
     int i = 0,index = 0;
     
@@ -96,6 +113,9 @@ static  NSString* kTitleTextArray[] = {@"咨讯中心",@"网站公告",@"交易�
     switch ([sender tag]) {
         case 1:{
            
+            BidMainViewController *bidMainVc = [[BidMainViewController alloc]init];
+            [self.navigationController pushViewController:bidMainVc animated:YES];
+            SafeRelease(bidMainVc);
             
             
         }
@@ -122,7 +142,12 @@ static  NSString* kTitleTextArray[] = {@"咨讯中心",@"网站公告",@"交易�
         }
             break;
         case 5:{
-            
+            OrderListViewController *noteListVc = [[OrderListViewController alloc]init];
+            //noteListVc.type = 1;
+            [noteListVc setNavgationBarTitle:[sender titleLabel].text];
+            [self.navigationController pushViewController:noteListVc animated:YES];
+            SafeRelease(noteListVc);
+
         }
         default:
             break;

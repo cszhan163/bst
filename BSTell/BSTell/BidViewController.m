@@ -61,9 +61,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     tweetieTableView.bounces = YES;
+    /*
+    tweetieTableView.bounces = YES;
     [tweetieTableView setDragEffect:YES];
     tweetieTableView.hasDownDragEffect = YES;
+     */
     //[[DBManage getSingletone]setDelegate:self];
     //    CGPoint insertPoint = CGPointMake(167,50);
     //    int width = 300;
@@ -342,15 +344,7 @@
         //        }
         //        kNetEndSuccStr(@"评论成功",self.view);
         //        [self dismissModalViewControllerAnimated:YES];
-        NSArray *retData = [data objectForKey:@"data"];
-        //if([self.dataArray count])
-        {
-            [self.dataArray addObjectsFromArray:retData];
-        }
-        for(id item in self.dataArray){
-           
-        }
-        [tweetieTableView reloadData];
+        [self reloadNetData:data];
         
         [self performSelectorOnMainThread:@selector(updateUIData:) withObject:data waitUntilDone:NO];
         
@@ -366,6 +360,7 @@
     
     //self.view.userInteractionEnabled = YES;
 }
+
 - (void)updateUIData:(NSDictionary*)netData{
     kNetEnd(self.view);
     

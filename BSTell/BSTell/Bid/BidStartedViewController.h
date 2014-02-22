@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "BSTellNetListBaseViewController.h"
-@interface BidStartedViewController : BSTellNetListBaseViewController
+@interface BidStartedViewController : BSTellNetListBaseViewController{
 
+    NSDictionary *currBidItem;
+}
 @end

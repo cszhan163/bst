@@ -15,8 +15,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        UIImageWithFileName(UIImage*image, @"info_order_cel_bg_all.png");
+        /*
+        UIImageWithFileName(UIImage*image, @"info_order_cel_bg.png");
         self.layer.contents = (id)image.CGImage;
+         */
+        self.layer.cornerRadius = 10.f;
     }
     return self;
 }
@@ -29,5 +32,14 @@
     // Drawing code
 }
 */
+- (void)awakeFromNib{
 
+    self.contentView.layer.cornerRadius = 10.f;
+    //self.contentView.
+
+}
+- (void)layoutSubviews{
+    CGRect rect = self.contentView.frame;
+    self.contentView.frame = CGRectMake(10.f, rect.origin.y+2.5, 300.f, rect.size.height-5.f);
+}
 @end

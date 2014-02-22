@@ -10,7 +10,6 @@
 		04255BB418B3AE580006F9E0 /* split_line.png in Resources */ = {isa = PBXBuildFile; fileRef = 04255BB318B3AE580006F9E0 /* split_line.png */; };
 		04255BB918B3B12B0006F9E0 /* info_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 04255BB818B3B12B0006F9E0 /* info_btn.png */; };
 		04255BBB18B3B6F80006F9E0 /* info_order_cell_bg_all.png in Resources */ = {isa = PBXBuildFile; fileRef = 04255BBA18B3B6F80006F9E0 /* info_order_cell_bg_all.png */; };
-		04255BBD18B3B7380006F9E0 /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04255BBC18B3B7380006F9E0 /* OrderTableViewCell.xib */; };
 		04255BC018B3B7EF0006F9E0 /* OrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04255BBF18B3B7EF0006F9E0 /* OrderTableViewCell.m */; };
 		04255BC318B3BB440006F9E0 /* OrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04255BC218B3BB440006F9E0 /* OrderListViewController.m */; };
 		04255BC618B3BC720006F9E0 /* OrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04255BC518B3BC720006F9E0 /* OrderDetailViewController.m */; };
@@ -156,6 +155,10 @@
 		BD884AFF18B4CC0500E354B7 /* logo120.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884AFC18B4CC0500E354B7 /* logo120.png */; };
 		BD884B0218B50A5800E354B7 /* BidDetailTableViewCell_V2.m in Sources */ = {isa = PBXBuildFile; fileRef = BD884B0118B50A5800E354B7 /* BidDetailTableViewCell_V2.m */; };
 		BD884B0418B5198300E354B7 /* bid_cell_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884B0318B5198300E354B7 /* bid_cell_btn.png */; };
+		BD884B0B18B7188800E354B7 /* info_account_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884B0A18B7188800E354B7 /* info_account_bg.png */; };
+		BD884B1018B7B53300E354B7 /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD884B0F18B7B53300E354B7 /* OrderTableViewCell.xib */; };
+		BD884B1418B8964900E354B7 /* bid_item_price.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884B1218B8964800E354B7 /* bid_item_price.png */; };
+		BD884B1618B8BFF000E354B7 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884B1518B8BFF000E354B7 /* image.png */; };
 		BDE7BD7B18B0D16800A82198 /* HotMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */; };
 		BDE7BD7C18B0D16800A82198 /* MarketMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7A18B0D16800A82198 /* MarketMsgViewController.m */; };
 		BDE7BD7F18B0D18400A82198 /* MediaMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7E18B0D18400A82198 /* MediaMsgViewController.m */; };
@@ -189,7 +192,6 @@
 		04255BB318B3AE580006F9E0 /* split_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = split_line.png; sourceTree = "<group>"; };
 		04255BB818B3B12B0006F9E0 /* info_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_btn.png; sourceTree = "<group>"; };
 		04255BBA18B3B6F80006F9E0 /* info_order_cell_bg_all.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_order_cell_bg_all.png; sourceTree = "<group>"; };
-		04255BBC18B3B7380006F9E0 /* OrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
 		04255BBE18B3B7EF0006F9E0 /* OrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTableViewCell.h; sourceTree = "<group>"; };
 		04255BBF18B3B7EF0006F9E0 /* OrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTableViewCell.m; sourceTree = "<group>"; };
 		04255BC118B3BB440006F9E0 /* OrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListViewController.h; sourceTree = "<group>"; };
@@ -415,6 +417,10 @@
 		BD884B0018B50A5800E354B7 /* BidDetailTableViewCell_V2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidDetailTableViewCell_V2.h; sourceTree = "<group>"; };
 		BD884B0118B50A5800E354B7 /* BidDetailTableViewCell_V2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidDetailTableViewCell_V2.m; sourceTree = "<group>"; };
 		BD884B0318B5198300E354B7 /* bid_cell_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bid_cell_btn.png; sourceTree = "<group>"; };
+		BD884B0A18B7188800E354B7 /* info_account_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = info_account_bg.png; path = "../../../../doc/2-19/切片(iphone5)/我的信息/back/info_account_bg.png"; sourceTree = "<group>"; };
+		BD884B0F18B7B53300E354B7 /* OrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
+		BD884B1218B8964800E354B7 /* bid_item_price.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bid_item_price.png; sourceTree = "<group>"; };
+		BD884B1518B8BFF000E354B7 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
 		BDE7BD7718B0D16800A82198 /* HotMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotMsgViewController.h; sourceTree = "<group>"; };
 		BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotMsgViewController.m; sourceTree = "<group>"; };
 		BDE7BD7918B0D16800A82198 /* MarketMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketMsgViewController.h; sourceTree = "<group>"; };
@@ -513,9 +519,9 @@
 				0431107518A69A1C008109F7 /* LeftTitleListCell.m */,
 				BDE7BD9018B10EE400A82198 /* InfoClassTableViewCell.h */,
 				BDE7BD9118B10EE400A82198 /* InfoClassTableViewCell.m */,
-				04255BBC18B3B7380006F9E0 /* OrderTableViewCell.xib */,
 				04255BBE18B3B7EF0006F9E0 /* OrderTableViewCell.h */,
 				04255BBF18B3B7EF0006F9E0 /* OrderTableViewCell.m */,
+				BD884B0F18B7B53300E354B7 /* OrderTableViewCell.xib */,
 				BD884B0018B50A5800E354B7 /* BidDetailTableViewCell_V2.h */,
 				BD884B0118B50A5800E354B7 /* BidDetailTableViewCell_V2.m */,
 			);
@@ -525,6 +531,7 @@
 		04DFD40F189B833D00A3BDDF /* bid */ = {
 			isa = PBXGroup;
 			children = (
+				BD884B1218B8964800E354B7 /* bid_item_price.png */,
 				042762E618B6594C006D816A /* bid_prepare_bg_1.png */,
 				042762E718B6594C006D816A /* bid_prepare_bg_2.png */,
 				BD884B0318B5198300E354B7 /* bid_cell_btn.png */,
@@ -842,6 +849,7 @@
 		04F6E5C1189A8C620057BD72 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				BD884B1518B8BFF000E354B7 /* image.png */,
 				04255BB818B3B12B0006F9E0 /* info_btn.png */,
 				04255BB318B3AE580006F9E0 /* split_line.png */,
 				04F854E918B25CFB0026BCA4 /* infoclass */,
@@ -919,6 +927,7 @@
 		BDE7BD8418B10CBE00A82198 /* info */ = {
 			isa = PBXGroup;
 			children = (
+				BD884B0A18B7188800E354B7 /* info_account_bg.png */,
 				042762EE18B6675A006D816A /* info_order_cell_bg.png */,
 				04255BBA18B3B6F80006F9E0 /* info_order_cell_bg_all.png */,
 				BDE7BD8E18B10DC300A82198 /* hotmsg_cell_bg.png */,
@@ -977,6 +986,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = cszhan;
 				TargetAttributes = {
+					04F6E560189A864D0057BD72 = {
+						DevelopmentTeam = A8RA93G2CJ;
+					};
 					04F6E581189A864E0057BD72 = {
 						TestTargetID = 04F6E560189A864D0057BD72;
 					};
@@ -1034,7 +1046,6 @@
 				04F6E57D189A864D0057BD72 /* Images.xcassets in Resources */,
 				04E65C82189FF260008FA65A /* bid_confirm_btn.png in Resources */,
 				04DFD40A189B6BEF00A3BDDF /* BidItemCell.xib in Resources */,
-				04255BBD18B3B7380006F9E0 /* OrderTableViewCell.xib in Resources */,
 				04F854E718B25CF40026BCA4 /* button_gray07.png in Resources */,
 				04E65C8C18A257C0008FA65A /* bid_price_btn.png in Resources */,
 				04DFD449189D492A00A3BDDF /* round.png in Resources */,
@@ -1049,13 +1060,16 @@
 				04E65D0618A269B8008FA65A /* bchemMW.cer in Resources */,
 				04DFD441189D35B200A3BDDF /* button-3.png in Resources */,
 				04DFD456189D7D7B00A3BDDF /* bid_detail_header.png in Resources */,
+				BD884B1018B7B53300E354B7 /* OrderTableViewCell.xib in Resources */,
 				04DFD43E189D35B200A3BDDF /* button-1.png in Resources */,
 				0431107818A7E4B6008109F7 /* arrow_detail.png in Resources */,
 				BD884AFF18B4CC0500E354B7 /* logo120.png in Resources */,
+				BD884B0B18B7188800E354B7 /* info_account_bg.png in Resources */,
 				04D5358818ABCDBD00728B75 /* myinfo_split_bg.png in Resources */,
 				04DFD413189B83B800A3BDDF /* bid_cell_bg.png in Resources */,
 				04DFD440189D35B200A3BDDF /* button-4.png in Resources */,
 				04F6E5CE189A8C630057BD72 /* tableitem3.png in Resources */,
+				BD884B1418B8964900E354B7 /* bid_item_price.png in Resources */,
 				04E65C8B18A257C0008FA65A /* bid_caterlog_mask.png in Resources */,
 				04D5358A18ABCDE500728B75 /* myinfo_btn.png in Resources */,
 				04DFD415189B944E00A3BDDF /* btn-back.png in Resources */,
@@ -1091,6 +1105,7 @@
 				04F854E318B25CF40026BCA4 /* button_gray03.png in Resources */,
 				04F6E5D0189A8C630057BD72 /* tableitemsel0.png in Resources */,
 				04DFD437189D355200A3BDDF /* back_home.png in Resources */,
+				BD884B1618B8BFF000E354B7 /* image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1303,6 +1318,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BSTell/BSTell-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
@@ -1324,6 +1340,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ZHU CAIXI (A8RA93G2CJ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BSTell/BSTell-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";

@@ -9,7 +9,8 @@
 #import "UICarTableViewCell.h"
 
 @interface OrderTableViewCell : UICarTableViewCell
-@property(nonatomic,strong)IBOutlet UILabel *orderIdLabel;
-@property(nonatomic,strong)IBOutlet UILabel *goodsIdLabel;
-@property(nonatomic,strong)IBOutlet UILabel *classNameLabel;
+@property(nonatomic,weak)IBOutlet UILabel *orderIdLabel;
+@property(nonatomic,weak)IBOutlet UILabel *goodsIdLabel;
+@property(nonatomic,weak)IBOutlet UILabel *classNameLabel;
+@property(nonatomic,weak)IBOutlet UIImageView *bgImageView;
 @end

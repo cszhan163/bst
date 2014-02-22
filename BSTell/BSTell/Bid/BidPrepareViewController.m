@@ -141,7 +141,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
+    NSDictionary *item  = self.dataArray[indexPath.row];
+    
+    NSString *goodId = [item objectForKey:@"goodId"];
+    
     BidItemDetailViewController *vc = [[BidItemDetailViewController alloc]initWithNibName:nil bundle:nil];
+    vc.bidType = Bid_Prepare;
+    vc.goodId = goodId;
+    
     [vc  setNavgationBarTitle:@"详情"];
     /*
      vc.delegate = self;

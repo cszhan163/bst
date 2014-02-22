@@ -29,7 +29,7 @@
         
         bidBtn = [UIComUtil createButtonWithNormalBGImageName:@"bid_cell_btn.png" withHightBGImageName:@"bid_cell_btn.png" withTitle:@"+1" withTag:0];
         [self addSubview:bidBtn];
-        bidBtn.titleLabel.font = [UIFont systemFontOfSize:20];
+        bidBtn.titleLabel.font = [UIFont boldSystemFontOfSize:40];
         
         bidBtn.frame = CGRectMake(190.f, 25.f, bidBtn.frame.size.width, bidBtn.frame.size.height);
     }
@@ -38,6 +38,7 @@
 - (void)setActionTarget:(id)actionTarget withSelecotr:(SEL)selector{
     [bidBtn addTarget:actionTarget action:selector forControlEvents:UIControlEventTouchUpInside];
 }
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
