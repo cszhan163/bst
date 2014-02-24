@@ -53,6 +53,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    navItemCtrl.delegate = self;
 	// Do any additional setup after loading the view.
     [self setHiddenLeftBtn:YES];
 }
@@ -71,6 +72,7 @@
         NSLog(@"%@",NSStringFromClass(NSClassFromString(kNavViewControllerArray[i])));
         BSTellNetListBaseViewController *vcCtl = [[NSClassFromString(kNavViewControllerArray[i]) alloc]init];
         vcCtl.parentNav = self.navigationController;
+        [vcCtl setParentVc:self];
         vcCtl.dataArray = kTopLevelTitleArray[i];
         [vcArray addObject:vcCtl];
         SafeRelease(vcCtl);
@@ -153,5 +155,36 @@
     //topNavBar.delegate = self;
     return topNavBar;
 }
+-(void)didSelectorTopNavItem:(id)navObj
+{
+	NE_LOG(@"select item:%d",[navObj tag]);
+    [navItemCtrl.currentViewController returnToLeveOne];
+    [self setHiddenLeftBtn:YES];
+    
+//	switch ([navObj tag])
+//	{
+//		case 0:
+//            if(level == Class_One){
+//                
+//            }//[self.navigationController popViewControllerAnimated:YES];// animated:<#(BOOL)animated#>
+//            else{
+//                level = Class_One;
+//                [self.parentVc setHiddenLeftBtn:YES];
+//                self.dataArray = self.levelOneDataArray;
+//                [tweetieTableView reloadData];
+//            }
+//			break;
+//            
+//	}
+//    if(delegate&&[delegate respondsToSelector:@selector(didSelectorTopNavigationBarItem:)])
+//    {
+//        
+//        [delegate didSelectorTopNavigationBarItem:navObj];
+//    }
+}
+- (void)didSelectorNavItem:(id)sender{
 
+    [navItemCtrl.currentViewController returnToLeveOne];
+    
+}
 @end

@@ -22,7 +22,7 @@
         mainView.topBarView.backgroundColor = [UIColor clearColor];
     else
         mainView.topBarView.backgroundColor = self.topBarColor;
-    tweetieTableView.normalEdgeInset = UIEdgeInsetsMake(15.f, 0.f, 0.f, 0.f);
+    tweetieTableView.normalEdgeInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, 0.f);
 }
 - (void)setTopBarViewBackGroundColor:(UIColor*)color{
     

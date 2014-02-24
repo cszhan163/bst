@@ -18,8 +18,23 @@
 	// Do any additional setup after loading the view.
     [self setHiddenLeftBtn:YES];
     mainView.topBarView.backgroundColor = [UIColor clearColor];
-    tweetieTableView.normalEdgeInset = UIEdgeInsetsMake(15.f, 0.f, 0.f, 0.f);
+    tweetieTableView.normalEdgeInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, 0.f);
 }
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if(level == Class_One)
+         [self.parentVc setHiddenLeftBtn:YES];
+}
+- (void)returnToLeveOne{
+    
+    level = Class_One;
+    [self.parentVc setHiddenLeftBtn:YES];
+    if(self.levelOneDataArray)
+        self.dataArray = self.levelOneDataArray;
+    [tweetieTableView reloadData];
+    
+}
+
 #pragma mark -
 #pragma mark tableview
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

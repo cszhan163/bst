@@ -22,7 +22,8 @@
 @interface BidDetailViewController (){
 
     BidDetailTableViewCell *headerView;
-    BidDetailTableViewCell *tableView;
+    
+    UIScrollView *bgGoodsView;
 }
 @end
 
@@ -63,77 +64,17 @@
     [self.view addSubview:headerView];
     SafeRelease(headerView);
     
-    currY = 185.f;
-    UIImageWithFileName(image , @"bid_detail_table.png");
+    currY = 175.f;
     
-    tableView = [[BidDetailTableViewCell alloc]initWithFrame:CGRectMake(kLeftPendingX, currY,image.size.width/kScale, image.size.height/kScale) withRowCount:5 withColumCount:4 withCellHeight:20 withHeaderTitle:@"物资信息"];
-    tableView.layer.contents = (id)image.CGImage;
-    /*
-     物资编号
-     竞价模式
-     报盘方式
-     计价方式
-     起拍价
-     总量
-     拼盘梯度
-     成交价
-     竞价状态
-     品名
-     包装
-     产地
-     仓库
-     重量
-     计量单位
-     付款方式
-     提货方式
-     交货时间
-     质量标准
-     备注
-     */
-    [tableView addColumWithKeyTitleArray:@[@"物资编号",@"竞价模式",@"报盘方式",@"计价方式"] withColumWidthArray:kTableColounmItemWidthArray];
+    CGFloat goodViewHeight = 180.f;
+    if(kDeviceCheckIphone5){
+        goodViewHeight = 180.f+80.f;
+    }
+    bgGoodsView = [[UIScrollView alloc]initWithFrame:CGRectMake(0.f,currY,kDeviceScreenWidth, goodViewHeight)];
     
-    [tableView addColumWithKeyTitleArray:@[@"起拍价",@"总量",@"竞价梯度",@"成交价"] withColumWidthArray:kTableColounmItemWidthArray];
-    /*
-     @"竞价状态",
-     @"品名",
-     @"包装",
-     @"产地",
-     */
-    [tableView addColumWithKeyTitleArray:@[@"竞价状态",
-                                           @"品名",
-                                           @"包装",
-                                           @"产地"
-                                           ] withColumWidthArray:kTableColounmItemWidthArray];
+    [self.view addSubview:bgGoodsView];
     
-    /*
-     @"仓库",
-     @"重量",
-     @"计量单位",
-     @"付款方式",
-     */
-    [tableView addColumWithKeyTitleArray:@[@"仓库",
-                                           @"重量",
-                                           @"计量单位",
-                                           @"付款方式"
-                                           ] withColumWidthArray:kTableColounmItemWidthArray];
-    
-    /*
-     @"提货方式",
-     @"交货时间",
-     @"质量标准",
-     @"备注",
-     */
-
-    [tableView addColumWithKeyTitleArray:@[@"提货方式",
-                                           @"交货时间",
-                                           @"质量标准",
-                                           @"备注"
-                                           ] withColumWidthArray:kTableColounmItemWidthArray];
-    
-
-    
-    [self.view addSubview:tableView];
-    SafeRelease(tableView);
+    SafeRelease(bgGoodsView);
     
     [self addFonterView];
     
@@ -255,20 +196,99 @@
         //        kNetEndSuccStr(@"评论成功",self.view);
         //        [self dismissModalViewControllerAnimated:YES];
         
-        
-        
+        self.data = data;
         [self performSelectorOnMainThread:@selector(updateUIData:) withObject:data waitUntilDone:NO];
         
     }
     
     //self.view.userInteractionEnabled = YES;
 }
-- (void)updateUIData:(NSDictionary*)netData{
-    kNetEnd(self.view);
-
+- (void)addTableCellView:(NSDictionary*)netData{
+    NSArray *dataArray = [self.data objectForKey:@"data"];
+    UIImageWithFileName(UIImage *image , @"bid_detail_table.png");
+    //CGRect rect = headerView.frame;
+    CGFloat currY = 0.f;
+    for(int i = 0;i<[dataArray count];i++){
+        NSDictionary *itemData = dataArray[i];
+        
+     BidDetailTableViewCell   *tableView = [[BidDetailTableViewCell alloc]initWithFrame:CGRectMake(kLeftPendingX, currY,image.size.width/kScale, image.size.height/kScale) withRowCount:5 withColumCount:4 withCellHeight:20 withHeaderTitle:@"物资信息"];
+        tableView.layer.contents = (id)image.CGImage;
+        /*
+         物资编号
+         竞价模式
+         报盘方式
+         计价方式
+         起拍价
+         总量
+         拼盘梯度
+         成交价
+         竞价状态
+         品名
+         包装
+         产地
+         仓库
+         重量
+         计量单位
+         付款方式
+         提货方式
+         交货时间
+         质量标准
+         备注
+         */
+        [tableView addColumWithKeyTitleArray:@[@"物资编号",@"竞价模式",@"报盘方式",@"计价方式"] withColumWidthArray:kTableColounmItemWidthArray];
+        
+        [tableView addColumWithKeyTitleArray:@[@"起拍价",@"总量",@"竞价梯度",@"成交价"] withColumWidthArray:kTableColounmItemWidthArray];
+        /*
+         @"竞价状态",
+         @"品名",
+         @"包装",
+         @"产地",
+         */
+        [tableView addColumWithKeyTitleArray:@[@"竞价状态",
+                                               @"品名",
+                                               @"包装",
+                                               @"产地"
+                                               ] withColumWidthArray:kTableColounmItemWidthArray];
+        
+        /*
+         @"仓库",
+         @"重量",
+         @"计量单位",
+         @"付款方式",
+         */
+        [tableView addColumWithKeyTitleArray:@[@"仓库",
+                                               @"重量",
+                                               @"计量单位",
+                                               @"付款方式"
+                                               ] withColumWidthArray:kTableColounmItemWidthArray];
+        
+        /*
+         @"提货方式",
+         @"交货时间",
+         @"质量标准",
+         @"备注",
+         */
+        
+        [tableView addColumWithKeyTitleArray:@[@"提货方式",
+                                               @"交货时间",
+                                               @"质量标准",
+                                               @"备注"
+                                               ] withColumWidthArray:kTableColounmItemWidthArray];
+        
+        [self setTableCellView:tableView byData:itemData];
+        
+        [bgGoodsView addSubview:tableView];
+        SafeRelease(tableView);
+        currY = currY+image.size.height/2.f;
+    }
+    bgGoodsView.contentSize = CGSizeMake(kDeviceScreenWidth, currY);
+}
+- (void)setTableHeaderViewByData:(NSDictionary*)netData{
     int index = 0;
     int row = 0;
     NSString *value = @"";
+    
+    
     /*
      ggmc	场次名称
      joinWay	参与方式
@@ -295,9 +315,17 @@
     
     value = [netData objectForKey:@"jssj"];
     [headerView setCellItemValue:value withRow:row withCol:index++];
+}
+- (void)setTableCellView:(BidDetailTableViewCell*)tableView byData:(NSDictionary*)netData{
+    
+    int index = 0;
+    int row = 0;
+    NSString *value = @"";
     
     
-   
+        
+    
+    
     /*
      goodId
      auctionMode
@@ -306,7 +334,7 @@
      */
     index = 0;
     row = 0;
-    netData = [[netData objectForKey:@"data"]objectAtIndex:0];
+    //netData = [[netData objectForKey:@"data"]objectAtIndex:0];
     value = [netData objectForKey:@"goodId"];
     [tableView setCellItemValue:value withRow:0 withCol:index++];
     
@@ -395,8 +423,18 @@
     [tableView setCellItemValue:value withRow:row withCol:index++];
     value = [netData objectForKey:@"note"];
     [tableView setCellItemValue:value withRow:row withCol:index++];
+}
+- (void)updateUIData:(NSDictionary*)netData{
+    kNetEnd(self.view);
+
+  
+    [self setTableHeaderViewByData:netData];
+    [self addTableCellView:netData];
+    
+    //[self setTableCellViewByData:netData];
     
 }
+
 -(void)didNetDataFailed:(NSNotification*)ntf
 {
     //kNetEndWithErrorAutoDismiss

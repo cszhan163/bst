@@ -108,6 +108,7 @@
     OrderDetailViewController *vc = [[OrderDetailViewController alloc]initWithNibName:nil bundle:nil];
     NSDictionary *item = self.dataArray[indexPath.row];
     vc.orderId = [item objectForKey:@"orderId"];
+    vc.orderItem = item;
     [vc  setNavgationBarTitle:@"订单详情"];
     
     //[vc  setHiddenTableHeaderView:NO];

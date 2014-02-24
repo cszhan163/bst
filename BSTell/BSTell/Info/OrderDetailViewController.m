@@ -178,6 +178,19 @@
 
 - (void)startConfirmOrderStatus:(id)sender{
 
+    kUIAlertConfirmView(@"提示", @"是否确认收获", @"确定", @"取消");
+
+
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+
+    if(buttonIndex == 0){
+        [self didConfirmClickConfirmFunction];
+    }
+    
+}
+- (void)didConfirmClickConfirmFunction{
+    
     NSDictionary *param  = nil;
     CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
     {
@@ -192,12 +205,12 @@
          到款状态
          dhczy
          操作员
-
+         
          */
         param = [NSDictionary dictionaryWithObjectsAndKeys:
                  self.orderId,@"orderId",
                  @"1",@"dhczy",
-                 [self.orderItem objectForKey:@"fphm"],@"fphm",
+                 @"",@"fphm",//[self.orderItem objectForKey:@"fphm"]
                  @"001",@"kplb",
                  @"10",@"hzfs",
                  @"",@"dhczy",
@@ -205,10 +218,7 @@
                  nil];
         self.request = [carServiceNetDataMgr  updateStatus4Move:param];
     }
-
-
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -260,7 +270,9 @@
     }
     if([resKey isEqualToString:kResUserOrderConfirm]){
     
-        kNetEndSuccStr(@"确认成功",self.view);
+        if([[data objectForKey:@"result"] intValue])
+           kNetEndSuccStr(@"确认成功",self.view);
+        //kUIAlertView(<#y#>, <#x#>)
         //[self dismissModalViewControllerAnimated:YES];
     }
 }

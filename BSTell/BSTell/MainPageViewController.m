@@ -60,13 +60,21 @@ static  NSString* kTitleTextArray[] = {@"我要出价",@"网站公告",@"交易�
     logoImageView = [[UIImageView alloc]initWithImage:image];
     [self.view addSubview:logoImageView];
     SafeRelease(logoImageView);
+    CGFloat offsetY = currY;
+    if(kDeviceCheckIphone5){
+        offsetY = offsetY + 40.f;
+    }
     
-    logoImageView.frame = CGRectMake(5.f, currY, image.size.width/kScale, image.size.height/kScale-30.f);
+    logoImageView.frame = CGRectMake(5.f, offsetY, image.size.width/kScale, image.size.height/kScale-30.f);
     //logoImageView.center = CGPointMake(kDeviceScreenWidth/kScale, 40.f);
     
     
     
     currY = currY+190.f;
+    
+    if(kDeviceCheckIphone5){
+        currY = currY+80.f;
+    }
     
     int i = 0,index = 0;
     

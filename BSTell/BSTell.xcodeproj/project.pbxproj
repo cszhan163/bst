@@ -160,6 +160,7 @@
 		BD884B1418B8964900E354B7 /* bid_item_price.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884B1218B8964800E354B7 /* bid_item_price.png */; };
 		BD884B1618B8BFF000E354B7 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884B1518B8BFF000E354B7 /* image.png */; };
 		BD884B1818B90D9000E354B7 /* setting_login_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884B1718B90D9000E354B7 /* setting_login_btn.png */; };
+		BD884B1A18BADFBD00E354B7 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BD884B1918BADFBD00E354B7 /* SVProgressHUD.bundle */; };
 		BDE7BD7B18B0D16800A82198 /* HotMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */; };
 		BDE7BD7C18B0D16800A82198 /* MarketMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7A18B0D16800A82198 /* MarketMsgViewController.m */; };
 		BDE7BD7F18B0D18400A82198 /* MediaMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7E18B0D18400A82198 /* MediaMsgViewController.m */; };
@@ -423,6 +424,7 @@
 		BD884B1218B8964800E354B7 /* bid_item_price.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bid_item_price.png; sourceTree = "<group>"; };
 		BD884B1518B8BFF000E354B7 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
 		BD884B1718B90D9000E354B7 /* setting_login_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting_login_btn.png; sourceTree = "<group>"; };
+		BD884B1918BADFBD00E354B7 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		BDE7BD7718B0D16800A82198 /* HotMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotMsgViewController.h; sourceTree = "<group>"; };
 		BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotMsgViewController.m; sourceTree = "<group>"; };
 		BDE7BD7918B0D16800A82198 /* MarketMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketMsgViewController.h; sourceTree = "<group>"; };
@@ -738,6 +740,7 @@
 		04F6E558189A864D0057BD72 = {
 			isa = PBXGroup;
 			children = (
+				BD884B1918BADFBD00E354B7 /* SVProgressHUD.bundle */,
 				04D6AF8918AA7FA4002967C4 /* UIFramework */,
 				04F6E599189A87480057BD72 /* ZCSUIFrameWork.xcodeproj */,
 				04F6E56A189A864D0057BD72 /* BSTell */,
@@ -1082,6 +1085,7 @@
 				04F854E118B25CF40026BCA4 /* button_gray01.png in Resources */,
 				04F6E5D1189A8C630057BD72 /* tableitemsel1.png in Resources */,
 				04F6E56F189A864D0057BD72 /* InfoPlist.strings in Resources */,
+				BD884B1A18BADFBD00E354B7 /* SVProgressHUD.bundle in Resources */,
 				BD884AF918B4CBE900E354B7 /* logo57.png in Resources */,
 				04F6E5D3189A8C630057BD72 /* tableitemsel3.png in Resources */,
 				042762EF18B6675A006D816A /* info_order_cell_bg.png in Resources */,
@@ -1344,7 +1348,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ZHU CAIXI (A8RA93G2CJ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BSTell/BSTell-Prefix.pch";

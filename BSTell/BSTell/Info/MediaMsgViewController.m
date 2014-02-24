@@ -22,7 +22,14 @@
     }
     return self;
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if(level == Class_One)
+        [self.parentVc setHiddenLeftBtn:YES];
+    else{
+        [self.parentVc setHiddenLeftBtn:NO];
+    }
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

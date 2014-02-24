@@ -7,7 +7,18 @@
 //
 
 #import "MsgClassBaseViewController.h"
+typedef  enum classLevel{
+    Class_One,
+    Class_Two,
+}ClassLevel;
 
-@interface HotMsgViewController : MsgClassBaseViewController
 
+@interface HotMsgViewController : MsgClassBaseViewController{
+
+     ClassLevel  level;
+}
+- (void)returnToLeveOne;
+@property   (nonatomic,strong)  NSArray *levelTwoDataArray;
+@property   (nonatomic,strong)  NSArray *levelOneDataArray;
 @end
+

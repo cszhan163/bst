@@ -8,6 +8,10 @@
 
 #import "HotMsgViewController.h"
 
-@interface MarketMsgViewController : HotMsgViewController
+
+@interface MarketMsgViewController : HotMsgViewController{
+
+   
+}
 
 @end
