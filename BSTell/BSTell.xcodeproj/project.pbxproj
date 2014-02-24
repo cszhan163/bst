@@ -159,6 +159,7 @@
 		BD884B1018B7B53300E354B7 /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD884B0F18B7B53300E354B7 /* OrderTableViewCell.xib */; };
 		BD884B1418B8964900E354B7 /* bid_item_price.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884B1218B8964800E354B7 /* bid_item_price.png */; };
 		BD884B1618B8BFF000E354B7 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884B1518B8BFF000E354B7 /* image.png */; };
+		BD884B1818B90D9000E354B7 /* setting_login_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884B1718B90D9000E354B7 /* setting_login_btn.png */; };
 		BDE7BD7B18B0D16800A82198 /* HotMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */; };
 		BDE7BD7C18B0D16800A82198 /* MarketMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7A18B0D16800A82198 /* MarketMsgViewController.m */; };
 		BDE7BD7F18B0D18400A82198 /* MediaMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7E18B0D18400A82198 /* MediaMsgViewController.m */; };
@@ -421,6 +422,7 @@
 		BD884B0F18B7B53300E354B7 /* OrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
 		BD884B1218B8964800E354B7 /* bid_item_price.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bid_item_price.png; sourceTree = "<group>"; };
 		BD884B1518B8BFF000E354B7 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
+		BD884B1718B90D9000E354B7 /* setting_login_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting_login_btn.png; sourceTree = "<group>"; };
 		BDE7BD7718B0D16800A82198 /* HotMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotMsgViewController.h; sourceTree = "<group>"; };
 		BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotMsgViewController.m; sourceTree = "<group>"; };
 		BDE7BD7918B0D16800A82198 /* MarketMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketMsgViewController.h; sourceTree = "<group>"; };
@@ -849,6 +851,7 @@
 		04F6E5C1189A8C620057BD72 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				BD884B1718B90D9000E354B7 /* setting_login_btn.png */,
 				BD884B1518B8BFF000E354B7 /* image.png */,
 				04255BB818B3B12B0006F9E0 /* info_btn.png */,
 				04255BB318B3AE580006F9E0 /* split_line.png */,
@@ -1036,6 +1039,7 @@
 			files = (
 				042762E818B6594C006D816A /* bid_prepare_bg_1.png in Resources */,
 				04DFD459189D899E00A3BDDF /* bid_join_btn.png in Resources */,
+				BD884B1818B90D9000E354B7 /* setting_login_btn.png in Resources */,
 				04DFD3FD189B5FB800A3BDDF /* tabbarbg.png in Resources */,
 				04DFD457189D7D7B00A3BDDF /* bid_detail_table.png in Resources */,
 				04E65C80189FF151008FA65A /* bid_btn.png in Resources */,

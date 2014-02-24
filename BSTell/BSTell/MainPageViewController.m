@@ -71,7 +71,7 @@ static  NSString* kTitleTextArray[] = {@"我要出价",@"网站公告",@"交易�
     int i = 0,index = 0;
     
     UIButton *item = nil;
-    UIButton *noteCenterBtn = [UIComUtil createButtonWithNormalBGImageName:@"button-1.png" withHightBGImageName:@"button-1.png" withTitle:kTitleTextArray[i] withTag:0];
+    UIButton *noteCenterBtn = [UIComUtil createButtonWithNormalBGImageName:@"button-1.png" withHightBGImageName:@"button-1.png" withTitle:kTitleTextArray[i] withTag:1];
     [self.view addSubview:noteCenterBtn];
     noteCenterBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
     noteCenterBtn.frame = CGRectMake(kItemLeftPendingX, currY,kDeviceScreenWidth-2*kItemLeftPendingX, noteCenterBtn.frame.size.height);
@@ -110,7 +110,8 @@ static  NSString* kTitleTextArray[] = {@"我要出价",@"网站公告",@"交易�
 #pragma mark -
 #pragma mark button action
 - (void)pressButtonAction:(id)sender{
-    switch ([sender tag]) {
+    int index = [sender tag];
+    switch (index) {
         case 1:{
            
             BidMainViewController *bidMainVc = [[BidMainViewController alloc]init];

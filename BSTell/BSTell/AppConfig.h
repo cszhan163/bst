@@ -121,6 +121,8 @@
 
 #define kCarUserOrderDetail             @"getOrderDetail"
 
+#define kResUserOrderConfirm            @"updateStatus4Move"
+
 #define kCarUserUpdatePhone             @"updateUserPhoneNumber"
 #define kCarBrandQuery                  @"queryVehcileBrand"
 #define kCarSeriesQuery                 @"queryVehcileSeries"
@@ -135,6 +137,8 @@
 #define kResBidItemData               @"queryAuctionPpInfo4Move"
 
 #define kResBidSaveData                 @"saveAuction4Move"
+
+#define kResBidQuit                     @"quitWt4Move"
 
 #define kResBidAllListData                       @"queryAuctionPps4Move"
 

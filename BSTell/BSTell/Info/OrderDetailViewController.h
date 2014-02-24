@@ -10,4 +10,5 @@
 
 @interface OrderDetailViewController : BSTellBaseViewController
 @property(nonatomic,strong)NSString *orderId;
+@property(nonatomic,strong)NSDictionary* orderItem;
 @end

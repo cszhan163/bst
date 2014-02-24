@@ -26,15 +26,17 @@
 
 #define kMBAppRealViewYPending                          9.f
 
-#define kTabItemTextShow            0
+#define kTabItemTextShow            1
 
 //if all the button is the same ,the offset should be all 0
 #define kTabAllItemTextCenterXOffset    @"0,0,0,0,0"
 #define kTabAllItemTextCenterYOffset    @"0,0,0,0,0"
 
-#define kTabAllItemText                 @"行程,驾驶,车况,服务,设置"
+#define kTabImageOffsetPoint            CGPointMake(20.f,8.f)
+
+#define kTabAllItemText                 @"竞买,资讯中心,首页,我的信息,设置"
 //for tabItem text
-#define kTabItemTextPendingY            5.f
+#define kTabItemTextPendingY            7.f
 #define kTabItemTextHeight              12
 #define kTabItemTextFont            [UIFont systemFontOfSize:12]
 

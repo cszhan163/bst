@@ -439,6 +439,35 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
     [self sendFinalFailedData:error withKey:kResBidSaveData];
 }
 
+- (void)quitWt4Move:(NSDictionary*)param{
+
+    /*
+     hydm	会员代码
+     limit	数据条数默认10条
+     offset	第几页
+     
+     */
+    if(param == nil){
+        param = [NSDictionary dictionaryWithObjectsAndKeys:
+                 @"001",@"wtid",
+                 //@"10",@"id",
+                 //@"1",@"offset",
+                 nil];
+    }
+    [self sendRequest:@"quitWt4Move" withVersion:@"v10" withParam:param withOkBack:@selector(quitWt4MoveOk:) withFailedBack:@selector(quitWt4MoveFailed:)];
+
+}
+- (void)quitWt4MoveOk:(NSString*)result{
+    id data = [result JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kResBidQuit];
+}
+- (void)quitWt4MoveFailed:(NSString*)error{
+    
+    [self sendFinalFailedData:error withKey:kResBidQuit];
+}
 #pragma mark -
 #pragma mark agreement 
 
@@ -576,4 +605,24 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
 - (void)getOrderDetailFailed:(NSString*)error{
     
 }
+- (void)updateStatus4Move:(NSDictionary*)param{
+
+    if(param == nil){
+        param = [NSDictionary dictionaryWithObjectsAndKeys:
+                 @"001",@"orderId",
+                 nil];
+    }
+    [self sendRequest:@"updateStatus4Move" withVersion:@"v10" withParam:param withOkBack:@selector(updateStatus4MoveOk:) withFailedBack:@selector(updateStatus4MoveFailed:)];
+}
+- (void)updateStatus4MoveOk:(NSString*)result{
+    id data = [result JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kResUserOrderConfirm];
+}
+- (void)updateStatus4MoveFailed:(NSString*)error{
+    
+}
+
 @end

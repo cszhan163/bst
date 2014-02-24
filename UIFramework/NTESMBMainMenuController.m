@@ -261,7 +261,8 @@ BOOL isFromLowMemory = NO;
     NSArray *textArr = [kTabAllItemText componentsSeparatedByString:@","];
     NSArray *textOffsetXArr = [kTabAllItemTextCenterXOffset componentsSeparatedByString:@","];
     NSArray *textOffsetYArr = [kTabAllItemTextCenterYOffset componentsSeparatedByString:@","];
-    CGRect itemRect = CGRectMake(0.f,0.f,64.f,50.f);
+    
+    CGRect itemRect = CGRectMake(0.f,0.f,kDeviceScreenWidth/kTabCountMax,kMBAppBottomToolBarHeght);
 	for(int i = 0; i<tabCount;i++)
 	{
 		UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -272,12 +273,12 @@ BOOL isFromLowMemory = NO;
 		imgPath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:kTabItemNarmalImageFileNameFormart,i] ofType:kTabItemImageSubfix];
 		assert(imgPath);
 		defaultStatusImg =  [UIImage imageWithContentsOfFile:imgPath];
-        defaultStatusImg =  [UIImage_Extend imageWithColor:[UIColor clearColor] withImage:defaultStatusImg withSize:itemRect.size];
+        defaultStatusImg =  [UIImage_Extend imageWithColor:[UIColor clearColor] withImage:defaultStatusImg withSize:itemRect.size withOffsetPoint:kTabImageOffsetPoint];
 		imgPath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:kTabItemSelectImageFileNameFormart,i] ofType:kTabItemImageSubfix];
 		assert(imgPath);
 		selectStatusImg =  [UIImage imageWithContentsOfFile:imgPath];
         
-        selectStatusImg = [UIImage_Extend imageWithColor:[UIColor clearColor] withImage:selectStatusImg withSize:itemRect.size];
+        selectStatusImg = [UIImage_Extend imageWithColor:[UIColor clearColor] withImage:selectStatusImg withSize:itemRect.size  withOffsetPoint:kTabImageOffsetPoint];
          
 		//[btn setBackgroundImage:bgImag forState:UIControlStateNormal];
 		[btn setImage:defaultStatusImg forState:UIControlStateNormal];
@@ -293,7 +294,7 @@ BOOL isFromLowMemory = NO;
 		NE_LOGRECT(btn.frame);
         //add text label
         if(kTabItemTextShow){
-            UILabel *btnTextLabel = [[UILabel alloc]initWithFrame:CGRectMake(0., btn.frame.size.height-kTabItemTextHeight-kTabItemTextPendingY, btn.frame.size.width, kTabItemTextHeight)];
+            UILabel *btnTextLabel = [[UILabel alloc]initWithFrame:CGRectMake(0.,kMBAppBottomToolBarHeght-kTabItemTextHeight-kTabItemTextPendingY, btn.frame.size.width, kTabItemTextHeight)];
             btnTextLabel.backgroundColor = [UIColor clearColor];
             //btnTextLabel.center =
             btnTextLabel.text = NSLocalizedString([textArr objectAtIndex:i],@"");
