@@ -239,7 +239,7 @@
     
     value = [item objectForKey:@"wtprice"];
     if([value isEqualToString:@"0"]){
-        
+        self.isDelegate = NO;
         [bidStatusBtn setTitle:@"取消委托" forState:UIControlStateNormal];
         [bidStatusBtn setTitle:@"取消委托" forState:UIControlStateSelected];
     }

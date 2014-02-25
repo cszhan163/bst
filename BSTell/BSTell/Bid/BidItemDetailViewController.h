@@ -12,6 +12,7 @@ typedef enum bidType{
     Bid_Prepare,
 }BidType;
 @interface BidItemDetailViewController : BSTellBaseViewController
+@property(nonatomic,assign)BOOL isDelegate;
 @property(nonatomic,strong)NSDictionary *bidItem;
 @property(nonatomic,assign)BidType bidType;
 @property (nonatomic,strong) NSString *goodId;

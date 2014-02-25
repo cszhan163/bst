@@ -7,8 +7,9 @@
 //
 
 #import "NoteDetailViewController.h"
-#define  kLeftPendingX 20.f
-@interface NoteDetailViewController (){
+#define  kLeftPendingX 10.f
+@interface NoteDetailViewController (){\
+    UILabel    *timeLabel;
     UITextView *contentTextView;
     UILabel *headerView;
 
@@ -32,15 +33,22 @@
     //tweetieTableView.hidden = YES;
     
     CGFloat currY = kMBAppTopToolBarHeight;
-    headerView = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:18.f] withTextColor:[UIColor blackColor] withText:@"1月21日15:30上海公司32交易保证金相关说明" withFrame:CGRectMake(0.f,currY,kDeviceScreenWidth,44.f)];
+    headerView = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:18.f] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(0.f,currY,kDeviceScreenWidth,44.f)];
     headerView.backgroundColor = HexRGB(190, 221, 238);
     [self.view addSubview:headerView];
     SafeRelease(headerView);
     
+    currY =  currY+headerView.frame.size.height+10.f;
+    timeLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:12.f] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(0.f,currY,kDeviceScreenWidth,15.f)];
+    timeLabel.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:timeLabel];
+    SafeRelease(timeLabel);
     
-    contentTextView = [[UITextView alloc]initWithFrame:CGRectMake(kLeftPendingX,currY+headerView.frame.size.height,kDeviceScreenWidth-2*kLeftPendingX, 250.f)];
-    contentTextView.font = [UIFont systemFontOfSize:10];
+    currY = currY+timeLabel.frame.size.height+10.f;
+    contentTextView = [[UITextView alloc]initWithFrame:CGRectMake(kLeftPendingX,currY,kDeviceScreenWidth-2*kLeftPendingX,kDeviceScreenHeight-kMBAppStatusBar-kMBAppBottomToolBarHeght-currY)];
+    contentTextView.font = [UIFont systemFontOfSize:15];
     contentTextView.editable = NO;
+    contentTextView.backgroundColor = [UIColor clearColor];
     //contentTextView.scrollEnabled = YES;
     [self.view addSubview:contentTextView];
     SafeRelease(contentTextView);
@@ -147,8 +155,8 @@
     contentTextView.text = contentText;
     headerView.text = headerText;
     
-    NSString *moneyValue = [netData objectForKey:@"dfyj"];
-    
+    NSString *moneyValue = [netData objectForKey:@"fbsj"];
+    timeLabel.text = moneyValue;
     /*
     bidMoneyLabel.text = [NSString stringWithFormat:@"您的竞价所需锁定的保证金: %@ 元",moneyValue];
     //您的帐户上的自由资金余额:             元

@@ -9,7 +9,7 @@
 #import "BidConfirmViewController.h"
 #import "BidMainViewController.h"
 
-#define kLeftPendingX 20.f
+#define kLeftPendingX 10.f
 
 @interface BidConfirmViewController (){
 
@@ -51,16 +51,19 @@
     
     currY = currY+60.f;
     
+    
+    
     UIImageWithFileName(UIImage *image , @"bid_confirm_bg.png");
     
-    UIImageView *confirmTextBgView = [[UIImageView alloc]initWithFrame:CGRectMake(10.f, currY, image.size.width/kScale, image.size.height/kScale)];
+    UIImageView *confirmTextBgView = [[UIImageView alloc]initWithFrame:CGRectMake(10.f, currY, image.size.width/kScale,kDeviceScreenHeight-currY-kMBAppBottomToolBarHeght-80.f)];
     confirmTextBgView.image = image;
     confirmTextBgView.userInteractionEnabled = YES;
     [self.view addSubview:confirmTextBgView];
-    
     SafeRelease(confirmTextBgView);
+    
+    
     //
-    contentTextView = [[UITextView alloc]initWithFrame:CGRectMake(kLeftPendingX,kLeftPendingX-10.f,kDeviceScreenWidth-2*kLeftPendingX-20, 250.f)];
+    contentTextView = [[UITextView alloc]initWithFrame:CGRectMake(kLeftPendingX,kLeftPendingX,image.size.width/2.f-2*kLeftPendingX, confirmTextBgView.frame.size.height-50.f)];
     contentTextView.font = [UIFont systemFontOfSize:10];
     contentTextView.editable = NO;
     contentTextView.backgroundColor = [UIColor clearColor];
@@ -68,19 +71,19 @@
     [confirmTextBgView addSubview:contentTextView];
     SafeRelease(contentTextView);
     
-    bidMoneyLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:13] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(kLeftPendingX, contentTextView.frame.origin.y+contentTextView.frame.size.height+10.f,250.f, 20.f)];
+    bidMoneyLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:12] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(kLeftPendingX, contentTextView.frame.origin.y+contentTextView.frame.size.height,250.f, 20.f)];
     bidMoneyLabel.textAlignment = NSTextAlignmentLeft;
     [confirmTextBgView addSubview:bidMoneyLabel];
     SafeRelease(bidMoneyLabel);
     
-    accoutMoneyLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:13] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(kLeftPendingX, contentTextView.frame.origin.y+contentTextView.frame.size.height+30.f,250.f, 20.f)];
+    accoutMoneyLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:12] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(kLeftPendingX, contentTextView.frame.origin.y+contentTextView.frame.size.height+20.f,250.f, 20.f)];
     accoutMoneyLabel.textAlignment = NSTextAlignmentLeft;
     [confirmTextBgView addSubview:accoutMoneyLabel];
     SafeRelease(accoutMoneyLabel);
     
     
     
-    currY = currY + image.size.height/kScale+ 10.f;
+    currY = currY + confirmTextBgView.frame.size.height+ 10.f;
     
     UIButton *okBtn = [UIComUtil createButtonWithNormalBGImageName:@"bid_confirm_btn.png" withHightBGImageName:@"bid_confirm_btn.png" withTitle:@"同意" withTag:0];
     
