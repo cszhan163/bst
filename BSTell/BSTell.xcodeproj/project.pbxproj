@@ -28,6 +28,11 @@
 		0431107618A69A1C008109F7 /* LeftTitleListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431107518A69A1C008109F7 /* LeftTitleListCell.m */; };
 		0431107818A7E4B6008109F7 /* arrow_detail.png in Resources */ = {isa = PBXBuildFile; fileRef = 0431107718A7E4B6008109F7 /* arrow_detail.png */; };
 		044EE26418A4C5E3007A3EDA /* BSTellNetListBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044EE26318A4C5E3007A3EDA /* BSTellNetListBaseViewController.m */; };
+		04535F9218BCBA8B009FA2C4 /* CardShopLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04535F8B18BCBA8B009FA2C4 /* CardShopLoginViewController.m */; };
+		04535F9318BCBA8B009FA2C4 /* CardShopLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04535F8C18BCBA8B009FA2C4 /* CardShopLoginViewController.xib */; };
+		04535F9418BCBA8B009FA2C4 /* CardShopResignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04535F8E18BCBA8B009FA2C4 /* CardShopResignViewController.m */; };
+		04535F9518BCBA8B009FA2C4 /* CardShopResignViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04535F8F18BCBA8B009FA2C4 /* CardShopResignViewController.xib */; };
+		04535F9618BCBA8B009FA2C4 /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04535F9118BCBA8B009FA2C4 /* ResetPasswordViewController.m */; };
 		04D5358318ABCD6200728B75 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D5358218ABCD6200728B75 /* search.png */; };
 		04D5358518ABCD8400728B75 /* bid_delegate_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D5358418ABCD8400728B75 /* bid_delegate_bg.png */; };
 		04D5358818ABCDBD00728B75 /* myinfo_split_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D5358718ABCDBD00728B75 /* myinfo_split_bg.png */; };
@@ -223,6 +228,14 @@
 		0431107718A7E4B6008109F7 /* arrow_detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_detail.png; sourceTree = "<group>"; };
 		044EE26218A4C5E3007A3EDA /* BSTellNetListBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSTellNetListBaseViewController.h; sourceTree = "<group>"; };
 		044EE26318A4C5E3007A3EDA /* BSTellNetListBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSTellNetListBaseViewController.m; sourceTree = "<group>"; };
+		04535F8A18BCBA8B009FA2C4 /* CardShopLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardShopLoginViewController.h; sourceTree = "<group>"; };
+		04535F8B18BCBA8B009FA2C4 /* CardShopLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardShopLoginViewController.m; sourceTree = "<group>"; };
+		04535F8C18BCBA8B009FA2C4 /* CardShopLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardShopLoginViewController.xib; sourceTree = "<group>"; };
+		04535F8D18BCBA8B009FA2C4 /* CardShopResignViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardShopResignViewController.h; sourceTree = "<group>"; };
+		04535F8E18BCBA8B009FA2C4 /* CardShopResignViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardShopResignViewController.m; sourceTree = "<group>"; };
+		04535F8F18BCBA8B009FA2C4 /* CardShopResignViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardShopResignViewController.xib; sourceTree = "<group>"; };
+		04535F9018BCBA8B009FA2C4 /* ResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPasswordViewController.h; sourceTree = "<group>"; };
+		04535F9118BCBA8B009FA2C4 /* ResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordViewController.m; sourceTree = "<group>"; };
 		04D5358218ABCD6200728B75 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
 		04D5358418ABCD8400728B75 /* bid_delegate_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bid_delegate_bg.png; sourceTree = "<group>"; };
 		04D5358718ABCDBD00728B75 /* myinfo_split_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myinfo_split_bg.png; sourceTree = "<group>"; };
@@ -478,6 +491,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04535F8918BCBA8B009FA2C4 /* ResignAndLogin */ = {
+			isa = PBXGroup;
+			children = (
+				04535F8A18BCBA8B009FA2C4 /* CardShopLoginViewController.h */,
+				04535F8B18BCBA8B009FA2C4 /* CardShopLoginViewController.m */,
+				04535F8C18BCBA8B009FA2C4 /* CardShopLoginViewController.xib */,
+				04535F8D18BCBA8B009FA2C4 /* CardShopResignViewController.h */,
+				04535F8E18BCBA8B009FA2C4 /* CardShopResignViewController.m */,
+				04535F8F18BCBA8B009FA2C4 /* CardShopResignViewController.xib */,
+				04535F9018BCBA8B009FA2C4 /* ResetPasswordViewController.h */,
+				04535F9118BCBA8B009FA2C4 /* ResetPasswordViewController.m */,
+			);
+			path = ResignAndLogin;
+			sourceTree = "<group>";
+		};
 		04D5358618ABCDA600728B75 /* me */ = {
 			isa = PBXGroup;
 			children = (
@@ -784,6 +812,7 @@
 		04F6E56A189A864D0057BD72 /* BSTell */ = {
 			isa = PBXGroup;
 			children = (
+				04535F8918BCBA8B009FA2C4 /* ResignAndLogin */,
 				BDE7BD7618B0D16800A82198 /* Info */,
 				04E65D2418A27457008FA65A /* Network */,
 				04E65C9B18A269B8008FA65A /* BSTeelNet */,
@@ -1051,6 +1080,7 @@
 			files = (
 				042762E818B6594C006D816A /* bid_prepare_bg_1.png in Resources */,
 				04DFD459189D899E00A3BDDF /* bid_join_btn.png in Resources */,
+				04535F9318BCBA8B009FA2C4 /* CardShopLoginViewController.xib in Resources */,
 				BD884B1818B90D9000E354B7 /* setting_login_btn.png in Resources */,
 				04DFD3FD189B5FB800A3BDDF /* tabbarbg.png in Resources */,
 				04DFD457189D7D7B00A3BDDF /* bid_detail_table.png in Resources */,
@@ -1066,6 +1096,7 @@
 				04DFD40A189B6BEF00A3BDDF /* BidItemCell.xib in Resources */,
 				04F854E718B25CF40026BCA4 /* button_gray07.png in Resources */,
 				04E65C8C18A257C0008FA65A /* bid_price_btn.png in Resources */,
+				04535F9518BCBA8B009FA2C4 /* CardShopResignViewController.xib in Resources */,
 				04DFD449189D492A00A3BDDF /* round.png in Resources */,
 				04F854E418B25CF40026BCA4 /* button_gray04.png in Resources */,
 				04F854E618B25CF40026BCA4 /* button_gray06.png in Resources */,
@@ -1168,6 +1199,7 @@
 				04DFD431189CEE5900A3BDDF /* NoteDetailViewController.m in Sources */,
 				04255BC018B3B7EF0006F9E0 /* OrderTableViewCell.m in Sources */,
 				04E65D1618A269B8008FA65A /* SBJsonParser.m in Sources */,
+				04535F9418BCBA8B009FA2C4 /* CardShopResignViewController.m in Sources */,
 				04255BC318B3BB440006F9E0 /* OrderListViewController.m in Sources */,
 				04E65D1718A269B8008FA65A /* SBJsonStreamParser.m in Sources */,
 				04E65D1B18A269B8008FA65A /* SBJsonStreamWriter.m in Sources */,
@@ -1213,6 +1245,7 @@
 				04DFD432189CEE5900A3BDDF /* NoteListViewController.m in Sources */,
 				04F854EC18B266820026BCA4 /* MsgClassLevel2ViewController.m in Sources */,
 				04DFD461189D8D1700A3BDDF /* BidDetailTableViewCell.m in Sources */,
+				04535F9618BCBA8B009FA2C4 /* ResetPasswordViewController.m in Sources */,
 				04E65D0A18A269B8008FA65A /* jqDrawUnlock.m in Sources */,
 				04E65D1C18A269B8008FA65A /* SBJsonStreamWriterAccumulator.m in Sources */,
 				04D6AF9A18AA7FA4002967C4 /* NTESMBMainMenuController.m in Sources */,
@@ -1220,6 +1253,7 @@
 				04E65D2118A269B8008FA65A /* KeychainItemWrapper.m in Sources */,
 				04255BC618B3BC720006F9E0 /* OrderDetailViewController.m in Sources */,
 				04E65D2718A27457008FA65A /* CarServiceNetDataMgr.m in Sources */,
+				04535F9218BCBA8B009FA2C4 /* CardShopLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
