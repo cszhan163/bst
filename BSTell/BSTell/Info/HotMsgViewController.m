@@ -66,7 +66,7 @@
         cell.clipsToBounds = YES;
         
     }
-    NSString *imageFileName = [NSString stringWithFormat:@"hotmsg_gray%02d.png",indexPath.row+1];
+    NSString *imageFileName = [NSString stringWithFormat:@"button_gray%02d.png",indexPath.row+1];
     UIImageWithFileName(UIImage *image,imageFileName);
     assert(image);
     cell.classImageView.image = image;

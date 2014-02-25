@@ -68,8 +68,6 @@ static  NSString* kTitleTextArray[] = {@"我要出价",@"网站公告",@"交易�
     logoImageView.frame = CGRectMake(5.f, offsetY, image.size.width/kScale, image.size.height/kScale-30.f);
     //logoImageView.center = CGPointMake(kDeviceScreenWidth/kScale, 40.f);
     
-    
-    
     currY = currY+190.f;
     
     if(kDeviceCheckIphone5){
