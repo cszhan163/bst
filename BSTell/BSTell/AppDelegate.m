@@ -33,6 +33,7 @@
     [connect addParam:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"] forKey:@"version"];
     [connect sendRequest];
     
+    
     /*
     if (![self.window isKeyWindow]) {
         loading =[[jqLoading alloc]initWithRequest:connect.jqConnect.request andMessage:@"登录中"];

@@ -89,11 +89,11 @@
     
     UIButton *failedBtn  = [UIComUtil createButtonWithNormalBGImageName:@"bid_confirm_btn.png" withHightBGImageName:@"bid_confirm_btn.png" withTitle:@"不同意" withTag:1];
     
-    okBtn.frame = CGRectMake(40.f, currY, okBtn.frame.size.width, okBtn.frame.size.height);
+    okBtn.frame = CGRectMake(50.f, currY, okBtn.frame.size.width, okBtn.frame.size.height);
     [self.view addSubview:okBtn];
     
     [okBtn addTarget:self action:@selector(pressConfirmButton:) forControlEvents:UIControlEventTouchUpInside];
-    failedBtn.frame = CGRectMake(160.f, currY, okBtn.frame.size.width, okBtn.frame.size.height);
+    failedBtn.frame = CGRectMake(170.f, currY, okBtn.frame.size.width, okBtn.frame.size.height);
     [self.view addSubview:failedBtn];
     [failedBtn addTarget:self action:@selector(pressConfirmButton:) forControlEvents:UIControlEventTouchUpInside];
     

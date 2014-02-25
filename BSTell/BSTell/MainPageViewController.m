@@ -14,12 +14,13 @@
 
 #import "BidMainViewController.h"
 
+#import "MsgMainViewController.h"
 
 #define kItemLeftPendingX    6.f
 
 #define kItemPendingY   2.f
 
-static  NSString* kTitleTextArray[] = {@"我要出价",@"网站公告",@"交易公告",@"登录",@"到货确认"};
+static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易公告",@"登录",@"到货确认"};
 
 @interface MainPageViewController ()
 
@@ -120,9 +121,16 @@ static  NSString* kTitleTextArray[] = {@"我要出价",@"网站公告",@"交易�
     switch (index) {
         case 1:{
            
+#if 0
             BidMainViewController *bidMainVc = [[BidMainViewController alloc]init];
             [self.navigationController pushViewController:bidMainVc animated:YES];
             SafeRelease(bidMainVc);
+#else
+//            MsgMainViewController *bidMainVc = [[MsgMainViewController alloc]init];
+//            [self.navigationController pushViewController:bidMainVc animated:YES];
+//            SafeRelease(bidMainVc);
+            [ZCSNotficationMgr postMSG:kNavTabItemMSG obj:[NSNumber numberWithInteger:1]];
+#endif
             
             
         }

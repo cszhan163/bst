@@ -149,6 +149,9 @@
 		04F854E718B25CF40026BCA4 /* button_gray07.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F854DF18B25CF40026BCA4 /* button_gray07.png */; };
 		04F854E818B25CF40026BCA4 /* button_gray08.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F854E018B25CF40026BCA4 /* button_gray08.png */; };
 		04F854EC18B266820026BCA4 /* MsgClassLevel2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F854EB18B266820026BCA4 /* MsgClassLevel2ViewController.m */; };
+		BD593A1418BCAC93007B4F5C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD593A1118BCAC93007B4F5C /* Default-568h@2x.png */; };
+		BD593A1518BCAC93007B4F5C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BD593A1218BCAC93007B4F5C /* Default.png */; };
+		BD593A1618BCAC93007B4F5C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD593A1318BCAC93007B4F5C /* Default@2x.png */; };
 		BD884AF918B4CBE900E354B7 /* logo57.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884AF818B4CBE900E354B7 /* logo57.png */; };
 		BD884AFD18B4CC0500E354B7 /* logo96.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884AFA18B4CC0500E354B7 /* logo96.png */; };
 		BD884AFE18B4CC0500E354B7 /* logo114.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884AFB18B4CC0500E354B7 /* logo114.png */; };
@@ -412,6 +415,9 @@
 		04F854E018B25CF40026BCA4 /* button_gray08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_gray08.png; sourceTree = "<group>"; };
 		04F854EA18B266820026BCA4 /* MsgClassLevel2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgClassLevel2ViewController.h; sourceTree = "<group>"; };
 		04F854EB18B266820026BCA4 /* MsgClassLevel2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgClassLevel2ViewController.m; sourceTree = "<group>"; };
+		BD593A1118BCAC93007B4F5C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		BD593A1218BCAC93007B4F5C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		BD593A1318BCAC93007B4F5C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		BD884AF818B4CBE900E354B7 /* logo57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo57.png; sourceTree = "<group>"; };
 		BD884AFA18B4CC0500E354B7 /* logo96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo96.png; sourceTree = "<group>"; };
 		BD884AFB18B4CC0500E354B7 /* logo114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo114.png; sourceTree = "<group>"; };
@@ -813,6 +819,9 @@
 		04F6E56B189A864D0057BD72 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BD593A1118BCAC93007B4F5C /* Default-568h@2x.png */,
+				BD593A1218BCAC93007B4F5C /* Default.png */,
+				BD593A1318BCAC93007B4F5C /* Default@2x.png */,
 				BD884AFA18B4CC0500E354B7 /* logo96.png */,
 				BD884AFB18B4CC0500E354B7 /* logo114.png */,
 				BD884AFC18B4CC0500E354B7 /* logo120.png */,
@@ -1045,12 +1054,14 @@
 				BD884B1818B90D9000E354B7 /* setting_login_btn.png in Resources */,
 				04DFD3FD189B5FB800A3BDDF /* tabbarbg.png in Resources */,
 				04DFD457189D7D7B00A3BDDF /* bid_detail_table.png in Resources */,
+				BD593A1618BCAC93007B4F5C /* Default@2x.png in Resources */,
 				04E65C80189FF151008FA65A /* bid_btn.png in Resources */,
 				BDE7BD8F18B10DC300A82198 /* hotmsg_cell_bg.png in Resources */,
 				BD884AFE18B4CC0500E354B7 /* logo114.png in Resources */,
 				04E65C8818A099AB008FA65A /* note_detail_header_bg.png in Resources */,
 				04255BB918B3B12B0006F9E0 /* info_btn.png in Resources */,
 				04F6E57D189A864D0057BD72 /* Images.xcassets in Resources */,
+				BD593A1518BCAC93007B4F5C /* Default.png in Resources */,
 				04E65C82189FF260008FA65A /* bid_confirm_btn.png in Resources */,
 				04DFD40A189B6BEF00A3BDDF /* BidItemCell.xib in Resources */,
 				04F854E718B25CF40026BCA4 /* button_gray07.png in Resources */,
@@ -1063,6 +1074,7 @@
 				04F6E5CD189A8C630057BD72 /* tableitem2.png in Resources */,
 				BDE7BD8A18B10D0C00A82198 /* hotmsg_gray01.png in Resources */,
 				04F6E5CC189A8C630057BD72 /* tableitem1.png in Resources */,
+				BD593A1418BCAC93007B4F5C /* Default-568h@2x.png in Resources */,
 				04255BB418B3AE580006F9E0 /* split_line.png in Resources */,
 				04E65D0618A269B8008FA65A /* bchemMW.cer in Resources */,
 				04DFD441189D35B200A3BDDF /* button-3.png in Resources */,
@@ -1324,7 +1336,6 @@
 		04F6E594189A864E0057BD72 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1346,7 +1357,6 @@
 		04F6E595189A864E0057BD72 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ZHU CAIXI (A8RA93G2CJ)";

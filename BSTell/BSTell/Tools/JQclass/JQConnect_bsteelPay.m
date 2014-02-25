@@ -67,7 +67,7 @@
         //    [jqConnect setFailedCallBack:didFailSelector];
         
         connect.progress = YES;                                  //是否显示连接中文字
-        [connect setProgressMessage:@"loading..."];              //连接中文字提示
+        [connect setProgressMessage:@"加载中..."];              //连接中文字提示
         connect.debug = YES;                                     //开启debug模式，可看到一些log
         connect.decode = YES;
         

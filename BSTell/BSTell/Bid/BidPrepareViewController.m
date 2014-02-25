@@ -189,7 +189,7 @@
 }
 -(void)didNetDataOK:(NSNotification*)ntf
 {
-    
+    [super didNetDataOK:ntf];
     id obj = [ntf object];
     id respRequest = [obj objectForKey:@"request"];
     id data = [obj objectForKey:@"data"];
@@ -198,7 +198,11 @@
     if([resKey isEqualToString:kResBidAllListData])
     {
         //kNetEnd(self.view);
+#if 1
         self.dataArray = [data objectForKey:@"data"];
+#else
+        [self reloadNetData:data];
+#endif
         //self.dataArray = [data objectForKey:@"economicData"];
         [self  performSelectorOnMainThread:@selector(updateUIData:) withObject:data waitUntilDone:NO ];
         //[mDataDict setObject:netData forKey:mMothDateKey];
