@@ -6,8 +6,8 @@
 //  Copyright (c) 2014年 cszhan. All rights reserved.
 //
 
-#import "BSTellNetListBaseViewController.h"
+#import "NoteListViewController.h"
 
-@interface SearchViewController : BSTellNetListBaseViewController
+@interface SearchViewController : NoteListViewController
 
 @end

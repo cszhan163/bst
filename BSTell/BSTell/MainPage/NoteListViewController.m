@@ -113,15 +113,26 @@
          公告日期	fbsj
          */
     
-        NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
+    NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
+    if(self.type == Note_Info){
+        NSString *title = [item objectForKey:@"zxtitle"];
+        
+        cell.noteTextLabel.text = title;
+        
+        title = [item objectForKey:@"zxpubdate"];
+        
+        cell.noteDetailTextLabel.text = title;
     
+    }
+    else{
         NSString *title = [item objectForKey:@"ggmc"];
-    
-    cell.noteTextLabel.text = title;
-    
-    title = [item objectForKey:@"fbsj"];
-    
-    cell.noteDetailTextLabel.text = title;
+        
+        cell.noteTextLabel.text = title;
+        
+        title = [item objectForKey:@"fbsj"];
+        
+        cell.noteDetailTextLabel.text = title;
+    }
     
     //    NSDictionary *data = item;//[item objectForKey:@"DayDetailInfo"];
     //    //cell = (PlantTableViewCell*)cell;
@@ -189,13 +200,24 @@
      NoteDetailViewController *vc = [[NoteDetailViewController alloc]initWithNibName:nil bundle:nil];
     
     NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
-    NSString *idStr = [item objectForKey:@"ggid"];
-    vc.type = self.type;
-    if(self.type == Note_Bid)
-        vc.userId = @"";
-    vc.noteId = idStr;
-
-    [vc  setNavgationBarTitle:@""];
+    if(self.type == Note_Info){
+        NSString *idStr = [item objectForKey:@"zxid"];
+        vc.type = self.type;
+        if(self.type == Note_Bid)
+            vc.userId = @"";
+        vc.noteId = idStr;
+        
+        [vc  setNavgationBarTitle:@""];
+    }
+    else{
+        NSString *idStr = [item objectForKey:@"ggid"];
+        vc.type = self.type;
+        if(self.type == Note_Bid)
+            vc.userId = @"";
+        vc.noteId = idStr;
+        
+        [vc  setNavgationBarTitle:@""];
+    }
   
      #if 1
      [self.navigationController pushViewController:vc animated:YES];
@@ -238,13 +260,17 @@
                                nil];
         self.request = [carServiceNetDataMgr  querySitePubmsg4Move:param];
     }
-    else{
+    else if(self.type == Note_Bid){
         /*
-         gglx	公告类型		0  交易预告
-         1  竞价公告
-         2  市场公告
-         zc	专场类型（循环物资，钢材正品）		1 钢材正品
-         2 循环物资
+         systemId
+         接口访问的系统来源
+         listids
+         资讯类别列表（可以是多个id，以逗号隔开）
+         limit
+         一页的数据条数
+         offset
+         第几页
+
          */
     
         param = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -257,10 +283,25 @@
                  //@"",@"rqStart",
                  //@"",@"rqEnd",
                  nil];
-        self.request = [carServiceNetDataMgr  queryBidPubmsg4Move:param];
+        self.request = [carServiceNetDataMgr  querySitePubmsg4Move:param];
         
     }
-  
+    else if(self.type == Note_Info){
+    
+        param = [NSDictionary dictionaryWithObjectsAndKeys:
+                 @"1",@"systemId",
+                 pageNumStr, @"offset",
+                 @"1",@"listids",
+                 //@"",@"wtzt",
+                 //@"001",@"hydm",
+                 @"10",@"limit",
+                 //@"",@"rqStart",
+                 //@"",@"rqEnd",
+                 nil];
+        self.request = [carServiceNetDataMgr  getHgbZXInfoList:param];
+    
+    }
+    
     
 }
 -(void)didNetDataOK:(NSNotification*)ntf
@@ -274,7 +315,10 @@
     NSString *resKey = [obj objectForKey:@"key"];//[respRequest resourceKey];
     //NSString *resKey = [respRequest resourceKey];
     if(([resKey isEqualToString:kResNoteNewsData] && self.type == Note_New)||
-       ([resKey isEqualToString:kResNoteBidData]&&self.type == Note_Bid))
+       ([resKey isEqualToString:kResNoteBidData]&&self.type == Note_Bid)
+       ||([resKey isEqualToString:kResNoteInfoData]&&self.type == Note_Info)
+       ||([resKey isEqualToString:kResNoteSearchData]&&self.type == Note_Info)
+       )
     {
         //        if ([self.externDelegate respondsToSelector:@selector(commentDidSendOK:)]) {
         //            [self.externDelegate commentDidSendOK:self];
@@ -307,6 +351,5 @@
 {
     //kNetEndWithErrorAutoDismiss
 }
-
 
 @end

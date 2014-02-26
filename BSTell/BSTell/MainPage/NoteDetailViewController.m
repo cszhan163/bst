@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     //tweetieTableView.hidden = YES;
-    
+    [self setHiddenRightBtn:YES];
     CGFloat currY = kMBAppTopToolBarHeight;
     headerView = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:18.f] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(0.f,currY,kDeviceScreenWidth,44.f)];
     headerView.backgroundColor = HexRGB(190, 221, 238);
@@ -83,7 +83,7 @@
                  nil];
         self.request = [carServiceNetDataMgr  getSitePubmsgById4Move:param];
     }
-    else{
+    else if(self.type == Note_Bid){
         /*
          gglx	公告类型		0  交易预告
          1  竞价公告
@@ -104,6 +104,24 @@
         self.request = [carServiceNetDataMgr  getBidPubmsgById4Move:param];
         
     }
+    else{
+     
+       /*
+        @"001",@"systemId",
+        @"10",@"zxid",
+        */
+        
+        param = [NSDictionary dictionaryWithObjectsAndKeys:
+                 self.noteId,@"zxid",
+                 //@"1",@"zc",
+                 //@"",@"wtzt",
+                 //@"001",@"hydm",
+                 self.userId,@"systemId",
+                 //@"",@"rqStart",
+                 //@"",@"rqEnd",
+                 nil];
+        self.request = [carServiceNetDataMgr  getHgbZXInfoDetail:param];
+    }
 }
 -(void)didNetDataOK:(NSNotification*)ntf
 {
@@ -116,7 +134,10 @@
     NSString *resKey = [obj objectForKey:@"key"];//[respRequest resourceKey];
     //NSString *resKey = [respRequest resourceKey];
     if(([resKey isEqualToString:kResNoteNewsDetail]&& self.type == Note_New)||
-       ([resKey isEqualToString:kResNoteBidDetail]&&self.type == Note_Bid))
+       ([resKey isEqualToString:kResNoteBidDetail]&&self.type == Note_Bid)
+       ||([resKey isEqualToString:kResNoteInfoDetail]&&self.type == Note_Info)
+       //||([resKey isEqualToString:kResNoteBidDetail]&&self.type == Note_Bid)
+       )
     {
         //        if ([self.externDelegate respondsToSelector:@selector(commentDidSendOK:)]) {
         //            [self.externDelegate commentDidSendOK:self];
@@ -140,6 +161,7 @@
      */
     NSString *contentText = nil;
     NSString *headerText = nil;
+    NSString *moneyValue = nil;
     /*
     if(self.type == Note_New){
         headerText = [netData objectForKey:@"ggmc"];
@@ -150,12 +172,20 @@
         contentText = [netData objectForKey:@""];
     }
     */
-    headerText = [netData objectForKey:@"ggmc"];
-    contentText = [netData objectForKey:@"txt"];
+    if(self.type == Note_Info){
+        headerText = [netData objectForKey:@"zxtitle"];
+        contentText = [netData objectForKey:@"zxdescription"];
+        moneyValue = [netData objectForKey:@"zxpubdate"];
+    }
+    else{
+        headerText = [netData objectForKey:@"ggmc"];
+        contentText = [netData objectForKey:@"txt"];
+        moneyValue = [netData objectForKey:@"fbsj"];
+    }
     contentTextView.text = contentText;
     headerView.text = headerText;
     
-    NSString *moneyValue = [netData objectForKey:@"fbsj"];
+    //moneyValue = [netData objectForKey:@"fbsj"];
     timeLabel.text = moneyValue;
     /*
     bidMoneyLabel.text = [NSString stringWithFormat:@"您的竞价所需锁定的保证金: %@ 元",moneyValue];

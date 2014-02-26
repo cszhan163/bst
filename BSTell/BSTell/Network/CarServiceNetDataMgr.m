@@ -107,6 +107,13 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
 }
 
 - (void)sendFinalOkData:(id)data withKey:(NSString*)key{
+    
+#if OneLine
+    data = [data objectForKey:@"result"];
+#else
+    
+#endif
+    
     NSDictionary *item = [NSDictionary dictionaryWithObjectsAndKeys:
                           data,@"data",
                           key,@"key",
@@ -119,6 +126,98 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
                           key,@"key",
                           nil];
     [ZCSNotficationMgr postMSG:kZCSNetWorkRequestFailed obj:item];
+}
+#pragma mark -
+#pragma mark - info 
+//
+- (void)getHgbZXInfoDetail:(NSDictionary*)param{
+    /*
+     systemId
+     接口访问的系统来源
+     zxid
+     资讯ID
+
+     
+     */
+    if(param == nil){
+        param = [NSDictionary dictionaryWithObjectsAndKeys:
+                 @"001",@"systemId",
+                 @"10",@"zxid",
+                 nil];
+    }
+    [self sendRequest:@"getHgbZXInfoDetail" withVersion:@"v10" withParam:param withOkBack:@selector(getHgbZXInfoDetailOk:) withFailedBack:@selector(getHgbZXInfoDetailFailed:)];
+}
+- (void)getHgbZXInfoDetailOk:(NSString*)result{
+    
+    id data = [result JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kResNoteInfoDetail];
+}
+- (void)getHgbZXInfoDetailFailed:(NSString*)error{
+    
+}
+
+- (void)getHgbZXInfoList:(NSDictionary*)param{
+    /*
+     zxsearchstr
+     检索内容
+     limit
+     一页的数据条数
+     offset
+     第几页
+     
+     */
+    if(param == nil){
+        param = [NSDictionary dictionaryWithObjectsAndKeys:
+                 @"苯酚",@"zxsearchstr",
+                 @"10",@"limit",
+                 @"1",@"offset",
+                 nil];
+    }
+    [self sendRequest:@"getHgbZXInfoList" withVersion:@"v10" withParam:param withOkBack:@selector(getHgbZXInfoListOk:) withFailedBack:@selector(getHgbZXInfoListFailed:)];
+}
+- (void)getHgbZXInfoListOk:(NSString*)result{
+    
+    id data = [result JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kResNoteInfoData];
+}
+- (void)getHgbZXInfoListFailed:(NSString*)error{
+    
+}
+- (void)getHgbZXTitleSearch:(NSDictionary*)param{
+    /*
+     zxsearchstr
+     检索内容
+     limit
+     一页的数据条数
+     offset
+     第几页
+     
+     */
+    if(param == nil){
+        param = [NSDictionary dictionaryWithObjectsAndKeys:
+                 @"苯酚",@"zxsearchstr",
+                 @"10",@"limit",
+                 @"1",@"offset",
+                 nil];
+    }
+    [self sendRequest:@"getHgbZXTitleSearch" withVersion:@"v10" withParam:param withOkBack:@selector(getHgbZXTitleSearchOk:) withFailedBack:@selector(getHgbZXTitleSearchFailed:)];
+}
+- (void)getHgbZXTitleSearchOk:(NSString*)result{
+    
+    id data = [result JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kResNoteSearchData];
+}
+- (void)getHgbZXTitleSearchFailed:(NSString*)error{
+    
 }
 
 #pragma mark -

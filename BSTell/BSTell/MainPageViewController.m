@@ -45,6 +45,7 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
 	// Do any additional setup after loading the view.
     
     [self setHiddenLeftBtn:YES];
+    [self setHiddenRightBtn:YES];
     //for logo
     UIImageWithFileName(UIImage* image, @"logo.png");
     

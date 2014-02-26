@@ -11,7 +11,14 @@
 #import "NoteListViewController.h"
 
 @implementation HotMsgViewController
-
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    if(self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
+    {
+        self.type = Note_Info;
+    }
+    return self;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -89,6 +96,7 @@
     
     [vc  setNavgationBarTitle:self.dataArray[indexPath.row]];
     [vc  setHiddenTableHeaderView:NO];
+    vc.type = self.type;
     //[vc  setH]
     /*
      vc.delegate = self;

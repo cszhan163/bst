@@ -147,6 +147,9 @@
 
 
 #define kResNoteNewsData                @"querySitePubmsg4Move"
+#define kResNoteSearchData              @"getHgbZXTitleSearch"
+#define kResNoteInfoData                @"getHgbZXInfoList"
+#define kResNoteInfoDetail              @"getHgbZXInfoDetail"
 #define kResNoteNewsDetail              @"getSitePubmsgById4Move"
 #define kResNoteBidData                 @"queryBidPubmsg4Move"
 #define kResNoteBidDetail               @"getBidPubmsgById4Move"
@@ -164,6 +167,10 @@
 #define kResReplyMessageData                         @"ackMessage"
 
 #define kDateFormart   @"%d%02d"
+
+
+#define OneLine     0
+
 
 #define Infinite
 #define kMapHasTab   1

@@ -34,6 +34,7 @@
 typedef enum noteType{
     Note_New,
     Note_Bid,
+    Note_Info,
 }NoteType;
 
 #endif
