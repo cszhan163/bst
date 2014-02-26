@@ -9,6 +9,7 @@
 #import "MsgMainViewController.h"
 #import "BSTellNetListBaseViewController.h"
 
+#import "SearchViewController.h"
 #define kNavViewControllerArray  @[@"HotMsgViewController",@"MarketMsgViewController",@"MediaMsgViewController"]
 
 
@@ -22,7 +23,6 @@
 #define kHotClassTitleArray  \
 @[@"交易快报",\
 @"行业焦点",\
-@"分析指南",\
 @"报告"]
 
 #define kMeidaClassTitleArray \
@@ -56,6 +56,8 @@
     navItemCtrl.delegate = self;
 	// Do any additional setup after loading the view.
     [self setHiddenLeftBtn:YES];
+    [self setHiddenRightBtn:NO];
+    [self setNavgationBarTitle:@"新闻资讯"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -107,8 +109,11 @@
     CGFloat currX = 10.f;
     UIButton *btn = [UIComUtil createButtonWithNormalBGImageName:nil withSelectedBGImageName:@"bid_caterlog_mask.png"  withTitle:@"热点关注" withTag:0];
     btn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [btn setTitleColor:HexRGB(153, 153, 153) forState:UIControlStateNormal];
-    [btn setTitleColor:HexRGB(231, 234, 236) forState:UIControlStateSelected];
+    //btn.titleLabel.textColor = [UIColor blackColor];
+    
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+
     
     btn.frame = CGRectMake(currX, 10.f,btn.frame.size.width, btn.frame.size.height);
     
@@ -120,6 +125,9 @@
     
     btn.frame = CGRectMake(currX, 10.f,btn.frame.size.width, btn.frame.size.height);
     btn.titleLabel.font = [UIFont systemFontOfSize:14];
+    btn.titleLabel.textColor = [UIColor blackColor];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     /*
     [btn setTitleColor:HexRGB(153, 153, 153) forState:UIControlStateNormal];
     [btn setTitleColor:HexRGB(231, 234, 236) forState:UIControlStateSelected];
@@ -131,6 +139,9 @@
     
     btn.frame = CGRectMake(currX, 10.f,btn.frame.size.width, btn.frame.size.height);
     btn.titleLabel.font = [UIFont systemFontOfSize:14];
+    btn.titleLabel.textColor = [UIColor blackColor];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     /*
     [btn setTitleColor:HexRGB(153, 153, 153) forState:UIControlStateNormal];
     [btn setTitleColor:HexRGB(231, 234, 236) forState:UIControlStateSelected];
@@ -158,8 +169,21 @@
 -(void)didSelectorTopNavItem:(id)navObj
 {
 	NE_LOG(@"select item:%d",[navObj tag]);
-    [navItemCtrl.currentViewController returnToLeveOne];
-    [self setHiddenLeftBtn:YES];
+    if([navObj tag] == 0){
+    
+        [navItemCtrl.currentViewController returnToLeveOne];
+        [self setHiddenLeftBtn:YES];
+        
+    }
+    
+    else{
+        
+        SearchViewController *searchVc = [[SearchViewController alloc]init];
+        
+        [self.navigationController pushViewController:searchVc animated:YES];
+        SafeRelease(searchVc);
+        
+    }
     
 //	switch ([navObj tag])
 //	{
@@ -184,7 +208,9 @@
 }
 - (void)didSelectorNavItem:(id)sender{
 
-    [navItemCtrl.currentViewController returnToLeveOne];
+    //if([sender tag] == 0)
+        [navItemCtrl.currentViewController returnToLeveOne];
+    
     
 }
 @end

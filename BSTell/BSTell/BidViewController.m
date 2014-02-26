@@ -242,7 +242,7 @@
     
     //起拍价
     value = [item objectForKey:@"dfyj"];
-    
+    value = [NSString stringWithFormat:@"%@ 元",value];
     [cell setCellItemValue:value withIndex:index++];
     
     //是否参加

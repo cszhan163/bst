@@ -6,8 +6,8 @@
 //  Copyright (c) 2014年 cszhan. All rights reserved.
 //
 
-#import "BSTellBaseViewController.h"
+#import "BSTellNetListBaseViewController.h"
 
-@interface SettingViewController : BSTellBaseViewController
+@interface SettingViewController : BSTellNetListBaseViewController
 
 @end

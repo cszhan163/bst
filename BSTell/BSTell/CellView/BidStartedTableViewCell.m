@@ -54,7 +54,7 @@
 
 }
 - (void)startBidPrice:(id)sender{
-
+    
     
 }
 /*

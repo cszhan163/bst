@@ -8,7 +8,7 @@
 
 #import "CardShopResignViewController.h"
 //#import "AppDelegate.h"
-#import "AppSetting.h"
+//#import "AppSetting.h"
 @interface CardShopResignViewController ()
 
 @end
@@ -218,8 +218,10 @@
         kNetEnd(self.view);
         if([[_data objectForKey:@"retType"]intValue] == 0){
             //[AppSetting setLoginUserInfo:param];
+#if 0
             [AppSetting setLoginUserId:self.mobilePhoneTextFied.text];
             [AppSetting setLoginUserPassword:self.passwordTextFied.text];
+#endif
             NE_LOG(@"%@",[_data description]);
             //[self stopShowLoadingView];
             //[Ap]

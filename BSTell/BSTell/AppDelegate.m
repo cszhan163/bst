@@ -20,7 +20,7 @@
     AppMainUIViewManage *appMg = [AppMainUIViewManage getSingleTone];
     appMg.window = self.window;
     [appMg addMainViewUI];
-    //[self startLoginRequest];
+    [self startLoginRequest];
     
     return YES;
 }
@@ -28,8 +28,8 @@
 -(void)startLoginRequest
 {
     JQConnect_bsteelPay *connect = [[JQConnect_bsteelPay alloc] initWithDelegate:self successCallBack:@selector(callBackConnect:) failedCallBack:@selector(callBackFail:) andMethodName:@"login_v10"];
-    [connect addParam:@"cszhan" forKey:@"username"];
-    [connect addParam:@"1234" forKey:@"password"];
+    [connect addParam:@"bh1" forKey:@"username"];
+    [connect addParam:@"bh1234567" forKey:@"password"];
     [connect addParam:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"] forKey:@"version"];
     [connect sendRequest];
     

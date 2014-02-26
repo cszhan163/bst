@@ -25,7 +25,7 @@
         
         //for 
         
-        UILabel *tmpLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:17.f] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(image.size.width/kScale+10.f,0.f, 160.f, 40.f)];
+        UILabel *tmpLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:17.f] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(image.size.width/kScale+10.f,0.f, 160.f, 40.f)];
         tmpLabel.textAlignment = NSTextAlignmentLeft;
         [self addSubview:tmpLabel];
         SafeRelease(tmpLabel);

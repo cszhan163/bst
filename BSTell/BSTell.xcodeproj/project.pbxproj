@@ -157,6 +157,9 @@
 		BD593A1418BCAC93007B4F5C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD593A1118BCAC93007B4F5C /* Default-568h@2x.png */; };
 		BD593A1518BCAC93007B4F5C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BD593A1218BCAC93007B4F5C /* Default.png */; };
 		BD593A1618BCAC93007B4F5C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD593A1318BCAC93007B4F5C /* Default@2x.png */; };
+		BD593A1B18BCDB2C007B4F5C /* login_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BD593A1A18BCDB2C007B4F5C /* login_bg.png */; };
+		BD593A1F18BCF538007B4F5C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD593A1E18BCF538007B4F5C /* LoginViewController.m */; };
+		BD593A2218BD05E1007B4F5C /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD593A2118BD05E1007B4F5C /* SearchViewController.m */; };
 		BD884AF918B4CBE900E354B7 /* logo57.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884AF818B4CBE900E354B7 /* logo57.png */; };
 		BD884AFD18B4CC0500E354B7 /* logo96.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884AFA18B4CC0500E354B7 /* logo96.png */; };
 		BD884AFE18B4CC0500E354B7 /* logo114.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884AFB18B4CC0500E354B7 /* logo114.png */; };
@@ -431,6 +434,11 @@
 		BD593A1118BCAC93007B4F5C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BD593A1218BCAC93007B4F5C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		BD593A1318BCAC93007B4F5C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		BD593A1A18BCDB2C007B4F5C /* login_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_bg.png; sourceTree = "<group>"; };
+		BD593A1D18BCF538007B4F5C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		BD593A1E18BCF538007B4F5C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		BD593A2018BD05E0007B4F5C /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		BD593A2118BD05E1007B4F5C /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		BD884AF818B4CBE900E354B7 /* logo57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo57.png; sourceTree = "<group>"; };
 		BD884AFA18B4CC0500E354B7 /* logo96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo96.png; sourceTree = "<group>"; };
 		BD884AFB18B4CC0500E354B7 /* logo114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo114.png; sourceTree = "<group>"; };
@@ -841,6 +849,8 @@
 				04DFD417189B94BF00A3BDDF /* BSTellBaseViewController.m */,
 				044EE26218A4C5E3007A3EDA /* BSTellNetListBaseViewController.h */,
 				044EE26318A4C5E3007A3EDA /* BSTellNetListBaseViewController.m */,
+				BD593A1D18BCF538007B4F5C /* LoginViewController.h */,
+				BD593A1E18BCF538007B4F5C /* LoginViewController.m */,
 			);
 			path = BSTell;
 			sourceTree = "<group>";
@@ -892,6 +902,7 @@
 		04F6E5C1189A8C620057BD72 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				BD593A1A18BCDB2C007B4F5C /* login_bg.png */,
 				BD884B1718B90D9000E354B7 /* setting_login_btn.png */,
 				BD884B1518B8BFF000E354B7 /* image.png */,
 				04255BB818B3B12B0006F9E0 /* info_btn.png */,
@@ -964,6 +975,8 @@
 				04255BC218B3BB440006F9E0 /* OrderListViewController.m */,
 				04255BC418B3BC720006F9E0 /* OrderDetailViewController.h */,
 				04255BC518B3BC720006F9E0 /* OrderDetailViewController.m */,
+				BD593A2018BD05E0007B4F5C /* SearchViewController.h */,
+				BD593A2118BD05E1007B4F5C /* SearchViewController.m */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -1094,6 +1107,7 @@
 				BD593A1518BCAC93007B4F5C /* Default.png in Resources */,
 				04E65C82189FF260008FA65A /* bid_confirm_btn.png in Resources */,
 				04DFD40A189B6BEF00A3BDDF /* BidItemCell.xib in Resources */,
+				BD593A1B18BCDB2C007B4F5C /* login_bg.png in Resources */,
 				04F854E718B25CF40026BCA4 /* button_gray07.png in Resources */,
 				04E65C8C18A257C0008FA65A /* bid_price_btn.png in Resources */,
 				04535F9518BCBA8B009FA2C4 /* CardShopResignViewController.xib in Resources */,
@@ -1199,6 +1213,7 @@
 				04DFD431189CEE5900A3BDDF /* NoteDetailViewController.m in Sources */,
 				04255BC018B3B7EF0006F9E0 /* OrderTableViewCell.m in Sources */,
 				04E65D1618A269B8008FA65A /* SBJsonParser.m in Sources */,
+				BD593A1F18BCF538007B4F5C /* LoginViewController.m in Sources */,
 				04535F9418BCBA8B009FA2C4 /* CardShopResignViewController.m in Sources */,
 				04255BC318B3BB440006F9E0 /* OrderListViewController.m in Sources */,
 				04E65D1718A269B8008FA65A /* SBJsonStreamParser.m in Sources */,
@@ -1232,6 +1247,7 @@
 				0431107618A69A1C008109F7 /* LeftTitleListCell.m in Sources */,
 				044EE26418A4C5E3007A3EDA /* BSTellNetListBaseViewController.m in Sources */,
 				04E65D0B18A269B8008FA65A /* jqEncode.mm in Sources */,
+				BD593A2218BD05E1007B4F5C /* SearchViewController.m in Sources */,
 				04E65D1418A269B8008FA65A /* UIBadgeView.m in Sources */,
 				04E65D1918A269B8008FA65A /* SBJsonStreamParserAdapter.m in Sources */,
 				04DFD435189CEF0400A3BDDF /* NoteItemCell.m in Sources */,

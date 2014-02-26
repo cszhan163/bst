@@ -34,10 +34,10 @@
     NSString  *username=@"";
     NSString  *password=@"";
     
-    UIImage *bgImage = nil;
-    UIImageWithFileName(bgImage, @"login_bg.png");
-    self.view.layer.contents = (id)bgImage.CGImage;
-    
+//    UIImage *bgImage = nil;
+//    UIImageWithFileName(bgImage, @"login_bg.png");
+//    self.view.layer.contents = (id)bgImage.CGImage;
+    self.view.backgroundColor = HexRGB(239, 239, 241);
     //self.txtpassword
     /*
     NSString   *filename=[self GetTempPath:@"username.txt"];
@@ -147,11 +147,20 @@
 }
 -(IBAction)findpw_click:(id)sender
 {
+    /*
     ResetPasswordViewController *resPsVc=[[ResetPasswordViewController alloc] init];
     resPsVc.type = 1;//forget password
     [self.navigationController pushViewController:resPsVc animated:YES];
     [resPsVc release];
-
+    */
+    if(self.isModel){
+        [ZCSNotficationMgr postMSG:kDisMissModelViewController obj:nil];
+    }
+    else{
+        [self.navigationController  popToRootViewControllerAnimated:YES];
+    }
+//
+    
 }
 
 -(void)startLogin
@@ -187,6 +196,7 @@
         NE_LOG(@"%@",[data description]);
         //[self stopShowLoadingView];
         //[Ap]
+#if 0
          [AppSetting setCurrentLoginUser:self.txtusername.text];
         
         
@@ -195,14 +205,17 @@
         [AppSetting setLoginUserId:self.txtusername.text];
         [AppSetting setLoginUserPassword:self.txtpassword.text];
         [ZCSNotficationMgr postMSG:kQueryCarInfoMSG obj:nil];
+#endif
         
     }
     if([resKey isEqualToString:kCarInfoQuery]){
+#if 0
         if([data objectForKey:@"vin"]){
             NSString *userId = [AppSetting getCurrentLoginUser];
             [AppSetting setUserCarId:[data objectForKey:@"vin"] withUserId:userId];
             
         }
+#endif
         kNetEnd(self.view);
         [ZCSNotficationMgr postMSG:kCheckCardRecentRun obj:nil];
         [ZCSNotficationMgr postMSG:kDisMissModelViewController obj:nil];

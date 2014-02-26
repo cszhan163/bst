@@ -198,7 +198,7 @@
 #if 0
     moneyValue = [netData objectForKey:@"availability"];
 
-    userAccountLabel.text = [NSString stringWithFormat:@"您的帐户余额: %@ 元",moneyValue];
+    userAccountLabel.text = [NSString stringWithFormat:@"您的帐户总额: %@ 元",moneyValue];
     //您的帐户上的自由资金余额:             元
     moneyValue = [netData objectForKey:@"balance"];
     

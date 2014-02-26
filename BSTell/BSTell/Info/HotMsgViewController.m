@@ -72,6 +72,8 @@
     cell.classImageView.image = image;
     cell.titleLabel.text = self.dataArray[indexPath.row];
     
+    //cell.contentView.backgroundColor = [UIColor grayColor];
+    
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -94,6 +96,12 @@
      //NSDictionary *data = [item objectForKey:@"DayDetailInfo"];
      vc.mData = item;
      */
+    if(indexPath.row == 2){
+    
+        kUIAlertView(@"信息", @"正在建设,敬请期待!");
+        return;
+    }
+    
 #if 1
     [self.parentNav pushViewController:vc animated:YES];
 #else

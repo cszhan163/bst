@@ -40,7 +40,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     //tweetieTableView.hidden = YES;
-    
+    [self setNavgationBarTitle:@"参加竞买"];
     CGFloat currY = kMBAppTopToolBarHeight;
     UILabel *headerView = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:18.f] withTextColor:[UIColor blackColor] withText:@"交易保证金相关说明" withFrame:CGRectMake(0.f,currY,kDeviceScreenWidth,44.f)];
     headerView.backgroundColor = HexRGB(190, 221, 238);
@@ -64,19 +64,19 @@
     
     //
     contentTextView = [[UITextView alloc]initWithFrame:CGRectMake(kLeftPendingX,kLeftPendingX,image.size.width/2.f-2*kLeftPendingX, confirmTextBgView.frame.size.height-50.f)];
-    contentTextView.font = [UIFont systemFontOfSize:10];
+    contentTextView.font = [UIFont systemFontOfSize:13];
     contentTextView.editable = NO;
     contentTextView.backgroundColor = [UIColor clearColor];
     //contentTextView.scrollEnabled = YES;
     [confirmTextBgView addSubview:contentTextView];
     SafeRelease(contentTextView);
     
-    bidMoneyLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:12] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(kLeftPendingX, contentTextView.frame.origin.y+contentTextView.frame.size.height,250.f, 20.f)];
+    bidMoneyLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(kLeftPendingX, contentTextView.frame.origin.y+contentTextView.frame.size.height,250.f, 20.f)];
     bidMoneyLabel.textAlignment = NSTextAlignmentLeft;
     [confirmTextBgView addSubview:bidMoneyLabel];
     SafeRelease(bidMoneyLabel);
     
-    accoutMoneyLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:12] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(kLeftPendingX, contentTextView.frame.origin.y+contentTextView.frame.size.height+20.f,250.f, 20.f)];
+    accoutMoneyLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(kLeftPendingX, contentTextView.frame.origin.y+contentTextView.frame.size.height+20.f,250.f, 20.f)];
     accoutMoneyLabel.textAlignment = NSTextAlignmentLeft;
     [confirmTextBgView addSubview:accoutMoneyLabel];
     SafeRelease(accoutMoneyLabel);
@@ -142,18 +142,26 @@
 }
 - (void)bidAgreeAction:(id)data{
 
-    BidMainViewController *bidMainVc = [[BidMainViewController alloc]init];
-    [self.navigationController pushViewController:bidMainVc animated:YES];
-    SafeRelease(bidMainVc);
+    kUIAlertConfirmView(@"提示", @"是否同意参加竞买", @"确定", @"取消");
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if(buttonIndex == 0){
+        BidMainViewController *bidMainVc = [[BidMainViewController alloc]init];
+        [self.navigationController pushViewController:bidMainVc animated:YES];
+        SafeRelease(bidMainVc);
+    }
+    
 }
 - (void)updateUIData:(NSDictionary*)netData{
     kNetEnd(self.view);
     contentTextView.text = [netData objectForKey:@"agreement"];
     NSString *moneyValue = [netData objectForKey:@"dfyj"];
-    bidMoneyLabel.text = [NSString stringWithFormat:@"您的竞价所需锁定的保证金: %@ 元",moneyValue];
+    bidMoneyLabel.text = [NSString stringWithFormat:@"所需保证金: %@ 元",moneyValue];
     //您的帐户上的自由资金余额:             元
     moneyValue = [netData objectForKey:@"kyye"];
-    accoutMoneyLabel.text = [NSString stringWithFormat:@"您的帐户上的自由资金余额: %@ 元",moneyValue];
+    accoutMoneyLabel.text = [NSString stringWithFormat:@"自由资金: %@ 元",moneyValue];
     
 }
 - (void)pressConfirmButton:(id)sender{

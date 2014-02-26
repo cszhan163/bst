@@ -16,6 +16,8 @@
 
 #import "MsgMainViewController.h"
 
+#import "CardShopLoginViewController.h"
+
 #define kItemLeftPendingX    6.f
 
 #define kItemPendingY   2.f
@@ -153,7 +155,19 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
         }
             break;
         case 4:{
+            CardShopLoginViewController *noteListVc = [[CardShopLoginViewController alloc]init];
+            //noteListVc.type = 1;
+            //[noteListVc setNavgationBarTitle:[sender titleLabel].text];
+            noteListVc.view.frame = CGRectMake(0.f,20.f, kDeviceScreenWidth, kDeviceScreenHeight);
+#if 1
+            [self.navigationController pushViewController:noteListVc  animated:YES];
+#else
+            [ZCSNotficationMgr postMSG:kPresentModelViewController  obj:noteListVc];
             
+#endif
+            SafeRelease(noteListVc);
+            
+           
         }
             break;
         case 5:{

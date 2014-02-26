@@ -143,19 +143,20 @@
     
     currY = currY+15.f;
     
-    UIButton *bidBtn = [UIComUtil createButtonWithNormalBGImageName:@"bid_price_btn.png" withHightBGImageName:@"bid_price_btn.png" withTitle:@"出价" withTag:0];
+    UIButton *bidBtn = [UIComUtil createButtonWithNormalBGImageName:@"bid_price_btn.png" withHightBGImageName:@"bid_price_btn.png" withTitle:@"梯度出价" withTag:0];
     [self.view  addSubview:bidBtn];
     bidBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [bidBtn addTarget:self action:@selector(startBidPrice:) forControlEvents:UIControlEventTouchUpInside];
     bidBtn.frame = CGRectMake(20.f,currY+15.f, bidBtn.frame.size.width, bidBtn.frame.size.height);
     
-    
+#if 0
     bidBtn = [UIComUtil createButtonWithNormalBGImageName:@"bid_item_price.png" withHightBGImageName:@"bid_item_price.png" withTitle:@"+1" withTag:1];
     [self.view  addSubview:bidBtn];
     bidBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [bidBtn addTarget:self action:@selector(startBidPrice:) forControlEvents:UIControlEventTouchUpInside];
     bidBtn.frame = CGRectMake(kDeviceScreenWidth/2-bidBtn.frame.size.width/2,currY, bidBtn.frame.size.width, bidBtn.frame.size.height);
     
+#endif
     
     bidStatusBtn = [UIComUtil createButtonWithNormalBGImageName:@"bid_price_btn.png" withHightBGImageName:@"bid_price_btn.png" withTitle:@"委托出价" withTag:2];
     [self.view  addSubview:bidStatusBtn];
@@ -262,6 +263,9 @@
 #pragma mark -
 
 - (void)startBidPrice:(id)sender{
+    
+    ////弹出梯度设置框（梯度出价，委托出价）
+    
     NSInteger index = [sender tag];
     switch (index) {
         case 0:

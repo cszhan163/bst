@@ -532,6 +532,31 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
 #pragma mark -
 #pragma mark user
 
+- (id)carUserLogin:(NSDictionary *)param{
+
+    /*
+     *
+     */
+    if(param == nil){
+        param = [NSDictionary dictionaryWithObjectsAndKeys:
+                 @"001",@"hydm",
+                 nil];
+    }
+    [self sendRequest:@"login" withVersion:@"v10" withParam:param withOkBack:@selector(carUserLoginOk:) withFailedBack:@selector(carUserLoginFailed:)];
+    return nil;
+}
+- (void)carUserLoginOk:(NSString*)result{
+    
+    id data = [result JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kNetLoginRes];
+}
+- (void)carUserLoginFailed:(NSString*)error{
+    
+    [self sendFinalFailedData:error withKey:kNetLoginRes];
+}
 - (void)getAccountInfo:(NSDictionary*)param{
     
     /*
