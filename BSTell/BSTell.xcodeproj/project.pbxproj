@@ -162,6 +162,9 @@
 		BD593A2218BD05E1007B4F5C /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD593A2118BD05E1007B4F5C /* SearchViewController.m */; };
 		BD593A2518BD85C0007B4F5C /* search_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BD593A2318BD85C0007B4F5C /* search_btn.png */; };
 		BD593A2618BD85C0007B4F5C /* search_input.png in Resources */ = {isa = PBXBuildFile; fileRef = BD593A2418BD85C0007B4F5C /* search_input.png */; };
+		BD593A3018BDFE6F007B4F5C /* BidAdjustAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD593A2F18BDFE6F007B4F5C /* BidAdjustAlertView.m */; };
+		BD593A3218BE0187007B4F5C /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BD593A3118BE0187007B4F5C /* image.jpg */; };
+		BD593A3418BE081B007B4F5C /* bid_money_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BD593A3318BE081B007B4F5C /* bid_money_bg.png */; };
 		BD884AF918B4CBE900E354B7 /* logo57.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884AF818B4CBE900E354B7 /* logo57.png */; };
 		BD884AFD18B4CC0500E354B7 /* logo96.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884AFA18B4CC0500E354B7 /* logo96.png */; };
 		BD884AFE18B4CC0500E354B7 /* logo114.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884AFB18B4CC0500E354B7 /* logo114.png */; };
@@ -443,6 +446,10 @@
 		BD593A2118BD05E1007B4F5C /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		BD593A2318BD85C0007B4F5C /* search_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_btn.png; sourceTree = "<group>"; };
 		BD593A2418BD85C0007B4F5C /* search_input.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_input.png; sourceTree = "<group>"; };
+		BD593A2E18BDFE6F007B4F5C /* BidAdjustAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidAdjustAlertView.h; sourceTree = "<group>"; };
+		BD593A2F18BDFE6F007B4F5C /* BidAdjustAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidAdjustAlertView.m; sourceTree = "<group>"; };
+		BD593A3118BE0187007B4F5C /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
+		BD593A3318BE081B007B4F5C /* bid_money_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bid_money_bg.png; sourceTree = "<group>"; };
 		BD884AF818B4CBE900E354B7 /* logo57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo57.png; sourceTree = "<group>"; };
 		BD884AFA18B4CC0500E354B7 /* logo96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo96.png; sourceTree = "<group>"; };
 		BD884AFB18B4CC0500E354B7 /* logo114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo114.png; sourceTree = "<group>"; };
@@ -824,6 +831,7 @@
 		04F6E56A189A864D0057BD72 /* BSTell */ = {
 			isa = PBXGroup;
 			children = (
+				BD593A2C18BDFA5D007B4F5C /* View */,
 				04535F8918BCBA8B009FA2C4 /* ResignAndLogin */,
 				BDE7BD7618B0D16800A82198 /* Info */,
 				04E65D2418A27457008FA65A /* Network */,
@@ -906,6 +914,8 @@
 		04F6E5C1189A8C620057BD72 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				BD593A3318BE081B007B4F5C /* bid_money_bg.png */,
+				BD593A3118BE0187007B4F5C /* image.jpg */,
 				BD593A1A18BCDB2C007B4F5C /* login_bg.png */,
 				BD593A2318BD85C0007B4F5C /* search_btn.png */,
 				BD593A2418BD85C0007B4F5C /* search_input.png */,
@@ -960,6 +970,15 @@
 				04F854E018B25CF40026BCA4 /* button_gray08.png */,
 			);
 			name = infoclass;
+			sourceTree = "<group>";
+		};
+		BD593A2C18BDFA5D007B4F5C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BD593A2E18BDFE6F007B4F5C /* BidAdjustAlertView.h */,
+				BD593A2F18BDFE6F007B4F5C /* BidAdjustAlertView.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		BDE7BD7618B0D16800A82198 /* Info */ = {
@@ -1107,6 +1126,7 @@
 				04E65C80189FF151008FA65A /* bid_btn.png in Resources */,
 				BDE7BD8F18B10DC300A82198 /* hotmsg_cell_bg.png in Resources */,
 				BD884AFE18B4CC0500E354B7 /* logo114.png in Resources */,
+				BD593A3218BE0187007B4F5C /* image.jpg in Resources */,
 				04E65C8818A099AB008FA65A /* note_detail_header_bg.png in Resources */,
 				04255BB918B3B12B0006F9E0 /* info_btn.png in Resources */,
 				04F6E57D189A864D0057BD72 /* Images.xcassets in Resources */,
@@ -1121,6 +1141,7 @@
 				04DFD449189D492A00A3BDDF /* round.png in Resources */,
 				04F854E418B25CF40026BCA4 /* button_gray04.png in Resources */,
 				04F854E618B25CF40026BCA4 /* button_gray06.png in Resources */,
+				BD593A3418BE081B007B4F5C /* bid_money_bg.png in Resources */,
 				BD884AFD18B4CC0500E354B7 /* logo96.png in Resources */,
 				BDE7BD8C18B10D0C00A82198 /* hotmsg_gray03.png in Resources */,
 				04F6E5CD189A8C630057BD72 /* tableitem2.png in Resources */,
@@ -1265,6 +1286,7 @@
 				0431107018A6944A008109F7 /* BidStartedTableViewCell.m in Sources */,
 				04F6E5DB189A8EE30057BD72 /* BidViewController.m in Sources */,
 				04F6E5EA189A8FD50057BD72 /* SettingViewController.m in Sources */,
+				BD593A3018BDFE6F007B4F5C /* BidAdjustAlertView.m in Sources */,
 				04E65D1F18A269B8008FA65A /* SBJsonUTF8Stream.m in Sources */,
 				04DFD432189CEE5900A3BDDF /* NoteListViewController.m in Sources */,
 				04F854EC18B266820026BCA4 /* MsgClassLevel2ViewController.m in Sources */,

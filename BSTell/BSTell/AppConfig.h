@@ -152,6 +152,7 @@
 #define kResNoteInfoDetail              @"getHgbZXInfoDetail"
 #define kResNoteNewsDetail              @"getSitePubmsgById4Move"
 #define kResNoteBidData                 @"queryBidPubmsg4Move"
+
 #define kResNoteBidDetail               @"getBidPubmsgById4Move"
 
 //drive

@@ -34,7 +34,7 @@
         [self addSubview:label];
         self.noteTextLabel = label;
         SafeRelease(label);
-        rect  = CGRectMake(kNoteLeftPendingX+15.f, kNoteLeftPendingY+40, 250, 20);
+        rect  = CGRectMake(kNoteLeftPendingX+15.f, kNoteLeftPendingY+25, 250, 20);
         label = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:12] withTextColor:[UIColor blackColor] withText:@"2014年1月21日        2小时" withFrame:rect];
         label.textAlignment = NSTextAlignmentLeft;
         [self addSubview:label];

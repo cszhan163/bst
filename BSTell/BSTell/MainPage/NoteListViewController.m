@@ -192,7 +192,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    return 90.f;
+    return 60.f;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -283,7 +283,7 @@
                  //@"",@"rqStart",
                  //@"",@"rqEnd",
                  nil];
-        self.request = [carServiceNetDataMgr  querySitePubmsg4Move:param];
+        self.request = [carServiceNetDataMgr  queryBidPubmsg4Move:param];
         
     }
     else if(self.type == Note_Info){
@@ -314,8 +314,8 @@
     id data = [obj objectForKey:@"data"];
     NSString *resKey = [obj objectForKey:@"key"];//[respRequest resourceKey];
     //NSString *resKey = [respRequest resourceKey];
-    if(([resKey isEqualToString:kResNoteNewsData] && self.type == Note_New)||
-       ([resKey isEqualToString:kResNoteBidData]&&self.type == Note_Bid)
+    if(([resKey isEqualToString:kResNoteNewsData] && self.type == Note_New)
+       ||([resKey isEqualToString:kResNoteBidData]&&self.type == Note_Bid)
        ||([resKey isEqualToString:kResNoteInfoData]&&self.type == Note_Info)
        ||([resKey isEqualToString:kResNoteSearchData]&&self.type == Note_Info)
        )

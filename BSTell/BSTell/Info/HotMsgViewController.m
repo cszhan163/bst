@@ -79,7 +79,7 @@
     cell.classImageView.image = image;
     cell.titleLabel.text = self.dataArray[indexPath.row];
     
-    //cell.contentView.backgroundColor = [UIColor grayColor];
+    cell.contentView.backgroundColor = HexRGB(202,202,202);
     
     return cell;
 }

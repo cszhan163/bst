@@ -82,7 +82,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+    [self setHiddenRightBtn:YES];
     CGFloat currY = 0.f;
     
     UIScrollView *bgScrollerView = [[UIScrollView alloc]initWithFrame:CGRectMake(0.f, kPendingY+kMBAppTopToolBarHeight,kDeviceScreenWidth,kDeviceScreenHeight-kMBAppBottomToolBarHeght-kMBAppTopToolBarHeight-kMBAppStatusBar-80.f)];
@@ -178,7 +178,7 @@
 
 - (void)startConfirmOrderStatus:(id)sender{
 
-    kUIAlertConfirmView(@"提示", @"是否确认收获", @"确定", @"取消");
+    kUIAlertConfirmView(@"提示", @"是否确认收货", @"确定", @"取消");
 
 
 }

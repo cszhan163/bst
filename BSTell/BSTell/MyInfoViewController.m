@@ -45,6 +45,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self setHiddenLeftBtn:YES];
+    [self setHiddenRightBtn:YES];
     CGFloat currY = kMBAppTopToolBarHeight+80.f;
     userNameLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(kLeftTextPendingX,currY,300.f, 30.f)];
     userNameLabel.textAlignment = NSTextAlignmentLeft;

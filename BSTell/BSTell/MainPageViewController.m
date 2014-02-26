@@ -57,7 +57,7 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
     logoImageView.center = CGPointMake(kDeviceScreenWidth/kScale, 20.f);
     
     
-    UIImageWithFileName(image, @"image.png");
+    UIImageWithFileName(image, @"image.jpg");
     CGFloat currY = logoImageView.frame.size.height+5.f,startX = 0.f,startY = 0.f;
     
     
@@ -66,10 +66,13 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
     SafeRelease(logoImageView);
     CGFloat offsetY = currY;
     if(kDeviceCheckIphone5){
-        offsetY = offsetY + 40.f;
+        offsetY = offsetY ;
     }
-    
-    logoImageView.frame = CGRectMake(5.f, offsetY, image.size.width/kScale, image.size.height/kScale-30.f);
+    CGFloat reduceOffsetY = -100.f;
+    if(kDeviceCheckIphone5){
+        reduceOffsetY  = -20.f;
+    }
+    logoImageView.frame = CGRectMake(5.f, offsetY, image.size.width/kScale, image.size.height/kScale+reduceOffsetY);
     //logoImageView.center = CGPointMake(kDeviceScreenWidth/kScale, 40.f);
     
     currY = currY+190.f;

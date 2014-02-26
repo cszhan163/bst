@@ -9,8 +9,13 @@
 #import "BidConfirmViewController.h"
 #import "BidMainViewController.h"
 
-#define kLeftPendingX 10.f
+#define kLeftPendingX 20.f
 
+#define kAgrementText  @"为了给所有注册会员创造一个公平公正、竞争有序的网上交易环境，严肃交易行为，保证买卖双方按交易结果签约付款，强化交易信用的保证机制，“化工宝”对会员交易保证金作如下相关说明：\
+1. 凡交易会员在通过“化工宝”从事网上交易（挂牌交易或竞价交易）时，为了保证买卖双方能够按照成交信息按时签约付款，减少违约情况的发生, 买卖双方各\自的东方付通账户内一定数额的备付金将自动锁定为保证金，保证金金额由卖方根据实际场次的要求而定。\
+2. 交易过程中，东方付通信息技术有限公司有权依据交易会员在化工宝交易平台上提交的锁定保证金的指令执行保证金锁定直至交易结束。\
+3. 交易结束后，未中标客户保证金解锁，中标客户待双方买卖合同签订确认后解锁，解锁后的会员可自由申请取回账户中金额，若买卖双方中任何一方如不能按照相应条款签订合同，化工宝将有权遵照有关流程将违约方的保证金扣除，交予守约方。\
+4. 交易会员可随时申请提取交易保证金，在经交易中心审核确认后的1-2个工作日内完成资金的划转。划转的资金将直接退还到会员注册时预留的银行账户中。"
 @interface BidConfirmViewController (){
 
     /*
@@ -63,24 +68,51 @@
     
     
     //
-    contentTextView = [[UITextView alloc]initWithFrame:CGRectMake(kLeftPendingX,kLeftPendingX,image.size.width/2.f-2*kLeftPendingX, confirmTextBgView.frame.size.height-50.f)];
+    contentTextView = [[UITextView alloc]initWithFrame:CGRectMake(kLeftPendingX,kLeftPendingX,image.size.width/2.f-2*kLeftPendingX, confirmTextBgView.frame.size.height-120.f)];
     contentTextView.font = [UIFont systemFontOfSize:13];
     contentTextView.editable = NO;
     contentTextView.backgroundColor = [UIColor clearColor];
+    contentTextView.text = kAgrementText;
     //contentTextView.scrollEnabled = YES;
     [confirmTextBgView addSubview:contentTextView];
     SafeRelease(contentTextView);
     
-    bidMoneyLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(kLeftPendingX, contentTextView.frame.origin.y+contentTextView.frame.size.height,250.f, 20.f)];
+    
+#if 0
+  
+
+    bidMoneyLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"0" withFrame:CGRectMake(kLeftPendingX, contentTextView.frame.origin.y+contentTextView.frame.size.height,250.f, 20.f)];
     bidMoneyLabel.textAlignment = NSTextAlignmentLeft;
     [confirmTextBgView addSubview:bidMoneyLabel];
     SafeRelease(bidMoneyLabel);
     
-    accoutMoneyLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(kLeftPendingX, contentTextView.frame.origin.y+contentTextView.frame.size.height+20.f,250.f, 20.f)];
+    accoutMoneyLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"0" withFrame:CGRectMake(kLeftPendingX, contentTextView.frame.origin.y+contentTextView.frame.size.height+20.f,250.f, 20.f)];
     accoutMoneyLabel.textAlignment = NSTextAlignmentLeft;
     [confirmTextBgView addSubview:accoutMoneyLabel];
     SafeRelease(accoutMoneyLabel);
+#else
+    UIImageWithFileName(image , @"bid_money_bg.png");
     
+    UIImageView *bidMoneyBgView = [[UIImageView alloc]initWithFrame:CGRectZero];
+    bidMoneyBgView.frame = CGRectMake(0.f, 5.f+currY+confirmTextBgView.frame.size.height-image.size.height/2.f, image.size.width/kScale,image.size.height/kScale);
+    bidMoneyBgView.image = image;
+    bidMoneyBgView.userInteractionEnabled = YES;
+    [self.view addSubview:bidMoneyBgView];
+    SafeRelease(bidMoneyBgView);
+    
+    
+    bidMoneyLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"0" withFrame:CGRectMake(kLeftPendingX,25,230.f, 20.f)];
+    bidMoneyLabel.textAlignment = NSTextAlignmentRight;
+    [bidMoneyBgView addSubview:bidMoneyLabel];
+    SafeRelease(bidMoneyLabel);
+    
+    accoutMoneyLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"0" withFrame:CGRectMake(kLeftPendingX,55,230.f, 20.f)];
+    accoutMoneyLabel.textAlignment = NSTextAlignmentRight;
+    [bidMoneyBgView addSubview:accoutMoneyLabel];
+    SafeRelease(accoutMoneyLabel);
+    
+    
+#endif
     
     
     currY = currY + confirmTextBgView.frame.size.height+ 10.f;
@@ -104,7 +136,7 @@
     
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            //catStr,@"cat",
-                           @"001",@"hydm",
+                           self.userId,@"hydm",
                            @"10",@"wtid",
                            nil];
     CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
@@ -156,13 +188,14 @@
 }
 - (void)updateUIData:(NSDictionary*)netData{
     kNetEnd(self.view);
-    contentTextView.text = [netData objectForKey:@"agreement"];
-    NSString *moneyValue = [netData objectForKey:@"dfyj"];
-    bidMoneyLabel.text = [NSString stringWithFormat:@"所需保证金: %@ 元",moneyValue];
-    //您的帐户上的自由资金余额:             元
-    moneyValue = [netData objectForKey:@"kyye"];
-    accoutMoneyLabel.text = [NSString stringWithFormat:@"自由资金: %@ 元",moneyValue];
-    
+    if(0){
+        contentTextView.text = [netData objectForKey:@"agreement"];
+        NSString *moneyValue = [netData objectForKey:@"dfyj"];
+        bidMoneyLabel.text = [NSString stringWithFormat:@"所需保证金: %@ 元",moneyValue];
+        //您的帐户上的自由资金余额:             元
+        moneyValue = [netData objectForKey:@"kyye"];
+        accoutMoneyLabel.text = [NSString stringWithFormat:@"自由资金: %@ 元",moneyValue];
+    }
 }
 - (void)pressConfirmButton:(id)sender{
 
