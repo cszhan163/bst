@@ -246,7 +246,7 @@
     value = [item objectForKey:@"wtid"];
     [cell setCellItemValue:value withIndex:index++];
     //
-    value = [item objectForKey:@"ggmc"];
+    value = [item objectForKey:@"wtmc"];
     [cell setCellItemValue:value withIndex:index++];
     
     //sell company
@@ -282,7 +282,7 @@
     return 140.f;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     BidDetailViewController *vc = [[BidDetailViewController alloc]initWithNibName:nil bundle:nil];
     
@@ -312,7 +312,7 @@
     [ZCSNotficationMgr postMSG:kPushNewViewController obj:vc];
 #endif
     //[self.navigationController pushViewController:vc animated:YES];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+   
     SafeRelease(vc);
     
 }

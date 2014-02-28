@@ -22,7 +22,9 @@
 @end
 
 @implementation BidMainViewController
-
+- (void)dealloc{
+    [super dealloc];
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -39,10 +41,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self setNavgationBarTitle:@"竞买出价"];
+    
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [navItemCtrl.currentViewController startReflushjTimer];
+    //[navItemCtrl.currentViewController startReflushjTimer];
     // - (void)stopReflushTimer;];
 }
 //- (void)viewWillDisappear:(BOOL)animated{
@@ -154,5 +157,10 @@
             [item stopReflushTimer];
     }
 }
+- (void)addObservers{
 
+}
+- (void)removeObservers{
+
+}
 @end

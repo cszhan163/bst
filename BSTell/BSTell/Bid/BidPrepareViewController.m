@@ -257,5 +257,7 @@
     
     
 }
+- (void)addObservers{
 
+}
 @end

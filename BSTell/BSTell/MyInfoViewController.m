@@ -105,7 +105,7 @@
 #endif
     
     
-    UIButton *oilAnalaysisBtn = [UIComUtil createButtonWithNormalBGImageName:@"info_btn.png" withHightBGImageName:@"info_btn.png" withTitle:@"我的订单" withTag:0];
+    UIButton *oilAnalaysisBtn = [UIComUtil createButtonWithNormalBGImageName:@"info_btn.png" withHightBGImageName:@"info_btn.png" withTitle:@"到货确认" withTag:0];
     
     CGSize btnsize= oilAnalaysisBtn.frame.size;
     //currY = 10.f;

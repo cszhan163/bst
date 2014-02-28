@@ -65,11 +65,10 @@
     [self setTopNavBarHidden:YES];
     CGRect rect =  tweetieTableView.frame;
     tweetieTableView.frame = CGRectMake(rect.origin.x, rect.origin.y, kDeviceScreenWidth, rect.size.height-43.f);
-    
+    [self startReflushjTimer];
 	// Do any additional setup after loading the view.
 }
 - (void)startReflushjTimer{
-
     self.timer = [NSTimer scheduledTimerWithTimeInterval:kBidReflushTimer target:self selector:@selector(reflushData) userInfo:nil repeats:YES];
     
 }
@@ -483,4 +482,11 @@
     }
 
 }
+//- (void)addObservers{
+//    [super addObservers];
+//}
+//-(void)removeObservers
+//{
+//    [super removeObservers];
+//}
 @end
