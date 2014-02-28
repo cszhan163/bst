@@ -9,6 +9,8 @@
 #import "UISimpleNetBaseViewController.h"
 
 @interface BSTellBaseViewController : UISimpleNetBaseViewController<UIBaseViewControllerDelegate>
-@property(nonatomic,assign) NoteType type;
-@property(nonatomic,strong) NSString *userId;
+@property   (nonatomic,assign) BOOL needLogin;
+@property   (nonatomic,assign) NoteType type;
+@property   (nonatomic,strong) NSString *userId;
+@property   (nonatomic,strong) NSString *czy;
 @end

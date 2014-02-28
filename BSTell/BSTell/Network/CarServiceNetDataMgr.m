@@ -109,7 +109,28 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
 - (void)sendFinalOkData:(id)data withKey:(NSString*)key{
     
 #if OneLine
-    data = [data objectForKey:@"result"];
+    id tempData = [data objectForKey:@"result"];
+    if(tempData == nil){
+        /*
+        NSLog(@"return data framework  error,no result key");
+        assert(tempData);
+         */
+    }
+    if([tempData isKindOfClass:[NSString class]]){
+        //data = [tempData JSONValue];
+        NSError *error = nil;
+        tempData = [tempData stringByReplacingOccurrencesOfString:@"\n" withString:@"\\n"];
+        data = [NSJSONSerialization JSONObjectWithData:[tempData dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:&error];
+        if(error){
+            NSLog(@"error json data error");
+        }
+        //assert(error!=nil);
+    }
+    else if(tempData){
+        data = tempData;
+    }
+    
+    //data = [data objectForKey:@"data"];
 #else
     
 #endif
@@ -145,7 +166,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
                  @"10",@"zxid",
                  nil];
     }
-    [self sendRequest:@"getHgbZXInfoDetail" withVersion:@"v10" withParam:param withOkBack:@selector(getHgbZXInfoDetailOk:) withFailedBack:@selector(getHgbZXInfoDetailFailed:)];
+    [self sendRequest:@"getHgbZXInfoDetail" withVersion:kUrlVer withParam:param withOkBack:@selector(getHgbZXInfoDetailOk:) withFailedBack:@selector(getHgbZXInfoDetailFailed:)];
 }
 - (void)getHgbZXInfoDetailOk:(NSString*)result{
     
@@ -176,7 +197,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
                  @"1",@"offset",
                  nil];
     }
-    [self sendRequest:@"getHgbZXInfoList" withVersion:@"v10" withParam:param withOkBack:@selector(getHgbZXInfoListOk:) withFailedBack:@selector(getHgbZXInfoListFailed:)];
+    [self sendRequest:@"getHgbZXInfoList" withVersion:kUrlVer withParam:param withOkBack:@selector(getHgbZXInfoListOk:) withFailedBack:@selector(getHgbZXInfoListFailed:)];
 }
 - (void)getHgbZXInfoListOk:(NSString*)result{
     
@@ -206,7 +227,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
                  @"1",@"offset",
                  nil];
     }
-    [self sendRequest:@"getHgbZXTitleSearch" withVersion:@"v10" withParam:param withOkBack:@selector(getHgbZXTitleSearchOk:) withFailedBack:@selector(getHgbZXTitleSearchFailed:)];
+    [self sendRequest:@"getHgbZXTitleSearch" withVersion:kUrlVer withParam:param withOkBack:@selector(getHgbZXTitleSearchOk:) withFailedBack:@selector(getHgbZXTitleSearchFailed:)];
 }
 - (void)getHgbZXTitleSearchOk:(NSString*)result{
     
@@ -224,16 +245,9 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
 #pragma mark -public New
 - (void)querySitePubmsg4Move:(NSDictionary*)param{
     
-    JQConnect_bsteelPay *requestEng = [[JQConnect_bsteelPay alloc] initWithDelegate:self successCallBack:@selector(querySitePubmsg4MoveOK:) failedCallBack:@selector(querySitePubmsg4MoveFailed:) andMethodName:@"querySitePubmsg4Move_v10"];
-    /*
-     @"10",@"limit",
-     @"1",@"offset",
-     */
-    [requestEng addParam:@"10" forKey:@"limit"];
-    [requestEng addParam:@"1" forKey:@"offset"];
-    [requestEng addParam:@"1" forKey:@"zc"];
-    [requestEng addParam:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"] forKey:@"version"];
-    [requestEng sendRequest];
+   
+    
+    [self sendRequest:@"querySitePubmsg4Move" withVersion:kUrlVer withParam:param withOkBack:@selector(querySitePubmsg4MoveOK:) withFailedBack:@selector(querySitePubmsg4MoveFailed:)];
 }
 - (void)querySitePubmsg4MoveOK:(NSString*)result{
     
@@ -258,7 +272,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
              @"0",@"hydm",
              nil];
     }
-    [self sendRequest:@"getBidPubmsgById4Move" withVersion:@"v10" withParam:param withOkBack:@selector(getBidPubmsgById4MoveOk:) withFailedBack:@selector(getBidPubmsgById4MoveFailed:)];
+    [self sendRequest:@"getBidPubmsgById4Move" withVersion:kUrlVer withParam:param withOkBack:@selector(getBidPubmsgById4MoveOk:) withFailedBack:@selector(getBidPubmsgById4MoveFailed:)];
 }
 - (void)getBidPubmsgById4MoveOk:(NSString*)result{
     
@@ -285,7 +299,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
                  @"0",@"hydm",
                  nil];
     }
-    [self sendRequest:@"getSitePubmsgById4Move" withVersion:@"v10" withParam:param withOkBack:@selector(getSitePubmsgById4MoveOk:) withFailedBack:@selector(getSitePubmsgById4MoveFailed:)];
+    [self sendRequest:@"getSitePubmsgById4Move" withVersion:kUrlVer withParam:param withOkBack:@selector(getSitePubmsgById4MoveOk:) withFailedBack:@selector(getSitePubmsgById4MoveFailed:)];
 }
 - (void)getSitePubmsgById4MoveOk:(NSString*)result{
     
@@ -320,7 +334,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
                  @"1",@"offset",
                  nil];
     }
-    [self sendRequest:@"queryBidPubmsg4Move" withVersion:@"v10" withParam:param withOkBack:@selector(queryBidPubmsg4MoveOk:) withFailedBack:@selector(queryBidPubmsg4MoveFailed:)];
+    [self sendRequest:@"queryBidPubmsg4Move" withVersion:kUrlVer withParam:param withOkBack:@selector(queryBidPubmsg4MoveOk:) withFailedBack:@selector(queryBidPubmsg4MoveFailed:)];
 
 }
 - (void)queryBidPubmsg4MoveOk:(NSString*)result{
@@ -354,7 +368,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
              @"1",@"offset",
              nil];
     }
-    [self sendRequest:@"queryAuctionPps4Move" withVersion:@"v10" withParam:param withOkBack:@selector(queryAuctionPps4MoveOk:) withFailedBack:@selector(queryAuctionPps4MoveFailed:)];
+    [self sendRequest:@"queryAuctionPps4Move" withVersion:kUrlVer withParam:param withOkBack:@selector(queryAuctionPps4MoveOk:) withFailedBack:@selector(queryAuctionPps4MoveFailed:)];
 
 
 }
@@ -430,7 +444,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
                  
                  nil];
     }
-    [self sendRequest:@"queryAuctionWts4Move" withVersion:@"v10" withParam:param withOkBack:@selector(queryAuctionWts4MoveOk:) withFailedBack:@selector(queryAuctionWts4MoveFailed:)];
+    [self sendRequest:@"queryAuctionWts4Move" withVersion:kUrlVer withParam:param withOkBack:@selector(queryAuctionWts4MoveOk:) withFailedBack:@selector(queryAuctionWts4MoveFailed:)];
     
     
 }
@@ -462,7 +476,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
                  //@"1",@"offset",
                  nil];
     }
-    [self sendRequest:@"queryAuctionPpInfo4Move" withVersion:@"v10" withParam:param withOkBack:@selector(queryBidDetailOk:) withFailedBack:@selector(queryBidDetailFailed:)];
+    [self sendRequest:@"queryAuctionPpInfo4Move" withVersion:kUrlVer withParam:param withOkBack:@selector(queryBidDetailOk:) withFailedBack:@selector(queryBidDetailFailed:)];
 }
 - (void)queryBidDetailOk:(NSString*)result{
 
@@ -492,7 +506,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
              //@"1",@"offset",
              nil];
     }
-    [self sendRequest:@"getAuctionWtInfo" withVersion:@"v10" withParam:param withOkBack:@selector(getAuctionWtInfoOk:) withFailedBack:@selector(getAuctionWtInfoFailed:)];
+    [self sendRequest:@"getAuctionWtInfo" withVersion:kUrlVer withParam:param withOkBack:@selector(getAuctionWtInfoOk:) withFailedBack:@selector(getAuctionWtInfoFailed:)];
 }
 - (void)getAuctionWtInfoOk:(NSString*)result{
     
@@ -523,7 +537,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
                  //@"1",@"offset",
                  nil];
     }
-    [self sendRequest:@"saveAuction4Move" withVersion:@"v10" withParam:param withOkBack:@selector(saveAuction4MoveOk:) withFailedBack:@selector(saveAuction4MoveFailed:)];
+    [self sendRequest:@"saveAuction4Move" withVersion:kUrlVer withParam:param withOkBack:@selector(saveAuction4MoveOk:) withFailedBack:@selector(saveAuction4MoveFailed:)];
 
 }
 - (void)saveAuction4MoveOk:(NSString*)result{
@@ -553,7 +567,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
                  //@"1",@"offset",
                  nil];
     }
-    [self sendRequest:@"quitWt4Move" withVersion:@"v10" withParam:param withOkBack:@selector(quitWt4MoveOk:) withFailedBack:@selector(quitWt4MoveFailed:)];
+    [self sendRequest:@"quitWt4Move" withVersion:kUrlVer withParam:param withOkBack:@selector(quitWt4MoveOk:) withFailedBack:@selector(quitWt4MoveFailed:)];
 
 }
 - (void)quitWt4MoveOk:(NSString*)result{
@@ -585,7 +599,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
                  
                  nil];
     }
-    [self sendRequest:@"showAgreement4Move" withVersion:@"v10" withParam:param withOkBack:@selector(showAgreement4MoveOk:) withFailedBack:@selector(showAgreement4MoveFailed:)];
+    [self sendRequest:@"showAgreement4Move" withVersion:kUrlVer withParam:param withOkBack:@selector(showAgreement4MoveOk:) withFailedBack:@selector(showAgreement4MoveFailed:)];
 }
 - (void)showAgreement4MoveOk:(NSString*)result{
     
@@ -614,7 +628,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
                  @"",@"czy",
                  nil];
     }
-    [self sendRequest:@"joinBuy4Move" withVersion:@"v10" withParam:param withOkBack:@selector(joinBuy4MoveOk:) withFailedBack:@selector(joinBuy4MoveFailed:)];
+    [self sendRequest:@"joinBuy4Move" withVersion:kUrlVer withParam:param withOkBack:@selector(joinBuy4MoveOk:) withFailedBack:@selector(joinBuy4MoveFailed:)];
 }
 - (void)joinBuy4MoveOk:(NSString*)result{
     
@@ -641,7 +655,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
                  @"001",@"hydm",
                  nil];
     }
-    [self sendRequest:@"login" withVersion:@"v10" withParam:param withOkBack:@selector(carUserLoginOk:) withFailedBack:@selector(carUserLoginFailed:)];
+    [self sendRequest:@"login" withVersion:kUrlVer withParam:param withOkBack:@selector(carUserLoginOk:) withFailedBack:@selector(carUserLoginFailed:)];
     return nil;
 }
 - (void)carUserLoginOk:(NSString*)result{
@@ -666,7 +680,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
              @"001",@"hydm",
              nil];
     }
-    [self sendRequest:@"getAccountInfo" withVersion:@"v10" withParam:param withOkBack:@selector(getAccountInfoOk:) withFailedBack:@selector(getAccountInfoFailed:)];
+    [self sendRequest:@"getAccountInfo" withVersion:kUrlVer withParam:param withOkBack:@selector(getAccountInfoOk:) withFailedBack:@selector(getAccountInfoFailed:)];
 }
 - (void)getAccountInfoOk:(NSString*)result{
     
@@ -697,7 +711,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
              @"1",@"offset",
              nil];
     }
-    [self sendRequest:@"getOrderList" withVersion:@"v10" withParam:param withOkBack:@selector(getOrderListOk:) withFailedBack:@selector(getOrderListFailed:)];
+    [self sendRequest:@"getOrderList" withVersion:kUrlVer withParam:param withOkBack:@selector(getOrderListOk:) withFailedBack:@selector(getOrderListFailed:)];
 
 }
 - (void)getOrderListOk:(NSString*)result{
@@ -716,7 +730,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
                  @"001",@"orderId",
                  nil];
     }
-    [self sendRequest:@"getOrderDetail" withVersion:@"v10" withParam:param withOkBack:@selector(getOrderDetailOk:) withFailedBack:@selector(getOrderDetailFailed:)];
+    [self sendRequest:@"getOrderDetail" withVersion:kUrlVer withParam:param withOkBack:@selector(getOrderDetailOk:) withFailedBack:@selector(getOrderDetailFailed:)];
     
 }
 - (void)getOrderDetailOk:(NSString*)result{
@@ -736,7 +750,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
                  @"001",@"orderId",
                  nil];
     }
-    [self sendRequest:@"updateStatus4Move" withVersion:@"v10" withParam:param withOkBack:@selector(updateStatus4MoveOk:) withFailedBack:@selector(updateStatus4MoveFailed:)];
+    [self sendRequest:@"updateStatus4Move" withVersion:kUrlVer withParam:param withOkBack:@selector(updateStatus4MoveOk:) withFailedBack:@selector(updateStatus4MoveFailed:)];
 }
 - (void)updateStatus4MoveOk:(NSString*)result{
     id data = [result JSONValue];

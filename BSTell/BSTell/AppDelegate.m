@@ -20,7 +20,7 @@
     AppMainUIViewManage *appMg = [AppMainUIViewManage getSingleTone];
     appMg.window = self.window;
     [appMg addMainViewUI];
-    [self startLoginRequest];
+    //[self startLoginRequest];
     
     return YES;
 }

@@ -84,7 +84,7 @@
 		04E65CFC18A269B8008FA65A /* arrivalDetailData.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CA018A269B8008FA65A /* arrivalDetailData.m */; };
 		04E65D0418A269B8008FA65A /* global.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CB618A269B8008FA65A /* global.m */; };
 		04E65D0518A269B8008FA65A /* AES128.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CB918A269B8008FA65A /* AES128.m */; };
-		04E65D0618A269B8008FA65A /* bchemMW.cer in Resources */ = {isa = PBXBuildFile; fileRef = 04E65CBA18A269B8008FA65A /* bchemMW.cer */; };
+		04E65D0618A269B8008FA65A /* test.cer in Resources */ = {isa = PBXBuildFile; fileRef = 04E65CBA18A269B8008FA65A /* test.cer */; };
 		04E65D0718A269B8008FA65A /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CBC18A269B8008FA65A /* EGORefreshTableHeaderView.m */; };
 		04E65D0818A269B8008FA65A /* jqAlertCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CBE18A269B8008FA65A /* jqAlertCenter.m */; };
 		04E65D0918A269B8008FA65A /* JQConnect_bsteelPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CC018A269B8008FA65A /* JQConnect_bsteelPay.m */; };
@@ -165,6 +165,9 @@
 		BD593A3018BDFE6F007B4F5C /* BidAdjustAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD593A2F18BDFE6F007B4F5C /* BidAdjustAlertView.m */; };
 		BD593A3218BE0187007B4F5C /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BD593A3118BE0187007B4F5C /* image.jpg */; };
 		BD593A3418BE081B007B4F5C /* bid_money_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BD593A3318BE081B007B4F5C /* bid_money_bg.png */; };
+		BD593A3718BE4BD3007B4F5C /* AppSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = BD593A3618BE4BD3007B4F5C /* AppSetting.m */; };
+		BD593A3F18BF7648007B4F5C /* client.cer in Resources */ = {isa = PBXBuildFile; fileRef = BD593A3E18BF7648007B4F5C /* client.cer */; };
+		BD593A4218BF8520007B4F5C /* cell_split_line.png in Resources */ = {isa = PBXBuildFile; fileRef = BD593A4118BF8520007B4F5C /* cell_split_line.png */; };
 		BD884AF918B4CBE900E354B7 /* logo57.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884AF818B4CBE900E354B7 /* logo57.png */; };
 		BD884AFD18B4CC0500E354B7 /* logo96.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884AFA18B4CC0500E354B7 /* logo96.png */; };
 		BD884AFE18B4CC0500E354B7 /* logo114.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884AFB18B4CC0500E354B7 /* logo114.png */; };
@@ -321,7 +324,7 @@
 		04E65CB618A269B8008FA65A /* global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = global.m; sourceTree = "<group>"; };
 		04E65CB818A269B8008FA65A /* AES128.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AES128.h; sourceTree = "<group>"; };
 		04E65CB918A269B8008FA65A /* AES128.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AES128.m; sourceTree = "<group>"; };
-		04E65CBA18A269B8008FA65A /* bchemMW.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = bchemMW.cer; sourceTree = "<group>"; };
+		04E65CBA18A269B8008FA65A /* test.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.cer; sourceTree = "<group>"; };
 		04E65CBB18A269B8008FA65A /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
 		04E65CBC18A269B8008FA65A /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
 		04E65CBD18A269B8008FA65A /* jqAlertCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jqAlertCenter.h; sourceTree = "<group>"; };
@@ -450,6 +453,10 @@
 		BD593A2F18BDFE6F007B4F5C /* BidAdjustAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidAdjustAlertView.m; sourceTree = "<group>"; };
 		BD593A3118BE0187007B4F5C /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
 		BD593A3318BE081B007B4F5C /* bid_money_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bid_money_bg.png; sourceTree = "<group>"; };
+		BD593A3518BE4BD3007B4F5C /* AppSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSetting.h; sourceTree = "<group>"; };
+		BD593A3618BE4BD3007B4F5C /* AppSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSetting.m; sourceTree = "<group>"; };
+		BD593A3E18BF7648007B4F5C /* client.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = client.cer; sourceTree = "<group>"; };
+		BD593A4118BF8520007B4F5C /* cell_split_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_split_line.png; sourceTree = "<group>"; };
 		BD884AF818B4CBE900E354B7 /* logo57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo57.png; sourceTree = "<group>"; };
 		BD884AFA18B4CC0500E354B7 /* logo96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo96.png; sourceTree = "<group>"; };
 		BD884AFB18B4CC0500E354B7 /* logo114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo114.png; sourceTree = "<group>"; };
@@ -658,6 +665,7 @@
 		04E65C9B18A269B8008FA65A /* BSTeelNet */ = {
 			isa = PBXGroup;
 			children = (
+				BD593A3E18BF7648007B4F5C /* client.cer */,
 				04E65C9C18A269B8008FA65A /* arrivalData */,
 				04E65CB418A269B8008FA65A /* Commondefines.h */,
 				04E65CB518A269B8008FA65A /* global.h */,
@@ -687,7 +695,7 @@
 			children = (
 				04E65CB818A269B8008FA65A /* AES128.h */,
 				04E65CB918A269B8008FA65A /* AES128.m */,
-				04E65CBA18A269B8008FA65A /* bchemMW.cer */,
+				04E65CBA18A269B8008FA65A /* test.cer */,
 				04E65CBB18A269B8008FA65A /* EGORefreshTableHeaderView.h */,
 				04E65CBC18A269B8008FA65A /* EGORefreshTableHeaderView.m */,
 				04E65CBD18A269B8008FA65A /* jqAlertCenter.h */,
@@ -840,8 +848,8 @@
 				04DFD42C189CEE5900A3BDDF /* MainPage */,
 				04DFD402189B6BC300A3BDDF /* CellView */,
 				04F6E5C1189A8C620057BD72 /* images */,
-				04F6E573189A864D0057BD72 /* AppDelegate.h */,
 				04E65D2A18A27D07008FA65A /* AppConfig.h */,
+				04F6E573189A864D0057BD72 /* AppDelegate.h */,
 				04F6E574189A864D0057BD72 /* AppDelegate.m */,
 				04F6E579189A864D0057BD72 /* ViewController.h */,
 				04F6E57A189A864D0057BD72 /* ViewController.m */,
@@ -863,6 +871,8 @@
 				044EE26318A4C5E3007A3EDA /* BSTellNetListBaseViewController.m */,
 				BD593A1D18BCF538007B4F5C /* LoginViewController.h */,
 				BD593A1E18BCF538007B4F5C /* LoginViewController.m */,
+				BD593A3518BE4BD3007B4F5C /* AppSetting.h */,
+				BD593A3618BE4BD3007B4F5C /* AppSetting.m */,
 			);
 			path = BSTell;
 			sourceTree = "<group>";
@@ -914,6 +924,7 @@
 		04F6E5C1189A8C620057BD72 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				BD593A4118BF8520007B4F5C /* cell_split_line.png */,
 				BD593A3318BE081B007B4F5C /* bid_money_bg.png */,
 				BD593A3118BE0187007B4F5C /* image.jpg */,
 				BD593A1A18BCDB2C007B4F5C /* login_bg.png */,
@@ -1069,7 +1080,7 @@
 				ORGANIZATIONNAME = cszhan;
 				TargetAttributes = {
 					04F6E560189A864D0057BD72 = {
-						DevelopmentTeam = A8RA93G2CJ;
+						DevelopmentTeam = DST72U373B;
 					};
 					04F6E581189A864E0057BD72 = {
 						TestTargetID = 04F6E560189A864D0057BD72;
@@ -1138,6 +1149,7 @@
 				04F854E718B25CF40026BCA4 /* button_gray07.png in Resources */,
 				04E65C8C18A257C0008FA65A /* bid_price_btn.png in Resources */,
 				04535F9518BCBA8B009FA2C4 /* CardShopResignViewController.xib in Resources */,
+				BD593A4218BF8520007B4F5C /* cell_split_line.png in Resources */,
 				04DFD449189D492A00A3BDDF /* round.png in Resources */,
 				04F854E418B25CF40026BCA4 /* button_gray04.png in Resources */,
 				04F854E618B25CF40026BCA4 /* button_gray06.png in Resources */,
@@ -1149,7 +1161,7 @@
 				04F6E5CC189A8C630057BD72 /* tableitem1.png in Resources */,
 				BD593A1418BCAC93007B4F5C /* Default-568h@2x.png in Resources */,
 				04255BB418B3AE580006F9E0 /* split_line.png in Resources */,
-				04E65D0618A269B8008FA65A /* bchemMW.cer in Resources */,
+				04E65D0618A269B8008FA65A /* test.cer in Resources */,
 				04DFD441189D35B200A3BDDF /* button-3.png in Resources */,
 				04DFD456189D7D7B00A3BDDF /* bid_detail_header.png in Resources */,
 				BD884B1018B7B53300E354B7 /* OrderTableViewCell.xib in Resources */,
@@ -1170,6 +1182,7 @@
 				04F854E118B25CF40026BCA4 /* button_gray01.png in Resources */,
 				04F6E5D1189A8C630057BD72 /* tableitemsel1.png in Resources */,
 				04F6E56F189A864D0057BD72 /* InfoPlist.strings in Resources */,
+				BD593A3F18BF7648007B4F5C /* client.cer in Resources */,
 				BD884B1A18BADFBD00E354B7 /* SVProgressHUD.bundle in Resources */,
 				BD884AF918B4CBE900E354B7 /* logo57.png in Resources */,
 				04F6E5D3189A8C630057BD72 /* tableitemsel3.png in Resources */,
@@ -1259,6 +1272,7 @@
 				04E65C9A18A25C21008FA65A /* BidPrepareViewController.m in Sources */,
 				04F6E575189A864D0057BD72 /* AppDelegate.m in Sources */,
 				04DFD453189D7C9000A3BDDF /* BidMainViewController.m in Sources */,
+				BD593A3718BE4BD3007B4F5C /* AppSetting.m in Sources */,
 				04E65D0818A269B8008FA65A /* jqAlertCenter.m in Sources */,
 				BDE7BD7B18B0D16800A82198 /* HotMsgViewController.m in Sources */,
 				04E65D1D18A269B8008FA65A /* SBJsonStreamWriterState.m in Sources */,
@@ -1374,7 +1388,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -1407,7 +1421,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1418,6 +1432,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BSTell/BSTell-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
@@ -1430,6 +1445,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3D5E80C2-1780-433F-BA2B-1B5B32D2E9DC";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1438,8 +1454,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: ZHU CAIXI (A8RA93G2CJ)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BAOSTEEL GROUP CORPORATION";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BSTell/BSTell-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
@@ -1452,6 +1468,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3D5E80C2-1780-433F-BA2B-1B5B32D2E9DC";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

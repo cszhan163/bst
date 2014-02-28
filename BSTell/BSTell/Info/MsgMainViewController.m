@@ -57,7 +57,7 @@
 	// Do any additional setup after loading the view.
     [self setHiddenLeftBtn:YES];
     [self setHiddenRightBtn:NO];
-    [self setNavgationBarTitle:@"新闻资讯"];
+    [self setNavgationBarTitle:@"资讯中心"];
 }
 
 - (void)didReceiveMemoryWarning

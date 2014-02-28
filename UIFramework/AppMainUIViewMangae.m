@@ -172,6 +172,15 @@ static UIButton *popup = nil;
         
     }
 #endif
+    NSString *usrId = [AppSetting getLoginUserId];
+    
+    //if(!usrId || [usrId isEqualToString:@""])
+    {
+        
+        [ZCSNotficationMgr postMSG:kNavTabItemMSG obj:[NSNumber numberWithInt:2]];
+        //[ZCSNotficationMgr postMSG:kNeedUserLoginMSG obj:nil];
+        return;
+    }
    	//[mainView addSubview:navCtrl.view];
 	
 }

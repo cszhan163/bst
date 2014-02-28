@@ -41,9 +41,13 @@
     [self setNavgationBarTitle:@"竞买出价"];
 }
 - (void)viewWillAppear:(BOOL)animated{
-
-
+    [super viewWillAppear:animated];
+    [navItemCtrl.currentViewController startReflushjTimer];
+    // - (void)stopReflushTimer;];
 }
+//- (void)viewWillDisappear:(BOOL)animated{
+//    [//navItemCtrl.currentViewController viewWillDisappear:animated];
+//}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -108,7 +112,7 @@
      [btnArray addObject:btn];
      */
     NETopNavBar *topNavBar = [[NETopNavBar alloc]initWithFrame:CGRectMake(0.f, 0.f,320.f,40)withBgImage:nil withBtnArray:btnArray selIndex:0];
-    topNavBar.backgroundColor = [UIColor blueColor];
+    topNavBar.backgroundColor = HexRGB(190, 221, 238);
     //topNavBar.delegate = self;
     return topNavBar;
 }
@@ -144,6 +148,11 @@
     
 }
 
-
+-(void)didSelectorTopNavigationBarItem:(id)sender{
+    if([sender tag] == 0){
+        for(UIViewController *item in navItemCtrl.navControllersArr)
+            [item stopReflushTimer];
+    }
+}
 
 @end

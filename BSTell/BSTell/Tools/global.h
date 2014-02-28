@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+#if 1
+#define kHttpsRequestUrl  @"https://m.b-chem.com:9000/app/"
+#define kHttpRequestUrl  @"https://m.b-chem.com:9000/app/"
+#define CERNAME @"client"
+#else
+//https://211.144.193.11:8000/app/queryAuctionWts4Move_V1
+#define kHttpsRequestUrl  @"https://211.144.193.11:8000/app/"
+#define kHttpRequestUrl  @"https://211.144.193.11:8000/app/"
+#define CERNAME @"test"
+#endif
 @interface global : NSObject
 {
     NSString *_equipment;//设备型号 4 or 5

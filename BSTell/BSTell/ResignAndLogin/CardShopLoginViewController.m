@@ -10,7 +10,17 @@
 #import "ResetPasswordViewController.h"
 #import "CardShopResignViewController.h"
 #import "CarServiceNetDataMgr.h"
-
+#import "AppSetting.h"
+/*
+ 
+ 
+ 
+ */
+#define kUserDataDict  @{\
+                        @"shanghai_1":@{@"hydm":@"007624",@"czy":@"U64959"},\
+                        @"shanghai_2":@{@"hydm":@"007625 ",@"czy":@"U64979"},\
+                        @"shanghai_3":@{@"hydm":@"007626",@"czy":@"U64982"}\
+                        }
 @interface CardShopLoginViewController ()
 
 @end
@@ -37,6 +47,7 @@
 //    UIImage *bgImage = nil;
 //    UIImageWithFileName(bgImage, @"login_bg.png");
 //    self.view.layer.contents = (id)bgImage.CGImage;
+    navBarView.backgroundColor = HexRGB(1, 159, 233);
     self.view.backgroundColor = HexRGB(239, 239, 241);
     //self.txtpassword
     /*
@@ -166,7 +177,15 @@
 -(void)startLogin
 {
     //if([self check])
+    if([kUserDataDict objectForKey:self.txtusername.text]){
+        
+    }
+    else{
+        kUIAlertView(@"提示", @"没有改用户");
+        return;
+    }
     kNetStartShow(@"登录中...",self.view);
+#if 0
     CarServiceNetDataMgr *cardShopMgr = [CarServiceNetDataMgr getSingleTone];
     
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -175,6 +194,9 @@
                               nil];
    
     self.request = [cardShopMgr  carUserLogin:param];
+#else
+    [self didNetDataOK:[NSNotification notificationWithName:kNetLoginRes object:[NSDictionary  dictionaryWithObjectsAndKeys:kNetLoginRes,@"key",nil]]];
+#endif
 
 }
 -(IBAction)cancelLogin:(id)sender
@@ -196,15 +218,18 @@
         NE_LOG(@"%@",[data description]);
         //[self stopShowLoadingView];
         //[Ap]
-#if 0
-         [AppSetting setCurrentLoginUser:self.txtusername.text];
-        
-        
-        //[AppSetting setLoginUserDetailInfo:data userId:self.txtusername.text];
-        //[AppSetting setLoginUserInfo:];
-        [AppSetting setLoginUserId:self.txtusername.text];
-        [AppSetting setLoginUserPassword:self.txtpassword.text];
-        [ZCSNotficationMgr postMSG:kQueryCarInfoMSG obj:nil];
+        kNetEnd(self.view);
+#if 1
+        //[AppSetting setCurrentLoginUser:self.txtusername.text];
+        NSDictionary *userData = [kUserDataDict objectForKey:self.txtusername.text];
+        if(userData){
+            [AppSetting setLoginUserDetailInfo:userData userId:self.txtusername.text];
+            //[AppSetting setLoginUserInfo:];
+            [AppSetting setLoginUserId:self.txtusername.text];
+            [AppSetting setLoginUserPassword:self.txtpassword.text];
+            [ZCSNotficationMgr postMSG:kUserDidLoginOk obj:nil];
+        }
+        //[self findpw_click:nil];
 #endif
         
     }

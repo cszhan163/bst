@@ -40,8 +40,12 @@
         [self addSubview:label];
         self.noteDetailTextLabel = label;
         SafeRelease(label);
-
-        
+        /*
+        UIImageWithFileName(UIImage* image, @"cell_split.line.png");
+        assert(image);
+        UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
+        [self addSubview:imageView];
+        */
     }
     return self;
 }

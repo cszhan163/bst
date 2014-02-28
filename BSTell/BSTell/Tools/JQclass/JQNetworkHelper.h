@@ -15,7 +15,7 @@
 #import <Foundation/Foundation.h>
 #import "ASIFormDataRequest.h"
 
-#define CERNAME @"bchemMW"
+//#define CERNAME @"bchemMW"
 
 @class jqLoading;
 

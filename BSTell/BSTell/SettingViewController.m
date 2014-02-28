@@ -26,6 +26,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.isNeedLogin = NO;
     }
     return self;
 }
@@ -82,7 +83,7 @@
             if ([oneObject isKindOfClass:[BidItemCell class]])
                 cell = (BidItemCell*)oneObject;
 #else
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
 #endif
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
         cell.backgroundColor = [UIColor whiteColor];
@@ -107,6 +108,8 @@
      
      */
     cell.textLabel.text = kSetingTitleArray[indexPath.row];
+    if(indexPath.row == [kSetingTitleArray count]-1)
+        cell.detailTextLabel.text = @"400-820-6662";
     
     return cell;
 }

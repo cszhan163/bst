@@ -19,11 +19,27 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
         self.userId = @"";
     }
     return self;
 }
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self needCheckLogin];
+   
+}
+- (BOOL)needCheckLogin{
 
+    NSString *usrId = [AppSetting getLoginUserId];
+    if(self.needLogin &&(!usrId || [usrId isEqualToString:@""])){
+        
+        [ZCSNotficationMgr postMSG:kNavTabItemMSG obj:[NSNumber numberWithInt:2]];
+        [ZCSNotficationMgr postMSG:kNeedUserLoginMSG obj:nil];
+        return YES;
+    }
+    return NO;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -31,11 +47,16 @@
     mainView.topBarView.backgroundColor = HexRGB(1, 159, 233);
     mainView.backgroundColor = HexRGB(239, 239, 241);
     self.delegate = self;
-    //[self performSelectorInBackground:@selector(shouldLoadData) withObject:nil];
-    [self shouldLoadData];
+    if(![self needCheckLogin])
+        [self shouldLoadData];
 }
 - (void)shouldLoadData{
-
+   
+    NSString *usrId = [AppSetting getLoginUserId];
+    if(usrId){
+        NSDictionary *usrData = [AppSetting getLoginUserData:usrId];
+        self.userId = [usrData objectForKey:@"hydm"];
+    }
 
 }
 - (void)didReceiveMemoryWarning
@@ -46,7 +67,11 @@
 - (void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
-    
+    NSString *usrId = [AppSetting getLoginUserId];
+    if(usrId){
+        NSDictionary *usrData = [AppSetting getLoginUserData:usrId];
+        self.userId = [usrData objectForKey:@"hydm"];
+    }
 }
 
 @end

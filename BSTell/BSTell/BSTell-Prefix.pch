@@ -30,7 +30,7 @@
 #import "CarServiceNetDataMgr.h"
 
 #import "AppConfig.h"
-
+#import "AppSetting.h"
 typedef enum noteType{
     Note_New,
     Note_Bid,

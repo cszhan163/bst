@@ -34,7 +34,7 @@
 
 #define kTabImageOffsetPoint            CGPointMake(20.f,8.f)
 
-#define kTabAllItemText                 @"竞买,资讯中心,首页,我的信息,关于我们"
+#define kTabAllItemText                 @"在线交易,资讯中心,首页,我的信息,关于我们"
 //for tabItem text
 #define kTabItemTextPendingY            7.f
 #define kTabItemTextHeight              12

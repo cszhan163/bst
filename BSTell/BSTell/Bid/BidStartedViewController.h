@@ -11,5 +11,8 @@
 @interface BidStartedViewController : BSTellNetListBaseViewController{
 
     NSDictionary *currBidItem;
+    CGFloat finalPrice;
 }
+- (void)startReflushjTimer;
+- (void)stopReflushTimer;
 @end

@@ -8,6 +8,9 @@
 
 #import "NoteDetailViewController.h"
 #define  kLeftPendingX 10.f
+
+
+
 @interface NoteDetailViewController (){\
     UILabel    *timeLabel;
     UITextView *contentTextView;
@@ -116,7 +119,7 @@
                  //@"1",@"zc",
                  //@"",@"wtzt",
                  //@"001",@"hydm",
-                 self.userId,@"systemId",
+                 @"keu89klW29f9S9323jj3",@"systemId",
                  //@"",@"rqStart",
                  //@"",@"rqEnd",
                  nil];

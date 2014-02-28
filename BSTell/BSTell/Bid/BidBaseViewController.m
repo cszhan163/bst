@@ -20,6 +20,10 @@
 @end
 
 @implementation BidBaseViewController
+- (void)dealloc{
+    [super dealloc];
+    [navItemCtrl release];
+}
 @synthesize dataSouce;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

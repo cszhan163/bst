@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardShopLoginViewController">
             <connections>
+                <outlet property="navBarView" destination="qqt-2W-9zI" id="nlm-6m-Kt3"/>
                 <outlet property="txtpassword" destination="18" id="20"/>
                 <outlet property="txtusername" destination="17" id="19"/>
                 <outlet property="view" destination="1" id="3"/>
@@ -17,24 +18,30 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" id="qqt-2W-9zI">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.75755774460000003" green="0.53595368249999997" blue="0.14927941619999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="tintColor" red="0.52156865600000002" green="0.3952360056" blue="0.18644440900000001" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="login_bg.png" id="13">
-                    <rect key="frame" x="-13" y="0.0" width="320" height="460"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="logo.png" id="34">
-                    <rect key="frame" x="104" y="53" width="112" height="39"/>
+                    <rect key="frame" x="100" y="74" width="112" height="39"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="login_bg.png" id="36">
-                    <rect key="frame" x="65" y="138" width="228" height="40"/>
+                    <rect key="frame" x="65" y="138" width="235" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="login_bg.png" id="37">
-                    <rect key="frame" x="65" y="201" width="228" height="38"/>
+                    <rect key="frame" x="65" y="201" width="235" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="14">
-                    <rect key="frame" x="17" y="258" width="278" height="30"/>
+                    <rect key="frame" x="17" y="258" width="283" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="登录" backgroundImage="bid_join_btn.png">
@@ -65,7 +72,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="16">
-                    <rect key="frame" x="10" y="9" width="30" height="26"/>
+                    <rect key="frame" x="10" y="12" width="30" height="26"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" image="back_home.png" backgroundImage="r_btn_forgetpw.png">
@@ -80,7 +87,7 @@
                     </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="注册邮箱,手机或用户名" minimumFontSize="17" id="17">
-                    <rect key="frame" x="73" y="138" width="213" height="38"/>
+                    <rect key="frame" x="68" y="139" width="227" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -91,7 +98,7 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" minimumFontSize="17" id="18">
-                    <rect key="frame" x="65" y="201" width="221" height="31"/>
+                    <rect key="frame" x="65" y="204" width="221" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -101,12 +108,6 @@
                         <action selector="textFieldDidEndEditing:" destination="-1" eventType="editingDidEndOnExit" id="27"/>
                     </connections>
                 </textField>
-                <view contentMode="scaleToFill" id="qqt-2W-9zI">
-                    <rect key="frame" x="30" y="205" width="74" height="1"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.75755774460000003" green="0.53595368249999997" blue="0.14927941619999999" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="tintColor" red="0.52156865600000002" green="0.3952360056" blue="0.18644440900000001" alpha="1" colorSpace="calibratedRGB"/>
-                </view>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账户" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dxT-2P-47Z">
                     <rect key="frame" x="18" y="144" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -117,6 +118,13 @@
                     <rect key="frame" x="18" y="210" width="42" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IPR-Ug-4Rr">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>

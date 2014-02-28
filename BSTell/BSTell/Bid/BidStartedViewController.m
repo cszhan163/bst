@@ -15,20 +15,30 @@
 
 #define kHeaderColounmItemWidthArray @[@80.f,@80.f,@80.f]
 
-#define kCellTitleColorArray @[[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor]]
+#define kCellTitleColorArray @[[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor]]
 
-#define kCellTitleFontArray  @[[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14]]
-
-
-#define kCellValueColorArray @[[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor]]
-
-#define kCellValueFontArray  @[[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14]]
+#define kCellTitleFontArray  @[[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14]]
 
 
-#define kCellItemHeightArray @[@20.f,@25.f,@25.f,@20.f]
+#define kCellValueColorArray @[[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor redColor],[UIColor blackColor]]
+
+#define kCellValueFontArray  @[[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14]]
+
+
+#define kCellItemHeightArray @[@20.f,@20.f,@20.f,@20.f,@20.f,@20.f]
+
+@interface BidStartedViewController(){
+
+    
+}
+@property(nonatomic,retain)NSTimer *timer;
+@end
 
 @implementation BidStartedViewController
-
+- (void)dealloc{
+    [super dealloc];
+    //self.timer = nil;
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -37,17 +47,39 @@
     }
     return self;
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    //[self startReflushjTimer];
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+}
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    //[self stopReflushTimer];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
     [self setTopNavBarHidden:YES];
     CGRect rect =  tweetieTableView.frame;
     tweetieTableView.frame = CGRectMake(rect.origin.x, rect.origin.y, kDeviceScreenWidth, rect.size.height-43.f);
+    
 	// Do any additional setup after loading the view.
 }
+- (void)startReflushjTimer{
 
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:kBidReflushTimer target:self selector:@selector(reflushData) userInfo:nil repeats:YES];
+    
+}
+- (void)stopReflushTimer{
+    [self.timer invalidate];
+    self.timer = nil;
+}
+- (void)reflushData{
+    [self shouldLoadOlderData:nil];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -80,14 +112,14 @@
         NSMutableArray *titleArray = [NSMutableArray array];
         
        NSMutableArray *valueArray = [NSMutableArray array];
-        for (int i = 0; i<4; i++) {
+        for (int i = 0; i<[kCellTitleColorArray count]; i++) {
              NSMutableDictionary *itemDict = [NSMutableDictionary dictionary];
             [itemDict setObject:kCellTitleColorArray[i] forKey:@"color"];
             [itemDict setObject:kCellTitleFontArray[i] forKey:@"font"];
             [titleArray addObject:itemDict];
         }
         
-        for (int i = 0; i<4; i++) {
+        for (int i = 0; i<[kCellValueColorArray count]; i++) {
             NSMutableDictionary *itemDict = [NSMutableDictionary dictionary];
             [itemDict setObject:kCellValueColorArray[i] forKey:@"color"];
             [itemDict setObject:kCellValueFontArray[i] forKey:@"font"];
@@ -100,7 +132,9 @@
                 withTitleArray:@[
                                  @"场次",
                                  @"品名",
+                                 @"重量",
                                  @"当前价",
+                                 @"报价状态",
                                  @"结束时间"
                                  ]
                 withTitleAttributeArray:titleArray
@@ -177,10 +211,44 @@
     value = [item objectForKey:@"goodName"];
     [cell setCellItemValue:value withRow:row withCol:index++];
     
+    
+    //sell company
+    value = [item objectForKey:@"zys"];
+    
+    [cell setCellItemValue:value withRow:row withCol:index++];
+    
     //sell company
     value = [item objectForKey:@"dqj"];
     
+    [cell setBidButtonTitle:@"加1\n梯度"];
+    
+    CGFloat currPrice = [value floatValue];
+    
+    if(currPrice == 0.f){
+        [cell setBidButtonTitle:@"低价\n出价"];
+    }
     [cell setCellItemValue:value withRow:row withCol:index++];
+    
+    
+    //sell company
+    value = [item objectForKey:@"myprice"];
+    NSString *statusStr = @"落后";
+    if([value floatValue]>=currPrice){
+        statusStr = @"领先";
+        [cell setValueColorByIndex:index withColor:[UIColor redColor]];
+    }
+    else{
+        [cell setValueColorByIndex:index withColor:[UIColor greenColor]];
+    }
+    value = [item objectForKey:@"qpj"];
+    CGFloat basePrice = [value floatValue];
+    if([value floatValue]<basePrice){
+        statusStr = @"未出价";
+        [cell setValueColorByIndex:index withColor:[UIColor blackColor]];
+        
+    }
+    [cell setCellItemValue:statusStr withRow:row withCol:index++];
+    
     //sell company
     value = [item objectForKey:@"jssj"];
     
@@ -188,13 +256,13 @@
     
 #endif
     //time
-    cell.tag = indexPath.row;
+    [cell setBidButtonTag:indexPath.row];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    return 106.f;//125.f;
+    return 143.f;//125.f;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -206,7 +274,7 @@
     BidItemDetailViewController *vc = [[BidItemDetailViewController alloc]initWithNibName:nil bundle:nil];
     vc.bidType = Bid_Prepare;
     vc.goodId = goodId;
-    [vc  setNavgationBarTitle:@"详情"];
+    [vc  setNavgationBarTitle:@"交易详情"];
     /*
      vc.delegate = self;
      NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
@@ -237,10 +305,10 @@
      NSString *carId = [AppSetting getUserCarId:[AppSetting getLoginUserId]];
      */
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                           @"001",@"hydm",
+                           self.userId,@"hydm",
                            @"10",@"limit",
                            @"1",@"offset",
-                           @"1",@"startflg",
+                           @"1",@"startflag",
                            nil];
     
     self.request = [cardShopMgr  queryAuctionPps4Move:param];
@@ -268,9 +336,19 @@
         //
         
     }
-    if([resKey isEqualToString:kResBidAllListData]){
-    
-        
+    if([resKey isEqualToString:kResBidSaveData]){
+        //[self.dataArray removeAllObjects];
+       
+        NSString *msg = [data objectForKey:@"msg"];
+        if([[data objectForKey:@"result"]intValue] == 1){
+            
+            kUIAlertView(@"提示", @"出价成功");
+        }
+        else{
+            
+            kUIAlertView(@"提示", msg);
+        }
+        [self shouldLoadOlderData:tweetieTableView];
     }
     
 }
@@ -320,12 +398,24 @@
     int i = [sender tag];
     NSDictionary *item = self.dataArray[i];
     currBidItem = item;
-    
+    NSString *msg = @"";
     NSString *sessionId = [item objectForKey:@"wtmc"];
     NSString *goodName = [item objectForKey:@"goodName"];
     NSString *price = [item objectForKey:@"dqj"];
+    CGFloat currStep = [[item objectForKey:@"bjtd"] floatValue];
+    finalPrice = [price floatValue];
+    if([price floatValue] == 0.f){
+        
+        //finalPrice = [[item objectForKey:@"qpj"]floatValue];
+        //finalPrice = @"---";
+        msg = [NSString stringWithFormat:@"请确认是否对下列物资出价\n 场次:%@ \n 品名:%@ \n 出价:%@",sessionId,goodName,@"---"];
+    }
+    else{
+        finalPrice = [price floatValue]+currStep;
+        msg = [NSString stringWithFormat:@"请确认是否对下列物资出价\n 场次:%@ \n 品名:%@ \n 出价:%0.2f",sessionId,goodName,finalPrice];
+    }
+    //NSString *msg = [NSString stringWithFormat:@"请确认是否对下列物资出价\n 场次:%@ \n 品名:%@ \n 出价:%0.2f",sessionId,goodName,finalPrice];
     
-    NSString *msg = [NSString stringWithFormat:@"请确认是否对下列物资出价\n 场次:%@ \n 品名:%@ \n 出价:%0.2f",sessionId,goodName,[price floatValue]];
     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"出价确认" message:msg delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
     [alertView show];
     SafeAutoRelease(alertView);
@@ -374,13 +464,17 @@
          "取消委托出价"
          分别对应0，1，2，3，4，5，其它
          */
+        NSString *operId = [[AppSetting getLoginUserData:[AppSetting getLoginUserId]] objectForKey:@"czy"];
+        /*
         NSString *myPrice = [currBidItem objectForKey:@"myPrice"];
         assert(myPrice);
+         */
         NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                                self.userId,@"hydm",
-                               @"10",@"bjlb",
-                               myPrice,@"price",
+                               @"3",@"bjlb",
+                               [NSString stringWithFormat:@"%lf",finalPrice],@"price",
                                [currBidItem objectForKey:@"id"],@"id",
+                               operId,@"czy",
                                nil];
         
         self.request = [cardShopMgr  saveAuction4Move:param];

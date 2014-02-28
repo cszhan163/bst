@@ -19,22 +19,51 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
         self.dataArray = [NSMutableArray array];
         self.userId = @"";
+        self.isNeedLogin = YES;
     }
     return self;
+}
+- (void)addObservers{
+    [super addObservers];
+    [ZCSNotficationMgr addObserver:self call:@selector(didUserLogin:) msgName:kUserDidLoginOk];
+    [ZCSNotficationMgr addObserver:self call:@selector(didUserLogout:) msgName:kUserDidLogOut];
+}
+- (void)didUserLogin:(NSNotification*)ntf{
+
+}
+- (void)didUserLogout:(NSNotification*)ntf{
+    
 }
 - (void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
+    NSString *usrId = [AppSetting getLoginUserId];
+    if(usrId){
+        NSDictionary *usrData = [AppSetting getLoginUserData:usrId];
+        self.userId = [usrData objectForKey:@"hydm"];
+    }
+    
+}
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    NSString *usrId = [AppSetting getLoginUserId];
+
+    if(self.isNeedLogin &&(!usrId || [usrId isEqualToString:@""])){
+        
+        [ZCSNotficationMgr postMSG:kNavTabItemMSG obj:[NSNumber numberWithInt:2]];
+        [ZCSNotficationMgr postMSG:kNeedUserLoginMSG obj:nil];
+        return;
+    }
     if([self.dataArray count] == 0 &&!isFromViewUnload)
     {
         currentPageNum = 1;
         [self shouldLoadOlderData:tweetieTableView];
     }
-    
 }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -84,9 +113,13 @@
 #pragma mark - override fun
 
 - (void)reloadNetData:(id)data{
-    
-    if([data objectForKey:@"data"]){
-        NSArray *retData = [data objectForKey:@"data"];
+    id retData = nil;
+    if([data isKindOfClass:[NSDictionary class]])
+        retData = [data objectForKey:@"data"];
+    else
+        retData = data;
+    if(retData){
+        
         if([retData isKindOfClass:[NSArray class]])
         {
             [self.dataArray addObjectsFromArray:retData];

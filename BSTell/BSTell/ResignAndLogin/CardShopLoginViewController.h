@@ -12,6 +12,7 @@
 {
     IBOutlet UITextField *txtusername;
     IBOutlet UITextField *txtpassword;
+    IBOutlet UIView *navBarView;
 }
 @property(nonatomic,retain) IBOutlet UITextField *txtusername;
 @property(nonatomic,retain) IBOutlet UITextField *txtpassword;

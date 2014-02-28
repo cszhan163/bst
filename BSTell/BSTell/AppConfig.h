@@ -82,6 +82,7 @@
 
 #define kQueryCarInfoMSG        @"queryCarInfoMSG"
 
+
 /**
  login and register
  */
@@ -111,6 +112,11 @@
 #define kUploadPhotoPickChooseMSG     @"uploadPhotoPickChooseMSG"
 #define kUploadPhotoPickChooseEditMSG @"uploadPhotoPickChooseEditMSG"
 #define kUploadActionSheetViewAlertMSG @"uploadActionSheetViewAlertMSG"
+
+#define kBidReflushTimer       30
+#define OneLine                 1
+#define kUrlVer                 @"v1"
+
 
 //user
 #define kCarUserRegister                @"userRegister"
@@ -170,7 +176,7 @@
 #define kDateFormart   @"%d%02d"
 
 
-#define OneLine     0
+
 
 
 #define Infinite

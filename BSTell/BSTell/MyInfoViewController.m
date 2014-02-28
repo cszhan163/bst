@@ -32,12 +32,18 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.needLogin = YES;
     }
     return self;
 }
+- (void)viewWillAppear:(BOOL)animated{
 
+    [super viewWillAppear:animated];
+    
+}
 - (void)viewDidAppear:(BOOL)animated{
-    [self  shouldLoadData];
+    [super viewDidAppear:animated];
+    //[self  shouldLoadData];
 }
 
 - (void)viewDidLoad
@@ -46,6 +52,7 @@
 	// Do any additional setup after loading the view.
     [self setHiddenLeftBtn:YES];
     [self setHiddenRightBtn:YES];
+    [self setNavgationBarTitle:@"我的信息"];
     CGFloat currY = kMBAppTopToolBarHeight+80.f;
     userNameLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(kLeftTextPendingX,currY,300.f, 30.f)];
     userNameLabel.textAlignment = NSTextAlignmentLeft;
@@ -70,20 +77,20 @@
     accountView.frame = CGRectMake(0.f, currY, image.size.width/kScale, image.size.height/kScale);
     
     
-    userAccountLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blueColor] withText:@"" withFrame:CGRectMake(kLeftPendingX,currY+10.f,300.f, 30.f)];
+    userAccountLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blueColor] withText:@"80,000" withFrame:CGRectMake(kLeftPendingX,currY+10.f,300.f, 30.f)];
     currY = currY+30.f;
     userAccountLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:userAccountLabel];
     SafeRelease(userAccountLabel);
     
     
-    userAvaiableLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor greenColor] withText:@"" withFrame:CGRectMake(kLeftPendingX,currY+8.f,300.f, 30.f)];
+    userAvaiableLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor greenColor] withText:@"80,000" withFrame:CGRectMake(kLeftPendingX,currY+8.f,300.f, 30.f)];
     userAvaiableLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:userAvaiableLabel];
     SafeRelease(userAvaiableLabel);
     
     currY = currY+30.f;
-    userLockLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:14] withTextColor:[UIColor redColor] withText:@"" withFrame:CGRectMake(kLeftPendingX,currY+6.f,300.f, 30.f)];
+    userLockLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:14] withTextColor:[UIColor redColor] withText:@"0" withFrame:CGRectMake(kLeftPendingX,currY+6.f,300.f, 30.f)];
     userLockLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:userLockLabel];
     SafeRelease(userLockLabel);
@@ -128,7 +135,8 @@
 }
 - (void)myInforAction:(id)sender{
 
-    
+     kUIAlertView(@"信息", @"正在建设,敬请期待!");
+    return;
     OrderListViewController *vc = [[OrderListViewController alloc]initWithNibName:nil bundle:nil];
 //    NSDictionary *item = self.dataArray[indexPath.row];
 //    vc.orderId = [item objectForKey:@""];
@@ -153,7 +161,8 @@
     SafeRelease(vc);
 }
 - (void) shouldLoadData{
-    
+    return;
+    [super shouldLoadData];
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            //catStr,@"cat",
                            self.userId,@"hydm",
@@ -238,5 +247,13 @@
     
     
 
+}
+- (void)didUserLogout:(NSNotification*)ntf{
+    //isLogin = NO;
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    //self.dataArray = nil;
+    //currentPageNum = 0;
+    [AppSetting setLogoutUser];
+    
 }
 @end

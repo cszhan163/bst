@@ -9,5 +9,6 @@
 #import "BSTellBaseViewController.h"
 
 @interface BidDetailViewController : BSTellBaseViewController
-
+@property(nonatomic,strong)NSString *wtid;
+- (void)setJoinButtonHiddenStatus:(BOOL)status;
 @end

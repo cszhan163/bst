@@ -56,7 +56,7 @@
 
 
 
-#define kSecondLevelTitleArray @[kHotClassTitleArray,kMarketClassTitleArray,kMeidaClassTitleArray,kLastClassTitleArray]
+#define kSecondLevelTitleArray @[kMarketClassTitleArray,kHotClassTitleArray,kMeidaClassTitleArray,kLastClassTitleArray]
 
 
 @implementation MarketMsgViewController

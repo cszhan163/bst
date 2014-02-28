@@ -16,4 +16,6 @@
 
 #define  kNavTabItemMSG                 @"navTabItemMSG"
 
+#define  kNeedUserLoginMSG               @"needUserLoginMSG"
+
 #endif

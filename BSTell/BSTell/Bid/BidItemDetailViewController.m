@@ -11,6 +11,7 @@
 
 #define kLeftPendingX  10
 
+#define kItemPendingY   @20
 
 @interface BidItemDetailViewController (){
 
@@ -41,7 +42,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self setHiddenRightBtn:YES];
     CGFloat currY = kMBAppTopToolBarHeight;
     CGFloat buttomHeight = 120.f;
 #if 0
@@ -74,28 +75,42 @@
 #endif
     /*
     */
-    leftTitleCellView = [[LeftTitleListCell alloc] initWithFrame:CGRectMake(0.f, 0.f, 300.f, 350.f) withTitleArray:@[                           @"场次",
-                                                                                                                     @"物资编号",
-                                                                                                                      @"资源数",
-                                                                                                                      @"起拍价",
-                                                                                                                      @"当前价",
-                                                                                                                      @"我的出价",
-                                                                                                                      @"结束时间",
-                                                                                                                      @"报盘方式",
-                                                                                                                      @"拼盘梯度",
-                                                                                                                      @"品名",
-                                                                                                                     @"包装",
-                                                                                                                     @"产地",
-                                                                                                                     @"仓库",
+    leftTitleCellView = [[LeftTitleListCell alloc] initWithFrame:CGRectMake(10.f, 0.f, 300.f, 350.f) withTitleArray:@[                                                       @"场次",
+                                                                                                                     @"品名",
+                                                                                                                      
+                                                                                @"竞价状态",
+                                                                                @"结束时间",                                                                                            @"起拍价",
+                                                                                @"我的出价",                                     @"报价状态",
+                                                                                @"计价单位",
+                                                                                                                      
+                                                                                                                      
+                                                                                                                     
                                                                                                                      @"重量",
-                                                                                                                     @"计量单位",
-                                                                                                                     @"质量标准",
+                                                                                                                                                                            @"包装",
+                                                                                                                                                                            @"产地",
+                                                                                                                                                                            @"质量标准",
+                                                                                                                                                                            @"仓库",
                                                                                                                      @"备注",
-                                                                                                                     @"附件",
-                                                                                                                     @"竞价状态",
-                                                                                                                     @"计价单位",
-                                                                                                                     @"场次名称",
-                                                                                                                     ]];
+                                                                                ]
+                                                                withItemPendingArray:@[
+                                                                                       kItemPendingY,
+                                                                                       //kItemPendingY,
+                                                                                       @28,
+                                                                                       //kItemPendingY,
+                                                                                       kItemPendingY,
+                                                                                       kItemPendingY,
+                                                                                       kItemPendingY,
+                                                                                       kItemPendingY,
+                                                                                       kItemPendingY,
+                                                                                       @28,
+                                                                                       kItemPendingY,
+                                                                                       kItemPendingY,
+                                                                                       kItemPendingY,
+                                                                                       kItemPendingY,
+                                                                                       kItemPendingY,
+                                                                                       kItemPendingY
+                                                                                       ]
+                                                                                    ];
     
     [confirmTextBgView addSubview:leftTitleCellView];
     leftTitleCellView.backgroundColor = [UIColor clearColor];
@@ -127,12 +142,12 @@
     
     //next line
     currY = currY+20.f;
-    
+#if 0
     customBidPriceTextFiled = [[UITextField alloc]initWithFrame:CGRectMake(kLeftPendingX,currY,80.f, 20.f)];
     customBidPriceTextFiled.borderStyle = UITextBorderStyleRoundedRect;
     [self.view  addSubview:customBidPriceTextFiled];
     SafeRelease(customBidPriceTextFiled);
-    
+#endif
     delegateBidPriceLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:14] withTextColor:[UIColor greenColor] withText:@"当前委托:--" withFrame:CGRectMake(kLeftPendingX+160.f, currY, 140.f, 20.f)];
     
     delegateBidPriceLabel.textAlignment = NSTextAlignmentRight;
@@ -174,7 +189,7 @@
 #pragma mark-
 #pragma mark -net data
 - (void) shouldLoadData{
-    
+    [super shouldLoadData];
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            //catStr,@"cat",
                            self.userId,@"hydm",
@@ -250,8 +265,74 @@
         [bidStatusBtn setTitle:@"委托出价" forState:UIControlStateSelected];
         
     }
+     value = [item objectForKey:@"wtmc"];
+    [leftTitleCellView setCellItemValue:value withRow:index++];
+    
+    value = [item objectForKey:@"goodName"];
+    [leftTitleCellView setCellItemValue:value withRow:index++];
+    
+    
+    value = [item objectForKey:@"auctionStatus"];
+    if([value intValue] == 1){
+        [leftTitleCellView setCellItemValue:@"竞价中" withRow:index++];
+    }
+    else{
+    
+        [leftTitleCellView setCellItemValue:@"完成" withRow:index++];
+    }
+    
+    value = [item objectForKey:@"jssj"];
+    [leftTitleCellView setCellItemValue:value withRow:index++];
+    
+    
+    value = [item objectForKey:@"qpj"];
+    [leftTitleCellView setCellItemValue:value withRow:index++];
+    
+    
+    value = [item objectForKey:@"myPrice"];
+    [leftTitleCellView setCellItemValue:value withRow:index++];
+    
+    
+    
+    
+    value = [item objectForKey:@"dqj"];
+    CGFloat currPrice = [value floatValue];
+    //sell company
+    value = [item objectForKey:@"myPrice"];
+    NSString *statusStr = @"落后";
+    if([value floatValue]>=currPrice){
+        statusStr = @"领先";
+        
+    }
+
+    
+    //value = [item objectForKey:@"goodName"];
+    [leftTitleCellView setCellItemValue:statusStr withRow:index++];
+    
+    value = [item objectForKey:@"priceUnit"];
+    [leftTitleCellView setCellItemValue:value withRow:index++];
+    
+    
+    value = [NSString stringWithFormat:@"%@ %@",[item objectForKey:@"weight"],[item objectForKey:@"unit"]];
     
     [leftTitleCellView setCellItemValue:value withRow:index++];
+    
+    
+    value = [item objectForKey:@"packages"];
+    [leftTitleCellView setCellItemValue:value withRow:index++];
+    
+    value = [item objectForKey:@"place"];
+    [leftTitleCellView setCellItemValue:value withRow:index++];
+    
+    value = [item objectForKey:@"QS"];
+    [leftTitleCellView setCellItemValue:value withRow:index++];
+    
+    value = [item objectForKey:@"warehouse"];
+    [leftTitleCellView setCellItemValue:value withRow:index++];
+    
+    value = [item objectForKey:@"note"];
+    [leftTitleCellView setCellItemValue:value withRow:index++];
+    //@{@"": @"",@"",@""};
     
     
 }

@@ -8,6 +8,13 @@
 
 #import "SearchViewController.h"
 #import "NoteDetailViewController.h"
+
+#define kSearchHeaderHeight    54
+
+#define kLeftPendingX           10.f
+
+
+
 @interface SearchViewController ()<UITextFieldDelegate>{
 
     UITextField *searchField;
@@ -30,18 +37,21 @@
    // [super viewWillAppear:animated];
   
 }
+- (void)viewDidAppear:(BOOL)animated{
+    //[super viewDidAppear:animated];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.type = Note_Info;
-    [self setNavgationBarTitle:@"新闻资讯"];
-    UIView *heardView = [[UIView alloc]initWithFrame:CGRectMake(0.f, kMBAppBottomToolBarHeght,kDeviceScreenWidth, 44.f)];
-    
+    [self setNavgationBarTitle:@"资讯中心"];
+    UIView *heardView = [[UIView alloc]initWithFrame:CGRectMake(0.f, kMBAppBottomToolBarHeght,kDeviceScreenWidth,kSearchHeaderHeight)];
+    heardView.backgroundColor = [UIColor whiteColor];
     //[self.view addSubview:heardView];
     
     UIImageWithFileName(UIImage *image, @"search_input.png");
-    searchField = [[UITextField alloc]initWithFrame:CGRectMake(0.f,0.f, kDeviceScreenWidth-50.f, 44.f)];
+    searchField = [[UITextField alloc]initWithFrame:CGRectMake(kLeftPendingX,kLeftPendingX, kDeviceScreenWidth-50.f, kSearchHeaderHeight-2*kLeftPendingX)];
     
     searchField.borderStyle = UITextBorderStyleRoundedRect;
     searchField.delegate = self;
@@ -53,19 +63,22 @@
     searchField.placeholder = @"输入搜索内容";
     searchField.delegate = self;
     searchField.background = image;
+    searchField.returnKeyType = UIReturnKeySearch;
     [heardView addSubview:searchField];
 #if 1
     UIButton *searchBtn = [UIComUtil createButtonWithNormalBGImageName:@"search_btn.png" withHightBGImageName:@"search_btn.png" withTitle:@"" withTag:0];
-    searchBtn.frame = CGRectMake(kDeviceScreenWidth-40.f,0.f,searchBtn.frame.size.width, searchBtn.frame.size.height);
+    searchBtn.frame = CGRectMake(kDeviceScreenWidth-30.f,0.f,searchBtn.frame.size.width, searchBtn.frame.size.height);
     [searchBtn addTarget:self action:@selector(searchStart:) forControlEvents:UIControlEventTouchUpInside];
     [heardView addSubview:searchBtn];
+    searchBtn.center = CGPointMake(searchBtn.center.x,heardView.frame.size.height/2.f);
 #endif
     [tweetieTableView setTableHeaderView:heardView];
     noResultLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:15] withTextColor:[UIColor blackColor] withText:@"没有搜索结果" withFrame:CGRectMake(0.f,heardView.frame.size.height+40.f,heardView.frame.size.width,20.f)];
     [self.view addSubview:noResultLabel];
     noResultLabel.hidden = YES;
     SafeRelease(noResultLabel);
-    
+    [searchField becomeFirstResponder];
+    //[self.view addSubview:heardView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -118,6 +131,7 @@
         
         param = [NSDictionary dictionaryWithObjectsAndKeys:
                  searchField.text,@"zxsearchstr",
+                 @"keu89klW29f9S9323jj3",@"systemId",
                  pageNumStr, @"offset",
                  //@"1",@"zc",
                  //@"",@"wtzt",
@@ -138,7 +152,7 @@
     //tweetieTableView.hidden = NO;
     [searchField resignFirstResponder];
     self.pageNum = 1;
-    searchField.text = @"苯酚";
+    //searchField.text = @"苯酚";
     [self shouldLoadOlderData:nil];
     
 }
@@ -158,7 +172,7 @@
         noResultLabel.hidden = NO;
     }
     else{
-        
+        [searchField resignFirstResponder];
     }
     
 }
@@ -174,7 +188,7 @@
         if(self.type == Note_Bid)
             vc.userId = @"";
         vc.noteId = idStr;
-    [vc  setNavgationBarTitle:@""];
+    [vc  setNavgationBarTitle:@"资讯中心"];
     
 #if 1
     [self.navigationController pushViewController:vc animated:YES];

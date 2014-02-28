@@ -9,5 +9,5 @@
 #import "BSTellBaseViewController.h"
 
 @interface MainPageViewController : UIBaseViewController
-
+@property   (nonatomic,assign) BOOL needLogin;
 @end

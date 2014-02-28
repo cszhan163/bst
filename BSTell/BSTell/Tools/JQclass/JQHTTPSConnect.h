@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define CERNAME @"bchemMW"
+
 
 @class jqLoading;
 @interface JQHTTPSConnect : NSObject

@@ -43,10 +43,11 @@
 {
     self=[self init];
     NSURL *URL;
+    //[NSString stringWithFormat:@"%@",kHttpsRequestUrl,methodName]
     if (isHTTPS) {
-        URL=[NSURL URLWithString:[@"https://211.144.193.11:8000/demo/" stringByAppendingString:methodName]];
+        URL=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kHttpsRequestUrl,methodName]];
     } else {
-        URL=[NSURL URLWithString:[@"http://211.144.193.11:8000/demo/" stringByAppendingString:methodName]];
+        URL=[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kHttpRequestUrl,methodName]];
         //NSURL *URL=[NSURL URLWithString:[@"http://192.168.0.106:8000/" stringByAppendingString:methodName]];
     }
     
@@ -337,13 +338,17 @@
         [backString appendString:@"\"encryptdata\":\"false\","];
     }
     
-    [backString appendString:@"\"keycode\":\"pkznf6585535555660675056396297413\","];
-    
+    [backString appendString:@"\"keycode\":\"jkznf7585535556160675056460853260\","];
+    //MethodString = @"report";
+#if 1
     if (MethodString) {
         [backString appendString: [NSString stringWithFormat:@"\"method\":\"%@\"",MethodString]];
     }else{
         [backString appendString:@"\"method\":\"\""];
     }
+#else
+    [backString appendString:@"\"method\":\"report\""];
+#endif
     [backString appendString:@"}}"];
     
     return backString;

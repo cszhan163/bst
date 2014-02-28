@@ -9,6 +9,8 @@
 #import "BSTellNetListBaseViewController.h"
 
 @interface NoteListViewController : BSTellNetListBaseViewController
-;
+
+@property   (nonatomic,strong) NSString *classId;
+
 - (void)setHiddenTableHeaderView:(BOOL)status;
 @end

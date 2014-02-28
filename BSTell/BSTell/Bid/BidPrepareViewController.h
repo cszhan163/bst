@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "BSTellNetListBaseViewController.h"
 @interface BidPrepareViewController : BSTellNetListBaseViewController
-
+- (void)startReflushjTimer;
+- (void)stopReflushTimer;
 @end

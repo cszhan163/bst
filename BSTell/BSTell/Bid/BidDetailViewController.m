@@ -9,6 +9,9 @@
 #import "BidDetailViewController.h"
 #import "BidDetailTableViewCell.h"
 #import "BidConfirmViewController.h"
+
+#import "BidMainViewController.h"
+
 #define kLeftPendingX 10.f
 
 
@@ -22,7 +25,7 @@
 @interface BidDetailViewController (){
 
     BidDetailTableViewCell *headerView;
-    
+    UIButton            *oilAnalaysisBtn;
     UIScrollView *bgGoodsView;
 }
 @end
@@ -37,10 +40,24 @@
     }
     return self;
 }
-
+- (void)setNavgationBarRightButton{
+    
+    UIImageWithFileName(UIImage *bgImage, @"bid_btn.png");
+    CGRect newRect = CGRectMake(kDeviceScreenWidth-30.f-bgImage.size.width/2.f, 10.f, bgImage.size.width/kScale, bgImage.size.height/kScale);
+    self.rightBtn.frame = newRect;
+    [self.rightBtn setBackgroundImage:bgImage forState:UIControlStateNormal];
+    [self.rightBtn setBackgroundImage:bgImage forState:UIControlStateSelected];
+    [self.rightBtn setTitle:@"进入竞价" forState:UIControlStateNormal];
+    [self.rightBtn setTitle:@"进入竞价" forState:UIControlStateHighlighted];
+    self.rightBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //[self setHiddenRightBtn:YES];
+    
+    [self setNavgationBarRightButton];
+    
 	// Do any additional setup after loading the view.
     
     /*
@@ -75,8 +92,10 @@
     [self.view addSubview:bgGoodsView];
     
     SafeRelease(bgGoodsView);
-    
-    [self addFonterView];
+    if([[self.data objectForKey:@"isCanJoin"]intValue]){
+        
+        [self addFonterView];
+    }
     
 }
 
@@ -85,6 +104,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void)setJoinButtonHiddenStatus:(BOOL)status{
+    oilAnalaysisBtn.hidden = status;
+}
 - (void)addFonterView{
     
     //    logInfo.frame = CGRectMake(0,kMBAppTopToolBarHeight-self.mainContentViewPendingY,kDeviceScreenWidth,kDeviceScreenHeight-kMBAppTopToolBarHeight-kMBAppStatusBar-kMBAppBottomToolBarHeght- 60 );
@@ -92,7 +114,7 @@
     bgView.backgroundColor = HexRGB(202, 202, 204);
     
     CGFloat currY = kDeviceScreenHeight-kMBAppTopToolBarHeight-kMBAppStatusBar-kMBAppBottomToolBarHeght- 60+10.f;
-    UIButton *oilAnalaysisBtn = [UIComUtil createButtonWithNormalBGImageName:@"bid_start_btn.png" withHightBGImageName:@"bid_start_btn.png" withTitle:@"参加竞价" withTag:0];
+    oilAnalaysisBtn = [UIComUtil createButtonWithNormalBGImageName:@"bid_start_btn.png" withHightBGImageName:@"bid_start_btn.png" withTitle:@"参加竞价" withTag:0];
     
     CGSize btnsize= oilAnalaysisBtn.frame.size;
     //currY = 10.f;
@@ -161,7 +183,7 @@
 - (void)logOutConfirm:(id)sender{
 
     BidConfirmViewController *bidConfirmVc = [[BidConfirmViewController alloc]init];
-    
+    bidConfirmVc.wtid = self.wtid;
     [self.navigationController pushViewController:bidConfirmVc animated:YES];
 
     SafeRelease(bidConfirmVc);
@@ -173,7 +195,7 @@
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            //catStr,@"cat",
                            //@"001",@"hydm",
-                           @"10",@"wtid",
+                           [self.data objectForKey:@"wtid"],@"wtid",
                            nil];
     CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
     self.request = [carServiceNetDataMgr  getAuctionWtInfo:param];
@@ -296,14 +318,18 @@
      kssj	开始时间
      jssj	结束时间
      */
-    value = [netData objectForKey:@"wtid"];
-    [headerView setCellItemValue:value withRow:row withCol:index++];
+    value = self.wtid;//[self.data objectForKey:@"wtid"];
+    [headerView setCellItemValue:self.wtid withRow:row withCol:index++];
     
-    value = [netData objectForKey:@"ggmc"];
+    value = [netData objectForKey:@"wtmc"];
     [headerView setCellItemValue:value withRow:row withCol:index++];
     
     value = [netData objectForKey:@"joinWay"];
-    [headerView setCellItemValue:value withRow:row withCol:index++];
+    NSString *joinStr = @"定向";
+    if([value intValue] == 0){
+        joinStr = @"不定向";
+    }
+    [headerView setCellItemValue:joinStr withRow:row withCol:index++];
     
     index = 0;
     row++;
@@ -339,10 +365,20 @@
     [tableView setCellItemValue:value withRow:0 withCol:index++];
     
     value = [netData objectForKey:@"auctionMode"];
-    [tableView setCellItemValue:value withRow:0 withCol:index++];
+    NSString *valueStr = @"自由报价";
+    if([value intValue] == 1){
+        valueStr = @"公开增价";
+    }
+    [tableView setCellItemValue:valueStr withRow:0 withCol:index++];
     
     value = [netData objectForKey:@"offerWay"];
-    [tableView setCellItemValue:value withRow:0 withCol:index++];
+    
+    valueStr = @"总价";
+    if([value intValue] == 1){
+        valueStr = @"单价";
+    }
+    
+    [tableView setCellItemValue:valueStr withRow:0 withCol:index++];
     value = [netData objectForKey:@"pricingWay"];
     [tableView setCellItemValue:value withRow:0 withCol:index++];
     /*
@@ -363,7 +399,8 @@
     
     value = [netData objectForKey:@"bjtd"];
     [tableView setCellItemValue:value withRow:row withCol:index++];
-    value = [netData objectForKey:@"soldPrice"];
+    
+    value = @"";//[netData objectForKey:@"soldPrice"];
     [tableView setCellItemValue:value withRow:row withCol:index++];
     
     /*
@@ -438,6 +475,17 @@
 -(void)didNetDataFailed:(NSNotification*)ntf
 {
     //kNetEndWithErrorAutoDismiss
+}
+
+-(void)didSelectorTopNavigationBarItem:(id)sender{
+    
+    
+    if([sender tag] == 1){
+        
+        BidMainViewController *bidMainVc = [[BidMainViewController alloc]init];
+        [self.navigationController pushViewController:bidMainVc animated:YES];
+        SafeRelease(bidMainVc);
+    }
 }
 
 @end

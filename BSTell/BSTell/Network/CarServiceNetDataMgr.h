@@ -9,14 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ZCSNetClientDataMgr.h"
 
-/**
- login and register
- */
-#define  kUserDidLoginOk           @"userLoginOk"
-#define  kUserDidResignOK           @"userDidResignOk"
-#define  kUserDidLogOut             @"userLogOut"
 
-#define kDidUserLoginOK             @"diduserLoginOk"
 
 
 @protocol ZCSNetClientNetInterfaceMgrDataSource;

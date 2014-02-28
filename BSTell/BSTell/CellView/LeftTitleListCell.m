@@ -32,7 +32,7 @@
 #define kTitleFontSize 13
 @implementation LeftTitleListCell
 
-- (id)initWithFrame:(CGRect)frame withTitleArray:(NSArray*)titleArray
+- (id)initWithFrame:(CGRect)frame withTitleArray:(NSArray*)titleArray withItemPendingArray:(NSArray*)itemArray
 {
  
     self = [super initWithFrame:frame];
@@ -51,7 +51,7 @@
         int columCount = [titleArray count];
         for(int i = 0;i<columCount;i++)
         {
-            UILabel *itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX,currY,60,14)];
+            UILabel *itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX,currY,60,15)];
             itemLabel.font = [UIFont systemFontOfSize:kTitleFontSize];
             itemLabel.textColor = [UIColor blackColor];
             itemLabel.backgroundColor = [UIColor clearColor];
@@ -61,7 +61,7 @@
             [self addSubview:itemLabel];
             SafeRelease(itemLabel);
             
-            itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX+60.f,currY,100,14)];
+            itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX+120.f,currY,100,15)];
             itemLabel.font = [UIFont systemFontOfSize:kTitleFontSize];
             itemLabel.textColor = [UIColor blackColor];
             itemLabel.backgroundColor = [UIColor clearColor];
@@ -70,7 +70,8 @@
             [self addSubview:itemLabel];
             SafeRelease(itemLabel);
             [self.mCellItemArray addObject:itemLabel];
-            currY = currY+13.f;
+            currY = currY+[itemArray[i]floatValue];
+            
         }
         
     }
@@ -184,7 +185,7 @@ return self;
         [self addSubview:itemLabel];
         SafeRelease(itemLabel);
         
-        itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX+kItemPendingX,currY,100,height)];
+        itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX+kItemPendingX,currY,140,height)];
         itemLabel.font = [valueDict objectForKey:@"font"];
         itemLabel.textColor = [valueDict objectForKey:@"color"];
         itemLabel.backgroundColor = [UIColor clearColor];
@@ -217,5 +218,11 @@ return self;
     return YES;
     */
     return [self setCellItemValue:value withRow:col ];// withCol:<#(NSInteger)#>]
+}
+- (void)setValueColorByIndex:(NSInteger)index withColor:(UIColor*)color{
+
+    UILabel *textLabel =  self.mCellItemArray[index];
+    textLabel.textColor = color;
+    
 }
 @end

@@ -20,6 +20,12 @@
     tweetieTableView.frame = CGRectMake(rect.origin.x, rect.origin.y, kDeviceScreenWidth, rect.size.height-43.f);
 	// Do any additional setup after loading the view.
 }
+- (void)startReflushjTimer{
+
+}
+- (void)stopReflushTimer{
+
+}
 #pragma mark -
 #pragma mark tableview
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -149,7 +155,7 @@
     vc.bidType = Bid_Prepare;
     vc.goodId = goodId;
     
-    [vc  setNavgationBarTitle:@"详情"];
+    [vc  setNavgationBarTitle:@"交易详情"];
     /*
      vc.delegate = self;
      NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
@@ -178,10 +184,10 @@
      NSString *carId = [AppSetting getUserCarId:[AppSetting getLoginUserId]];
      */
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                           @"001",@"hydm",
+                           self.userId,@"hydm",
                            @"10",@"limit",
                            @"1",@"offset",
-                           @"0",@"startflg",
+                           @"2",@"startflag",
                            nil];
     
     self.request = [cardShopMgr  queryAuctionPps4Move:param];

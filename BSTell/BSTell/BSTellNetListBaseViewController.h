@@ -8,8 +8,11 @@
 
 #import "UIImageNetBaseViewController.h"
 @class BSTellBaseViewController;
-@interface BSTellNetListBaseViewController : UIImageNetBaseViewController
-@property(nonatomic,assign) NoteType type;
+@interface BSTellNetListBaseViewController : UIImageNetBaseViewController{
+    
+}
+@property (nonatomic,assign) BOOL isNeedLogin;
+@property (nonatomic,assign) NoteType type;
 @property (nonatomic,assign) UINavigationController *parentNav;
 @property (nonatomic,assign) BSTellBaseViewController *parentVc;
 @property (nonatomic,assign) NSInteger pageNum;

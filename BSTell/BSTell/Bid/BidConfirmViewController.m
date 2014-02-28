@@ -12,10 +12,10 @@
 #define kLeftPendingX 20.f
 
 #define kAgrementText  @"为了给所有注册会员创造一个公平公正、竞争有序的网上交易环境，严肃交易行为，保证买卖双方按交易结果签约付款，强化交易信用的保证机制，“化工宝”对会员交易保证金作如下相关说明：\
-1. 凡交易会员在通过“化工宝”从事网上交易（挂牌交易或竞价交易）时，为了保证买卖双方能够按照成交信息按时签约付款，减少违约情况的发生, 买卖双方各\自的东方付通账户内一定数额的备付金将自动锁定为保证金，保证金金额由卖方根据实际场次的要求而定。\
-2. 交易过程中，东方付通信息技术有限公司有权依据交易会员在化工宝交易平台上提交的锁定保证金的指令执行保证金锁定直至交易结束。\
-3. 交易结束后，未中标客户保证金解锁，中标客户待双方买卖合同签订确认后解锁，解锁后的会员可自由申请取回账户中金额，若买卖双方中任何一方如不能按照相应条款签订合同，化工宝将有权遵照有关流程将违约方的保证金扣除，交予守约方。\
-4. 交易会员可随时申请提取交易保证金，在经交易中心审核确认后的1-2个工作日内完成资金的划转。划转的资金将直接退还到会员注册时预留的银行账户中。"
+\n1. 凡交易会员在通过“化工宝”从事网上交易（挂牌交易或竞价交易）时，为了保证买卖双方能够按照成交信息按时签约付款，减少违约情况的发生, 买卖双方各\自的东方付通账户内一定数额的备付金将自动锁定为保证金，保证金金额由卖方根据实际场次的要求而定。\
+\n2. 交易过程中，东方付通信息技术有限公司有权依据交易会员在化工宝交易平台上提交的锁定保证金的指令执行保证金锁定直至交易结束。\
+\n3. 交易结束后，未中标客户保证金解锁，中标客户待双方买卖合同签订确认后解锁，解锁后的会员可自由申请取回账户中金额，若买卖双方中任何一方如不能按照相应条款签订合同，化工宝将有权遵照有关流程将违约方的保证金扣除，交予守约方。\
+\n4. 交易会员可随时申请提取交易保证金，在经交易中心审核确认后的1-2个工作日内完成资金的划转。划转的资金将直接退还到会员注册时预留的银行账户中。"
 @interface BidConfirmViewController (){
 
     /*
@@ -45,6 +45,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     //tweetieTableView.hidden = YES;
+     [self setHiddenRightBtn:YES];
     [self setNavgationBarTitle:@"参加竞买"];
     CGFloat currY = kMBAppTopToolBarHeight;
     UILabel *headerView = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:18.f] withTextColor:[UIColor blackColor] withText:@"交易保证金相关说明" withFrame:CGRectMake(0.f,currY,kDeviceScreenWidth,44.f)];
@@ -68,7 +69,7 @@
     
     
     //
-    contentTextView = [[UITextView alloc]initWithFrame:CGRectMake(kLeftPendingX,kLeftPendingX,image.size.width/2.f-2*kLeftPendingX, confirmTextBgView.frame.size.height-120.f)];
+    contentTextView = [[UITextView alloc]initWithFrame:CGRectMake(kLeftPendingX,kLeftPendingX,image.size.width/2.f-2*kLeftPendingX, confirmTextBgView.frame.size.height-80.f)];
     contentTextView.font = [UIFont systemFontOfSize:13];
     contentTextView.editable = NO;
     contentTextView.backgroundColor = [UIColor clearColor];
@@ -101,13 +102,15 @@
     SafeRelease(bidMoneyBgView);
     
     
-    bidMoneyLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"0" withFrame:CGRectMake(kLeftPendingX,25,230.f, 20.f)];
+    bidMoneyLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"0" withFrame:CGRectMake(kLeftPendingX,45,230.f, 20.f)];
     bidMoneyLabel.textAlignment = NSTextAlignmentRight;
+    bidMoneyLabel.textColor = [UIColor redColor];
     [bidMoneyBgView addSubview:bidMoneyLabel];
     SafeRelease(bidMoneyLabel);
     
-    accoutMoneyLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"0" withFrame:CGRectMake(kLeftPendingX,55,230.f, 20.f)];
+    accoutMoneyLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"0" withFrame:CGRectMake(kLeftPendingX,75,230.f, 20.f)];
     accoutMoneyLabel.textAlignment = NSTextAlignmentRight;
+    accoutMoneyLabel.textColor = [UIColor redColor];
     [bidMoneyBgView addSubview:accoutMoneyLabel];
     SafeRelease(accoutMoneyLabel);
     
@@ -134,6 +137,7 @@
 }
 - (void) shouldLoadData{
     
+    self.userId = [[AppSetting getLoginUserData:[AppSetting getLoginUserId]] objectForKey:@"hydm"];
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            //catStr,@"cat",
                            self.userId,@"hydm",
@@ -204,10 +208,11 @@
         /*
          
          */
+         NSString *operId = [[AppSetting getLoginUserData:[AppSetting getLoginUserId]] objectForKey:@"czy"];
         NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                               @"001",@"hydm",
-                               @"",@"wtid",
-                               @"",@"czy",
+                               self.userId,@"hydm",
+                               self.wtid,@"wtid",
+                               operId,@"czy",
                                nil];
         CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
         self.request = [carServiceNetDataMgr  joinBuy4Move:param];

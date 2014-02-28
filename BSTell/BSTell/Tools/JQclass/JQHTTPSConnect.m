@@ -6,6 +6,7 @@
 //  Copyright (c) 2013年 wangxuhua. All rights reserved.
 //
 
+#import "global.h"
 #import "JQHTTPSConnect.h"
 #import "jqLoading.h"
 #import "jqAlertCenter.h"

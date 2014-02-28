@@ -94,7 +94,7 @@
         itemLabel.textColor = [UIColor blackColor];
         itemLabel.backgroundColor = [UIColor clearColor];
         itemLabel.textAlignment = NSTextAlignmentCenter;
-        itemLabel.text = @"kk";
+        itemLabel.text = @"";
         currX = currX+[widthArray[i]floatValue]+1;
         [self addSubview:itemLabel];
         SafeRelease(itemLabel);

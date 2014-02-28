@@ -11,6 +11,8 @@
 
 #import "NoteDetailViewController.h"
 
+
+
 @interface NoteListViewController (){
 
     
@@ -25,6 +27,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.isNeedLogin = NO;
+        self.classId = @"001";
     }
     return self;
 }
@@ -37,10 +41,10 @@
     [self setHiddenLeftBtn:NO];
     self.secondClassLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:12.f] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(0.f, 0.f, kDeviceScreenWidth, 30.f)];
     self.secondClassLabel.backgroundColor = [UIColor blueColor];
-    
     //[tweetieTableView setTableHeaderView:secondClassLabel];
     SafeRelease(self.secondClassLabel);
-    
+    tweetieTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    tweetieTableView.separatorColor = [UIColor whiteColor];
 	// Do any additional setup after loading the view.
 }
 - (void)setHiddenTableHeaderView:(BOOL)status{
@@ -87,6 +91,7 @@
 #endif
         cell.selectionStyle = UITableViewCellAccessoryDisclosureIndicator;
         cell.backgroundColor = [UIColor clearColor];
+        //cell.selectionStyle
         cell.clipsToBounds = YES;
         
     }
@@ -206,18 +211,23 @@
         if(self.type == Note_Bid)
             vc.userId = @"";
         vc.noteId = idStr;
-        
-        [vc  setNavgationBarTitle:@""];
+        [vc  setNavgationBarTitle:@"资讯中心"];
+       
     }
     else{
         NSString *idStr = [item objectForKey:@"ggid"];
         vc.type = self.type;
-        if(self.type == Note_Bid)
+        if(self.type == Note_Bid){
             vc.userId = @"";
+            [vc  setNavgationBarTitle:@"交易公告"];
+        }
+        else{
+            [vc  setNavgationBarTitle:@"网站公告"];
+        }
         vc.noteId = idStr;
-        
-        [vc  setNavgationBarTitle:@""];
+        //[vc  setNavgationBarTitle:@""];
     }
+     //[vc  setNavgationBarTitle:self.navTitle];
   
      #if 1
      [self.navigationController pushViewController:vc animated:YES];
@@ -289,9 +299,9 @@
     else if(self.type == Note_Info){
     
         param = [NSDictionary dictionaryWithObjectsAndKeys:
-                 @"1",@"systemId",
+                 @"keu89klW29f9S9323jj3",@"systemId",
                  pageNumStr, @"offset",
-                 @"1",@"listids",
+                 self.classId,@"listids",
                  //@"",@"wtzt",
                  //@"001",@"hydm",
                  @"10",@"limit",

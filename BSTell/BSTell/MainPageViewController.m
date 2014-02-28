@@ -24,8 +24,10 @@
 
 static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易公告",@"登录",@"到货确认"};
 
-@interface MainPageViewController ()
-
+@interface MainPageViewController (){
+    UIButton *loginBtn;
+    BOOL isLogin;
+}
 @end
 
 @implementation MainPageViewController
@@ -35,10 +37,20 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        [ZCSNotficationMgr addObserver:self call:@selector(didUserLogin:) msgName:kUserDidLoginOk];
+        [ZCSNotficationMgr addObserver:self call:@selector(needLoginUser:) msgName:kNeedUserLoginMSG];
+        [ZCSNotficationMgr addObserver:self call:@selector(didUserLogout:) msgName:kUserDidLogOut];
     }
     return self;
 }
-
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if([AppSetting getLoginUserId]&&![[AppSetting getLoginUserId]isEqualToString:@""] && !isLogin){
+        //[ZCSNotficationMgr postMSG: obj:<#(id)#>]
+        
+        [self didUserLogin:nil];
+    }
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -49,10 +61,11 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
     //for logo
     UIImageWithFileName(UIImage* image, @"logo.png");
     
-    UIImageView *logoImageView = [[UIImageView alloc]initWithImage:image];
+    UIControl  *logoImageView = [[UIControl alloc]initWithFrame:CGRectZero];
     [self.view addSubview:logoImageView];
+    [logoImageView addTarget:self action:@selector(gotoMainSite:) forControlEvents:UIControlEventTouchUpInside];
     SafeRelease(logoImageView);
-    
+    logoImageView.layer.contents = (id)image.CGImage;
     logoImageView.frame = CGRectMake(0.f, 0.f, image.size.width/kScale, image.size.height/kScale);
     logoImageView.center = CGPointMake(kDeviceScreenWidth/kScale, 20.f);
     
@@ -99,12 +112,14 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
         for(int j=0;j<2;j++){
             
             index = 2*i+j+2;
+            
             NSString *btnImageName = [NSString stringWithFormat:@"button-%d.png",index];
             item = [UIComUtil createButtonWithNormalBGImageName:btnImageName withHightBGImageName:btnImageName withTitle:kTitleTextArray[index-1] withTag:index];
             item.frame = CGRectMake(startX, startY,item.frame.size.width, item.frame.size.height);
             item.titleLabel.textAlignment = NSTextAlignmentLeft;
             item.contentEdgeInsets = UIEdgeInsetsMake(0.f,80.f, 0.f, 0.f);
-            
+            if(index == 4)
+                loginBtn = item;
             [self.view addSubview:item];
             [item addTarget:self action:@selector(pressButtonAction:) forControlEvents:UIControlEventTouchUpInside];
             startX = startX+item.frame.size.width;
@@ -114,7 +129,10 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
     
     
 }
+- (void)gotoMainSite:(id)sender{
 
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.b-chem.com/baochem/"]];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -159,17 +177,24 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
         }
             break;
         case 4:{
-            CardShopLoginViewController *noteListVc = [[CardShopLoginViewController alloc]init];
-            //noteListVc.type = 1;
-            //[noteListVc setNavgationBarTitle:[sender titleLabel].text];
-            noteListVc.view.frame = CGRectMake(0.f,20.f, kDeviceScreenWidth, kDeviceScreenHeight);
+            if(!isLogin){
+                CardShopLoginViewController *noteListVc = [[CardShopLoginViewController alloc]init];
+                //noteListVc.type = 1;
+                //[noteListVc setNavgationBarTitle:[sender titleLabel].text];
+                noteListVc.view.frame = CGRectMake(0.f,20.f, kDeviceScreenWidth, kDeviceScreenHeight);
 #if 1
-            [self.navigationController pushViewController:noteListVc  animated:YES];
+                [self.navigationController pushViewController:noteListVc  animated:YES];
 #else
-            [ZCSNotficationMgr postMSG:kPresentModelViewController  obj:noteListVc];
-            
+                [ZCSNotficationMgr postMSG:kPresentModelViewController  obj:noteListVc];
+                
 #endif
-            SafeRelease(noteListVc);
+                SafeRelease(noteListVc);
+            }
+            else{
+                
+                
+                kUIAlertConfirmView(@"提示", @"是否要退出登录", @"取消",@"确定");
+            }
             
            
         }
@@ -185,5 +210,38 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
         default:
             break;
     }
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if(buttonIndex == 1){
+        /*
+        BidMainViewController *bidMainVc = [[BidMainViewController alloc]init];
+        [self.navigationController pushViewController:bidMainVc animated:YES];
+        SafeRelease(bidMainVc);
+         */
+        [ZCSNotficationMgr postMSG:kUserDidLogOut obj:nil];
+        
+    }
+    
+}
+- (void)didUserLogout:(NSNotification*)ntf{
+    isLogin = NO;
+    //[self.navigationController popToRootViewControllerAnimated:YES];
+    [loginBtn setTitle:@"登录" forState:UIControlStateNormal];
+    [loginBtn setTitle:@"登录" forState:UIControlStateSelected];
+    [AppSetting setLogoutUser];
+    
+}
+- (void)didUserLogin:(NSNotification*)ntf{
+
+    isLogin = YES;
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    [loginBtn setTitle:@"退出登录" forState:UIControlStateNormal];
+    [loginBtn setTitle:@"退出登录" forState:UIControlStateSelected];
+}
+- (void)needLoginUser:(NSNotification*)ntf{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setTag:4];
+    [self pressButtonAction:btn];
 }
 @end

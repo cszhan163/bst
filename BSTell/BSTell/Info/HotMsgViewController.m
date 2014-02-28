@@ -9,7 +9,14 @@
 #import "HotMsgViewController.h"
 #import "InfoClassTableViewCell.h"
 #import "NoteListViewController.h"
-
+#define  kClassMapIdDict    @{\
+@"交易快报":@"4767",@"行业焦点":@"4768",@"分析指南":@"4769",@"今日关注":@"4770",\
+@"煤焦油":@"4772",@"工业萘":@"4773",@"煤沥青":@"4774",@"蒽油":@"4775",@"洗油":@"4776",@"酚油":@"4777",@"炭黑":@"4778",@"硫酸铵":@"4779",\
+@"减水剂":@"4781",@"苯酐":@"4782",@"精萘":@"4783",@"二萘酚":@"4784",@"染料中间体":@"4785",\
+@"石油苯":@"4787",@"甲苯二甲苯":@"4788",@"粗苯":@"4789",@"加氢三苯":@"4790",\
+@"苯乙烯":@"4792",@"苯酚":@"4793",@"苯胺":@"4794",@"环己酮":@"4795",@"己内酰胺":@"4796",@"己二酸":@"4797",@"顺酐":@"4798",@"氯化苯":@"4799",\
+@"行业资讯":@"4800",@"财经资讯":@"4801",@"新浪财经":@"4802",@"华尔街见闻":@"4809",@"排行榜":@"4803"\
+}
 @implementation HotMsgViewController
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -97,6 +104,13 @@
     [vc  setNavgationBarTitle:self.dataArray[indexPath.row]];
     [vc  setHiddenTableHeaderView:NO];
     vc.type = self.type;
+    
+    if(self.type == Note_Info){
+        NSString *idStr = [kClassMapIdDict objectForKey:self.dataArray[indexPath.row]];
+        vc.classId = idStr;
+        
+    }
+    
     //[vc  setH]
     /*
      vc.delegate = self;
@@ -104,7 +118,7 @@
      //NSDictionary *data = [item objectForKey:@"DayDetailInfo"];
      vc.mData = item;
      */
-    if(indexPath.row == 2){
+    if(indexPath.row == 2 && self.type == Note_New){
     
         kUIAlertView(@"信息", @"正在建设,敬请期待!");
         return;

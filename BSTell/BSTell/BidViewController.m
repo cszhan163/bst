@@ -30,6 +30,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+       
     }
     return self;
 }
@@ -40,15 +41,24 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void)viewWillAppear:(BOOL)animated{
+
+    [super viewWillAppear:animated];
+    [self setNavgationBarRightButton];
+    [self.dataArray removeAllObjects];
+}
 - (void)viewDidAppear:(BOOL)animated{
     
+    [super viewDidAppear:animated];
+    
+    /*
     if([self.dataArray count]==0){
         
         //[self performSelectorInBackground:@selector(shouldLoadNewerData:) withObject:tweetieTableView];
         //self.locationDict = [DBManage getLocationPointsData];
         [self shouldLoadNewerData:tweetieTableView];
     }
-    
+    */
 }
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
@@ -57,6 +67,17 @@
     
 
     
+}
+- (void)setNavgationBarRightButton{
+
+    UIImageWithFileName(UIImage *bgImage, @"bid_btn.png");
+    CGRect newRect = CGRectMake(kDeviceScreenWidth-30.f-bgImage.size.width/2.f, 10.f, bgImage.size.width/kScale, bgImage.size.height/kScale);
+    self.rightBtn.frame = newRect;
+    [self.rightBtn setBackgroundImage:bgImage forState:UIControlStateNormal];
+    [self.rightBtn setBackgroundImage:bgImage forState:UIControlStateSelected];
+    [self.rightBtn setTitle:@"进入竞价" forState:UIControlStateNormal];
+    [self.rightBtn setTitle:@"进入竞价" forState:UIControlStateHighlighted];
+    self.rightBtn.titleLabel.font = [UIFont systemFontOfSize:13];
 }
 - (void)viewDidLoad
 {
@@ -91,14 +112,7 @@
                                                      )];
     [self setHiddenRightBtn:NO];
     [self setHiddenLeftBtn:YES];
-    UIImageWithFileName(bgImage, @"bid_btn.png");
-    CGRect newRect = CGRectMake(kDeviceScreenWidth-30.f-bgImage.size.width/2.f, 10.f, bgImage.size.width/kScale, bgImage.size.height/kScale);
-    self.rightBtn.frame = newRect;
-    [self.rightBtn setBackgroundImage:bgImage forState:UIControlStateNormal];
-    [self.rightBtn setBackgroundImage:bgImage forState:UIControlStateHighlighted];
-    [self.rightBtn setTitle:@"进入竞价" forState:UIControlStateNormal];
-    [self.rightBtn setTitle:@"进入竞价" forState:UIControlStateHighlighted];
-    self.rightBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    [self setNavgationBarRightButton];
     //[self setRightTextContent:NSLocalizedString(@"Done", @"")];
 	// Do any additional setup after loading the view.
     tweetieTableView.frame = CGRectMake(kLeftPendingX,kMBAppTopToolBarHeight+kTopPendingY,kDeviceScreenWidth-2*kLeftPendingX,kMBAppRealViewHeight-kTopPendingY);
@@ -246,7 +260,7 @@
     [cell setCellItemValue:value withIndex:index++];
     
     //是否参加
-    value = [item objectForKey:@"isCanJoin"];
+    value = [item objectForKey:@"joinStatus"];
     if([value intValue]){
         [cell setCellItemValue:@"已参加" withIndex:index++];
     }
@@ -271,7 +285,20 @@
     
     
     BidDetailViewController *vc = [[BidDetailViewController alloc]initWithNibName:nil bundle:nil];
-    [vc  setNavgationBarTitle:@"详情"];
+    
+    [vc  setNavgationBarTitle:@"场次详情"];
+    
+
+    
+    NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
+    //NSDictionary *data = [item objectForKey:@"DayDetailInfo"];
+    vc.data = item;
+    vc.wtid = [item objectForKey:@"wtid"];
+    if(![[item objectForKey:@"isCanJoin"]intValue]){
+        
+        [vc  setJoinButtonHiddenStatus:YES];
+        
+    }
     /*
     vc.delegate = self;
     NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
@@ -314,18 +341,30 @@
      rqStart	竞价日期1
      rqEnd	竞价日期2
      */
+    NSDate *date = [NSDate date];
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            //catStr,@"cat",
                            pageNumStr, @"offset",
                            @"1",@"zc",
-                           @"",@"wtzt",
-                           @"001",@"hydm",
+                           @"3",@"wtzt",
+                           self.userId,@"hydm",
                            @"10",@"limit",
-                           @"",@"rqStart",
-                           @"",@"rqEnd",
+                           [self formartDateTime:date withFormat:@"yyyyMMdd"],@"rqStart",
+                           @"20991231",@"rqEnd",
                            nil];
     CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
     self.request = [carServiceNetDataMgr  queryAuctionWts4Move:param];
+}
+- (NSString*)formartDateTime:(NSDate*)date withFormat:(NSString*)formart{
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+	NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+	[formatter setLocale:locale];
+	[locale release];
+	[formatter setDateFormat:formart];
+	NSString *string = [formatter stringFromDate:date];
+	[formatter release];
+    return string;
 }
 -(void)didNetDataOK:(NSNotification*)ntf
 {
@@ -369,5 +408,17 @@
 -(void)didNetDataFailed:(NSNotification*)ntf
 {
     //kNetEndWithErrorAutoDismiss
+}
+- (void)didUserLogout:(NSNotification*)ntf{
+    //isLogin = NO;
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.dataArray removeAllObjects];
+    currentPageNum = 0;
+    [AppSetting setLogoutUser];
+    
+}
+- (void)didUserLogin:(NSNotification*)ntf{
+
+
 }
 @end
