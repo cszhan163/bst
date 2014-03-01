@@ -17,6 +17,7 @@ typedef  enum classLevel{
 
      ClassLevel  level;
 }
+@property (nonatomic,assign)BOOL isDisable;
 - (void)returnToLeveOne;
 @property   (nonatomic,strong)  NSArray *levelTwoDataArray;
 @property   (nonatomic,strong)  NSArray *levelOneDataArray;

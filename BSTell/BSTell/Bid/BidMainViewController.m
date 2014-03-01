@@ -16,9 +16,11 @@
 @interface BidMainViewController (){
 
     NSInteger currIndex;
+     NSTimer *timer;
 }
 @property(nonatomic,strong) NSArray *startedDataArray;
 @property(nonatomic,strong) NSArray *prepareDataArray;
+@property(nonatomic,retain)NSTimer *timer;
 @end
 
 @implementation BidMainViewController
@@ -152,9 +154,11 @@
 }
 
 -(void)didSelectorTopNavigationBarItem:(id)sender{
+    
     if([sender tag] == 0){
         for(UIViewController *item in navItemCtrl.navControllersArr)
             [item stopReflushTimer];
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }
 - (void)addObservers{
@@ -163,4 +167,20 @@
 - (void)removeObservers{
 
 }
+- (void)didSelectorNavItem:(id)sender{
+    
+    //if([sender tag] == 0)
+    [navItemCtrl.currentViewController reflushData];
+    
+    
+}
+- (void)startReflushjTimer{
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:kBidReflushTimer target:self selector:@selector(reflushData) userInfo:nil repeats:YES];
+    
+}
+- (void)stopReflushTimer{
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
 @end

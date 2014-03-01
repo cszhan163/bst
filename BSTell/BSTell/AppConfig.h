@@ -148,6 +148,8 @@
 
 #define kResBidAllListData                       @"queryAuctionPps4Move"
 
+#define kResBidAllListDataII                     @"queryAuctionPps4MoveII"
+
 #define kResBidAgreementData                   @"showAgreement4Move"
 #define kResBidAgreeAction                      @"joinBuy4Move"
 

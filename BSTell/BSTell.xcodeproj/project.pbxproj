@@ -126,8 +126,6 @@
 		04F6E584189A864E0057BD72 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F6E583189A864E0057BD72 /* XCTest.framework */; };
 		04F6E585189A864E0057BD72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F6E564189A864D0057BD72 /* Foundation.framework */; };
 		04F6E586189A864E0057BD72 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F6E568189A864D0057BD72 /* UIKit.framework */; };
-		04F6E58E189A864E0057BD72 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04F6E58C189A864E0057BD72 /* InfoPlist.strings */; };
-		04F6E590189A864E0057BD72 /* BSTellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E58F189A864E0057BD72 /* BSTellTests.m */; };
 		04F6E5CC189A8C630057BD72 /* tableitem1.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F6E5C3189A8C630057BD72 /* tableitem1.png */; };
 		04F6E5CD189A8C630057BD72 /* tableitem2.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F6E5C4189A8C630057BD72 /* tableitem2.png */; };
 		04F6E5CE189A8C630057BD72 /* tableitem3.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F6E5C5189A8C630057BD72 /* tableitem3.png */; };
@@ -180,6 +178,264 @@
 		BD884B1618B8BFF000E354B7 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884B1518B8BFF000E354B7 /* image.png */; };
 		BD884B1818B90D9000E354B7 /* setting_login_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884B1718B90D9000E354B7 /* setting_login_btn.png */; };
 		BD884B1A18BADFBD00E354B7 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BD884B1918BADFBD00E354B7 /* SVProgressHUD.bundle */; };
+		BD9EDCB618C08AB200673862 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F6E564189A864D0057BD72 /* Foundation.framework */; };
+		BD9EDCB718C08AB200673862 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F6E566189A864D0057BD72 /* CoreGraphics.framework */; };
+		BD9EDCB818C08AB200673862 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F6E568189A864D0057BD72 /* UIKit.framework */; };
+		BD9EDCBE18C08AB200673862 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD9EDCBC18C08AB200673862 /* InfoPlist.strings */; };
+		BD9EDCCC18C08AB300673862 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F6E583189A864E0057BD72 /* XCTest.framework */; };
+		BD9EDCCD18C08AB300673862 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F6E564189A864D0057BD72 /* Foundation.framework */; };
+		BD9EDCCE18C08AB300673862 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F6E568189A864D0057BD72 /* UIKit.framework */; };
+		BD9EDCE018C08B1500673862 /* SVProgressHUD.bundle in Sources */ = {isa = PBXBuildFile; fileRef = BD884B1918BADFBD00E354B7 /* SVProgressHUD.bundle */; };
+		BD9EDCE118C08B1500673862 /* BidAdjustAlertView.h in Sources */ = {isa = PBXBuildFile; fileRef = BD593A2E18BDFE6F007B4F5C /* BidAdjustAlertView.h */; };
+		BD9EDCE218C08B1500673862 /* BidAdjustAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD593A2F18BDFE6F007B4F5C /* BidAdjustAlertView.m */; };
+		BD9EDCE318C08B1500673862 /* CardShopLoginViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04535F8A18BCBA8B009FA2C4 /* CardShopLoginViewController.h */; };
+		BD9EDCE418C08B1500673862 /* CardShopLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04535F8B18BCBA8B009FA2C4 /* CardShopLoginViewController.m */; };
+		BD9EDCE518C08B1500673862 /* CardShopLoginViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 04535F8C18BCBA8B009FA2C4 /* CardShopLoginViewController.xib */; };
+		BD9EDCE618C08B1500673862 /* CardShopResignViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04535F8D18BCBA8B009FA2C4 /* CardShopResignViewController.h */; };
+		BD9EDCE718C08B1500673862 /* CardShopResignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04535F8E18BCBA8B009FA2C4 /* CardShopResignViewController.m */; };
+		BD9EDCE818C08B1500673862 /* CardShopResignViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = 04535F8F18BCBA8B009FA2C4 /* CardShopResignViewController.xib */; };
+		BD9EDCE918C08B1500673862 /* ResetPasswordViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04535F9018BCBA8B009FA2C4 /* ResetPasswordViewController.h */; };
+		BD9EDCEA18C08B1500673862 /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04535F9118BCBA8B009FA2C4 /* ResetPasswordViewController.m */; };
+		BD9EDCEB18C08B1500673862 /* HotMsgViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7718B0D16800A82198 /* HotMsgViewController.h */; };
+		BD9EDCEC18C08B1500673862 /* HotMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */; };
+		BD9EDCED18C08B1500673862 /* MarketMsgViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7918B0D16800A82198 /* MarketMsgViewController.h */; };
+		BD9EDCEE18C08B1500673862 /* MarketMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7A18B0D16800A82198 /* MarketMsgViewController.m */; };
+		BD9EDCEF18C08B1500673862 /* MediaMsgViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7D18B0D18400A82198 /* MediaMsgViewController.h */; };
+		BD9EDCF018C08B1500673862 /* MediaMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7E18B0D18400A82198 /* MediaMsgViewController.m */; };
+		BD9EDCF118C08B1500673862 /* MsgMainViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD8018B0D1F200A82198 /* MsgMainViewController.h */; };
+		BD9EDCF218C08B1500673862 /* MsgMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD8118B0D1F200A82198 /* MsgMainViewController.m */; };
+		BD9EDCF318C08B1500673862 /* MsgClassBaseViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04F854D518B25BC00026BCA4 /* MsgClassBaseViewController.h */; };
+		BD9EDCF418C08B1500673862 /* MsgClassBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F854D618B25BC00026BCA4 /* MsgClassBaseViewController.m */; };
+		BD9EDCF518C08B1500673862 /* MsgClassLevel2ViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04F854EA18B266820026BCA4 /* MsgClassLevel2ViewController.h */; };
+		BD9EDCF618C08B1500673862 /* MsgClassLevel2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F854EB18B266820026BCA4 /* MsgClassLevel2ViewController.m */; };
+		BD9EDCF718C08B1500673862 /* OrderListViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04255BC118B3BB440006F9E0 /* OrderListViewController.h */; };
+		BD9EDCF818C08B1500673862 /* OrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04255BC218B3BB440006F9E0 /* OrderListViewController.m */; };
+		BD9EDCF918C08B1500673862 /* OrderDetailViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04255BC418B3BC720006F9E0 /* OrderDetailViewController.h */; };
+		BD9EDCFA18C08B1500673862 /* OrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04255BC518B3BC720006F9E0 /* OrderDetailViewController.m */; };
+		BD9EDCFB18C08B1500673862 /* SearchViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = BD593A2018BD05E0007B4F5C /* SearchViewController.h */; };
+		BD9EDCFC18C08B1500673862 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD593A2118BD05E1007B4F5C /* SearchViewController.m */; };
+		BD9EDCFD18C08B1500673862 /* CarServiceNetDataMgr.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65D2518A27457008FA65A /* CarServiceNetDataMgr.h */; };
+		BD9EDCFE18C08B1500673862 /* CarServiceNetDataMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65D2618A27457008FA65A /* CarServiceNetDataMgr.m */; };
+		BD9EDCFF18C08B1500673862 /* client.cer in Sources */ = {isa = PBXBuildFile; fileRef = BD593A3E18BF7648007B4F5C /* client.cer */; };
+		BD9EDD0018C08B1500673862 /* arrivalData.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C9D18A269B8008FA65A /* arrivalData.h */; };
+		BD9EDD0118C08B1500673862 /* arrivalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C9E18A269B8008FA65A /* arrivalData.m */; };
+		BD9EDD0218C08B1500673862 /* arrivalDetailData.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C9F18A269B8008FA65A /* arrivalDetailData.h */; };
+		BD9EDD0318C08B1600673862 /* arrivalDetailData.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CA018A269B8008FA65A /* arrivalDetailData.m */; };
+		BD9EDD0418C08B1600673862 /* Commondefines.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CB418A269B8008FA65A /* Commondefines.h */; };
+		BD9EDD0518C08B1600673862 /* global.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CB518A269B8008FA65A /* global.h */; };
+		BD9EDD0618C08B1600673862 /* global.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CB618A269B8008FA65A /* global.m */; };
+		BD9EDD0718C08B1600673862 /* AES128.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CB818A269B8008FA65A /* AES128.h */; };
+		BD9EDD0818C08B1600673862 /* AES128.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CB918A269B8008FA65A /* AES128.m */; };
+		BD9EDD0918C08B1600673862 /* test.cer in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CBA18A269B8008FA65A /* test.cer */; };
+		BD9EDD0A18C08B1600673862 /* EGORefreshTableHeaderView.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CBB18A269B8008FA65A /* EGORefreshTableHeaderView.h */; };
+		BD9EDD0B18C08B1600673862 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CBC18A269B8008FA65A /* EGORefreshTableHeaderView.m */; };
+		BD9EDD0C18C08B1600673862 /* jqAlertCenter.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CBD18A269B8008FA65A /* jqAlertCenter.h */; };
+		BD9EDD0D18C08B1600673862 /* jqAlertCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CBE18A269B8008FA65A /* jqAlertCenter.m */; };
+		BD9EDD0E18C08B1600673862 /* JQConnect_bsteelPay.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CBF18A269B8008FA65A /* JQConnect_bsteelPay.h */; };
+		BD9EDD0F18C08B1600673862 /* JQConnect_bsteelPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CC018A269B8008FA65A /* JQConnect_bsteelPay.m */; };
+		BD9EDD1018C08B1600673862 /* jqDrawUnlock.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CC118A269B8008FA65A /* jqDrawUnlock.h */; };
+		BD9EDD1118C08B1600673862 /* jqDrawUnlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CC218A269B8008FA65A /* jqDrawUnlock.m */; };
+		BD9EDD1218C08B1600673862 /* jqEncode.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CC318A269B8008FA65A /* jqEncode.h */; };
+		BD9EDD1318C08B1600673862 /* jqEncode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CC418A269B8008FA65A /* jqEncode.mm */; };
+		BD9EDD1418C08B1600673862 /* JQHTTPSConnect.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CC518A269B8008FA65A /* JQHTTPSConnect.h */; };
+		BD9EDD1518C08B1600673862 /* JQHTTPSConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CC618A269B8008FA65A /* JQHTTPSConnect.m */; };
+		BD9EDD1618C08B1600673862 /* jqLoading.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CC718A269B8008FA65A /* jqLoading.h */; };
+		BD9EDD1718C08B1600673862 /* jqLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CC818A269B8008FA65A /* jqLoading.m */; };
+		BD9EDD1818C08B1600673862 /* JQNetworkHelper.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CC918A269B8008FA65A /* JQNetworkHelper.h */; };
+		BD9EDD1918C08B1600673862 /* JQNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CCA18A269B8008FA65A /* JQNetworkHelper.m */; };
+		BD9EDD1A18C08B1600673862 /* jqPopSelectList.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CCB18A269B8008FA65A /* jqPopSelectList.h */; };
+		BD9EDD1B18C08B1600673862 /* jqPopSelectList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CCC18A269B8008FA65A /* jqPopSelectList.m */; };
+		BD9EDD1C18C08B1600673862 /* JQSHA256encode.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CCD18A269B8008FA65A /* JQSHA256encode.h */; };
+		BD9EDD1D18C08B1600673862 /* JQSHA256encode.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CCE18A269B8008FA65A /* JQSHA256encode.m */; };
+		BD9EDD1E18C08B1600673862 /* NSData+Gzip.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CCF18A269B8008FA65A /* NSData+Gzip.h */; };
+		BD9EDD1F18C08B1600673862 /* NSData+Gzip.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CD018A269B8008FA65A /* NSData+Gzip.m */; };
+		BD9EDD2018C08B1600673862 /* SFHFKeychainUtils.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CD118A269B8008FA65A /* SFHFKeychainUtils.h */; };
+		BD9EDD2118C08B1600673862 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CD218A269B8008FA65A /* SFHFKeychainUtils.m */; };
+		BD9EDD2218C08B1600673862 /* JQTabBar.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CD418A269B8008FA65A /* JQTabBar.h */; };
+		BD9EDD2318C08B1600673862 /* JQTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CD518A269B8008FA65A /* JQTabBar.m */; };
+		BD9EDD2418C08B1600673862 /* UIBadgeView.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CD618A269B8008FA65A /* UIBadgeView.h */; };
+		BD9EDD2518C08B1600673862 /* UIBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CD718A269B8008FA65A /* UIBadgeView.m */; };
+		BD9EDD2618C08B1600673862 /* JSON.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CD918A269B8008FA65A /* JSON.h */; };
+		BD9EDD2718C08B1600673862 /* NSObject+SBJson.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CDA18A269B8008FA65A /* NSObject+SBJson.h */; };
+		BD9EDD2818C08B1600673862 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CDB18A269B8008FA65A /* NSObject+SBJson.m */; };
+		BD9EDD2918C08B1600673862 /* SBJson.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CDC18A269B8008FA65A /* SBJson.h */; };
+		BD9EDD2A18C08B1600673862 /* SBJsonParser.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CDD18A269B8008FA65A /* SBJsonParser.h */; };
+		BD9EDD2B18C08B1600673862 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CDE18A269B8008FA65A /* SBJsonParser.m */; };
+		BD9EDD2C18C08B1600673862 /* SBJsonStreamParser.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CDF18A269B8008FA65A /* SBJsonStreamParser.h */; };
+		BD9EDD2D18C08B1600673862 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CE018A269B8008FA65A /* SBJsonStreamParser.m */; };
+		BD9EDD2E18C08B1600673862 /* SBJsonStreamParserAccumulator.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CE118A269B8008FA65A /* SBJsonStreamParserAccumulator.h */; };
+		BD9EDD2F18C08B1600673862 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CE218A269B8008FA65A /* SBJsonStreamParserAccumulator.m */; };
+		BD9EDD3018C08B1600673862 /* SBJsonStreamParserAdapter.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CE318A269B8008FA65A /* SBJsonStreamParserAdapter.h */; };
+		BD9EDD3118C08B1600673862 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CE418A269B8008FA65A /* SBJsonStreamParserAdapter.m */; };
+		BD9EDD3218C08B1600673862 /* SBJsonStreamParserState.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CE518A269B8008FA65A /* SBJsonStreamParserState.h */; };
+		BD9EDD3318C08B1600673862 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CE618A269B8008FA65A /* SBJsonStreamParserState.m */; };
+		BD9EDD3418C08B1600673862 /* SBJsonStreamWriter.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CE718A269B8008FA65A /* SBJsonStreamWriter.h */; };
+		BD9EDD3518C08B1600673862 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CE818A269B8008FA65A /* SBJsonStreamWriter.m */; };
+		BD9EDD3618C08B1600673862 /* SBJsonStreamWriterAccumulator.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CE918A269B8008FA65A /* SBJsonStreamWriterAccumulator.h */; };
+		BD9EDD3718C08B1600673862 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CEA18A269B8008FA65A /* SBJsonStreamWriterAccumulator.m */; };
+		BD9EDD3818C08B1600673862 /* SBJsonStreamWriterState.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CEB18A269B8008FA65A /* SBJsonStreamWriterState.h */; };
+		BD9EDD3918C08B1600673862 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CEC18A269B8008FA65A /* SBJsonStreamWriterState.m */; };
+		BD9EDD3A18C08B1600673862 /* SBJsonTokeniser.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CED18A269B8008FA65A /* SBJsonTokeniser.h */; };
+		BD9EDD3B18C08B1600673862 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CEE18A269B8008FA65A /* SBJsonTokeniser.m */; };
+		BD9EDD3C18C08B1600673862 /* SBJsonUTF8Stream.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CEF18A269B8008FA65A /* SBJsonUTF8Stream.h */; };
+		BD9EDD3D18C08B1600673862 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CF018A269B8008FA65A /* SBJsonUTF8Stream.m */; };
+		BD9EDD3E18C08B1600673862 /* SBJsonWriter.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CF118A269B8008FA65A /* SBJsonWriter.h */; };
+		BD9EDD3F18C08B1600673862 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CF218A269B8008FA65A /* SBJsonWriter.m */; };
+		BD9EDD4018C08B1600673862 /* otpsdk.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CF418A269B8008FA65A /* otpsdk.h */; };
+		BD9EDD4118C08B1600673862 /* KeychainItemWrapper.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CF618A269B8008FA65A /* KeychainItemWrapper.h */; };
+		BD9EDD4218C08B1600673862 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CF718A269B8008FA65A /* KeychainItemWrapper.m */; };
+		BD9EDD4318C08B1600673862 /* SvUDIDTools.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CF818A269B8008FA65A /* SvUDIDTools.h */; };
+		BD9EDD4418C08B1600673862 /* SvUDIDTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CF918A269B8008FA65A /* SvUDIDTools.m */; };
+		BD9EDD4518C08B1600673862 /* udid.plist in Sources */ = {isa = PBXBuildFile; fileRef = 04E65CFA18A269B8008FA65A /* udid.plist */; };
+		BD9EDD4618C08B1600673862 /* BidBaseViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C8F18A2594F008FA65A /* BidBaseViewController.h */; };
+		BD9EDD4718C08B1600673862 /* BidBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C9018A2594F008FA65A /* BidBaseViewController.m */; };
+		BD9EDD4818C08B1600673862 /* BidConfirmViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD44B189D7C9000A3BDDF /* BidConfirmViewController.h */; };
+		BD9EDD4918C08B1600673862 /* BidConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD44C189D7C9000A3BDDF /* BidConfirmViewController.m */; };
+		BD9EDD4A18C08B1600673862 /* BidDetailViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD44D189D7C9000A3BDDF /* BidDetailViewController.h */; };
+		BD9EDD4B18C08B1600673862 /* BidDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD44E189D7C9000A3BDDF /* BidDetailViewController.m */; };
+		BD9EDD4C18C08B1600673862 /* BidMainViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD44F189D7C9000A3BDDF /* BidMainViewController.h */; };
+		BD9EDD4D18C08B1600673862 /* BidMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD450189D7C9000A3BDDF /* BidMainViewController.m */; };
+		BD9EDD4E18C08B1600673862 /* BidStartedViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C9518A25C09008FA65A /* BidStartedViewController.h */; };
+		BD9EDD4F18C08B1600673862 /* BidStartedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C9618A25C09008FA65A /* BidStartedViewController.m */; };
+		BD9EDD5018C08B1600673862 /* BidPrepareViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C9818A25C21008FA65A /* BidPrepareViewController.h */; };
+		BD9EDD5118C08B1600673862 /* BidPrepareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C9918A25C21008FA65A /* BidPrepareViewController.m */; };
+		BD9EDD5218C08B1600673862 /* BidItemDetailViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 0431107118A698A7008109F7 /* BidItemDetailViewController.h */; };
+		BD9EDD5318C08B1600673862 /* BidItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431107218A698A7008109F7 /* BidItemDetailViewController.m */; };
+		BD9EDD5418C08B1600673862 /* NoteDetailViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD42D189CEE5900A3BDDF /* NoteDetailViewController.h */; };
+		BD9EDD5518C08B1600673862 /* NoteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD42E189CEE5900A3BDDF /* NoteDetailViewController.m */; };
+		BD9EDD5618C08B1600673862 /* NoteListViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD42F189CEE5900A3BDDF /* NoteListViewController.h */; };
+		BD9EDD5718C08B1600673862 /* NoteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD430189CEE5900A3BDDF /* NoteListViewController.m */; };
+		BD9EDD5818C08B1600673862 /* BidStartedTableViewCell.h in Sources */ = {isa = PBXBuildFile; fileRef = 0431106E18A6944A008109F7 /* BidStartedTableViewCell.h */; };
+		BD9EDD5918C08B1600673862 /* BidStartedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431106F18A6944A008109F7 /* BidStartedTableViewCell.m */; };
+		BD9EDD5A18C08B1600673862 /* BidPrepareTableViewCell.h in Sources */ = {isa = PBXBuildFile; fileRef = 042762EB18B65EEC006D816A /* BidPrepareTableViewCell.h */; };
+		BD9EDD5B18C08B1600673862 /* BidPrepareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042762EC18B65EEC006D816A /* BidPrepareTableViewCell.m */; };
+		BD9EDD5C18C08B1600673862 /* BidDetailTableViewCell.h in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD45F189D8D1700A3BDDF /* BidDetailTableViewCell.h */; };
+		BD9EDD5D18C08B1600673862 /* BidDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD460189D8D1700A3BDDF /* BidDetailTableViewCell.m */; };
+		BD9EDD5E18C08B1600673862 /* ExcellLikeCellBase.h in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD45C189D8CE600A3BDDF /* ExcellLikeCellBase.h */; };
+		BD9EDD5F18C08B1600673862 /* ExcellLikeCellBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD45D189D8CE600A3BDDF /* ExcellLikeCellBase.m */; };
+		BD9EDD6018C08B1600673862 /* BidItemCell.h in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD406189B6BEF00A3BDDF /* BidItemCell.h */; };
+		BD9EDD6118C08B1600673862 /* BidItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD407189B6BEF00A3BDDF /* BidItemCell.m */; };
+		BD9EDD6218C08B1600673862 /* BidItemCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD408189B6BEF00A3BDDF /* BidItemCell.xib */; };
+		BD9EDD6318C08B1600673862 /* UICarTableViewCell.h in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD403189B6BC300A3BDDF /* UICarTableViewCell.h */; };
+		BD9EDD6418C08B1600673862 /* UICarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD404189B6BC300A3BDDF /* UICarTableViewCell.m */; };
+		BD9EDD6518C08B1600673862 /* NoteItemCell.h in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD433189CEF0400A3BDDF /* NoteItemCell.h */; };
+		BD9EDD6618C08B1600673862 /* NoteItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD434189CEF0400A3BDDF /* NoteItemCell.m */; };
+		BD9EDD6718C08B1600673862 /* LeftTitleListCell.h in Sources */ = {isa = PBXBuildFile; fileRef = 0431107418A69A1C008109F7 /* LeftTitleListCell.h */; };
+		BD9EDD6818C08B1600673862 /* LeftTitleListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431107518A69A1C008109F7 /* LeftTitleListCell.m */; };
+		BD9EDD6918C08B1600673862 /* InfoClassTableViewCell.h in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD9018B10EE400A82198 /* InfoClassTableViewCell.h */; };
+		BD9EDD6A18C08B1600673862 /* InfoClassTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD9118B10EE400A82198 /* InfoClassTableViewCell.m */; };
+		BD9EDD6B18C08B1600673862 /* OrderTableViewCell.h in Sources */ = {isa = PBXBuildFile; fileRef = 04255BBE18B3B7EF0006F9E0 /* OrderTableViewCell.h */; };
+		BD9EDD6C18C08B1600673862 /* OrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04255BBF18B3B7EF0006F9E0 /* OrderTableViewCell.m */; };
+		BD9EDD6D18C08B1600673862 /* OrderTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = BD884B0F18B7B53300E354B7 /* OrderTableViewCell.xib */; };
+		BD9EDD6E18C08B1600673862 /* BidDetailTableViewCell_V2.h in Sources */ = {isa = PBXBuildFile; fileRef = BD884B0018B50A5800E354B7 /* BidDetailTableViewCell_V2.h */; };
+		BD9EDD6F18C08B1600673862 /* BidDetailTableViewCell_V2.m in Sources */ = {isa = PBXBuildFile; fileRef = BD884B0118B50A5800E354B7 /* BidDetailTableViewCell_V2.m */; };
+		BD9EDD7018C08B1600673862 /* cell_split_line.png in Sources */ = {isa = PBXBuildFile; fileRef = BD593A4118BF8520007B4F5C /* cell_split_line.png */; };
+		BD9EDD7118C08B1600673862 /* bid_money_bg.png in Sources */ = {isa = PBXBuildFile; fileRef = BD593A3318BE081B007B4F5C /* bid_money_bg.png */; };
+		BD9EDD7218C08B1600673862 /* image.jpg in Sources */ = {isa = PBXBuildFile; fileRef = BD593A3118BE0187007B4F5C /* image.jpg */; };
+		BD9EDD7318C08B1600673862 /* login_bg.png in Sources */ = {isa = PBXBuildFile; fileRef = BD593A1A18BCDB2C007B4F5C /* login_bg.png */; };
+		BD9EDD7418C08B1600673862 /* search_btn.png in Sources */ = {isa = PBXBuildFile; fileRef = BD593A2318BD85C0007B4F5C /* search_btn.png */; };
+		BD9EDD7518C08B1600673862 /* search_input.png in Sources */ = {isa = PBXBuildFile; fileRef = BD593A2418BD85C0007B4F5C /* search_input.png */; };
+		BD9EDD7618C08B1600673862 /* setting_login_btn.png in Sources */ = {isa = PBXBuildFile; fileRef = BD884B1718B90D9000E354B7 /* setting_login_btn.png */; };
+		BD9EDD7718C08B1600673862 /* image.png in Sources */ = {isa = PBXBuildFile; fileRef = BD884B1518B8BFF000E354B7 /* image.png */; };
+		BD9EDD7818C08B1600673862 /* info_btn.png in Sources */ = {isa = PBXBuildFile; fileRef = 04255BB818B3B12B0006F9E0 /* info_btn.png */; };
+		BD9EDD7918C08B1600673862 /* split_line.png in Sources */ = {isa = PBXBuildFile; fileRef = 04255BB318B3AE580006F9E0 /* split_line.png */; };
+		BD9EDD7A18C08B1600673862 /* button_gray01.png in Sources */ = {isa = PBXBuildFile; fileRef = 04F854D918B25CF40026BCA4 /* button_gray01.png */; };
+		BD9EDD7B18C08B1600673862 /* button_gray02.png in Sources */ = {isa = PBXBuildFile; fileRef = 04F854DA18B25CF40026BCA4 /* button_gray02.png */; };
+		BD9EDD7C18C08B1600673862 /* button_gray03.png in Sources */ = {isa = PBXBuildFile; fileRef = 04F854DB18B25CF40026BCA4 /* button_gray03.png */; };
+		BD9EDD7D18C08B1600673862 /* button_gray04.png in Sources */ = {isa = PBXBuildFile; fileRef = 04F854DC18B25CF40026BCA4 /* button_gray04.png */; };
+		BD9EDD7E18C08B1600673862 /* button_gray05.png in Sources */ = {isa = PBXBuildFile; fileRef = 04F854DD18B25CF40026BCA4 /* button_gray05.png */; };
+		BD9EDD7F18C08B1600673862 /* button_gray06.png in Sources */ = {isa = PBXBuildFile; fileRef = 04F854DE18B25CF40026BCA4 /* button_gray06.png */; };
+		BD9EDD8018C08B1600673862 /* button_gray07.png in Sources */ = {isa = PBXBuildFile; fileRef = 04F854DF18B25CF40026BCA4 /* button_gray07.png */; };
+		BD9EDD8118C08B1600673862 /* button_gray08.png in Sources */ = {isa = PBXBuildFile; fileRef = 04F854E018B25CF40026BCA4 /* button_gray08.png */; };
+		BD9EDD8218C08B1600673862 /* info_account_bg.png in Sources */ = {isa = PBXBuildFile; fileRef = BD884B0A18B7188800E354B7 /* info_account_bg.png */; };
+		BD9EDD8318C08B1600673862 /* info_order_cell_bg.png in Sources */ = {isa = PBXBuildFile; fileRef = 042762EE18B6675A006D816A /* info_order_cell_bg.png */; };
+		BD9EDD8418C08B1600673862 /* info_order_cell_bg_all.png in Sources */ = {isa = PBXBuildFile; fileRef = 04255BBA18B3B6F80006F9E0 /* info_order_cell_bg_all.png */; };
+		BD9EDD8518C08B1600673862 /* hotmsg_cell_bg.png in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD8E18B10DC300A82198 /* hotmsg_cell_bg.png */; };
+		BD9EDD8618C08B1600673862 /* hotmsg_gray01.png in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD8618B10D0C00A82198 /* hotmsg_gray01.png */; };
+		BD9EDD8718C08B1600673862 /* hotmsg_gray02.png in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD8718B10D0C00A82198 /* hotmsg_gray02.png */; };
+		BD9EDD8818C08B1600673862 /* hotmsg_gray03.png in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD8818B10D0C00A82198 /* hotmsg_gray03.png */; };
+		BD9EDD8918C08B1600673862 /* hotmsg_gray04.png in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD8918B10D0C00A82198 /* hotmsg_gray04.png */; };
+		BD9EDD8A18C08B1600673862 /* myinfo_btn.png in Sources */ = {isa = PBXBuildFile; fileRef = 04D5358918ABCDE500728B75 /* myinfo_btn.png */; };
+		BD9EDD8B18C08B1600673862 /* myinfo_split_bg.png in Sources */ = {isa = PBXBuildFile; fileRef = 04D5358718ABCDBD00728B75 /* myinfo_split_bg.png */; };
+		BD9EDD8C18C08B1600673862 /* search.png in Sources */ = {isa = PBXBuildFile; fileRef = 04D5358218ABCD6200728B75 /* search.png */; };
+		BD9EDD8D18C08B1600673862 /* arrow_detail.png in Sources */ = {isa = PBXBuildFile; fileRef = 0431107718A7E4B6008109F7 /* arrow_detail.png */; };
+		BD9EDD8E18C08B1600673862 /* round.png in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD448189D492A00A3BDDF /* round.png */; };
+		BD9EDD8F18C08B1600673862 /* note_split_line.png in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD446189D491D00A3BDDF /* note_split_line.png */; };
+		BD9EDD9018C08B1600673862 /* logo.png in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD443189D35C900A3BDDF /* logo.png */; };
+		BD9EDD9118C08B1600673862 /* button-1.png in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD439189D35B200A3BDDF /* button-1.png */; };
+		BD9EDD9218C08B1600673862 /* button-2.png in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD43A189D35B200A3BDDF /* button-2.png */; };
+		BD9EDD9318C08B1600673862 /* button-4.png in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD43B189D35B200A3BDDF /* button-4.png */; };
+		BD9EDD9418C08B1600673862 /* button-3.png in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD43C189D35B200A3BDDF /* button-3.png */; };
+		BD9EDD9518C08B1600673862 /* button-5.png in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD43D189D35B200A3BDDF /* button-5.png */; };
+		BD9EDD9618C08B1600673862 /* note_detail_header_bg.png in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C8718A099AB008FA65A /* note_detail_header_bg.png */; };
+		BD9EDD9718C08B1600673862 /* back_home.png in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD436189D355200A3BDDF /* back_home.png */; };
+		BD9EDD9818C08B1600673862 /* btn-back.png in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD414189B944E00A3BDDF /* btn-back.png */; };
+		BD9EDD9918C08B1600673862 /* bid_item_price.png in Sources */ = {isa = PBXBuildFile; fileRef = BD884B1218B8964800E354B7 /* bid_item_price.png */; };
+		BD9EDD9A18C08B1600673862 /* bid_prepare_bg_1.png in Sources */ = {isa = PBXBuildFile; fileRef = 042762E618B6594C006D816A /* bid_prepare_bg_1.png */; };
+		BD9EDD9B18C08B1600673862 /* bid_prepare_bg_2.png in Sources */ = {isa = PBXBuildFile; fileRef = 042762E718B6594C006D816A /* bid_prepare_bg_2.png */; };
+		BD9EDD9C18C08B1600673862 /* bid_cell_btn.png in Sources */ = {isa = PBXBuildFile; fileRef = BD884B0318B5198300E354B7 /* bid_cell_btn.png */; };
+		BD9EDD9D18C08B1600673862 /* bid_delegate_bg.png in Sources */ = {isa = PBXBuildFile; fileRef = 04D5358418ABCD8400728B75 /* bid_delegate_bg.png */; };
+		BD9EDD9E18C08B1600673862 /* bid_started_cell_bg.png in Sources */ = {isa = PBXBuildFile; fileRef = 0431106B18A6941A008109F7 /* bid_started_cell_bg.png */; };
+		BD9EDD9F18C08B1600673862 /* bid_caterlog_mask.png in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C8918A257C0008FA65A /* bid_caterlog_mask.png */; };
+		BD9EDDA018C08B1600673862 /* bid_price_btn.png in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C8A18A257C0008FA65A /* bid_price_btn.png */; };
+		BD9EDDA118C08B1600673862 /* bid_confirm_bg.png in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C83189FF31B008FA65A /* bid_confirm_bg.png */; };
+		BD9EDDA218C08B1600673862 /* bid_confirm_btn.png in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C81189FF260008FA65A /* bid_confirm_btn.png */; };
+		BD9EDDA318C08B1600673862 /* bid_btn.png in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C7F189FF151008FA65A /* bid_btn.png */; };
+		BD9EDDA418C08B1600673862 /* bid_join_btn.png in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD458189D899E00A3BDDF /* bid_join_btn.png */; };
+		BD9EDDA518C08B1600673862 /* bid_detail_header.png in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD454189D7D7B00A3BDDF /* bid_detail_header.png */; };
+		BD9EDDA618C08B1600673862 /* bid_detail_table.png in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD455189D7D7B00A3BDDF /* bid_detail_table.png */; };
+		BD9EDDA718C08B1600673862 /* bid_cell_bg.png in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD412189B83B800A3BDDF /* bid_cell_bg.png */; };
+		BD9EDDA818C08B1600673862 /* bid_start_btn.png in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD410189B835A00A3BDDF /* bid_start_btn.png */; };
+		BD9EDDA918C08B1600673862 /* tabitemtopsplit.png in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD3FF189B641B00A3BDDF /* tabitemtopsplit.png */; };
+		BD9EDDAA18C08B1600673862 /* tabbarbg.png in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD3FC189B5FB800A3BDDF /* tabbarbg.png */; };
+		BD9EDDAB18C08B1600673862 /* tableitem0.png in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5EC189A93AF0057BD72 /* tableitem0.png */; };
+		BD9EDDAC18C08B1600673862 /* tableitem1.png in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5C3189A8C630057BD72 /* tableitem1.png */; };
+		BD9EDDAD18C08B1600673862 /* tableitem2.png in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5C4189A8C630057BD72 /* tableitem2.png */; };
+		BD9EDDAE18C08B1600673862 /* tableitem3.png in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5C5189A8C630057BD72 /* tableitem3.png */; };
+		BD9EDDAF18C08B1600673862 /* tableitem4.png in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5C6189A8C630057BD72 /* tableitem4.png */; };
+		BD9EDDB018C08B1600673862 /* tableitemsel0.png in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5C7189A8C630057BD72 /* tableitemsel0.png */; };
+		BD9EDDB118C08B1700673862 /* tableitemsel1.png in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5C8189A8C630057BD72 /* tableitemsel1.png */; };
+		BD9EDDB218C08B1700673862 /* tableitemsel2.png in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5C9189A8C630057BD72 /* tableitemsel2.png */; };
+		BD9EDDB318C08B1700673862 /* tableitemsel3.png in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5CA189A8C630057BD72 /* tableitemsel3.png */; };
+		BD9EDDB418C08B1700673862 /* tableitemsel4.png in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5CB189A8C630057BD72 /* tableitemsel4.png */; };
+		BD9EDDB518C08B1700673862 /* AppConfig.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65D2A18A27D07008FA65A /* AppConfig.h */; };
+		BD9EDDB618C08B1700673862 /* AppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E573189A864D0057BD72 /* AppDelegate.h */; };
+		BD9EDDB718C08B1700673862 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E574189A864D0057BD72 /* AppDelegate.m */; };
+		BD9EDDB818C08B1700673862 /* ViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E579189A864D0057BD72 /* ViewController.h */; };
+		BD9EDDB918C08B1700673862 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E57A189A864D0057BD72 /* ViewController.m */; };
+		BD9EDDBA18C08B1700673862 /* Images.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E57C189A864D0057BD72 /* Images.xcassets */; };
+		BD9EDDBB18C08B1700673862 /* Default-568h@2x.png in Sources */ = {isa = PBXBuildFile; fileRef = BD593A1118BCAC93007B4F5C /* Default-568h@2x.png */; };
+		BD9EDDBC18C08B1700673862 /* Default.png in Sources */ = {isa = PBXBuildFile; fileRef = BD593A1218BCAC93007B4F5C /* Default.png */; };
+		BD9EDDBD18C08B1700673862 /* Default@2x.png in Sources */ = {isa = PBXBuildFile; fileRef = BD593A1318BCAC93007B4F5C /* Default@2x.png */; };
+		BD9EDDBE18C08B1700673862 /* logo96.png in Sources */ = {isa = PBXBuildFile; fileRef = BD884AFA18B4CC0500E354B7 /* logo96.png */; };
+		BD9EDDBF18C08B1700673862 /* logo114.png in Sources */ = {isa = PBXBuildFile; fileRef = BD884AFB18B4CC0500E354B7 /* logo114.png */; };
+		BD9EDDC018C08B1700673862 /* logo120.png in Sources */ = {isa = PBXBuildFile; fileRef = BD884AFC18B4CC0500E354B7 /* logo120.png */; };
+		BD9EDDC118C08B1700673862 /* logo57.png in Sources */ = {isa = PBXBuildFile; fileRef = BD884AF818B4CBE900E354B7 /* logo57.png */; };
+		BD9EDDC218C08B1700673862 /* BSTell-Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E56C189A864D0057BD72 /* BSTell-Info.plist */; };
+		BD9EDDC318C08B1700673862 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E570189A864D0057BD72 /* main.m */; };
+		BD9EDDC418C08B1700673862 /* BSTell-Prefix.pch in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E572189A864D0057BD72 /* BSTell-Prefix.pch */; };
+		BD9EDDC518C08B1700673862 /* BidViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5D9189A8EE20057BD72 /* BidViewController.h */; };
+		BD9EDDC618C08B1700673862 /* BidViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5DA189A8EE20057BD72 /* BidViewController.m */; };
+		BD9EDDC718C08B1700673862 /* MainPageViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5DC189A8F020057BD72 /* MainPageViewController.h */; };
+		BD9EDDC818C08B1700673862 /* MainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5DD189A8F020057BD72 /* MainPageViewController.m */; };
+		BD9EDDC918C08B1700673862 /* MyInfoViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5DF189A8F160057BD72 /* MyInfoViewController.h */; };
+		BD9EDDCA18C08B1700673862 /* MyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5E0189A8F160057BD72 /* MyInfoViewController.m */; };
+		BD9EDDCB18C08B1700673862 /* MsgInfoViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5E2189A8F2E0057BD72 /* MsgInfoViewController.h */; };
+		BD9EDDCC18C08B1700673862 /* MsgInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5E3189A8F2E0057BD72 /* MsgInfoViewController.m */; };
+		BD9EDDCD18C08B1700673862 /* SettingViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5E8189A8FD50057BD72 /* SettingViewController.h */; };
+		BD9EDDCE18C08B1700673862 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E5E9189A8FD50057BD72 /* SettingViewController.m */; };
+		BD9EDDCF18C08B1700673862 /* BSTellBaseViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD416189B94BF00A3BDDF /* BSTellBaseViewController.h */; };
+		BD9EDDD018C08B1700673862 /* BSTellBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD417189B94BF00A3BDDF /* BSTellBaseViewController.m */; };
+		BD9EDDD118C08B1700673862 /* BSTellNetListBaseViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 044EE26218A4C5E3007A3EDA /* BSTellNetListBaseViewController.h */; };
+		BD9EDDD218C08B1700673862 /* BSTellNetListBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044EE26318A4C5E3007A3EDA /* BSTellNetListBaseViewController.m */; };
+		BD9EDDD318C08B1700673862 /* LoginViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = BD593A1D18BCF538007B4F5C /* LoginViewController.h */; };
+		BD9EDDD418C08B1700673862 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD593A1E18BCF538007B4F5C /* LoginViewController.m */; };
+		BD9EDDD518C08B1700673862 /* AppSetting.h in Sources */ = {isa = PBXBuildFile; fileRef = BD593A3518BE4BD3007B4F5C /* AppSetting.h */; };
+		BD9EDDD618C08B1700673862 /* AppSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = BD593A3618BE4BD3007B4F5C /* AppSetting.m */; };
+		BD9EDDDB18C08B1700673862 /* BSTell_company-Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = BD9EDCBB18C08AB200673862 /* BSTell_company-Info.plist */; };
+		BD9EDDDC18C08B1700673862 /* BSTell_company-Prefix.pch in Sources */ = {isa = PBXBuildFile; fileRef = BD9EDCC118C08AB200673862 /* BSTell_company-Prefix.pch */; };
+		BD9EDDDD18C08B1700673862 /* MobileCoreServices.framework in Sources */ = {isa = PBXBuildFile; fileRef = 042FE0C4189B4742004B26F3 /* MobileCoreServices.framework */; };
+		BD9EDDDE18C08B1700673862 /* libz.dylib in Sources */ = {isa = PBXBuildFile; fileRef = 042FE0C2189B46A4004B26F3 /* libz.dylib */; };
 		BDE7BD7B18B0D16800A82198 /* HotMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */; };
 		BDE7BD7C18B0D16800A82198 /* MarketMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7A18B0D16800A82198 /* MarketMsgViewController.m */; };
 		BDE7BD7F18B0D18400A82198 /* MediaMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7E18B0D18400A82198 /* MediaMsgViewController.m */; };
@@ -206,6 +462,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 044E74C7158C8A590048CB70;
 			remoteInfo = ZCSUIFrameWork;
+		};
+		BD9EDCCF18C08AB300673862 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04F6E559189A864D0057BD72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD9EDCB418C08AB200673862;
+			remoteInfo = BSTell_company;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -403,9 +666,6 @@
 		04F6E57C189A864D0057BD72 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		04F6E582189A864E0057BD72 /* BSTellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BSTellTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F6E583189A864E0057BD72 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		04F6E58B189A864E0057BD72 /* BSTellTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BSTellTests-Info.plist"; sourceTree = "<group>"; };
-		04F6E58D189A864E0057BD72 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		04F6E58F189A864E0057BD72 /* BSTellTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BSTellTests.m; sourceTree = "<group>"; };
 		04F6E599189A87480057BD72 /* ZCSUIFrameWork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZCSUIFrameWork.xcodeproj; path = ../../BaseLib/UIFramework/ZCSUIFrameWork/ZCSUIFrameWork.xcodeproj; sourceTree = "<group>"; };
 		04F6E5C3189A8C630057BD72 /* tableitem1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableitem1.png; sourceTree = "<group>"; };
 		04F6E5C4189A8C630057BD72 /* tableitem2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableitem2.png; sourceTree = "<group>"; };
@@ -470,6 +730,12 @@
 		BD884B1518B8BFF000E354B7 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
 		BD884B1718B90D9000E354B7 /* setting_login_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting_login_btn.png; sourceTree = "<group>"; };
 		BD884B1918BADFBD00E354B7 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		BD9EDCB518C08AB200673862 /* BSTell_company.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSTell_company.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD9EDCBB18C08AB200673862 /* BSTell_company-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BSTell_company-Info.plist"; sourceTree = "<group>"; };
+		BD9EDCBD18C08AB200673862 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BD9EDCBF18C08AB200673862 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BD9EDCC118C08AB200673862 /* BSTell_company-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BSTell_company-Prefix.pch"; sourceTree = "<group>"; };
+		BD9EDCCB18C08AB300673862 /* BSTell_companyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BSTell_companyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDE7BD7718B0D16800A82198 /* HotMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotMsgViewController.h; sourceTree = "<group>"; };
 		BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotMsgViewController.m; sourceTree = "<group>"; };
 		BDE7BD7918B0D16800A82198 /* MarketMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketMsgViewController.h; sourceTree = "<group>"; };
@@ -511,6 +777,26 @@
 				04F6E584189A864E0057BD72 /* XCTest.framework in Frameworks */,
 				04F6E586189A864E0057BD72 /* UIKit.framework in Frameworks */,
 				04F6E585189A864E0057BD72 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9EDCB218C08AB200673862 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD9EDCB718C08AB200673862 /* CoreGraphics.framework in Frameworks */,
+				BD9EDCB818C08AB200673862 /* UIKit.framework in Frameworks */,
+				BD9EDCB618C08AB200673862 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9EDCC818C08AB300673862 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD9EDCCC18C08AB300673862 /* XCTest.framework in Frameworks */,
+				BD9EDCCE18C08AB300673862 /* UIKit.framework in Frameworks */,
+				BD9EDCCD18C08AB300673862 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -805,7 +1091,7 @@
 				04D6AF8918AA7FA4002967C4 /* UIFramework */,
 				04F6E599189A87480057BD72 /* ZCSUIFrameWork.xcodeproj */,
 				04F6E56A189A864D0057BD72 /* BSTell */,
-				04F6E589189A864E0057BD72 /* BSTellTests */,
+				BD9EDCB918C08AB200673862 /* BSTell_company */,
 				04F6E563189A864D0057BD72 /* Frameworks */,
 				04F6E562189A864D0057BD72 /* Products */,
 			);
@@ -816,6 +1102,8 @@
 			children = (
 				04F6E561189A864D0057BD72 /* BSTell.app */,
 				04F6E582189A864E0057BD72 /* BSTellTests.xctest */,
+				BD9EDCB518C08AB200673862 /* BSTell_company.app */,
+				BD9EDCCB18C08AB300673862 /* BSTell_companyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -891,24 +1179,6 @@
 				04F6E56D189A864D0057BD72 /* InfoPlist.strings */,
 				04F6E570189A864D0057BD72 /* main.m */,
 				04F6E572189A864D0057BD72 /* BSTell-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		04F6E589189A864E0057BD72 /* BSTellTests */ = {
-			isa = PBXGroup;
-			children = (
-				04F6E58F189A864E0057BD72 /* BSTellTests.m */,
-				04F6E58A189A864E0057BD72 /* Supporting Files */,
-			);
-			path = BSTellTests;
-			sourceTree = "<group>";
-		};
-		04F6E58A189A864E0057BD72 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				04F6E58B189A864E0057BD72 /* BSTellTests-Info.plist */,
-				04F6E58C189A864E0057BD72 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -992,6 +1262,25 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		BD9EDCB918C08AB200673862 /* BSTell_company */ = {
+			isa = PBXGroup;
+			children = (
+				BD9EDCBA18C08AB200673862 /* Supporting Files */,
+			);
+			path = BSTell_company;
+			sourceTree = "<group>";
+		};
+		BD9EDCBA18C08AB200673862 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BD9EDCBB18C08AB200673862 /* BSTell_company-Info.plist */,
+				BD9EDCBC18C08AB200673862 /* InfoPlist.strings */,
+				BD9EDCBF18C08AB200673862 /* main.m */,
+				BD9EDCC118C08AB200673862 /* BSTell_company-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		BDE7BD7618B0D16800A82198 /* Info */ = {
 			isa = PBXGroup;
 			children = (
@@ -1070,6 +1359,41 @@
 			productReference = 04F6E582189A864E0057BD72 /* BSTellTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		BD9EDCB418C08AB200673862 /* BSTell_company */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD9EDCDE18C08AB300673862 /* Build configuration list for PBXNativeTarget "BSTell_company" */;
+			buildPhases = (
+				BD9EDCB118C08AB200673862 /* Sources */,
+				BD9EDCB218C08AB200673862 /* Frameworks */,
+				BD9EDCB318C08AB200673862 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BSTell_company;
+			productName = BSTell_company;
+			productReference = BD9EDCB518C08AB200673862 /* BSTell_company.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BD9EDCCA18C08AB300673862 /* BSTell_companyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD9EDCDF18C08AB300673862 /* Build configuration list for PBXNativeTarget "BSTell_companyTests" */;
+			buildPhases = (
+				BD9EDCC718C08AB300673862 /* Sources */,
+				BD9EDCC818C08AB300673862 /* Frameworks */,
+				BD9EDCC918C08AB300673862 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD9EDCD018C08AB300673862 /* PBXTargetDependency */,
+			);
+			name = BSTell_companyTests;
+			productName = BSTell_companyTests;
+			productReference = BD9EDCCB18C08AB300673862 /* BSTell_companyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1084,6 +1408,9 @@
 					};
 					04F6E581189A864E0057BD72 = {
 						TestTargetID = 04F6E560189A864D0057BD72;
+					};
+					BD9EDCCA18C08AB300673862 = {
+						TestTargetID = BD9EDCB418C08AB200673862;
 					};
 				};
 			};
@@ -1108,6 +1435,8 @@
 			targets = (
 				04F6E560189A864D0057BD72 /* BSTell */,
 				04F6E581189A864E0057BD72 /* BSTellTests */,
+				BD9EDCB418C08AB200673862 /* BSTell_company */,
+				BD9EDCCA18C08AB300673862 /* BSTell_companyTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1220,7 +1549,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04F6E58E189A864E0057BD72 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9EDCB318C08AB200673862 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD9EDCBE18C08AB200673862 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9EDCC918C08AB300673862 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1321,7 +1664,271 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04F6E590189A864E0057BD72 /* BSTellTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9EDCB118C08AB200673862 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD9EDCE018C08B1500673862 /* SVProgressHUD.bundle in Sources */,
+				BD9EDCE118C08B1500673862 /* BidAdjustAlertView.h in Sources */,
+				BD9EDCE218C08B1500673862 /* BidAdjustAlertView.m in Sources */,
+				BD9EDCE318C08B1500673862 /* CardShopLoginViewController.h in Sources */,
+				BD9EDCE418C08B1500673862 /* CardShopLoginViewController.m in Sources */,
+				BD9EDCE518C08B1500673862 /* CardShopLoginViewController.xib in Sources */,
+				BD9EDCE618C08B1500673862 /* CardShopResignViewController.h in Sources */,
+				BD9EDCE718C08B1500673862 /* CardShopResignViewController.m in Sources */,
+				BD9EDCE818C08B1500673862 /* CardShopResignViewController.xib in Sources */,
+				BD9EDCE918C08B1500673862 /* ResetPasswordViewController.h in Sources */,
+				BD9EDCEA18C08B1500673862 /* ResetPasswordViewController.m in Sources */,
+				BD9EDCEB18C08B1500673862 /* HotMsgViewController.h in Sources */,
+				BD9EDCEC18C08B1500673862 /* HotMsgViewController.m in Sources */,
+				BD9EDCED18C08B1500673862 /* MarketMsgViewController.h in Sources */,
+				BD9EDCEE18C08B1500673862 /* MarketMsgViewController.m in Sources */,
+				BD9EDCEF18C08B1500673862 /* MediaMsgViewController.h in Sources */,
+				BD9EDCF018C08B1500673862 /* MediaMsgViewController.m in Sources */,
+				BD9EDCF118C08B1500673862 /* MsgMainViewController.h in Sources */,
+				BD9EDCF218C08B1500673862 /* MsgMainViewController.m in Sources */,
+				BD9EDCF318C08B1500673862 /* MsgClassBaseViewController.h in Sources */,
+				BD9EDCF418C08B1500673862 /* MsgClassBaseViewController.m in Sources */,
+				BD9EDCF518C08B1500673862 /* MsgClassLevel2ViewController.h in Sources */,
+				BD9EDCF618C08B1500673862 /* MsgClassLevel2ViewController.m in Sources */,
+				BD9EDCF718C08B1500673862 /* OrderListViewController.h in Sources */,
+				BD9EDCF818C08B1500673862 /* OrderListViewController.m in Sources */,
+				BD9EDCF918C08B1500673862 /* OrderDetailViewController.h in Sources */,
+				BD9EDCFA18C08B1500673862 /* OrderDetailViewController.m in Sources */,
+				BD9EDCFB18C08B1500673862 /* SearchViewController.h in Sources */,
+				BD9EDCFC18C08B1500673862 /* SearchViewController.m in Sources */,
+				BD9EDCFD18C08B1500673862 /* CarServiceNetDataMgr.h in Sources */,
+				BD9EDCFE18C08B1500673862 /* CarServiceNetDataMgr.m in Sources */,
+				BD9EDCFF18C08B1500673862 /* client.cer in Sources */,
+				BD9EDD0018C08B1500673862 /* arrivalData.h in Sources */,
+				BD9EDD0118C08B1500673862 /* arrivalData.m in Sources */,
+				BD9EDD0218C08B1500673862 /* arrivalDetailData.h in Sources */,
+				BD9EDD0318C08B1600673862 /* arrivalDetailData.m in Sources */,
+				BD9EDD0418C08B1600673862 /* Commondefines.h in Sources */,
+				BD9EDD0518C08B1600673862 /* global.h in Sources */,
+				BD9EDD0618C08B1600673862 /* global.m in Sources */,
+				BD9EDD0718C08B1600673862 /* AES128.h in Sources */,
+				BD9EDD0818C08B1600673862 /* AES128.m in Sources */,
+				BD9EDD0918C08B1600673862 /* test.cer in Sources */,
+				BD9EDD0A18C08B1600673862 /* EGORefreshTableHeaderView.h in Sources */,
+				BD9EDD0B18C08B1600673862 /* EGORefreshTableHeaderView.m in Sources */,
+				BD9EDD0C18C08B1600673862 /* jqAlertCenter.h in Sources */,
+				BD9EDD0D18C08B1600673862 /* jqAlertCenter.m in Sources */,
+				BD9EDD0E18C08B1600673862 /* JQConnect_bsteelPay.h in Sources */,
+				BD9EDD0F18C08B1600673862 /* JQConnect_bsteelPay.m in Sources */,
+				BD9EDD1018C08B1600673862 /* jqDrawUnlock.h in Sources */,
+				BD9EDD1118C08B1600673862 /* jqDrawUnlock.m in Sources */,
+				BD9EDD1218C08B1600673862 /* jqEncode.h in Sources */,
+				BD9EDD1318C08B1600673862 /* jqEncode.mm in Sources */,
+				BD9EDD1418C08B1600673862 /* JQHTTPSConnect.h in Sources */,
+				BD9EDD1518C08B1600673862 /* JQHTTPSConnect.m in Sources */,
+				BD9EDD1618C08B1600673862 /* jqLoading.h in Sources */,
+				BD9EDD1718C08B1600673862 /* jqLoading.m in Sources */,
+				BD9EDD1818C08B1600673862 /* JQNetworkHelper.h in Sources */,
+				BD9EDD1918C08B1600673862 /* JQNetworkHelper.m in Sources */,
+				BD9EDD1A18C08B1600673862 /* jqPopSelectList.h in Sources */,
+				BD9EDD1B18C08B1600673862 /* jqPopSelectList.m in Sources */,
+				BD9EDD1C18C08B1600673862 /* JQSHA256encode.h in Sources */,
+				BD9EDD1D18C08B1600673862 /* JQSHA256encode.m in Sources */,
+				BD9EDD1E18C08B1600673862 /* NSData+Gzip.h in Sources */,
+				BD9EDD1F18C08B1600673862 /* NSData+Gzip.m in Sources */,
+				BD9EDD2018C08B1600673862 /* SFHFKeychainUtils.h in Sources */,
+				BD9EDD2118C08B1600673862 /* SFHFKeychainUtils.m in Sources */,
+				BD9EDD2218C08B1600673862 /* JQTabBar.h in Sources */,
+				BD9EDD2318C08B1600673862 /* JQTabBar.m in Sources */,
+				BD9EDD2418C08B1600673862 /* UIBadgeView.h in Sources */,
+				BD9EDD2518C08B1600673862 /* UIBadgeView.m in Sources */,
+				BD9EDD2618C08B1600673862 /* JSON.h in Sources */,
+				BD9EDD2718C08B1600673862 /* NSObject+SBJson.h in Sources */,
+				BD9EDD2818C08B1600673862 /* NSObject+SBJson.m in Sources */,
+				BD9EDD2918C08B1600673862 /* SBJson.h in Sources */,
+				BD9EDD2A18C08B1600673862 /* SBJsonParser.h in Sources */,
+				BD9EDD2B18C08B1600673862 /* SBJsonParser.m in Sources */,
+				BD9EDD2C18C08B1600673862 /* SBJsonStreamParser.h in Sources */,
+				BD9EDD2D18C08B1600673862 /* SBJsonStreamParser.m in Sources */,
+				BD9EDD2E18C08B1600673862 /* SBJsonStreamParserAccumulator.h in Sources */,
+				BD9EDD2F18C08B1600673862 /* SBJsonStreamParserAccumulator.m in Sources */,
+				BD9EDD3018C08B1600673862 /* SBJsonStreamParserAdapter.h in Sources */,
+				BD9EDD3118C08B1600673862 /* SBJsonStreamParserAdapter.m in Sources */,
+				BD9EDD3218C08B1600673862 /* SBJsonStreamParserState.h in Sources */,
+				BD9EDD3318C08B1600673862 /* SBJsonStreamParserState.m in Sources */,
+				BD9EDD3418C08B1600673862 /* SBJsonStreamWriter.h in Sources */,
+				BD9EDD3518C08B1600673862 /* SBJsonStreamWriter.m in Sources */,
+				BD9EDD3618C08B1600673862 /* SBJsonStreamWriterAccumulator.h in Sources */,
+				BD9EDD3718C08B1600673862 /* SBJsonStreamWriterAccumulator.m in Sources */,
+				BD9EDD3818C08B1600673862 /* SBJsonStreamWriterState.h in Sources */,
+				BD9EDD3918C08B1600673862 /* SBJsonStreamWriterState.m in Sources */,
+				BD9EDD3A18C08B1600673862 /* SBJsonTokeniser.h in Sources */,
+				BD9EDD3B18C08B1600673862 /* SBJsonTokeniser.m in Sources */,
+				BD9EDD3C18C08B1600673862 /* SBJsonUTF8Stream.h in Sources */,
+				BD9EDD3D18C08B1600673862 /* SBJsonUTF8Stream.m in Sources */,
+				BD9EDD3E18C08B1600673862 /* SBJsonWriter.h in Sources */,
+				BD9EDD3F18C08B1600673862 /* SBJsonWriter.m in Sources */,
+				BD9EDD4018C08B1600673862 /* otpsdk.h in Sources */,
+				BD9EDD4118C08B1600673862 /* KeychainItemWrapper.h in Sources */,
+				BD9EDD4218C08B1600673862 /* KeychainItemWrapper.m in Sources */,
+				BD9EDD4318C08B1600673862 /* SvUDIDTools.h in Sources */,
+				BD9EDD4418C08B1600673862 /* SvUDIDTools.m in Sources */,
+				BD9EDD4518C08B1600673862 /* udid.plist in Sources */,
+				BD9EDD4618C08B1600673862 /* BidBaseViewController.h in Sources */,
+				BD9EDD4718C08B1600673862 /* BidBaseViewController.m in Sources */,
+				BD9EDD4818C08B1600673862 /* BidConfirmViewController.h in Sources */,
+				BD9EDD4918C08B1600673862 /* BidConfirmViewController.m in Sources */,
+				BD9EDD4A18C08B1600673862 /* BidDetailViewController.h in Sources */,
+				BD9EDD4B18C08B1600673862 /* BidDetailViewController.m in Sources */,
+				BD9EDD4C18C08B1600673862 /* BidMainViewController.h in Sources */,
+				BD9EDD4D18C08B1600673862 /* BidMainViewController.m in Sources */,
+				BD9EDD4E18C08B1600673862 /* BidStartedViewController.h in Sources */,
+				BD9EDD4F18C08B1600673862 /* BidStartedViewController.m in Sources */,
+				BD9EDD5018C08B1600673862 /* BidPrepareViewController.h in Sources */,
+				BD9EDD5118C08B1600673862 /* BidPrepareViewController.m in Sources */,
+				BD9EDD5218C08B1600673862 /* BidItemDetailViewController.h in Sources */,
+				BD9EDD5318C08B1600673862 /* BidItemDetailViewController.m in Sources */,
+				BD9EDD5418C08B1600673862 /* NoteDetailViewController.h in Sources */,
+				BD9EDD5518C08B1600673862 /* NoteDetailViewController.m in Sources */,
+				BD9EDD5618C08B1600673862 /* NoteListViewController.h in Sources */,
+				BD9EDD5718C08B1600673862 /* NoteListViewController.m in Sources */,
+				BD9EDD5818C08B1600673862 /* BidStartedTableViewCell.h in Sources */,
+				BD9EDD5918C08B1600673862 /* BidStartedTableViewCell.m in Sources */,
+				BD9EDD5A18C08B1600673862 /* BidPrepareTableViewCell.h in Sources */,
+				BD9EDD5B18C08B1600673862 /* BidPrepareTableViewCell.m in Sources */,
+				BD9EDD5C18C08B1600673862 /* BidDetailTableViewCell.h in Sources */,
+				BD9EDD5D18C08B1600673862 /* BidDetailTableViewCell.m in Sources */,
+				BD9EDD5E18C08B1600673862 /* ExcellLikeCellBase.h in Sources */,
+				BD9EDD5F18C08B1600673862 /* ExcellLikeCellBase.m in Sources */,
+				BD9EDD6018C08B1600673862 /* BidItemCell.h in Sources */,
+				BD9EDD6118C08B1600673862 /* BidItemCell.m in Sources */,
+				BD9EDD6218C08B1600673862 /* BidItemCell.xib in Sources */,
+				BD9EDD6318C08B1600673862 /* UICarTableViewCell.h in Sources */,
+				BD9EDD6418C08B1600673862 /* UICarTableViewCell.m in Sources */,
+				BD9EDD6518C08B1600673862 /* NoteItemCell.h in Sources */,
+				BD9EDD6618C08B1600673862 /* NoteItemCell.m in Sources */,
+				BD9EDD6718C08B1600673862 /* LeftTitleListCell.h in Sources */,
+				BD9EDD6818C08B1600673862 /* LeftTitleListCell.m in Sources */,
+				BD9EDD6918C08B1600673862 /* InfoClassTableViewCell.h in Sources */,
+				BD9EDD6A18C08B1600673862 /* InfoClassTableViewCell.m in Sources */,
+				BD9EDD6B18C08B1600673862 /* OrderTableViewCell.h in Sources */,
+				BD9EDD6C18C08B1600673862 /* OrderTableViewCell.m in Sources */,
+				BD9EDD6D18C08B1600673862 /* OrderTableViewCell.xib in Sources */,
+				BD9EDD6E18C08B1600673862 /* BidDetailTableViewCell_V2.h in Sources */,
+				BD9EDD6F18C08B1600673862 /* BidDetailTableViewCell_V2.m in Sources */,
+				BD9EDD7018C08B1600673862 /* cell_split_line.png in Sources */,
+				BD9EDD7118C08B1600673862 /* bid_money_bg.png in Sources */,
+				BD9EDD7218C08B1600673862 /* image.jpg in Sources */,
+				BD9EDD7318C08B1600673862 /* login_bg.png in Sources */,
+				BD9EDD7418C08B1600673862 /* search_btn.png in Sources */,
+				BD9EDD7518C08B1600673862 /* search_input.png in Sources */,
+				BD9EDD7618C08B1600673862 /* setting_login_btn.png in Sources */,
+				BD9EDD7718C08B1600673862 /* image.png in Sources */,
+				BD9EDD7818C08B1600673862 /* info_btn.png in Sources */,
+				BD9EDD7918C08B1600673862 /* split_line.png in Sources */,
+				BD9EDD7A18C08B1600673862 /* button_gray01.png in Sources */,
+				BD9EDD7B18C08B1600673862 /* button_gray02.png in Sources */,
+				BD9EDD7C18C08B1600673862 /* button_gray03.png in Sources */,
+				BD9EDD7D18C08B1600673862 /* button_gray04.png in Sources */,
+				BD9EDD7E18C08B1600673862 /* button_gray05.png in Sources */,
+				BD9EDD7F18C08B1600673862 /* button_gray06.png in Sources */,
+				BD9EDD8018C08B1600673862 /* button_gray07.png in Sources */,
+				BD9EDD8118C08B1600673862 /* button_gray08.png in Sources */,
+				BD9EDD8218C08B1600673862 /* info_account_bg.png in Sources */,
+				BD9EDD8318C08B1600673862 /* info_order_cell_bg.png in Sources */,
+				BD9EDD8418C08B1600673862 /* info_order_cell_bg_all.png in Sources */,
+				BD9EDD8518C08B1600673862 /* hotmsg_cell_bg.png in Sources */,
+				BD9EDD8618C08B1600673862 /* hotmsg_gray01.png in Sources */,
+				BD9EDD8718C08B1600673862 /* hotmsg_gray02.png in Sources */,
+				BD9EDD8818C08B1600673862 /* hotmsg_gray03.png in Sources */,
+				BD9EDD8918C08B1600673862 /* hotmsg_gray04.png in Sources */,
+				BD9EDD8A18C08B1600673862 /* myinfo_btn.png in Sources */,
+				BD9EDD8B18C08B1600673862 /* myinfo_split_bg.png in Sources */,
+				BD9EDD8C18C08B1600673862 /* search.png in Sources */,
+				BD9EDD8D18C08B1600673862 /* arrow_detail.png in Sources */,
+				BD9EDD8E18C08B1600673862 /* round.png in Sources */,
+				BD9EDD8F18C08B1600673862 /* note_split_line.png in Sources */,
+				BD9EDD9018C08B1600673862 /* logo.png in Sources */,
+				BD9EDD9118C08B1600673862 /* button-1.png in Sources */,
+				BD9EDD9218C08B1600673862 /* button-2.png in Sources */,
+				BD9EDD9318C08B1600673862 /* button-4.png in Sources */,
+				BD9EDD9418C08B1600673862 /* button-3.png in Sources */,
+				BD9EDD9518C08B1600673862 /* button-5.png in Sources */,
+				BD9EDD9618C08B1600673862 /* note_detail_header_bg.png in Sources */,
+				BD9EDD9718C08B1600673862 /* back_home.png in Sources */,
+				BD9EDD9818C08B1600673862 /* btn-back.png in Sources */,
+				BD9EDD9918C08B1600673862 /* bid_item_price.png in Sources */,
+				BD9EDD9A18C08B1600673862 /* bid_prepare_bg_1.png in Sources */,
+				BD9EDD9B18C08B1600673862 /* bid_prepare_bg_2.png in Sources */,
+				BD9EDD9C18C08B1600673862 /* bid_cell_btn.png in Sources */,
+				BD9EDD9D18C08B1600673862 /* bid_delegate_bg.png in Sources */,
+				BD9EDD9E18C08B1600673862 /* bid_started_cell_bg.png in Sources */,
+				BD9EDD9F18C08B1600673862 /* bid_caterlog_mask.png in Sources */,
+				BD9EDDA018C08B1600673862 /* bid_price_btn.png in Sources */,
+				BD9EDDA118C08B1600673862 /* bid_confirm_bg.png in Sources */,
+				BD9EDDA218C08B1600673862 /* bid_confirm_btn.png in Sources */,
+				BD9EDDA318C08B1600673862 /* bid_btn.png in Sources */,
+				BD9EDDA418C08B1600673862 /* bid_join_btn.png in Sources */,
+				BD9EDDA518C08B1600673862 /* bid_detail_header.png in Sources */,
+				BD9EDDA618C08B1600673862 /* bid_detail_table.png in Sources */,
+				BD9EDDA718C08B1600673862 /* bid_cell_bg.png in Sources */,
+				BD9EDDA818C08B1600673862 /* bid_start_btn.png in Sources */,
+				BD9EDDA918C08B1600673862 /* tabitemtopsplit.png in Sources */,
+				BD9EDDAA18C08B1600673862 /* tabbarbg.png in Sources */,
+				BD9EDDAB18C08B1600673862 /* tableitem0.png in Sources */,
+				BD9EDDAC18C08B1600673862 /* tableitem1.png in Sources */,
+				BD9EDDAD18C08B1600673862 /* tableitem2.png in Sources */,
+				BD9EDDAE18C08B1600673862 /* tableitem3.png in Sources */,
+				BD9EDDAF18C08B1600673862 /* tableitem4.png in Sources */,
+				BD9EDDB018C08B1600673862 /* tableitemsel0.png in Sources */,
+				BD9EDDB118C08B1700673862 /* tableitemsel1.png in Sources */,
+				BD9EDDB218C08B1700673862 /* tableitemsel2.png in Sources */,
+				BD9EDDB318C08B1700673862 /* tableitemsel3.png in Sources */,
+				BD9EDDB418C08B1700673862 /* tableitemsel4.png in Sources */,
+				BD9EDDB518C08B1700673862 /* AppConfig.h in Sources */,
+				BD9EDDB618C08B1700673862 /* AppDelegate.h in Sources */,
+				BD9EDDB718C08B1700673862 /* AppDelegate.m in Sources */,
+				BD9EDDB818C08B1700673862 /* ViewController.h in Sources */,
+				BD9EDDB918C08B1700673862 /* ViewController.m in Sources */,
+				BD9EDDBA18C08B1700673862 /* Images.xcassets in Sources */,
+				BD9EDDBB18C08B1700673862 /* Default-568h@2x.png in Sources */,
+				BD9EDDBC18C08B1700673862 /* Default.png in Sources */,
+				BD9EDDBD18C08B1700673862 /* Default@2x.png in Sources */,
+				BD9EDDBE18C08B1700673862 /* logo96.png in Sources */,
+				BD9EDDBF18C08B1700673862 /* logo114.png in Sources */,
+				BD9EDDC018C08B1700673862 /* logo120.png in Sources */,
+				BD9EDDC118C08B1700673862 /* logo57.png in Sources */,
+				BD9EDDC218C08B1700673862 /* BSTell-Info.plist in Sources */,
+				BD9EDDC318C08B1700673862 /* main.m in Sources */,
+				BD9EDDC418C08B1700673862 /* BSTell-Prefix.pch in Sources */,
+				BD9EDDC518C08B1700673862 /* BidViewController.h in Sources */,
+				BD9EDDC618C08B1700673862 /* BidViewController.m in Sources */,
+				BD9EDDC718C08B1700673862 /* MainPageViewController.h in Sources */,
+				BD9EDDC818C08B1700673862 /* MainPageViewController.m in Sources */,
+				BD9EDDC918C08B1700673862 /* MyInfoViewController.h in Sources */,
+				BD9EDDCA18C08B1700673862 /* MyInfoViewController.m in Sources */,
+				BD9EDDCB18C08B1700673862 /* MsgInfoViewController.h in Sources */,
+				BD9EDDCC18C08B1700673862 /* MsgInfoViewController.m in Sources */,
+				BD9EDDCD18C08B1700673862 /* SettingViewController.h in Sources */,
+				BD9EDDCE18C08B1700673862 /* SettingViewController.m in Sources */,
+				BD9EDDCF18C08B1700673862 /* BSTellBaseViewController.h in Sources */,
+				BD9EDDD018C08B1700673862 /* BSTellBaseViewController.m in Sources */,
+				BD9EDDD118C08B1700673862 /* BSTellNetListBaseViewController.h in Sources */,
+				BD9EDDD218C08B1700673862 /* BSTellNetListBaseViewController.m in Sources */,
+				BD9EDDD318C08B1700673862 /* LoginViewController.h in Sources */,
+				BD9EDDD418C08B1700673862 /* LoginViewController.m in Sources */,
+				BD9EDDD518C08B1700673862 /* AppSetting.h in Sources */,
+				BD9EDDD618C08B1700673862 /* AppSetting.m in Sources */,
+				BD9EDDDB18C08B1700673862 /* BSTell_company-Info.plist in Sources */,
+				BD9EDDDC18C08B1700673862 /* BSTell_company-Prefix.pch in Sources */,
+				BD9EDDDD18C08B1700673862 /* MobileCoreServices.framework in Sources */,
+				BD9EDDDE18C08B1700673862 /* libz.dylib in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD9EDCC718C08AB300673862 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1332,6 +1939,11 @@
 			isa = PBXTargetDependency;
 			target = 04F6E560189A864D0057BD72 /* BSTell */;
 			targetProxy = 04F6E587189A864E0057BD72 /* PBXContainerItemProxy */;
+		};
+		BD9EDCD018C08AB300673862 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD9EDCB418C08AB200673862 /* BSTell_company */;
+			targetProxy = BD9EDCCF18C08AB300673862 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1344,10 +1956,10 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		04F6E58C189A864E0057BD72 /* InfoPlist.strings */ = {
+		BD9EDCBC18C08AB200673862 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				04F6E58D189A864E0057BD72 /* en */,
+				BD9EDCBD18C08AB200673862 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1515,6 +2127,86 @@
 			};
 			name = Release;
 		};
+		BD9EDCD918C08AB300673862 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BSTell_company/BSTell_company-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BSTell_company/BSTell_company-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BD9EDCDA18C08AB300673862 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BSTell_company/BSTell_company-Prefix.pch";
+				INFOPLIST_FILE = "BSTell_company/BSTell_company-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		BD9EDCDB18C08AB300673862 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BSTell_company.app/BSTell_company";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BSTell_company/BSTell_company-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BSTell_companyTests/BSTell_companyTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		BD9EDCDC18C08AB300673862 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BSTell_company.app/BSTell_company";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BSTell_company/BSTell_company-Prefix.pch";
+				INFOPLIST_FILE = "BSTell_companyTests/BSTell_companyTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1541,6 +2233,24 @@
 			buildConfigurations = (
 				04F6E597189A864E0057BD72 /* Debug */,
 				04F6E598189A864E0057BD72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD9EDCDE18C08AB300673862 /* Build configuration list for PBXNativeTarget "BSTell_company" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD9EDCD918C08AB300673862 /* Debug */,
+				BD9EDCDA18C08AB300673862 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD9EDCDF18C08AB300673862 /* Build configuration list for PBXNativeTarget "BSTell_companyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD9EDCDB18C08AB300673862 /* Debug */,
+				BD9EDCDC18C08AB300673862 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

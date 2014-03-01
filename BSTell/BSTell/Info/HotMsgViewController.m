@@ -23,6 +23,7 @@
     if(self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
     {
         self.type = Note_Info;
+        self.isDisable = YES;
     }
     return self;
 }
@@ -118,9 +119,9 @@
      //NSDictionary *data = [item objectForKey:@"DayDetailInfo"];
      vc.mData = item;
      */
-    if(indexPath.row == 2 && self.type == Note_New){
+    if(indexPath.row == 2 && self.type == Note_Info && self.isDisable){
     
-        kUIAlertView(@"信息", @"正在建设,敬请期待!");
+        kUIAlertView(@"提示", @"正在建设,敬请期待!");
         return;
     }
     

@@ -184,6 +184,8 @@
         headerText = [netData objectForKey:@"ggmc"];
         contentText = [netData objectForKey:@"txt"];
         moneyValue = [netData objectForKey:@"fbsj"];
+        moneyValue = [NSDate dateFormart:moneyValue fromFormart:@"YYYYMMddHHmmss" toFormart:@"YYYY-MM-dd HH:mm" ];
+        
     }
     contentTextView.text = contentText;
     headerView.text = headerText;

@@ -20,7 +20,7 @@
 #define kCellItemPending  30.f
 
 
-static  NSString* kTitleTextArray[] = {@"场次编号",@"场次名称",@"卖方单位",@"保证金",@"参加状态",@"",@"竞买时间",@""};
+static  NSString* kTitleTextArray[] = {@"场次名称",@"",@"场次编号",@"保证金",@"卖方单位",@"参加状态",@"竞买时间",@""};
 
 @implementation BidItemCell
 @synthesize userIconImageView;
@@ -52,7 +52,7 @@ static  NSString* kTitleTextArray[] = {@"场次编号",@"场次名称",@"卖方�
             startX = kLeftCellPendingX;
             //startY = startY+kTopCellPendingY;
             for(int j=0;j<2;j++){
-                if(i ==3||i== 2){
+                if(i ==3||i== 0){
                     if(j==1)
                         continue;
                 }
@@ -63,7 +63,7 @@ static  NSString* kTitleTextArray[] = {@"场次编号",@"场次名称",@"卖方�
                 SafeRelease(item);
                 startX = startX+kTitleLabelWidth+5.f;
                 CGRect labelRect = item.frame;
-                if(i ==3||i== 2){
+                if(i ==3||i== 0){
                     if(j==1){
                     
                     }

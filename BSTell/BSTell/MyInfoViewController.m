@@ -54,7 +54,7 @@
     [self setHiddenRightBtn:YES];
     [self setNavgationBarTitle:@"我的信息"];
     CGFloat currY = kMBAppTopToolBarHeight+80.f;
-    userNameLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(kLeftTextPendingX,currY,300.f, 30.f)];
+    userNameLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:26] withTextColor:[UIColor blackColor] withText:@"模拟公司" withFrame:CGRectMake(kLeftTextPendingX,currY,300.f, 30.f)];
     userNameLabel.textAlignment = NSTextAlignmentLeft;
   
     
@@ -119,8 +119,8 @@
     
     currY = currY +30.f;
     
-    userAgreeLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:14] withTextColor:[UIColor blueColor] withText:@"" withFrame:CGRectMake(kLeftTextPendingX,currY,300.f, 30.f)];
-    userAgreeLabel.hidden = YES;
+    userAgreeLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:16] withTextColor:[UIColor blueColor] withText:@"您共有0笔竞价合同未做到货确认" withFrame:CGRectMake(kLeftTextPendingX,currY,300.f, 30.f)];
+    userAgreeLabel.hidden = NO;
     userAgreeLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:userAgreeLabel];
     SafeRelease(userAgreeLabel);
@@ -135,7 +135,7 @@
 }
 - (void)myInforAction:(id)sender{
 
-     kUIAlertView(@"信息", @"正在建设,敬请期待!");
+     kUIAlertView(@"提示", @"正在建设,敬请期待!");
     return;
     OrderListViewController *vc = [[OrderListViewController alloc]initWithNibName:nil bundle:nil];
 //    NSDictionary *item = self.dataArray[indexPath.row];
@@ -203,7 +203,7 @@
     kNetEnd(self.view);
     //contentTextView.text = [netData objectForKey:@"agreement"];
     
-    userNameLabel.text = @"上海化工交易公司";
+    userNameLabel.text =  @"上海化工交易公司";
     NSString *moneyValue = nil;
 #if 0
     moneyValue = [netData objectForKey:@"availability"];

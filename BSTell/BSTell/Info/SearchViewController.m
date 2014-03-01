@@ -153,6 +153,7 @@
     [searchField resignFirstResponder];
     self.pageNum = 1;
     //searchField.text = @"苯酚";
+    [self.dataArray removeAllObjects];
     [self shouldLoadOlderData:nil];
     
 }

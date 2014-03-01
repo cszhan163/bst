@@ -26,6 +26,17 @@
 - (void)stopReflushTimer{
 
 }
+- (void)viewWillAppear:(BOOL)animated{
+    
+}
+- (void)viewDidAppear:(BOOL)animated{
+}
+- (void)viewDidDisappear:(BOOL)animated{
+
+}
+- (void)viewWillDisappear:(BOOL)animated{
+
+}
 #pragma mark -
 #pragma mark tableview
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -183,6 +194,11 @@
      NSString *year = [NSString stringWithFormat:@"%d",self.mCurrDate.year];
      NSString *carId = [AppSetting getUserCarId:[AppSetting getLoginUserId]];
      */
+    NSString *usrId = [AppSetting getLoginUserId];
+    if(usrId){
+        NSDictionary *usrData = [AppSetting getLoginUserData:usrId];
+        self.userId = [usrData objectForKey:@"hydm"];
+    }
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            self.userId,@"hydm",
                            @"10",@"limit",
@@ -190,7 +206,7 @@
                            @"2",@"startflag",
                            nil];
     
-    self.request = [cardShopMgr  queryAuctionPps4Move:param];
+    self.request = [cardShopMgr  queryAuctionPps4MoveII:param];
     return;
 }
 -(void)didNetDataOK:(NSNotification*)ntf
@@ -201,7 +217,7 @@
     id data = [obj objectForKey:@"data"];
     NSString *resKey = [obj objectForKey:@"key"];
     //NSString *resKey = [respRequest resourceKey];
-    if([resKey isEqualToString:kResBidAllListData])
+    if([resKey isEqualToString:kResBidAllListDataII])
     {
         //kNetEnd(self.view);
 #if 1
@@ -257,7 +273,9 @@
     
     
 }
-- (void)addObservers{
-
+- (void)reflushData{
+    
+    [self shouldLoadOlderData:nil];
 }
+
 @end

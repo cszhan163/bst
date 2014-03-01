@@ -75,8 +75,8 @@
     self.rightBtn.frame = newRect;
     [self.rightBtn setBackgroundImage:bgImage forState:UIControlStateNormal];
     [self.rightBtn setBackgroundImage:bgImage forState:UIControlStateSelected];
-    [self.rightBtn setTitle:@"进入竞价" forState:UIControlStateNormal];
-    [self.rightBtn setTitle:@"进入竞价" forState:UIControlStateHighlighted];
+    [self.rightBtn setTitle:@"竞价大厅" forState:UIControlStateNormal];
+    [self.rightBtn setTitle:@"竞价大厅" forState:UIControlStateHighlighted];
     self.rightBtn.titleLabel.font = [UIFont systemFontOfSize:13];
 }
 - (void)viewDidLoad
@@ -242,22 +242,27 @@
     NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
     int index = 0;
     NSString *value = @"";
+    
+    
+    value = [item objectForKey:@"wtmc"];
+    [cell setCellItemValue:value withIndex:index++];
     //id
     value = [item objectForKey:@"wtid"];
     [cell setCellItemValue:value withIndex:index++];
-    //
-    value = [item objectForKey:@"wtmc"];
+    
+
+    //起拍价
+    value = [item objectForKey:@"dfyj"];
+    value = [NSString stringWithFormat:@"%@ 元",value];
     [cell setCellItemValue:value withIndex:index++];
     
+    //
     //sell company
     value = [item objectForKey:@"hzjc"];
     
     [cell setCellItemValue:value withIndex:index++];
     
-    //起拍价
-    value = [item objectForKey:@"dfyj"];
-    value = [NSString stringWithFormat:@"%@ 元",value];
-    [cell setCellItemValue:value withIndex:index++];
+  
     
     //是否参加
     value = [item objectForKey:@"joinStatus"];
@@ -271,7 +276,9 @@
     //time
     NSString *startString = [item  objectForKey:@"kssj"];
     NSString *endString = [item objectForKey:@"jssj"];
-    value  = [NSString  stringWithFormat:@"%@ %@",startString,endString];
+    startString  = [NSDate  dateFormart:startString fromFormart:@"yyMMddHHmm" toFormart:@"yyyy-MM-dd    HH:mm"];
+    endString  = [NSDate  dateFormart:endString fromFormart:@"yyMMddHHmm" toFormart:@"HH:mm"];
+    value  = [NSString  stringWithFormat:@"%@ - %@",startString,endString];
     [cell setCellItemValue:value withIndex:index++];
     
     return cell;
@@ -317,8 +324,8 @@
     
 }
 -(void)didSelectorTopNavigationBarItem:(id)sender{
-
-
+   
+    
     if([sender tag] == 1){
     
         BidMainViewController *bidMainVc = [[BidMainViewController alloc]init];
@@ -349,7 +356,7 @@
                            @"3",@"wtzt",
                            self.userId,@"hydm",
                            @"10",@"limit",
-                           [self formartDateTime:date withFormat:@"yyyyMMdd"],@"rqStart",
+                           [NSDate formartDateTime:date withFormat:@"yyyyMMdd"],@"rqStart",
                            @"20991231",@"rqEnd",
                            nil];
     CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
@@ -371,6 +378,7 @@
     
     [super didNetDataOK:ntf];
     
+    
     id obj = [ntf object];
     id respRequest = [obj objectForKey:@"request"];
     id data = [obj objectForKey:@"data"];
@@ -383,8 +391,15 @@
         //        }
         //        kNetEndSuccStr(@"评论成功",self.view);
         //        [self dismissModalViewControllerAnimated:YES];
+#if 1
         [self reloadNetData:data];
-        
+#else
+//        if([[data objectForKey:@"data"] count]<10.f){
+//            isRefreshing = YES;
+//        }
+        self.dataArray = [data objectForKey:@"data"];
+#endif
+        //self.dataArray = [data objectForKey:@"data"];
         [self performSelectorOnMainThread:@selector(updateUIData:) withObject:data waitUntilDone:NO];
         
     }

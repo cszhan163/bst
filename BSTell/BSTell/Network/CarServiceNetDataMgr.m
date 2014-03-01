@@ -372,6 +372,44 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
 
 
 }
+- (void)queryAuctionPps4MoveII:(NSDictionary*)param{
+    /*
+     
+     hydm	会员代码
+     zc	专场代码
+     wtzt	场次状态
+     limit	数据条数默认10条
+     offset	第几页
+     rqStart	竞价日期1
+     rqEnd	竞价日期2
+     */
+    if(param == nil){
+        param = [NSDictionary dictionaryWithObjectsAndKeys:
+                 @"001",@"hydm",
+                 @"10",@"limit",
+                 @"1",@"offset",
+                 nil];
+    }
+    [self sendRequest:@"queryAuctionPps4Move" withVersion:kUrlVer withParam:param withOkBack:@selector(queryAuctionPps4MoveIIOk:) withFailedBack:@selector(queryAuctionPps4MoveIIFailed:)];
+    
+    
+}
+- (void)queryAuctionPps4MoveIIOk:(NSString*)result{
+
+    id data = [result JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kResBidAllListDataII];
+
+}
+- (void)queryAuctionPps4MoveIIFailed:(NSString*)error{
+    id data = [error JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalFailedData:finalData withKey:kResBidAllListDataII];
+}
 - (void)queryAuctionPps4MoveOk:(NSString*)result{
     
 #if 0

@@ -47,8 +47,8 @@
     self.rightBtn.frame = newRect;
     [self.rightBtn setBackgroundImage:bgImage forState:UIControlStateNormal];
     [self.rightBtn setBackgroundImage:bgImage forState:UIControlStateSelected];
-    [self.rightBtn setTitle:@"进入竞价" forState:UIControlStateNormal];
-    [self.rightBtn setTitle:@"进入竞价" forState:UIControlStateHighlighted];
+    [self.rightBtn setTitle:@"竞价大厅" forState:UIControlStateNormal];
+    [self.rightBtn setTitle:@"竞价大厅" forState:UIControlStateHighlighted];
     self.rightBtn.titleLabel.font = [UIFont systemFontOfSize:13];
 }
 - (void)viewDidLoad
@@ -334,12 +334,17 @@
     index = 0;
     row++;
     value = [netData objectForKey:@"auctionDate"];
+    
+    value = [NSDate  dateFormart:value fromFormart:@"yyMMdd" toFormart:@"yyyy-MM-dd"];
+    
     [headerView setCellItemValue:value withRow:row withCol:index++];
     
     value = [netData objectForKey:@"kssj"];
+    value = [NSDate  dateFormart:value fromFormart:@"yyyyMMddHHmm" toFormart:@"HH:mm"];
     [headerView setCellItemValue:value withRow:row withCol:index++];
     
     value = [netData objectForKey:@"jssj"];
+    value = [NSDate  dateFormart:value fromFormart:@"yyyyMMddHHmm" toFormart:@"HH:mm"];
     [headerView setCellItemValue:value withRow:row withCol:index++];
 }
 - (void)setTableCellView:(BidDetailTableViewCell*)tableView byData:(NSDictionary*)netData{
@@ -412,7 +417,14 @@
     index = 0;
     row++;
     value = [netData objectForKey:@"auctionStatus"];
-    [tableView setCellItemValue:value withRow:row withCol:index++];
+    NSString *statusStr = @"";
+    if([value intValue] == 1){
+        statusStr = @"未开始";
+    }
+    else{
+        statusStr = @"已开始";
+    }
+    [tableView setCellItemValue:statusStr withRow:row withCol:index++];
     
     value = [netData objectForKey:@"goodName"];
     [tableView setCellItemValue:value withRow:row withCol:index++];
@@ -479,7 +491,9 @@
 
 -(void)didSelectorTopNavigationBarItem:(id)sender{
     
-    
+    if([sender tag] == 0){
+        [self.navigationController popViewControllerAnimated:YES];
+    }
     if([sender tag] == 1){
         
         BidMainViewController *bidMainVc = [[BidMainViewController alloc]init];

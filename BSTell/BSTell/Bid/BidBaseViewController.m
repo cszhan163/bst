@@ -60,6 +60,7 @@
     tableViewBg.userInteractionEnabled = YES;
      
     navItemCtrl = [[NENavItemController alloc]init];
+    navItemCtrl.delegate = self;
     //self.dataSouce = self;
     //navItemCtrl.toolbarItems =
     NSArray *vcArray = [self.dataSouce viewControllersForNavItemController:self];

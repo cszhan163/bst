@@ -11,4 +11,5 @@
 @interface BidPrepareViewController : BSTellNetListBaseViewController
 - (void)startReflushjTimer;
 - (void)stopReflushTimer;
+- (void)reflushData;
 @end

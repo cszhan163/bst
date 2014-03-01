@@ -131,12 +131,12 @@
     
     currY = currY+5.f;
     
-    currBidPriceLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:14] withTextColor:[UIColor blackColor] withText:@"当前价:--" withFrame:CGRectMake(kLeftPendingX, currY, 120.f, 20.f)];
+    currBidPriceLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:14] withTextColor:[UIColor blackColor] withText:@"当前价:" withFrame:CGRectMake(kLeftPendingX, currY, 120.f, 20.f)];
     currBidPriceLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:currBidPriceLabel];
     SafeRelease(currBidPriceLabel);
     
-    bidStepPriceLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:14] withTextColor:[UIColor blackColor] withText:@"竞价梯度:--" withFrame:CGRectMake(kLeftPendingX+160.f, currY, 140.f, 20.f)];
+    bidStepPriceLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:14] withTextColor:[UIColor blackColor] withText:@"竞价梯度:" withFrame:CGRectMake(kLeftPendingX+160.f, currY, 140.f, 20.f)];
     bidStepPriceLabel.textAlignment = NSTextAlignmentRight;
     [self.view addSubview:bidStepPriceLabel];
     SafeRelease(bidStepPriceLabel);
@@ -150,7 +150,7 @@
     [self.view  addSubview:customBidPriceTextFiled];
     SafeRelease(customBidPriceTextFiled);
 #endif
-    delegateBidPriceLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:14] withTextColor:[UIColor greenColor] withText:@"当前委托:--" withFrame:CGRectMake(kLeftPendingX+160.f, currY, 140.f, 20.f)];
+    delegateBidPriceLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:14] withTextColor:[UIColor blackColor] withText:@"当前委托:" withFrame:CGRectMake(kLeftPendingX+160.f, currY, 140.f, 20.f)];
     
     delegateBidPriceLabel.textAlignment = NSTextAlignmentRight;
     
@@ -247,24 +247,40 @@
     //id
     value = [item objectForKey:@"dqj"];
     //[cell setCellItemValue:value withIndex:index++];
-    currBidPriceLabel.text = [NSString stringWithFormat:@"当前价:%0.2lf",[value floatValue]];
+    if([value floatValue] == 0){
+        value = @"----";
+    }
+    else{
+        value = [NSString stringWithFormat:@"%@元",value];
+    }
+    currBidPriceLabel.text = [NSString stringWithFormat:@"当前价:%@ ",value];
     
     value = [item objectForKey:@"bjtd"];
-    bidStepPriceLabel.text = [NSString stringWithFormat:@"竞价梯度:%0.2lf",[value floatValue]];
+    bidStepPriceLabel.text = [NSString stringWithFormat:@"竞价梯度:%@ 元",value];
     
     value = [item objectForKey:@"wtprice"];
-    delegateBidPriceLabel.text = [NSString stringWithFormat:@"当前委托:%0.2lf",[value floatValue]];
+    
+    if([value floatValue] == 0){
+        value = @"----";
+    }
+    else{
+        value = [NSString stringWithFormat:@"%@元",value];
+    }
+    
+    delegateBidPriceLabel.text = [NSString stringWithFormat:@"当前委托:%@ ",value];
     
     value = [item objectForKey:@"wtprice"];
     if([value isEqualToString:@"0"]){
-        self.isDelegate = NO;
-        [bidStatusBtn setTitle:@"取消委托" forState:UIControlStateNormal];
-        [bidStatusBtn setTitle:@"取消委托" forState:UIControlStateSelected];
-    }
-    else{
         
         [bidStatusBtn setTitle:@"委托出价" forState:UIControlStateNormal];
         [bidStatusBtn setTitle:@"委托出价" forState:UIControlStateSelected];
+        delegateBidPriceLabel.text = [NSString stringWithFormat:@"当前委托:%@",@"----"];
+    }
+    else{
+        self.isDelegate = NO;
+        [bidStatusBtn setTitle:@"取消委托" forState:UIControlStateNormal];
+        [bidStatusBtn setTitle:@"取消委托" forState:UIControlStateSelected];
+        
         
     }
      value = [item objectForKey:@"wtmc"];
@@ -275,23 +291,26 @@
     
     
     value = [item objectForKey:@"auctionStatus"];
-    if([value intValue] == 1){
+    if([value intValue] == 2){
         [leftTitleCellView setCellItemValue:@"竞价中" withRow:index++];
     }
     else{
     
-        [leftTitleCellView setCellItemValue:@"完成" withRow:index++];
+        [leftTitleCellView setCellItemValue:@"未开始" withRow:index++];
     }
     
     value = [item objectForKey:@"jssj"];
+    value = [NSDate  dateFormart:value fromFormart:@"yyyyMMddHHmm" toFormart:@"HH:mm"];
     [leftTitleCellView setCellItemValue:value withRow:index++];
     
     
     value = [item objectForKey:@"qpj"];
+    value = [NSString stringWithFormat:@"%@ 元",value];
     [leftTitleCellView setCellItemValue:value withRow:index++];
     
     
     value = [item objectForKey:@"myPrice"];
+    value = [NSString stringWithFormat:@"%@ 元",value];
     [leftTitleCellView setCellItemValue:value withRow:index++];
     
     
@@ -301,13 +320,24 @@
     CGFloat currPrice = [value floatValue];
     //sell company
     value = [item objectForKey:@"myPrice"];
+    
+    CGFloat myPrice = [value floatValue];
     NSString *statusStr = @"落后";
     if([value floatValue]>=currPrice){
         statusStr = @"领先";
-        
+        [leftTitleCellView setValueColorByIndex:index withColor:[UIColor redColor]];
+    }
+    else{
+        [leftTitleCellView setValueColorByIndex:index withColor:[UIColor greenColor]];
     }
 
-    
+    value = [item objectForKey:@"qpj"];
+    CGFloat basePrice = [value floatValue];
+    if(myPrice<basePrice){
+        statusStr = @"未出价";
+        [leftTitleCellView setValueColorByIndex:index withColor:[UIColor blackColor]];
+        
+    }
     //value = [item objectForKey:@"goodName"];
     [leftTitleCellView setCellItemValue:statusStr withRow:index++];
     
@@ -315,7 +345,7 @@
     [leftTitleCellView setCellItemValue:value withRow:index++];
     
     
-    value = [NSString stringWithFormat:@"%@ %@",[item objectForKey:@"weight"],[item objectForKey:@"unit"]];
+    value = [NSString stringWithFormat:@"%@ %@",[item objectForKey:@"weight"],[item objectForKey:@"priceUnit"]];
     
     [leftTitleCellView setCellItemValue:value withRow:index++];
     

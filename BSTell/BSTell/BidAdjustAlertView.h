@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface BidAdjustAlertView : UIView
-
+@property(nonatomic,assign)CGFloat basePrice;
+@property(nonatomic,assign)CGFloat stepPrice;
+@property(nonatomic,strong)NSString *priceModeString;
 @end

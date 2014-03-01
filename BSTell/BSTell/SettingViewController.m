@@ -121,7 +121,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if(indexPath.row<3){
-        kUIAlertView(@"信息", @"正在建设,敬请期待!");
+        kUIAlertView(@"提示", @"正在建设,敬请期待!");
     }
     else{
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://4008206662"]];

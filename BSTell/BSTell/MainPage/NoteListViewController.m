@@ -135,7 +135,7 @@
         cell.noteTextLabel.text = title;
         
         title = [item objectForKey:@"fbsj"];
-        
+        title = [NSDate dateFormart:title fromFormart:@"YYYYMMdd" toFormart:@"YYYY-MM-dd" ];
         cell.noteDetailTextLabel.text = title;
     }
     

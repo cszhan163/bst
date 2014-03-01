@@ -29,7 +29,7 @@
 
 @interface BidStartedViewController(){
 
-    
+    NSTimer *timer;
 }
 @property(nonatomic,retain)NSTimer *timer;
 @end
@@ -191,7 +191,7 @@
     index =0;
     //sell company
     value = [item objectForKey:@"jssj"];
-    
+    value = [NSDate  dateFormart:value fromFormart:@"yyyyMMddHHmm" toFormart:@"HH:mm"];
     [cell setCellItemValue:value withRow:row withCol:index++];
     
     //起拍价
@@ -201,6 +201,7 @@
     
     //是否参加
     value = [item objectForKey:@"myPrice"];
+    
    
     [cell setCellItemValue:value withRow:row withCol:index++];
 #else
@@ -214,6 +215,8 @@
     //sell company
     value = [item objectForKey:@"zys"];
     
+    value = [NSString stringWithFormat:@"%@ 吨",value];
+    
     [cell setCellItemValue:value withRow:row withCol:index++];
     
     //sell company
@@ -224,7 +227,11 @@
     CGFloat currPrice = [value floatValue];
     
     if(currPrice == 0.f){
-        [cell setBidButtonTitle:@"低价\n出价"];
+        [cell setBidButtonTitle:@"底价\n出价"];
+        value = @"----";
+    }
+    else{
+        value = [NSString stringWithFormat:@"%@ 元",value];
     }
     [cell setCellItemValue:value withRow:row withCol:index++];
     
@@ -232,7 +239,8 @@
     //sell company
     value = [item objectForKey:@"myprice"];
     NSString *statusStr = @"落后";
-    if([value floatValue]>=currPrice){
+    CGFloat myPrice = [value floatValue];
+    if(myPrice>=currPrice ){
         statusStr = @"领先";
         [cell setValueColorByIndex:index withColor:[UIColor redColor]];
     }
@@ -241,7 +249,7 @@
     }
     value = [item objectForKey:@"qpj"];
     CGFloat basePrice = [value floatValue];
-    if([value floatValue]<basePrice){
+    if(myPrice<basePrice){
         statusStr = @"未出价";
         [cell setValueColorByIndex:index withColor:[UIColor blackColor]];
         
@@ -250,7 +258,7 @@
     
     //sell company
     value = [item objectForKey:@"jssj"];
-    
+    value = [NSDate  dateFormart:value fromFormart:@"yyyyMMddHHmm" toFormart:@"HH:mm"];
     [cell setCellItemValue:value withRow:row withCol:index++];
     
 #endif
@@ -305,8 +313,8 @@
      */
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            self.userId,@"hydm",
-                           @"10",@"limit",
-                           @"1",@"offset",
+                           //@"10",@"limit",
+                           //@"1",@"offset",
                            @"1",@"startflag",
                            nil];
     
@@ -405,9 +413,9 @@
     finalPrice = [price floatValue];
     if([price floatValue] == 0.f){
         
-        //finalPrice = [[item objectForKey:@"qpj"]floatValue];
+        finalPrice = [[item objectForKey:@"qpj"]floatValue];
         //finalPrice = @"---";
-        msg = [NSString stringWithFormat:@"请确认是否对下列物资出价\n 场次:%@ \n 品名:%@ \n 出价:%@",sessionId,goodName,@"---"];
+        msg = [NSString stringWithFormat:@"请确认是否对下列物资出价\n 场次:%@ \n 品名:%@ \n 出价:%0.2f",sessionId,goodName,finalPrice];
     }
     else{
         finalPrice = [price floatValue]+currStep;

@@ -9,7 +9,7 @@
 #import "BidConfirmViewController.h"
 #import "BidMainViewController.h"
 
-#define kLeftPendingX 20.f
+#define kLeftPendingX 10.f
 
 #define kAgrementText  @"为了给所有注册会员创造一个公平公正、竞争有序的网上交易环境，严肃交易行为，保证买卖双方按交易结果签约付款，强化交易信用的保证机制，“化工宝”对会员交易保证金作如下相关说明：\
 \n1. 凡交易会员在通过“化工宝”从事网上交易（挂牌交易或竞价交易）时，为了保证买卖双方能够按照成交信息按时签约付款，减少违约情况的发生, 买卖双方各\自的东方付通账户内一定数额的备付金将自动锁定为保证金，保证金金额由卖方根据实际场次的要求而定。\
@@ -69,7 +69,7 @@
     
     
     //
-    contentTextView = [[UITextView alloc]initWithFrame:CGRectMake(kLeftPendingX,kLeftPendingX,image.size.width/2.f-2*kLeftPendingX, confirmTextBgView.frame.size.height-80.f)];
+    contentTextView = [[UITextView alloc]initWithFrame:CGRectMake(kLeftPendingX,kLeftPendingX,image.size.width/2.f-2*kLeftPendingX, confirmTextBgView.frame.size.height-90.f)];
     contentTextView.font = [UIFont systemFontOfSize:13];
     contentTextView.editable = NO;
     contentTextView.backgroundColor = [UIColor clearColor];
@@ -95,10 +95,10 @@
     UIImageWithFileName(image , @"bid_money_bg.png");
     
     UIImageView *bidMoneyBgView = [[UIImageView alloc]initWithFrame:CGRectZero];
-    bidMoneyBgView.frame = CGRectMake(0.f, 5.f+currY+confirmTextBgView.frame.size.height-image.size.height/2.f, image.size.width/kScale,image.size.height/kScale);
+    bidMoneyBgView.frame = CGRectMake(-10.f, 10.f+currY+confirmTextBgView.frame.size.height-image.size.height/2.f-100.f, image.size.width/kScale,image.size.height/kScale);
     bidMoneyBgView.image = image;
     bidMoneyBgView.userInteractionEnabled = YES;
-    [self.view addSubview:bidMoneyBgView];
+    [confirmTextBgView insertSubview:bidMoneyBgView belowSubview:contentTextView];
     SafeRelease(bidMoneyBgView);
     
     
@@ -171,7 +171,11 @@
         
     }
     if([resKey isEqualToString:kResBidAgreeAction]){
-        [self performSelectorOnMainThread:@selector(bidAgreeAction:) withObject:nil  waitUntilDone:NO];
+        
+        BidMainViewController *bidMainVc = [[BidMainViewController alloc]init];
+        [self.navigationController pushViewController:bidMainVc animated:YES];
+        SafeRelease(bidMainVc);
+        //[self performSelectorOnMainThread:@selector(bidAgreeAction:) withObject:nil  waitUntilDone:NO];
     }
     
     //self.view.userInteractionEnabled = YES;
@@ -184,9 +188,17 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     if(buttonIndex == 0){
-        BidMainViewController *bidMainVc = [[BidMainViewController alloc]init];
-        [self.navigationController pushViewController:bidMainVc animated:YES];
-        SafeRelease(bidMainVc);
+        
+        NSString *operId = [[AppSetting getLoginUserData:[AppSetting getLoginUserId]] objectForKey:@"czy"];
+        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                               self.userId,@"hydm",
+                               self.wtid,@"wtid",
+                               operId,@"czy",
+                               nil];
+        CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
+        self.request = [carServiceNetDataMgr  joinBuy4Move:param];
+        
+       
     }
     
 }
@@ -208,14 +220,7 @@
         /*
          
          */
-         NSString *operId = [[AppSetting getLoginUserData:[AppSetting getLoginUserId]] objectForKey:@"czy"];
-        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                               self.userId,@"hydm",
-                               self.wtid,@"wtid",
-                               operId,@"czy",
-                               nil];
-        CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
-        self.request = [carServiceNetDataMgr  joinBuy4Move:param];
+        [self bidAgreeAction:nil];
        
     }
     else{

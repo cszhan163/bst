@@ -43,6 +43,10 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
     }
     return self;
 }
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    //[self.navigationController popToRootViewControllerAnimated:YES];
+}
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     if([AppSetting getLoginUserId]&&![[AppSetting getLoginUserId]isEqualToString:@""] && !isLogin){
@@ -50,6 +54,7 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
         
         [self didUserLogin:nil];
     }
+    
 }
 - (void)viewDidLoad
 {
@@ -202,7 +207,7 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
         case 5:{
             //if(indexPath.row<3)
             {
-                kUIAlertView(@"信息", @"正在建设,敬请期待!");
+                kUIAlertView(@"提示", @"正在建设,敬请期待!");
                 return;
             }
             OrderListViewController *noteListVc = [[OrderListViewController alloc]init];

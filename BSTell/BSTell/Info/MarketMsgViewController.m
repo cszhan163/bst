@@ -60,6 +60,15 @@
 
 
 @implementation MarketMsgViewController
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    if(self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
+    {
+        self.type = Note_Info;
+        self.isDisable = NO;
+    }
+    return self;
+}
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if(level == Class_One)
