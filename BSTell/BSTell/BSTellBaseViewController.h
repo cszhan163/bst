@@ -7,8 +7,11 @@
 //
 
 #import "UISimpleNetBaseViewController.h"
-
-@interface BSTellBaseViewController : UISimpleNetBaseViewController<UIBaseViewControllerDelegate>
+#import "BSTellTimerReflushDataProcotol.h"
+@interface BSTellBaseViewController : UISimpleNetBaseViewController<UIBaseViewControllerDelegate,BSTellTimerReflushDataProcotol>{
+   
+}
+@property   (nonatomic,strong)  NSTimer *timer;
 @property   (nonatomic,assign) BOOL needLogin;
 @property   (nonatomic,assign) NoteType type;
 @property   (nonatomic,strong) NSString *userId;

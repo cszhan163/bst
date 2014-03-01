@@ -50,6 +50,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     //[self startReflushjTimer];
+    //[self reflushData];
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -65,7 +66,7 @@
     [self setTopNavBarHidden:YES];
     CGRect rect =  tweetieTableView.frame;
     tweetieTableView.frame = CGRectMake(rect.origin.x, rect.origin.y, kDeviceScreenWidth, rect.size.height-43.f);
-    [self startReflushjTimer];
+    //[self startReflushjTimer];
 	// Do any additional setup after loading the view.
 }
 - (void)startReflushjTimer{
@@ -276,7 +277,7 @@
     
     NSDictionary *item = self.dataArray[indexPath.row];
     
-    NSString *goodId = [item objectForKey:@"goodId"];
+    NSString *goodId = [item objectForKey:@"id"];
     
     BidItemDetailViewController *vc = [[BidItemDetailViewController alloc]initWithNibName:nil bundle:nil];
     vc.bidType = Bid_Prepare;
@@ -303,6 +304,12 @@
 
 - (void) shouldLoadOlderData:(NTESMBTweetieTableView *) tweetieTableView{
 
+    
+    NSString *usrId = [AppSetting getLoginUserId];
+    if(usrId){
+        NSDictionary *usrData = [AppSetting getLoginUserData:usrId];
+        self.userId = [usrData objectForKey:@"hydm"];
+    }
     CarServiceNetDataMgr *cardShopMgr = [CarServiceNetDataMgr getSingleTone];
     
     //kNetStartShow(@"数据加载...", self.view);

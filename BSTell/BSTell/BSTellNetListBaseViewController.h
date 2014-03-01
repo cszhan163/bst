@@ -7,8 +7,10 @@
 //
 
 #import "UIImageNetBaseViewController.h"
+#import "BSTellTimerReflushDataProcotol.h"
 @class BSTellBaseViewController;
-@interface BSTellNetListBaseViewController : UIImageNetBaseViewController{
+@protocol BSTellTimerReflushDataProcotol;
+@interface BSTellNetListBaseViewController : UIImageNetBaseViewController<BSTellTimerReflushDataProcotol>{
     
 }
 @property (nonatomic,assign) BOOL isNeedLogin;

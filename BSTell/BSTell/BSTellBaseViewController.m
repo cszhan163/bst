@@ -27,7 +27,14 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self needCheckLogin];
-   
+    if([self respondsToSelector:@selector(startReflushjTimer)])
+        [self startReflushjTimer];
+    
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    if([self respondsToSelector:@selector(stopReflushTimer)])
+        [self stopReflushTimer];
 }
 - (BOOL)needCheckLogin{
 

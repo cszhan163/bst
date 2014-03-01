@@ -20,7 +20,6 @@
 }
 @property(nonatomic,strong) NSArray *startedDataArray;
 @property(nonatomic,strong) NSArray *prepareDataArray;
-@property(nonatomic,retain)NSTimer *timer;
 @end
 
 @implementation BidMainViewController
@@ -45,14 +44,10 @@
     [self setNavgationBarTitle:@"竞买出价"];
     
 }
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    //[navItemCtrl.currentViewController startReflushjTimer];
-    // - (void)stopReflushTimer;];
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self didSelectorNavItem:nil];
 }
-//- (void)viewWillDisappear:(BOOL)animated{
-//    [//navItemCtrl.currentViewController viewWillDisappear:animated];
-//}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -182,5 +177,7 @@
     [self.timer invalidate];
     self.timer = nil;
 }
-
+- (void)reflushData{
+    [navItemCtrl.currentViewController reflushData];
+}
 @end

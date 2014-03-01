@@ -449,6 +449,11 @@ BOOL isFromLowMemory = NO;
 -(void)didSelectorNavBarItemIndex:(NSInteger)index
 {
     [self didSelectorTabItem:index];
+    if(index == 2){
+        
+        [(UINavigationController*)mainTabBarVC.currentViewController popToRootViewControllerAnimated:NO];
+        
+    }
     
 }
 -(void)didSelectorTabItem:(NSInteger)index

@@ -204,7 +204,7 @@ static UIButton *popup = nil;
         NSString *classNameStr = TabMainClassArray[i];
         UIViewController *vcontroller1 = [[NSClassFromString(classNameStr)alloc]init];
         UINavigationController *navCtrl1 = [[UINavigationController alloc]initWithRootViewController:vcontroller1];
-        
+        //navCtrl1.delegate =  self;
         navCtrl1.navigationBarHidden = YES;
         navCtrl1.view.backgroundColor = [UIColor whiteColor];
         //navCtrl1.delegate = self;
@@ -454,4 +454,21 @@ static UIButton *popup = nil;
 	[viewController viewDidAppear:animated];
 }
 #endif
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    NSArray *vcArray = navigationController.viewControllers ;
+    UIViewController *preVc = nil;
+    if([vcArray count]>1){
+        preVc = [vcArray objectAtIndex:[vcArray count]-1];
+    }
+    if(navigationController.navigationBarHidden){
+        [viewController viewWillAppear:(BOOL)animated];
+        [preVc viewWillDisappear:animated];
+    }
+
+}
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+
+
+}
 @end

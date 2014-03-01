@@ -736,6 +736,7 @@
 		BD9EDCBF18C08AB200673862 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BD9EDCC118C08AB200673862 /* BSTell_company-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BSTell_company-Prefix.pch"; sourceTree = "<group>"; };
 		BD9EDCCB18C08AB300673862 /* BSTell_companyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BSTell_companyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD9EDDED18C1B58B00673862 /* BSTellTimerReflushDataProcotol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSTellTimerReflushDataProcotol.h; sourceTree = "<group>"; };
 		BDE7BD7718B0D16800A82198 /* HotMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotMsgViewController.h; sourceTree = "<group>"; };
 		BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotMsgViewController.m; sourceTree = "<group>"; };
 		BDE7BD7918B0D16800A82198 /* MarketMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketMsgViewController.h; sourceTree = "<group>"; };
@@ -1161,6 +1162,7 @@
 				BD593A1E18BCF538007B4F5C /* LoginViewController.m */,
 				BD593A3518BE4BD3007B4F5C /* AppSetting.h */,
 				BD593A3618BE4BD3007B4F5C /* AppSetting.m */,
+				BD9EDDED18C1B58B00673862 /* BSTellTimerReflushDataProcotol.h */,
 			);
 			path = BSTell;
 			sourceTree = "<group>";

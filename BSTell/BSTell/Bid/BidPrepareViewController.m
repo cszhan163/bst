@@ -69,7 +69,7 @@
         
 #endif
 #if 1
-        [cell addColumWithKeyTitleArray:@[@"场次",@"物资号",@"开始时间"] withColumWidthArray:kHeaderColounmItemWidthArray];
+        [cell addColumWithKeyTitleArray:@[@"场次",@"品名",@"开始时间"] withColumWidthArray:kHeaderColounmItemWidthArray];
         
        // [cell addColumWithKeyTitleArray:@[@"结束时间",@"竞价梯度",@"我的出价"] withColumWidthArray:kHeaderColounmItemWidthArray];
 #else
@@ -107,7 +107,7 @@
     [cell setCellItemValue:value withRow:row withCol:index++];
     //
 #if 0
-    value = [item objectForKey:@"id"];
+    value = [item objectForKey:@"goodName"];
     [cell setCellItemValue:value withRow:row withCol:index++];
     
     //sell company
@@ -134,7 +134,7 @@
     
     
     
-    value = [item objectForKey:@"id"];
+    value = [item objectForKey:@"goodName"];
     [cell setCellItemValue:value withRow:row withCol:index++];
     
     //sell company
@@ -143,7 +143,7 @@
 //    [cell setCellItemValue:value withRow:row withCol:index++];
     //sell company
     value = [item objectForKey:@"jssj"];
-    
+    value = [NSDate  dateFormart:value fromFormart:@"yyyyMMddHHmm" toFormart:@"HH:mm"];
     [cell setCellItemValue:value withRow:row withCol:index++];
     
 #endif

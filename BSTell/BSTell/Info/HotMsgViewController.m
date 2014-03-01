@@ -34,6 +34,10 @@
     [self setHiddenLeftBtn:YES];
     mainView.topBarView.backgroundColor = [UIColor clearColor];
     tweetieTableView.normalEdgeInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, 0.f);
+    
+    tweetieTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    tweetieTableView.separatorColor = [UIColor whiteColor];
+    
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

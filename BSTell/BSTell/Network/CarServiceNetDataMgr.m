@@ -558,6 +558,37 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
     
     [self sendFinalFailedData:error withKey:kResBidItemData];
 }
+//
+- (void)saveAuction4MoveDetail:(NSDictionary*)param{
+    
+    
+    /*
+     hydm	会员代码
+     limit	数据条数默认10条
+     offset	第几页
+     
+     */
+    if(param == nil){
+        param = [NSDictionary dictionaryWithObjectsAndKeys:
+                 @"001",@"wtid",
+                 //@"10",@"id",
+                 //@"1",@"offset",
+                 nil];
+    }
+    [self sendRequest:@"saveAuction4Move" withVersion:kUrlVer withParam:param withOkBack:@selector(saveAuction4MoveDetailOk:) withFailedBack:@selector(saveAuction4MoveDetailFailed:)];
+    
+}
+- (void)saveAuction4MoveDetailOk:(NSString*)result{
+    id data = [result JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kResBidDetailSaveData];
+}
+- (void)saveAuction4MoveDetailFailed:(NSString*)error{
+    
+    [self sendFinalFailedData:error withKey:kResBidDetailSaveData];
+}
 
 - (void)saveAuction4Move:(NSDictionary*)param{
 

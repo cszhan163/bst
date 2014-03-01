@@ -8,12 +8,12 @@
 
 #import "BidItemDetailViewController.h"
 #import "LeftTitleListCell.h"
-
+#import "BidAdjustAlertView.h"
 #define kLeftPendingX  10
 
 #define kItemPendingY   @20
 
-@interface BidItemDetailViewController (){
+@interface BidItemDetailViewController ()<BidAdjustAlertViewDelegate>{
 
     LeftTitleListCell *leftTitleCellView;
     
@@ -24,7 +24,8 @@
     UITextField *customBidPriceTextFiled;
     
     UIButton *bidStatusBtn;
-
+    BidAdjustAlertView *bidAdjustView;
+    int bidMode;
 }
 @end
 
@@ -37,8 +38,20 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        bidMode = 3;
     }
     return self;
+}
+- (void)startReflushjTimer{
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:kBidReflushTimer target:self selector:@selector(reflushData) userInfo:nil repeats:YES];
+    
+}
+- (void)stopReflushTimer{
+    [self.timer invalidate];
+    self.timer = nil;
+}
+- (void)reflushData{
+    [self shouldLoadData];
 }
 
 - (void)viewDidLoad
@@ -181,6 +194,10 @@
     [bidStatusBtn addTarget:self action:@selector(startBidPrice:) forControlEvents:UIControlEventTouchUpInside];
     bidStatusBtn.frame = CGRectMake(kDeviceScreenWidth-20.f-bidStatusBtn.frame.size.width,currY+15.f, bidStatusBtn.frame.size.width, bidStatusBtn.frame.size.height);
 	// Do any additional setup after loading the view.
+    
+    bidAdjustView = [[BidAdjustAlertView alloc]initWithFrame:CGRectMake(0.f, 0.f,300.f,280.f) withHeadTitle:@""];
+    bidAdjustView.delegate = self;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -219,11 +236,35 @@
         //        [self dismissModalViewControllerAnimated:YES];
         
         
-        
+        self.data = data;
         [self performSelectorOnMainThread:@selector(updateUIData:) withObject:data waitUntilDone:NO];
         
     }
     
+    if([resKey isEqualToString:kResBidDetailSaveData])
+    {
+        //        if ([self.externDelegate respondsToSelector:@selector(commentDidSendOK:)]) {
+        //
+        NSString *msg = [data objectForKey:@"msg"];
+        if([[data objectForKey:@"result"]intValue] == 1){
+            if(bidMode == 5){
+                kUIAlertView(@"提示", @"取消委托成功");
+            }
+            else if(bidMode == 0)
+            {
+                kUIAlertView(@"提示", @"委托出价成功");
+            }
+            else
+            {
+                kUIAlertView(@"提示", @"出价成功");
+            }
+        }
+        else{
+            
+            kUIAlertView(@"提示", msg);
+        }
+        [self shouldLoadData];
+    }
     //self.view.userInteractionEnabled = YES;
 }
 - (void)updateUIData:(NSDictionary*)netData{
@@ -375,23 +416,127 @@
 #pragma mark -
 #pragma mark -
 
-- (void)startBidPrice:(id)sender{
+- (void)startBidPrice:(UIButton*)sender{
     
     ////弹出梯度设置框（梯度出价，委托出价）
+    CGFloat currPrice = [[self.data objectForKey:@"dqj"]floatValue];
+    CGFloat stepPrice = [[self.data objectForKey:@"bjtd"]floatValue];
     
     NSInteger index = [sender tag];
     switch (index) {
         case 0:
-            
+            /*
+            BidAdjustAlertView *bidAdjustView = [[BidAdjustAlertView alloc]initWithFrame:CGRectMake(0.f, 0.f,300.f,280.f) withHeadTitle:@""];
+             */
+            //bidAdjustView.priceModeString =
+            bidAdjustView.stepPrice = stepPrice;
+            bidAdjustView.basePrice = currPrice;
+            [bidAdjustView setHeadTitle:@"出价确认"];
+            [bidAdjustView updateUILayout];
+            [bidAdjustView show];
+            bidMode = 3;
             break;
         case 1:
             
             break;
         case 2:
+            
+            if([sender.titleLabel.text isEqualToString:@"取消委托"]){
+                bidMode = 5;
+                
+                kUIAlertConfirmView(@"提示", @"是否取消委托", @"确定", @"取消");
+            }
+            else{
+                bidAdjustView.stepPrice = stepPrice;
+                bidAdjustView.basePrice = currPrice;
+                //bidAdjustView.priceModeString =
+                [bidAdjustView setHeadTitle:@"委托出价确认"];
+                [bidAdjustView updateUILayout];
+                [bidAdjustView show];
+                bidMode = 0;
+            }
             break;
         default:
             break;
     }
+
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if(buttonIndex == 0){
+        
+        [self startBid:0.f];
+        
+    }
+    
+}
+
+- (void)didClickCancelButton:(id)sender {
+
+
+}
+- (void)didClickOkButton:(id)sender withPrice:(CGFloat)price{
+
+    [self startBid:price];
+
+}
+- (void)startBid:(CGFloat)finalPrice {
+
+    
+    CarServiceNetDataMgr *cardShopMgr = [CarServiceNetDataMgr getSingleTone];
+    
+    //kNetStartShow(@"数据加载...", self.view);
+    /*
+     NSString *month = [NSString stringWithFormat:@"%02d",self.mCurrDate.month];
+     NSString *year = [NSString stringWithFormat:@"%d",self.mCurrDate.year];
+     NSString *carId = [AppSetting getUserCarId:[AppSetting getLoginUserId]];
+     */
+    /*
+     
+     报价类型
+     price
+     价格
+     id
+     拼盘号
+     hydm
+     
+     会员代码
+     jjms
+     竞价模式
+     
+     1 公开增价
+     2 自由报价
+     bpfs
+     报盘方式
+     
+     1 单价
+     2 总价
+     
+     
+     
+     "委托出价",
+     "一口价",
+     "自由报价模式出价",
+     "公开增价模式出价",
+     "公开降价模式出价",
+     "取消委托出价"
+     分别对应0，1，2，3，4，5，其它
+     */
+    NSString *operId = [[AppSetting getLoginUserData:[AppSetting getLoginUserId]] objectForKey:@"czy"];
+    /*
+     NSString *myPrice = [currBidItem objectForKey:@"myPrice"];
+     assert(myPrice);
+     */
+    NSString *bidModeStr = [NSString stringWithFormat:@"%d",bidMode];
+    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                           self.userId,@"hydm",
+                           bidModeStr,@"bjlb",
+                           [NSString stringWithFormat:@"%lf",finalPrice],@"price",
+                           self.goodId,@"id",
+                           operId,@"czy",
+                           nil];
+    
+    self.request = [cardShopMgr  saveAuction4MoveDetail:param];
 
 }
 @end

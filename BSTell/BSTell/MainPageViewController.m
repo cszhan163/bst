@@ -18,6 +18,8 @@
 
 #import "CardShopLoginViewController.h"
 
+#import "BidAdjustAlertView.h"
+
 #define kItemLeftPendingX    6.f
 
 #define kItemPendingY   2.f
@@ -56,9 +58,22 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
     }
     
 }
+- (void)test{
+
+    BidAdjustAlertView *bidAdjustView = [[BidAdjustAlertView alloc]initWithFrame:CGRectMake(0.f, 0.f,300.f,280.f) withHeadTitle:@""];
+    bidAdjustView.stepPrice = 100.f;
+    bidAdjustView.basePrice = 200.f;
+    //bidAdjustView.priceModeString =
+    [bidAdjustView setHeadTitle:@"出价确认"];
+    [bidAdjustView show];
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   
+    
+    
 	// Do any additional setup after loading the view.
     
     [self setHiddenLeftBtn:YES];
@@ -150,6 +165,9 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
     switch (index) {
         case 1:{
            
+//            [self test];
+//            return;
+            
 #if 0
             BidMainViewController *bidMainVc = [[BidMainViewController alloc]init];
             [self.navigationController pushViewController:bidMainVc animated:YES];
