@@ -79,20 +79,29 @@
     accountView.frame = CGRectMake(0.f, currY, image.size.width/kScale, image.size.height/kScale);
     
     
-    userAccountLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blueColor] withText:@"80,000" withFrame:CGRectMake(kLeftPendingX,currY+10.f,300.f, 30.f)];
+    userAccountLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16]
+                                        withTextColor:HexRGB(0, 161, 231)
+                                             withText:@"80,000"
+                                            withFrame:CGRectMake(kLeftPendingX,currY+10.f,300.f, 30.f)];
     currY = currY+30.f;
     userAccountLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:userAccountLabel];
     SafeRelease(userAccountLabel);
     
     
-    userAvaiableLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor greenColor] withText:@"80,000" withFrame:CGRectMake(kLeftPendingX,currY+8.f,300.f, 30.f)];
+    userAvaiableLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16]
+                                         withTextColor:HexRGB(12, 136, 6)
+                                              withText:@"80,000"
+                                             withFrame:CGRectMake(kLeftPendingX,currY+8.f,300.f, 30.f)];
     userAvaiableLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:userAvaiableLabel];
     SafeRelease(userAvaiableLabel);
     
     currY = currY+30.f;
-    userLockLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:14] withTextColor:[UIColor redColor] withText:@"0" withFrame:CGRectMake(kLeftPendingX,currY+6.f,300.f, 30.f)];
+    userLockLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:14]
+                                     withTextColor:HexRGB(194, 11, 33)
+                                          withText:@"0"
+                                         withFrame:CGRectMake(kLeftPendingX,currY+6.f,300.f, 30.f)];
     userLockLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:userLockLabel];
     SafeRelease(userLockLabel);

@@ -436,6 +436,8 @@
 		BD9EDDDC18C08B1700673862 /* BSTell_company-Prefix.pch in Sources */ = {isa = PBXBuildFile; fileRef = BD9EDCC118C08AB200673862 /* BSTell_company-Prefix.pch */; };
 		BD9EDDDD18C08B1700673862 /* MobileCoreServices.framework in Sources */ = {isa = PBXBuildFile; fileRef = 042FE0C4189B4742004B26F3 /* MobileCoreServices.framework */; };
 		BD9EDDDE18C08B1700673862 /* libz.dylib in Sources */ = {isa = PBXBuildFile; fileRef = 042FE0C2189B46A4004B26F3 /* libz.dylib */; };
+		BD9EDDF318C3064A00673862 /* reflush_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BD9EDDF218C3064A00673862 /* reflush_btn.png */; };
+		BD9EDDF418C3064A00673862 /* reflush_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BD9EDDF218C3064A00673862 /* reflush_btn.png */; };
 		BDE7BD7B18B0D16800A82198 /* HotMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */; };
 		BDE7BD7C18B0D16800A82198 /* MarketMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7A18B0D16800A82198 /* MarketMsgViewController.m */; };
 		BDE7BD7F18B0D18400A82198 /* MediaMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7E18B0D18400A82198 /* MediaMsgViewController.m */; };
@@ -737,6 +739,7 @@
 		BD9EDCC118C08AB200673862 /* BSTell_company-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BSTell_company-Prefix.pch"; sourceTree = "<group>"; };
 		BD9EDCCB18C08AB300673862 /* BSTell_companyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BSTell_companyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9EDDED18C1B58B00673862 /* BSTellTimerReflushDataProcotol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSTellTimerReflushDataProcotol.h; sourceTree = "<group>"; };
+		BD9EDDF218C3064A00673862 /* reflush_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reflush_btn.png; sourceTree = "<group>"; };
 		BDE7BD7718B0D16800A82198 /* HotMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotMsgViewController.h; sourceTree = "<group>"; };
 		BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotMsgViewController.m; sourceTree = "<group>"; };
 		BDE7BD7918B0D16800A82198 /* MarketMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketMsgViewController.h; sourceTree = "<group>"; };
@@ -882,6 +885,7 @@
 		04DFD40F189B833D00A3BDDF /* bid */ = {
 			isa = PBXGroup;
 			children = (
+				BD9EDDF218C3064A00673862 /* reflush_btn.png */,
 				BD884B1218B8964800E354B7 /* bid_item_price.png */,
 				042762E618B6594C006D816A /* bid_prepare_bg_1.png */,
 				042762E718B6594C006D816A /* bid_prepare_bg_2.png */,
@@ -1499,6 +1503,7 @@
 				04DFD43E189D35B200A3BDDF /* button-1.png in Resources */,
 				0431107818A7E4B6008109F7 /* arrow_detail.png in Resources */,
 				BD884AFF18B4CC0500E354B7 /* logo120.png in Resources */,
+				BD9EDDF318C3064A00673862 /* reflush_btn.png in Resources */,
 				BD884B0B18B7188800E354B7 /* info_account_bg.png in Resources */,
 				04D5358818ABCDBD00728B75 /* myinfo_split_bg.png in Resources */,
 				04DFD413189B83B800A3BDDF /* bid_cell_bg.png in Resources */,
@@ -1558,6 +1563,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD9EDDF418C3064A00673862 /* reflush_btn.png in Resources */,
 				BD9EDCBE18C08AB200673862 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -74,7 +74,7 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
 {
     [super viewDidLoad];
    
-    
+    mainView.topBarView.backgroundColor = [UIColor clearColor];
     
 	// Do any additional setup after loading the view.
     

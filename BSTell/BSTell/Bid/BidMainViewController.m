@@ -36,12 +36,24 @@
     }
     return self;
 }
-
+- (void)setNavgationBarRightButton{
+    
+    UIImageWithFileName(UIImage *bgImage, @"reflush_btn.png");
+    CGRect newRect = CGRectMake(kDeviceScreenWidth-10.f-bgImage.size.width/2.f, 10.f, bgImage.size.width/kScale, bgImage.size.height/kScale);
+    self.rightBtn.frame = newRect;
+    [self.rightBtn setBackgroundImage:bgImage forState:UIControlStateNormal];
+    [self.rightBtn setBackgroundImage:bgImage forState:UIControlStateSelected];
+    [self.rightBtn setTitle:@"刷新" forState:UIControlStateNormal];
+    [self.rightBtn setTitle:@"刷新" forState:UIControlStateHighlighted];
+    self.rightBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self setNavgationBarTitle:@"竞买出价"];
+    [self setHiddenRightBtn:NO];
+    [self setNavgationBarRightButton];
     
 }
 - (void)viewDidAppear:(BOOL)animated{
@@ -154,6 +166,9 @@
         for(UIViewController *item in navItemCtrl.navControllersArr)
             [item stopReflushTimer];
         [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+    else{
+        [self reflushData];
     }
 }
 - (void)addObservers{
