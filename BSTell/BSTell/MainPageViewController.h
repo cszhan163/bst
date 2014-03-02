@@ -8,6 +8,6 @@
 
 #import "BSTellBaseViewController.h"
 
-@interface MainPageViewController : UIBaseViewController
+@interface MainPageViewController : BSTellBaseViewController
 @property   (nonatomic,assign) BOOL needLogin;
 @end

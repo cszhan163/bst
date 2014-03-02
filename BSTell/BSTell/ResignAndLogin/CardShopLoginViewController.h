@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "BaoCarNetBaseViewController.h"
+@protocol UserLoginViewControllerDelegate
+
+@end
 @interface CardShopLoginViewController :CardShopNetBaseViewController
 {
     IBOutlet UITextField *txtusername;

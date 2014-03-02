@@ -7,7 +7,7 @@
 //
 
 #import "BSTellBaseViewController.h"
-
+#import "CardShopLoginViewController.h"
 @interface BSTellBaseViewController ()
 
 @end
@@ -24,12 +24,42 @@
     }
     return self;
 }
+- (void)addObservers{
+    [super addObservers];
+    [ZCSNotficationMgr addObserver:self call:@selector(didUserLogin:) msgName:kUserDidLoginOk];
+    [ZCSNotficationMgr addObserver:self call:@selector(didUserLogout:) msgName:kUserDidLogOut];
+    [ZCSNotficationMgr addObserver:self call:@selector(didUserLoginCancel:) msgName:kUserDidLoginCancel];
+}
+
+- (void)didUserLogin:(NSNotification*)ntf{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+- (void)didUserLogout:(NSNotification*)ntf{
+    
+}
+- (void)didUserLoginCancel:(NSNotification*)ntf{
+    //[self.navigationController popViewControllerAnimated:YES];
+    [ZCSNotficationMgr postMSG:kNavTabItemMSG obj:[NSNumber numberWithInt:2]];
+}
+
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self needCheckLogin];
+    if(![self needCheckLogin]){
+            [self shouldLoadData];
+    }
     if([self respondsToSelector:@selector(startReflushjTimer)])
         [self startReflushjTimer];
     
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+   
+    NSString *usrId = [AppSetting getLoginUserId];
+    if(usrId)
+    {
+        NSDictionary *usrData = [AppSetting getLoginUserData:usrId];
+        self.userId = [usrData objectForKey:@"hydm"];
+    }
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -40,9 +70,23 @@
 
     NSString *usrId = [AppSetting getLoginUserId];
     if(self.needLogin &&(!usrId || [usrId isEqualToString:@""])){
-        
+        /*
         [ZCSNotficationMgr postMSG:kNavTabItemMSG obj:[NSNumber numberWithInt:2]];
         [ZCSNotficationMgr postMSG:kNeedUserLoginMSG obj:nil];
+         */
+        [self.navigationController popToRootViewControllerAnimated:NO];
+        CardShopLoginViewController *noteListVc = [[CardShopLoginViewController alloc]init];
+        //noteListVc.type = 1;
+        //[noteListVc setNavgationBarTitle:[sender titleLabel].text];
+        noteListVc.view.frame = CGRectMake(0.f,20.f, kDeviceScreenWidth, kDeviceScreenHeight);
+#if 1
+        [self.navigationController pushViewController:noteListVc  animated:NO];
+#else
+        [ZCSNotficationMgr postMSG:kPresentModelViewController  obj:noteListVc];
+        
+#endif
+        SafeRelease(noteListVc);
+
         return YES;
     }
     return NO;
@@ -54,8 +98,7 @@
     mainView.topBarView.backgroundColor = HexRGB(1, 159, 233);
     mainView.backgroundColor = HexRGB(239, 239, 241);
     self.delegate = self;
-    if(![self needCheckLogin])
-        [self shouldLoadData];
+  
 }
 - (void)shouldLoadData{
    
@@ -71,14 +114,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)viewWillAppear:(BOOL)animated{
-    
-    [super viewWillAppear:animated];
-    NSString *usrId = [AppSetting getLoginUserId];
-    if(usrId){
-        NSDictionary *usrData = [AppSetting getLoginUserData:usrId];
-        self.userId = [usrData objectForKey:@"hydm"];
-    }
-}
+
 
 @end

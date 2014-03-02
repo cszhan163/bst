@@ -76,12 +76,22 @@
     UIImageWithFileName(UIImage *image , @"bid_confirm_bg.png");
     
 #if 1
-    UIScrollView *confirmTextBgView = [[UIScrollView alloc] initWithFrame:CGRectMake(kLeftPendingX, currY, image.size.width/kScale, kDeviceScreenHeight-kMBAppBottomToolBarHeght-kMBAppTopToolBarHeight-kMBAppStatusBar-buttomHeight)];
+    
+    UIImageView *bgView = [[UIImageView alloc]initWithFrame:CGRectMake(kLeftPendingX, currY, image.size.width/kScale, kDeviceScreenHeight-kMBAppBottomToolBarHeght-kMBAppTopToolBarHeight-kMBAppStatusBar-buttomHeight)];
+    [self.view  addSubview:bgView];
+    bgView.userInteractionEnabled = YES;
+    bgView.image = image;
+    SafeRelease(bgView);
+    
+    UIScrollView *confirmTextBgView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.f,5.f, image.size.width/kScale, kDeviceScreenHeight-kMBAppBottomToolBarHeght-kMBAppTopToolBarHeight-kMBAppStatusBar-buttomHeight-10.f)];
     confirmTextBgView.bounces = NO;
     
-    confirmTextBgView.layer.contents = (id)image.CGImage;
+    //confirmTextBgView.layer.contents = (id)image.CGImage;
+    confirmTextBgView.backgroundColor = [UIColor clearColor];
     
     //confirmTextBgView.frame = CGRectMake(10, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
+    
+    
     
 #else
     UIImageView *confirmTextBgView = [[UIImageView alloc]initWithFrame:CGRectMake(kLeftPendingX, currY, image.size.width/kScale, image.size.height/kScale)];
@@ -90,7 +100,7 @@
 #endif
     /*
     */
-    leftTitleCellView = [[LeftTitleListCell alloc] initWithFrame:CGRectMake(10.f, 0.f, 300.f, 350.f) withTitleArray:@[                                                       @"场次",
+    leftTitleCellView = [[LeftTitleListCell alloc] initWithFrame:CGRectMake(0,0.f,confirmTextBgView.frame.size.width, 350.f) withTitleArray:@[                                                       @"场次",
                                                                                                                      @"品名",
                                                                                                                       
                                                                                 @"竞价状态",
@@ -131,7 +141,7 @@
     leftTitleCellView.backgroundColor = [UIColor clearColor];
     SafeRelease(leftTitleCellView);
 
-    [self.view addSubview:confirmTextBgView];
+    [bgView addSubview:confirmTextBgView];
     SafeRelease(confirmTextBgView);
     
     confirmTextBgView.contentSize = leftTitleCellView.frame.size;
@@ -366,10 +376,10 @@
     NSString *statusStr = @"落后";
     if([value floatValue]>=currPrice){
         statusStr = @"领先";
-        [leftTitleCellView setValueColorByIndex:index withColor:[UIColor redColor]];
+        [leftTitleCellView setValueColorByIndex:index withColor:HexRGB(200, 0, 0)];
     }
     else{
-        [leftTitleCellView setValueColorByIndex:index withColor:[UIColor greenColor]];
+        [leftTitleCellView setValueColorByIndex:index withColor:HexRGB(0, 128, 0)];
     }
 
     value = [item objectForKey:@"qpj"];

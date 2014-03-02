@@ -296,11 +296,12 @@
     [vc  setNavgationBarTitle:@"场次详情"];
     
 
-    
-    NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
-    //NSDictionary *data = [item objectForKey:@"DayDetailInfo"];
-    vc.data = item;
-    vc.wtid = [item objectForKey:@"wtid"];
+    if([self.dataArray count]){
+        NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
+        //NSDictionary *data = [item objectForKey:@"DayDetailInfo"];
+        vc.data = item;
+        vc.wtid = [item objectForKey:@"wtid"];
+   
     if(![[item objectForKey:@"isCanJoin"]intValue]){
         
         [vc  setJoinButtonHiddenStatus:YES];
@@ -321,6 +322,7 @@
     //[self.navigationController pushViewController:vc animated:YES];
    
     SafeRelease(vc);
+         }
     
 }
 -(void)didSelectorTopNavigationBarItem:(id)sender{
@@ -434,6 +436,10 @@
 }
 - (void)didUserLogin:(NSNotification*)ntf{
 
+  [self.navigationController popToRootViewControllerAnimated:YES];
+}
+- (void)didUserLoginCancel:(NSNotification*)ntf{
 
+    
 }
 @end

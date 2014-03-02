@@ -172,14 +172,15 @@
     [self.navigationController pushViewController:resPsVc animated:YES];
     [resPsVc release];
     */
-    if(self.isModel){
-        [ZCSNotficationMgr postMSG:kDisMissModelViewController obj:nil];
-    }
-    else{
-        [self.navigationController  popToRootViewControllerAnimated:YES];
-    }
+//    if(self.isModel){
+//        [ZCSNotficationMgr postMSG:kDisMissModelViewController obj:nil];
+//    }
+//    else{
+//        [ZCSNotficationMgr postMSG:kUserDidLoginCancel obj:nil];
+//        //[self.navigationController  popToRootViewControllerAnimated:YES];
+//    }
 //
-    
+    [ZCSNotficationMgr postMSG:kUserDidLoginCancel obj:nil];
 }
 
 -(void)startLogin
@@ -189,7 +190,7 @@
         
     }
     else{
-        kUIAlertView(@"提示", @"没有改用户");
+        kUIAlertView(@"提示", @"没有该用户");
         return;
     }
     kNetStartShow(@"登录中...",self.view);

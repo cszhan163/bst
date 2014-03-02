@@ -40,6 +40,8 @@
 #define kTabItemTextHeight              12
 #define kTabItemTextFont            [UIFont systemFontOfSize:12]
 
+#define kTabItemTextNomalColor      [UIColor whiteColor]
+#define kTabItemTextSelColor        HexRGB(110, 228, 255)
 
 #define kTabCountMax                              5
 #define kTabItemImageSubfix                       @"png"

@@ -243,10 +243,10 @@
     CGFloat myPrice = [value floatValue];
     if(myPrice>=currPrice ){
         statusStr = @"领先";
-        [cell setValueColorByIndex:index withColor:[UIColor redColor]];
+        [cell  setValueColorByIndex:index withColor:HexRGB(200, 0, 0)];
     }
     else{
-        [cell setValueColorByIndex:index withColor:[UIColor greenColor]];
+        [cell setValueColorByIndex:index withColor:HexRGB(0, 128, 0)];
     }
     value = [item objectForKey:@"qpj"];
     CGFloat basePrice = [value floatValue];

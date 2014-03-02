@@ -39,9 +39,11 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        /*
         [ZCSNotficationMgr addObserver:self call:@selector(didUserLogin:) msgName:kUserDidLoginOk];
         [ZCSNotficationMgr addObserver:self call:@selector(needLoginUser:) msgName:kNeedUserLoginMSG];
         [ZCSNotficationMgr addObserver:self call:@selector(didUserLogout:) msgName:kUserDidLogOut];
+        */
     }
     return self;
 }

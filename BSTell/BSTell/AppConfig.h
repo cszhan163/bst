@@ -90,6 +90,10 @@
 #define  kUserDidResignOK           @"userDidResignOk"
 #define  kUserDidLogOut             @"userLogOut"
 
+#define  kUserDidLoginCancel        @"userLoginCancel"
+
+
+
 #define kDidUserLoginOK             @"diduserLoginOk"
 
 #define KNewMessageFromMSG          @"newMessageMSG"

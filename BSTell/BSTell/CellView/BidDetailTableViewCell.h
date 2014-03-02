@@ -18,7 +18,10 @@
 - (void)setHeaderLabelHiddenStatus:(BOOL)status;
 - (void)setHeaderLabelText:(NSString*)text;
 - (id)initWithFrame:(CGRect)frame withRowCount:(NSInteger) rowNum withColumCount:(NSInteger)colNum withColumWidthArray:(NSArray*)widthArray;
+- (id)initWithIIFrame:(CGRect)frame withRowCount:(NSInteger) rowNum withColumCount:(NSInteger)colNum withCellHeight:(CGFloat)height withHeaderTitle:(NSString*)title;
 - (id)initWithFrame:(CGRect)frame withRowCount:(NSInteger) rowNum withColumCount:(NSInteger)colNum withCellHeight:(CGFloat)height withHeaderTitle:(NSString*)title;
 - (void)addColumWithKeyTitleArray:(NSArray*)titleArray withColumWidthArray:(NSArray*)widthArray;
+- (void)addColumIIWithKeyTitleArray:(NSArray*)titleArray withColumWidthArray:(NSArray*)widthArray;
 - (BOOL)setCellItemValue:(NSString*)value withRow:(NSInteger)row withCol:(NSInteger)col;
+- (void)addColumWithKeyTitleArray:(NSArray*)titleArray withColumWidthArray:(NSArray*)widthArray withKeyTitleHeight:(CGFloat)keyHeight withValueHeight:(CGFloat)valueHeight;
 @end

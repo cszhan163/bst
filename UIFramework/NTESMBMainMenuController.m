@@ -253,7 +253,8 @@ BOOL isFromLowMemory = NO;
 #pragma mark  mainTabNavview
 -(void)initMainPageTabNav:(NSInteger)tabCount
 {
-	NSMutableArray *arr = [NSMutableArray arrayWithCapacity:5];
+	NSMutableArray *arr = [NSMutableArray arrayWithCapacity:8];
+    NSMutableArray *txtArray = [NSMutableArray arrayWithCapacity:8];
 
 	UIImage  *defaultStatusImg = nil;
 	UIImage  *selectStatusImg  = nil;
@@ -298,12 +299,13 @@ BOOL isFromLowMemory = NO;
             btnTextLabel.backgroundColor = [UIColor clearColor];
             //btnTextLabel.center =
             btnTextLabel.text = NSLocalizedString([textArr objectAtIndex:i],@"");
-            btnTextLabel.textColor = [UIColor whiteColor];
+            btnTextLabel.textColor = kTabItemTextNomalColor;//[UIColor whiteColor];
             btnTextLabel.font = kTabItemTextFont;
             btnTextLabel.textAlignment = UITextAlignmentCenter;
             btnTextLabel.frame = CGRectOffset(btnTextLabel.frame,[[textOffsetXArr objectAtIndex:i]floatValue], [[textOffsetYArr objectAtIndex:i]floatValue]);
             [btn addSubview:btnTextLabel];
             [btnTextLabel release];
+            [txtArray addObject:btnTextLabel];
         }
         
 		[arr addObject:btn];
@@ -318,7 +320,9 @@ BOOL isFromLowMemory = NO;
 	UIImageWithFileName(bgImage,kTabBarViewBGImageFileName);
 	NETabNavBar *tabView = [[NETabNavBar alloc]
 							initWithFrame:CGRectMake(0.f,kTabBarViewOffsetY, kDeviceScreenWidth,kMBAppBottomToolBarHeght-kTabBarViewOffsetY)
-							withNavItem:arr withSplitTag:nil];
+							withNavItem:arr
+                            withNavTextLabelArray:txtArray
+                            withSplitTag:nil];
 	tabView.backgroundColor = [UIColor clearColor];
     [tabView setBgImage:bgImage];
     //tabView.frame = CGRectOffset(tabView.o, <#CGFloat dx#>, <#CGFloat dy#>)
@@ -460,8 +464,26 @@ BOOL isFromLowMemory = NO;
 {
     
     NETabNavBar *tabBar = [mainTabBarVC getTabNavBar];
+    
+    //UIButton *item = [tabBar.navBarArr objectAtIndex:index];
+    
+    
     UIView *item = [tabBar getCurrentSelItem];
+    
+    for(int i = 0;i<[tabBar.navTabTextArr count];i++){
+        UILabel *subItem = [tabBar.navTabTextArr objectAtIndex:i];
+        if(index == i){
+            subItem.textColor = kTabItemTextSelColor;
+        }
+        else{
+            subItem.textColor = kTabItemTextNomalColor;
+        }
+    }
+    
     CGPoint newcenter = [item center];
+    
+    UILabel *subLabel = [[item subviews]objectAtIndex:0];
+    
     CGPoint oldCenter = tabItemMaskView.center;
     oldCenter.x = newcenter.x;
     tabItemMaskView.center = oldCenter;

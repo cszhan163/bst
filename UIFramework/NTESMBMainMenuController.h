@@ -25,6 +25,7 @@
 	id							delegate;
 	BOOL							isGbShowTabBar;
     UIImageView                     *tabItemMaskView;
+    
 }
 @property(nonatomic,retain) UIView *topBarView;
 @property(nonatomic,assign)BOOL maskFront;

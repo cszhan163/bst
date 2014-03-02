@@ -137,6 +137,8 @@
 }
 - (void) shouldLoadData{
     
+    return;
+    
     self.userId = [[AppSetting getLoginUserData:[AppSetting getLoginUserId]] objectForKey:@"hydm"];
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            //catStr,@"cat",

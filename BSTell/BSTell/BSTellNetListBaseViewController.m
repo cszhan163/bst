@@ -7,7 +7,7 @@
 //
 
 #import "BSTellNetListBaseViewController.h"
-
+#import "CardShopLoginViewController.h"
 @interface BSTellNetListBaseViewController ()
 
 @end
@@ -30,12 +30,17 @@
     [super addObservers];
     [ZCSNotficationMgr addObserver:self call:@selector(didUserLogin:) msgName:kUserDidLoginOk];
     [ZCSNotficationMgr addObserver:self call:@selector(didUserLogout:) msgName:kUserDidLogOut];
+    [ZCSNotficationMgr addObserver:self call:@selector(didUserLoginCancel:) msgName:kUserDidLoginCancel];
 }
 - (void)didUserLogin:(NSNotification*)ntf{
-
+  
 }
 - (void)didUserLogout:(NSNotification*)ntf{
     
+}
+- (void)didUserLoginCancel:(NSNotification*)ntf{
+
+    [ZCSNotficationMgr postMSG:kNavTabItemMSG obj:[NSNumber numberWithInt:2]];
 }
 - (void)viewWillAppear:(BOOL)animated{
     
@@ -53,9 +58,22 @@
     NSString *usrId = [AppSetting getLoginUserId];
 
     if(self.isNeedLogin &&(!usrId || [usrId isEqualToString:@""])){
-        
+        /*
         [ZCSNotficationMgr postMSG:kNavTabItemMSG obj:[NSNumber numberWithInt:2]];
         [ZCSNotficationMgr postMSG:kNeedUserLoginMSG obj:nil];
+         */
+        [self.navigationController popToRootViewControllerAnimated:NO];
+        CardShopLoginViewController *noteListVc = [[CardShopLoginViewController alloc]init];
+        //noteListVc.type = 1;
+        //[noteListVc setNavgationBarTitle:[sender titleLabel].text];
+        noteListVc.view.frame = CGRectMake(0.f,20.f, kDeviceScreenWidth, kDeviceScreenHeight);
+#if 1
+        [self.navigationController pushViewController:noteListVc  animated:NO];
+#else
+        [ZCSNotficationMgr postMSG:kPresentModelViewController  obj:noteListVc];
+        
+#endif
+        SafeRelease(noteListVc);
         return;
     }
     if([self.dataArray count] == 0 &&!isFromViewUnload)

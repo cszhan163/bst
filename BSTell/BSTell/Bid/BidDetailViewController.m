@@ -12,21 +12,39 @@
 
 #import "BidMainViewController.h"
 
-#define kLeftPendingX 10.f
+
+#define kOld    0
+
+#define kLeftPendingX 25.f
 
 
 
 #define kMaxItemClounm 3
+
+#if kOld
 #define kHeaderColounmItemWidthArray @[@100.f,@100.f,@100.f]
 
 #define kTableColounmItemWidthArray @[@110.f,@65.f,@65.f,@65.f]
+
 #define kCellHeight  18.f;
+
+#else
+#define kHeaderColounmItemWidthArray @[\
+                                        @[@90.f,@170.f,@0.f],\
+                                        @[@86.f,@86.f,@86.f],\
+                                        @[@130.f,@130.f,@0.f]]
+
+#define kTableColounmItemWidthArray @[@110.f,@65.f,@65.f,@65.f]
+
+#define kCellHeight  18.f;
+#endif
 
 @interface BidDetailViewController (){
 
     BidDetailTableViewCell *headerView;
     UIButton            *oilAnalaysisBtn;
     UIScrollView *bgGoodsView;
+    BOOL canLoger;
 }
 @end
 
@@ -37,6 +55,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        canLoger = YES;
     }
     return self;
 }
@@ -69,7 +88,15 @@
     CGFloat currY = kMBAppTopToolBarHeight+5.f;
     UIImageWithFileName(UIImage *image , @"bid_detail_header.png");
     
+    if([[self.data objectForKey:@"isCanJoin"]intValue]){
+        canLoger = NO;
+    }
+    else{
+        canLoger = YES;
+    }
+
     
+#if kOld
     headerView = [[BidDetailTableViewCell alloc]initWithFrame:CGRectMake(kLeftPendingX, currY,image.size.width/kScale, image.size.height/kScale) withRowCount:2 withColumCount:3 withCellHeight:20 withHeaderTitle:@"场次信息"];
     
     [headerView setHeaderLabelText:@"场次信息"];
@@ -80,23 +107,48 @@
     headerView.layer.contents = (id)image.CGImage;
     [self.view addSubview:headerView];
     SafeRelease(headerView);
-    
-    currY = 175.f;
-    
-    CGFloat goodViewHeight = 180.f;
+     currY = 195.f;
+    CGFloat goodViewHeight = 170.f;
     if(kDeviceCheckIphone5){
-        goodViewHeight = 180.f+80.f;
+        goodViewHeight = goodViewHeight+80.f;
     }
+#else
+    currY = currY-5.f;
+    headerView = [[BidDetailTableViewCell alloc]initWithIIFrame:CGRectMake(kLeftPendingX, currY,image.size.width/kScale, image.size.height/kScale) withRowCount:3 withColumCount:3 withCellHeight:20.f withHeaderTitle:@"场次信息"];
+    
+    [headerView setHeaderLabelText:@""];
+    [headerView addColumIIWithKeyTitleArray:@[@"",@"",@""] withColumWidthArray:kHeaderColounmItemWidthArray[0]];
+    
+    [headerView addColumIIWithKeyTitleArray:@[@"",@"",@""] withColumWidthArray:kHeaderColounmItemWidthArray[1]];
+    
+    [headerView addColumIIWithKeyTitleArray:@[@"",@"",@""] withColumWidthArray:kHeaderColounmItemWidthArray[2]];
+    
+    headerView.layer.contents = (id)image.CGImage;
+    [self.view addSubview:headerView];
+    SafeRelease(headerView);
+    currY = 200.f;
+    
+    CGFloat goodViewHeight = 150.f;
+    if(canLoger){
+        goodViewHeight = goodViewHeight+40.f;
+    }
+    if(kDeviceCheckIphone5){
+        goodViewHeight = goodViewHeight+80.f;
+    }
+    
+#endif
+    
     bgGoodsView = [[UIScrollView alloc]initWithFrame:CGRectMake(0.f,currY,kDeviceScreenWidth, goodViewHeight)];
     
     [self.view addSubview:bgGoodsView];
     
     SafeRelease(bgGoodsView);
-    if([[self.data objectForKey:@"isCanJoin"]intValue]){
+    if(!canLoger){
         
         [self addFonterView];
     }
-    
+   
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -117,6 +169,7 @@
     oilAnalaysisBtn = [UIComUtil createButtonWithNormalBGImageName:@"bid_start_btn.png" withHightBGImageName:@"bid_start_btn.png" withTitle:@"参加竞价" withTag:0];
     
     CGSize btnsize= oilAnalaysisBtn.frame.size;
+    btnsize = CGSizeMake(btnsize.width-20, btnsize.height);
     //currY = 10.f;
     currY = currY+40.f;
      oilAnalaysisBtn.frame = CGRectMake((kDeviceScreenWidth-btnsize.width)/2.f,currY,btnsize.width,btnsize.height);
@@ -232,7 +285,7 @@
     CGFloat currY = 0.f;
     for(int i = 0;i<[dataArray count];i++){
         NSDictionary *itemData = dataArray[i];
-        
+ #if kOld
      BidDetailTableViewCell   *tableView = [[BidDetailTableViewCell alloc]initWithFrame:CGRectMake(kLeftPendingX, currY,image.size.width/kScale, image.size.height/kScale) withRowCount:5 withColumCount:4 withCellHeight:20 withHeaderTitle:@"物资信息"];
         tableView.layer.contents = (id)image.CGImage;
         /*
@@ -257,6 +310,8 @@
          质量标准
          备注
          */
+        
+
         [tableView addColumWithKeyTitleArray:@[@"物资编号",@"竞价模式",@"报盘方式",@"计价方式"] withColumWidthArray:kTableColounmItemWidthArray];
         
         [tableView addColumWithKeyTitleArray:@[@"起拍价",@"总量",@"竞价梯度",@"成交价"] withColumWidthArray:kTableColounmItemWidthArray];
@@ -296,9 +351,41 @@
                                                @"质量标准",
                                                @"备注"
                                                ] withColumWidthArray:kTableColounmItemWidthArray];
-        
+
         [self setTableCellView:tableView byData:itemData];
+#else
+      
+        BidDetailTableViewCell   *tableView = [[BidDetailTableViewCell alloc]initWithCustomFrame:CGRectMake(kLeftPendingX, currY,image.size.width/kScale, image.size.height/kScale) withRowCount:5 withColumCount:4 withCellHeight:20 withHeaderTitle:@""];
+        tableView.layer.contents = (id)image.CGImage;
+       
+        CGFloat cellHeight = 20.f;
         
+        [tableView addColumWithKeyTitleArray:@[@"",
+                                               ]withColumWidthArray:@[@260]
+                          withKeyTitleHeight:30 withValueHeight:25];
+        
+        
+        [tableView addColumWithKeyTitleArray:@[@"",@"",@""
+                                               ]withColumWidthArray:@[@145,
+                                                                      @60,@55]
+                          withKeyTitleHeight:cellHeight withValueHeight:cellHeight];
+        
+        [tableView addColumWithKeyTitleArray:@[@"",@"",@"",@""
+                                               ]withColumWidthArray:@[@90,
+                                                                      @55,@55,@60]
+                          withKeyTitleHeight:cellHeight withValueHeight:cellHeight];
+        [tableView addColumWithKeyTitleArray:@[@"",@"",@"",@""
+                                               ]withColumWidthArray:@[@90,
+                                                                      @60,@50,@60]
+                          withKeyTitleHeight:cellHeight withValueHeight:cellHeight];
+        
+        [tableView addColumWithKeyTitleArray:@[@"",@""
+                                               ]withColumWidthArray:@[@145,
+                                                                      @115]
+                          withKeyTitleHeight:cellHeight withValueHeight:cellHeight];
+
+        [self setTableCellView:tableView byData:itemData];
+#endif
         [bgGoodsView addSubview:tableView];
         SafeRelease(tableView);
         currY = currY+image.size.height/2.f;
@@ -309,8 +396,6 @@
     int index = 0;
     int row = 0;
     NSString *value = @"";
-    
-    
     /*
      ggmc	场次名称
      joinWay	参与方式
@@ -346,6 +431,27 @@
     value = [netData objectForKey:@"jssj"];
     value = [NSDate  dateFormart:value fromFormart:@"yyyyMMddHHmm" toFormart:@"HH:mm"];
     [headerView setCellItemValue:value withRow:row withCol:index++];
+    
+    index = 0;
+    row++;
+    
+    value = [netData objectForKey:@"auctionMode"];
+    NSString *valueStr = @"自由报价";
+    if([value intValue] == 1){
+        valueStr = @"公开增价";
+    }
+    [headerView setCellItemValue:valueStr withRow:row withCol:index++];
+    
+    value = [netData objectForKey:@"offerWay"];
+    
+    valueStr = @"总价";
+    if([value intValue] == 1){
+        valueStr = @"单价";
+    }
+    
+    [headerView setCellItemValue:valueStr withRow:row withCol:index++];
+    
+    
 }
 - (void)setTableCellView:(BidDetailTableViewCell*)tableView byData:(NSDictionary*)netData{
     
@@ -353,10 +459,7 @@
     int row = 0;
     NSString *value = @"";
     
-    
-        
-    
-    
+#if kOld
     /*
      goodId
      auctionMode
@@ -384,6 +487,9 @@
     }
     
     [tableView setCellItemValue:valueStr withRow:0 withCol:index++];
+    
+    
+    
     value = [netData objectForKey:@"pricingWay"];
     [tableView setCellItemValue:value withRow:0 withCol:index++];
     /*
@@ -472,6 +578,114 @@
     [tableView setCellItemValue:value withRow:row withCol:index++];
     value = [netData objectForKey:@"note"];
     [tableView setCellItemValue:value withRow:row withCol:index++];
+#else
+    
+    index = 0;
+    row = 0;
+    //netData = [[netData objectForKey:@"data"]objectAtIndex:0];
+    value = [netData objectForKey:@"goodId"];
+    [tableView setCellItemValue:value withRow:0 withCol:index++];
+    
+    /*
+     
+     startPrice
+     totalCount
+     bjtd
+     soldPrice
+     */
+    
+    index = 0;
+    row++;
+    value = [netData objectForKey:@"goodName"];
+    [tableView setCellItemValue:value withRow:row withCol:index++];
+    
+    value = [netData objectForKey:@"weight"];
+    [tableView setCellItemValue:value withRow:row withCol:index++];
+    
+    value = [netData objectForKey:@"bjtd"];
+    [tableView setCellItemValue:value withRow:row withCol:index++];
+    
+    
+    /*
+     auctionStatus
+     goodName
+     package
+     place
+     */
+    index = 0;
+    row++;
+    
+    value = [netData objectForKey:@"startPrice"];
+    [tableView setCellItemValue:value withRow:row withCol:index++];
+    
+    value = [netData objectForKey:@"package"];
+    [tableView setCellItemValue:value withRow:row withCol:index++];
+    value = [netData objectForKey:@"place"];
+    [tableView setCellItemValue:value withRow:row withCol:index++];
+    
+    value = [netData objectForKey:@"payment"];
+    [tableView setCellItemValue:value withRow:row withCol:index++];
+    
+    
+    index = 0;
+    row++;
+    
+    
+    
+    value = [netData objectForKey:@"auctionStatus"];
+    NSString *statusStr = @"";
+    if([value intValue] == 1){
+        statusStr = @"未开始";
+    }
+    else{
+        statusStr = @"已开始";
+    }
+    [tableView setCellItemValue:statusStr withRow:row withCol:index++];
+    
+    value = [netData objectForKey:@"deliveryTime"];
+    [tableView setCellItemValue:value withRow:row withCol:index++];
+    
+    value = [netData objectForKey:@"QS"];
+    [tableView setCellItemValue:value withRow:row withCol:index++];
+    
+    value = [netData objectForKey:@"deliveryWay"];
+    [tableView setCellItemValue:value withRow:row withCol:index++];
+    
+    
+    
+   
+    /*
+     warehouse
+     weight
+     unit
+     payment
+     */
+    index = 0;
+    row++;
+    value = [netData objectForKey:@"warehouse"];
+    [tableView setCellItemValue:value withRow:row withCol:index++];
+   
+    value = [netData objectForKey:@"note"];
+    [tableView setCellItemValue:value withRow:row withCol:index++];
+    
+    
+    /*
+     
+     deliveryWay
+     deliveryTime
+     QS
+     note
+     */
+   
+   
+    
+    
+    
+
+   
+    
+#endif
+    
 }
 - (void)updateUIData:(NSDictionary*)netData{
     kNetEnd(self.view);
