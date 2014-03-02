@@ -31,7 +31,7 @@
 #else
 #define kHeaderColounmItemWidthArray @[\
                                         @[@90.f,@170.f,@0.f],\
-                                        @[@86.f,@86.f,@86.f],\
+                                        @[@90.f,@85.f,@85.f],\
                                         @[@130.f,@130.f,@0.f]]
 
 #define kTableColounmItemWidthArray @[@110.f,@65.f,@65.f,@65.f]
@@ -409,12 +409,7 @@
     value = [netData objectForKey:@"wtmc"];
     [headerView setCellItemValue:value withRow:row withCol:index++];
     
-    value = [netData objectForKey:@"joinWay"];
-    NSString *joinStr = @"定向";
-    if([value intValue] == 0){
-        joinStr = @"不定向";
-    }
-    [headerView setCellItemValue:joinStr withRow:row withCol:index++];
+    
     
     index = 0;
     row++;
@@ -424,13 +419,21 @@
     
     [headerView setCellItemValue:value withRow:row withCol:index++];
     
+    value = [netData objectForKey:@"joinWay"];
+    NSString *joinStr = @"定向";
+    if([value intValue] == 0){
+        joinStr = @"不定向";
+    }
+    [headerView setCellItemValue:joinStr withRow:row withCol:index++];
+    
     value = [netData objectForKey:@"kssj"];
-    value = [NSDate  dateFormart:value fromFormart:@"yyyyMMddHHmm" toFormart:@"HH:mm"];
-    [headerView setCellItemValue:value withRow:row withCol:index++];
+    NSString *startStr = [NSDate  dateFormart:value fromFormart:@"yyyyMMddHHmm" toFormart:@"HH:mm"];
+    //[headerView setCellItemValue:value withRow:row withCol:index++];
     
     value = [netData objectForKey:@"jssj"];
-    value = [NSDate  dateFormart:value fromFormart:@"yyyyMMddHHmm" toFormart:@"HH:mm"];
-    [headerView setCellItemValue:value withRow:row withCol:index++];
+    NSString *endStr = [NSDate  dateFormart:value fromFormart:@"yyyyMMddHHmm" toFormart:@"HH:mm"];
+    
+    [headerView setCellItemValue:[NSString stringWithFormat:@"%@-%@",startStr,endStr] withRow:row withCol:index++];
     
     index = 0;
     row++;
@@ -503,12 +506,14 @@
     index = 0;
     row++;
     value = [netData objectForKey:@"startPrice"];
+    value = [NSString stringWithFormat:@"%@ 元",value];
     [tableView setCellItemValue:value withRow:row withCol:index++];
     
     value = [netData objectForKey:@"totalCount"];
     [tableView setCellItemValue:value withRow:row withCol:index++];
     
     value = [netData objectForKey:@"bjtd"];
+    value = [NSString stringWithFormat:@"%@ 元",value];
     [tableView setCellItemValue:value withRow:row withCol:index++];
     
     value = @"";//[netData objectForKey:@"soldPrice"];
@@ -600,9 +605,11 @@
     [tableView setCellItemValue:value withRow:row withCol:index++];
     
     value = [netData objectForKey:@"weight"];
+     value = [NSString stringWithFormat:@"%@ 吨",value];
     [tableView setCellItemValue:value withRow:row withCol:index++];
     
     value = [netData objectForKey:@"bjtd"];
+    value = [NSString stringWithFormat:@"%@ 元",value];
     [tableView setCellItemValue:value withRow:row withCol:index++];
     
     
@@ -616,6 +623,7 @@
     row++;
     
     value = [netData objectForKey:@"startPrice"];
+     value = [NSString stringWithFormat:@"%@ 元",value];
     [tableView setCellItemValue:value withRow:row withCol:index++];
     
     value = [netData objectForKey:@"package"];

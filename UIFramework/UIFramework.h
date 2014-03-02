@@ -36,7 +36,7 @@
 
 #define kTabAllItemText                 @"在线交易,资讯中心,首页,我的信息,关于我们"
 //for tabItem text
-#define kTabItemTextPendingY            7.f
+#define kTabItemTextPendingY            4.f
 #define kTabItemTextHeight              12
 #define kTabItemTextFont            [UIFont systemFontOfSize:12]
 
