@@ -437,6 +437,7 @@
 		BD9EDDF318C3064A00673862 /* reflush_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BD9EDDF218C3064A00673862 /* reflush_btn.png */; };
 		BD9EDDF418C3064A00673862 /* reflush_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BD9EDDF218C3064A00673862 /* reflush_btn.png */; };
 		BD9EDDFC18C4549500673862 /* image-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD9EDDFB18C4549500673862 /* image-568h@2x.png */; };
+		BD9EDE0218C48CBD00673862 /* word.png in Resources */ = {isa = PBXBuildFile; fileRef = BD9EDE0118C48CBD00673862 /* word.png */; };
 		BDE7BD7B18B0D16800A82198 /* HotMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */; };
 		BDE7BD7C18B0D16800A82198 /* MarketMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7A18B0D16800A82198 /* MarketMsgViewController.m */; };
 		BDE7BD7F18B0D18400A82198 /* MediaMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7E18B0D18400A82198 /* MediaMsgViewController.m */; };
@@ -739,6 +740,7 @@
 		BD9EDDED18C1B58B00673862 /* BSTellTimerReflushDataProcotol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSTellTimerReflushDataProcotol.h; sourceTree = "<group>"; };
 		BD9EDDF218C3064A00673862 /* reflush_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reflush_btn.png; sourceTree = "<group>"; };
 		BD9EDDFB18C4549500673862 /* image-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-568h@2x.png"; sourceTree = "<group>"; };
+		BD9EDE0118C48CBD00673862 /* word.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = word.png; sourceTree = "<group>"; };
 		BDE7BD7718B0D16800A82198 /* HotMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotMsgViewController.h; sourceTree = "<group>"; };
 		BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotMsgViewController.m; sourceTree = "<group>"; };
 		BDE7BD7918B0D16800A82198 /* MarketMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketMsgViewController.h; sourceTree = "<group>"; };
@@ -1314,6 +1316,7 @@
 		BDE7BD8418B10CBE00A82198 /* info */ = {
 			isa = PBXGroup;
 			children = (
+				BD9EDE0118C48CBD00673862 /* word.png */,
 				BD884B0A18B7188800E354B7 /* info_account_bg.png */,
 				042762EE18B6675A006D816A /* info_order_cell_bg.png */,
 				04255BBA18B3B6F80006F9E0 /* info_order_cell_bg_all.png */,
@@ -1540,6 +1543,7 @@
 				04F854E518B25CF40026BCA4 /* button_gray05.png in Resources */,
 				04F6E5D2189A8C630057BD72 /* tableitemsel2.png in Resources */,
 				04F6E5CF189A8C630057BD72 /* tableitem4.png in Resources */,
+				BD9EDE0218C48CBD00673862 /* word.png in Resources */,
 				042762E918B6594C006D816A /* bid_prepare_bg_2.png in Resources */,
 				04E65C84189FF31B008FA65A /* bid_confirm_bg.png in Resources */,
 				BDE7BD8D18B10D0C00A82198 /* hotmsg_gray04.png in Resources */,

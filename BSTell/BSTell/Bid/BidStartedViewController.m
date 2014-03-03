@@ -430,13 +430,13 @@
     }
     //NSString *msg = [NSString stringWithFormat:@"请确认是否对下列物资出价\n 场次:%@ \n 品名:%@ \n 出价:%0.2f",sessionId,goodName,finalPrice];
     
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"出价确认" message:msg delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"出价确认" message:msg delegate:self cancelButtonTitle:@"确认" otherButtonTitles:@"取消", nil];
     [alertView show];
     SafeAutoRelease(alertView);
 }
 // Called when a button is clicked. The view will be automatically dismissed after this call returns
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if(buttonIndex == 1){
+    if(buttonIndex == 0){
     
     
         CarServiceNetDataMgr *cardShopMgr = [CarServiceNetDataMgr getSingleTone];

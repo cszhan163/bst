@@ -35,7 +35,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        
+        self.priceModeString = @"当前价格";
         bgView = [[UIControl alloc]initWithFrame:CGRectMake(0.f, 0.f,kDeviceScreenWidth,kDeviceScreenHeight)];
         bgView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6];
         [[UIApplication sharedApplication].keyWindow addSubview:bgView];
@@ -115,7 +115,7 @@
     [self setNeedsLayout];
 }
 - (void)layoutSubviews{
-    indicTextLabel.text = [NSString stringWithFormat:@"当前价格:%0.2lf元,梯度价格:%0.2lf元",self.basePrice,self.stepPrice];
+    indicTextLabel.text = [NSString stringWithFormat:@"%@:%0.2lf元,梯度价格:%0.2lf元",self.priceModeString,self.basePrice,self.stepPrice];
     bidPrice = self.basePrice + self.stepPrice;
     priceIndictLabel.text = priceIndictLabel.text = [NSString stringWithFormat:@"出价价格为:%0.2lf元",bidPrice];
 }

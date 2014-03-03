@@ -70,7 +70,7 @@
     SafeRelease(split);
 #endif
     
-    UIImageWithFileName(UIImage*image, @"info_account_bg.png");
+    UIImageWithFileName(UIImage*image, @"word.png");
     
     UIImageView *accountView = [[UIImageView alloc]initWithFrame:CGRectMake(0.f, currY,image.size.width/kScale, image.size.height/kScale)];
     accountView.image = image;

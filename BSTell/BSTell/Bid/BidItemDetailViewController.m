@@ -24,6 +24,7 @@
     UITextField *customBidPriceTextFiled;
     
     UIButton *bidStatusBtn;
+    UIButton *bidBtn;
     BidAdjustAlertView *bidAdjustView;
     int bidMode;
 }
@@ -194,7 +195,7 @@
     
     currY = currY+15.f;
     
-    UIButton *bidBtn = [UIComUtil createButtonWithNormalBGImageName:@"bid_price_btn.png" withHightBGImageName:@"bid_price_btn.png" withTitle:@"梯度出价" withTag:0];
+    bidBtn = [UIComUtil createButtonWithNormalBGImageName:@"bid_price_btn.png" withHightBGImageName:@"bid_price_btn.png" withTitle:@"梯度出价" withTag:0];
     [self.view  addSubview:bidBtn];
     bidBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [bidBtn addTarget:self action:@selector(startBidPrice:) forControlEvents:UIControlEventTouchUpInside];
@@ -309,6 +310,18 @@
     //id
     value = [item objectForKey:@"dqj"];
     //[cell setCellItemValue:value withIndex:index++];
+    if([value floatValue] == 0.f){
+        self.isBasePriceBid = YES;
+        [bidBtn setTitle:@"底价出价" forState:UIControlStateNormal];
+        [bidBtn setTitle:@"底价出价" forState:UIControlStateSelected];
+    }
+    else{
+        self.isBasePriceBid = NO;
+        [bidBtn setTitle:@"梯度出价" forState:UIControlStateNormal];
+        [bidBtn setTitle:@"梯度出价" forState:UIControlStateSelected];
+        value = [NSString stringWithFormat:@"%0.2lf元",[value floatValue]];
+    }
+
     if([value floatValue] == 0){
         value = @"----";
     }
@@ -368,12 +381,14 @@
     
     value = [item objectForKey:@"qpj"];
     value = [NSString stringWithFormat:@"%0.2lf元",[value floatValue]];
+    
     [leftTitleCellView setCellItemValue:value withRow:index++];
     
     
     value = [item objectForKey:@"myPrice"];
     if([value floatValue] ==0){
         value = @"----";
+        
     }
     else{
         value = [NSString stringWithFormat:@"%0.2lf元",[value floatValue]];
@@ -440,26 +455,70 @@
 }
 #pragma mark -
 #pragma mark -
+- (void)bidConfirmAlert:(id)sender{
+    int i = [sender tag];
+    NSDictionary *item = self.data;
+    //currBidItem = item;
+    NSString *msg = @"";
+    NSString *sessionId = [item objectForKey:@"wtmc"];
+    NSString *goodName = [item objectForKey:@"goodName"];
+    NSString *price = [item objectForKey:@"dqj"];
+    CGFloat currStep = [[item objectForKey:@"bjtd"] floatValue];
+    finalPrice = [price floatValue];
+    if([price floatValue] == 0.f){
+        
+        finalPrice = [[item objectForKey:@"qpj"]floatValue];
+        //finalPrice = @"---";
+        msg = [NSString stringWithFormat:@"请确认是否对下列物资出价\n 场次:%@ \n 品名:%@ \n 出价:%0.2lf元",sessionId,goodName,finalPrice];
+    }
+    else{
+        finalPrice = [price floatValue]+currStep;
+        msg = [NSString stringWithFormat:@"请确认是否对下列物资出价\n 场次:%@ \n 品名:%@ \n 出价:%0.2lf元",sessionId,goodName,finalPrice];
+    }
+    //NSString *msg = [NSString stringWithFormat:@"请确认是否对下列物资出价\n 场次:%@ \n 品名:%@ \n 出价:%0.2f",sessionId,goodName,finalPrice];
+    
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"出价确认" message:msg delegate:self cancelButtonTitle:@"确认" otherButtonTitles:@"取消" , nil];
+    alertView.tag = -111;
+    [alertView show];
+    SafeAutoRelease(alertView);
+}
 
 - (void)startBidPrice:(UIButton*)sender{
     
     ////弹出梯度设置框（梯度出价，委托出价）
     CGFloat currPrice = [[self.data objectForKey:@"dqj"]floatValue];
+    if(currPrice == 0.f){
+        currPrice = [[self.data objectForKey:@"qpj"]floatValue];
+    }
     CGFloat stepPrice = [[self.data objectForKey:@"bjtd"]floatValue];
     
     NSInteger index = [sender tag];
     switch (index) {
         case 0:
-            /*
-            BidAdjustAlertView *bidAdjustView = [[BidAdjustAlertView alloc]initWithFrame:CGRectMake(0.f, 0.f,300.f,280.f) withHeadTitle:@""];
-             */
-            //bidAdjustView.priceModeString =
-            bidAdjustView.stepPrice = stepPrice;
-            bidAdjustView.basePrice = currPrice;
-            [bidAdjustView setHeadTitle:@"出价确认"];
-            [bidAdjustView updateUILayout];
-            [bidAdjustView show];
-            bidMode = 3;
+            
+            if(self.isBasePriceBid){
+                
+                [self bidConfirmAlert:nil];
+                
+            }
+            else
+            {
+            
+            
+                /*
+                 BidAdjustAlertView *bidAdjustView = [[BidAdjustAlertView alloc]initWithFrame:CGRectMake(0.f, 0.f,300.f,280.f) withHeadTitle:@""];
+                 */
+                //bidAdjustView.priceModeString =
+                bidAdjustView.stepPrice = stepPrice;
+                bidAdjustView.basePrice = currPrice;
+                [bidAdjustView setHeadTitle:@"出价确认"];
+                bidAdjustView.priceModeString = @"当前价格";
+                [bidAdjustView updateUILayout];
+                [bidAdjustView show];
+                bidMode = 3;
+                
+            }
+           
             break;
         case 1:
             
@@ -474,6 +533,12 @@
             else{
                 bidAdjustView.stepPrice = stepPrice;
                 bidAdjustView.basePrice = currPrice;
+                if(self.isBasePriceBid){
+                    bidAdjustView.priceModeString = @"起拍价格";
+                }
+                else{
+                    bidAdjustView.priceModeString = @"当前价格";
+                }
                 //bidAdjustView.priceModeString =
                 [bidAdjustView setHeadTitle:@"委托出价确认"];
                 [bidAdjustView updateUILayout];
@@ -502,10 +567,11 @@
 }
 - (void)didClickOkButton:(id)sender withPrice:(CGFloat)price{
 
+    finalPrice  = price;
     [self startBid:price];
 
 }
-- (void)startBid:(CGFloat)finalPrice {
+- (void)startBid:(CGFloat)price {
 
     
     CarServiceNetDataMgr *cardShopMgr = [CarServiceNetDataMgr getSingleTone];
