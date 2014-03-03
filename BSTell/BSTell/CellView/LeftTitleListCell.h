@@ -10,8 +10,8 @@
 
 @interface LeftTitleListCell : ExcellLikeCellBase{
 
-    
-    
+    CGFloat currValueTextWidth;
+    CGFloat currValueTextHeight;
 }
 @property(nonatomic,assign)CGFloat yItemPendingY;
 @property(nonatomic,assign)CGFloat xStartLeftPendingX;

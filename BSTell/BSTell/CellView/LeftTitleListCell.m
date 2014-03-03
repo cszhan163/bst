@@ -61,16 +61,39 @@
             [self addSubview:itemLabel];
             SafeRelease(itemLabel);
             
-            itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX+120.f,currY,100,15)];
-            itemLabel.font = [UIFont systemFontOfSize:kTitleFontSize];
-            itemLabel.textColor = [UIColor blackColor];
-            itemLabel.backgroundColor = [UIColor clearColor];
-            //itemLabel.textAlignment = NSTextAlignmentCenter;
-            itemLabel.text = @"";
-            [self addSubview:itemLabel];
-            SafeRelease(itemLabel);
-            [self.mCellItemArray addObject:itemLabel];
-            currY = currY+[itemArray[i]floatValue];
+            currValueTextWidth = 150.f;
+            if(i ==13){
+                UITextView *itemLabel = [[UITextView alloc]initWithFrame:CGRectMake(currX+100.f,currY,currValueTextWidth,15)];
+                itemLabel.contentInset = UIEdgeInsetsMake(-9.f,10.f, 0.f, 0.f);
+                itemLabel.font = [UIFont systemFontOfSize:kTitleFontSize];
+                itemLabel.textColor = [UIColor blackColor];
+                //itemLabel.numberOfLines = 0;
+                itemLabel.backgroundColor = [UIColor clearColor];
+                //itemLabel.textAlignment = NSTextAlignmentCenter;
+                itemLabel.text = @"";
+                [self addSubview:itemLabel];
+                SafeRelease(itemLabel);
+                [self.mCellItemArray addObject:itemLabel];
+                currY = currY+[itemArray[i]floatValue];
+            }
+            else{
+                itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX+100.f,currY,currValueTextWidth,15)];
+                itemLabel.font = [UIFont systemFontOfSize:kTitleFontSize];
+                itemLabel.textColor = [UIColor blackColor];
+                //itemLabel.numberOfLines = 0;
+                itemLabel.backgroundColor = [UIColor clearColor];
+                //itemLabel.textAlignment = NSTextAlignmentCenter;
+                itemLabel.text = @"";
+                if(i ==13){
+                    itemLabel.numberOfLines = 0;
+                    itemLabel.lineBreakMode = NSLineBreakByWordWrapping;
+                }
+                [self addSubview:itemLabel];
+                SafeRelease(itemLabel);
+                [self.mCellItemArray addObject:itemLabel];
+                currY = currY+[itemArray[i]floatValue];
+            }
+           
             
         }
         
@@ -191,6 +214,7 @@ return self;
         itemLabel.backgroundColor = [UIColor clearColor];
         //itemLabel.textAlignment = NSTextAlignmentCenter;
         itemLabel.text = @"";
+        itemLabel.numberOfLines = 0;
         [self addSubview:itemLabel];
         SafeRelease(itemLabel);
         [self.mCellItemArray addObject:itemLabel];
@@ -208,6 +232,24 @@ return self;
 */
 - (BOOL)setCellItemValue:(NSString*)value withRow:(NSInteger)row {
     UILabel *textLabel =  self.mCellItemArray[row];
+    UIFont *curFont = textLabel.font;
+    CGFloat curWidth = textLabel.frame.size.width;
+    CGFloat curHeight = textLabel.frame.size.height;
+    CGRect rect = textLabel.frame;
+    CGFloat height = [value sizeWithFont:curFont forWidth:curWidth lineBreakMode:NSLineBreakByWordWrapping].height;
+    
+    if(height>curHeight && row ==13){
+        /*
+        textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        textLabel.numberOfLines = 0;
+        textLabel.contentMode = UIViewContentModeTopLeft;
+         */
+        int num  = (height-curHeight)/curHeight;
+        CGFloat realHeight = (num+6)*curHeight;
+        //textLabel.backgroundColor = [UIColor cl];
+        textLabel.frame = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, realHeight);
+    }
+
     textLabel.text = value;
     return YES;
 }

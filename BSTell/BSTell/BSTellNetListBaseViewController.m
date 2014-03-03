@@ -50,17 +50,10 @@
         NSDictionary *usrData = [AppSetting getLoginUserData:usrId];
         self.userId = [usrData objectForKey:@"hydm"];
     }
-    
-}
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    
-    NSString *usrId = [AppSetting getLoginUserId];
-
     if(self.isNeedLogin &&(!usrId || [usrId isEqualToString:@""])){
         /*
-        [ZCSNotficationMgr postMSG:kNavTabItemMSG obj:[NSNumber numberWithInt:2]];
-        [ZCSNotficationMgr postMSG:kNeedUserLoginMSG obj:nil];
+         [ZCSNotficationMgr postMSG:kNavTabItemMSG obj:[NSNumber numberWithInt:2]];
+         [ZCSNotficationMgr postMSG:kNeedUserLoginMSG obj:nil];
          */
         [self.navigationController popToRootViewControllerAnimated:NO];
         CardShopLoginViewController *noteListVc = [[CardShopLoginViewController alloc]init];
@@ -76,7 +69,12 @@
         SafeRelease(noteListVc);
         return;
     }
-    if([self.dataArray count] == 0 &&!isFromViewUnload)
+    
+}
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+       if([self.dataArray count] == 0 &&!isFromViewUnload)
     {
         currentPageNum = 1;
         [self shouldLoadOlderData:tweetieTableView];

@@ -261,10 +261,11 @@
     for(int i = 0;i<columCount;i++)
     {
         UILabel *itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX,currY,[widthArray[i]floatValue],keyHeight)];
-        itemLabel.font = [UIFont systemFontOfSize:12];
+        itemLabel.font = [UIFont systemFontOfSize:10];
         itemLabel.textColor = [UIColor blackColor];
         itemLabel.backgroundColor = [UIColor clearColor];
         itemLabel.textAlignment = NSTextAlignmentCenter;
+        
         itemLabel.text = titleArray[i];
         currX = currX+[widthArray[i]floatValue]+1;
         [self addSubview:itemLabel];
@@ -276,9 +277,10 @@
     for(int i = 0;i<columCount;i++)
     {
         UILabel *itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX,currY,[widthArray[i]floatValue],_valueHeight)];
-        itemLabel.font = [UIFont systemFontOfSize:12];
+        itemLabel.font = [UIFont systemFontOfSize:10];
         itemLabel.textColor = [UIColor blackColor];
         itemLabel.backgroundColor = [UIColor clearColor];
+        //itemLabel.adjustsFontSizeToFitWidth = YES;
         itemLabel.textAlignment = NSTextAlignmentCenter;
         itemLabel.text = @"";
         currX = currX+[widthArray[i]floatValue]+1;

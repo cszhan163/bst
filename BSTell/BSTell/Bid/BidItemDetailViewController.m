@@ -53,11 +53,22 @@
 - (void)reflushData{
     [self shouldLoadData];
 }
-
+- (void)setNavgationBarRightButton{
+    
+    UIImageWithFileName(UIImage *bgImage, @"reflush_btn.png");
+    CGRect newRect = CGRectMake(kDeviceScreenWidth-10.f-bgImage.size.width/2.f, 10.f, bgImage.size.width/kScale, bgImage.size.height/kScale);
+    self.rightBtn.frame = newRect;
+    [self.rightBtn setBackgroundImage:bgImage forState:UIControlStateNormal];
+    [self.rightBtn setBackgroundImage:bgImage forState:UIControlStateSelected];
+    [self.rightBtn setTitle:@"刷新" forState:UIControlStateNormal];
+    [self.rightBtn setTitle:@"刷新" forState:UIControlStateHighlighted];
+    self.rightBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setHiddenRightBtn:YES];
+    [self setHiddenRightBtn:NO];
+    [self setNavgationBarRightButton];
     CGFloat currY = kMBAppTopToolBarHeight;
     CGFloat buttomHeight = 120.f;
 #if 0
@@ -100,7 +111,7 @@
 #endif
     /*
     */
-    leftTitleCellView = [[LeftTitleListCell alloc] initWithFrame:CGRectMake(0,0.f,confirmTextBgView.frame.size.width, 350.f) withTitleArray:@[                                                       @"场次",
+    leftTitleCellView = [[LeftTitleListCell alloc] initWithFrame:CGRectMake(0,0.f,confirmTextBgView.frame.size.width, 380.f) withTitleArray:@[                                                       @"场次",
                                                                                                                      @"品名",
                                                                                                                       
                                                                                 @"竞价状态",
@@ -361,7 +372,12 @@
     
     
     value = [item objectForKey:@"myPrice"];
-    value = [NSString stringWithFormat:@"%0.2lf元",[value floatValue]];
+    if([value floatValue] ==0){
+        value = @"----";
+    }
+    else{
+        value = [NSString stringWithFormat:@"%0.2lf元",[value floatValue]];
+    }
     [leftTitleCellView setCellItemValue:value withRow:index++];
     
     
@@ -387,7 +403,6 @@
     if(myPrice<basePrice){
         statusStr = @"未出价";
         [leftTitleCellView setValueColorByIndex:index withColor:[UIColor blackColor]];
-        
     }
     //value = [item objectForKey:@"goodName"];
     [leftTitleCellView setCellItemValue:statusStr withRow:index++];
@@ -396,7 +411,7 @@
     [leftTitleCellView setCellItemValue:value withRow:index++];
     
     
-    value = [NSString stringWithFormat:@"%@ %@",[item objectForKey:@"weight"],[item objectForKey:@"priceUnit"]];
+    value = [NSString stringWithFormat:@"%0.2lf%@",[[item objectForKey:@"weight"]floatValue],[item objectForKey:@"priceUnit"]];
     
     [leftTitleCellView setCellItemValue:value withRow:index++];
     
@@ -548,5 +563,14 @@
     
     self.request = [cardShopMgr  saveAuction4MoveDetail:param];
 
+}
+-(void)didSelectorTopNavigationBarItem:(id)sender{
+    //[super didSelectorTopNavigationBarItem:sender];
+    if([sender tag] == 0){
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else{
+        [self reflushData];
+    }
 }
 @end

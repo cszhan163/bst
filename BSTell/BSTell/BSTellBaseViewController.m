@@ -45,7 +45,7 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     if(![self needCheckLogin]){
-            [self shouldLoadData];
+        [self shouldLoadData];
     }
     if([self respondsToSelector:@selector(startReflushjTimer)])
         [self startReflushjTimer];
@@ -53,7 +53,8 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-   
+    [self needCheckLogin];
+    
     NSString *usrId = [AppSetting getLoginUserId];
     if(usrId)
     {

@@ -607,7 +607,7 @@
     [tableView setCellItemValue:value withRow:row withCol:index++];
     
     value = [netData objectForKey:@"weight"];
-     value = [NSString stringWithFormat:@"%0.2lf吨",value];
+     value = [NSString stringWithFormat:@"%0.2lf吨",[value floatValue]];
     [tableView setCellItemValue:value withRow:row withCol:index++];
     
     value = [netData objectForKey:@"bjtd"];

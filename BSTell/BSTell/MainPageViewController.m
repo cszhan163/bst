@@ -20,7 +20,7 @@
 
 #import "BidAdjustAlertView.h"
 
-#define kItemLeftPendingX    6.f
+#define kItemLeftPendingX    5.f
 
 #define kItemPendingY   2.f
 
@@ -91,8 +91,16 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
     logoImageView.frame = CGRectMake(0.f, 0.f, image.size.width/kScale, image.size.height/kScale);
     logoImageView.center = CGPointMake(kDeviceScreenWidth/kScale, 20.f);
     
+    NSString *imageName = @"image.png";
+    if(kDeviceCheckIphone5){
+        imageName = @"image-568h@2x.png";
+    }
+
+    UIImageWithFileName(image, imageName);
+    NSLog(@"%lf,%lf,",image.size.width,image.size.height);
+    //UIImageJPEGRepresentation(<#UIImage *image#>, <#CGFloat compressionQuality#>)
+    UIImage  *scaleImage = [[UIImage alloc]initWithCIImage:image scale:[UIScreen mainScreen].scale orientation:UIImageOrientationUp];
     
-    UIImageWithFileName(image, @"image.jpg");
     CGFloat currY = logoImageView.frame.size.height+5.f,startX = 0.f,startY = 0.f;
     
     
@@ -107,7 +115,12 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
     if(kDeviceCheckIphone5){
         reduceOffsetY  = -20.f;
     }
-    logoImageView.frame = CGRectMake(5.f, offsetY, image.size.width/kScale, image.size.height/kScale+reduceOffsetY);
+    if(kDeviceCheckIphone5){
+       logoImageView.frame = CGRectMake(0.f, offsetY, 320.f, 265.f);
+    }
+    else{
+         logoImageView.frame = CGRectMake(0.f, offsetY, image.size.width/kScale, 185);
+    }
     //logoImageView.center = CGPointMake(kDeviceScreenWidth/kScale, 40.f);
     
     currY = currY+190.f;
