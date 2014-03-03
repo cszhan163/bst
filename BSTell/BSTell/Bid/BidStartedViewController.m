@@ -216,7 +216,7 @@
     //sell company
     value = [item objectForKey:@"zys"];
     
-    value = [NSString stringWithFormat:@"%@ 吨",value];
+    value = [NSString stringWithFormat:@"%0.2lf吨",[value floatValue]];
     
     [cell setCellItemValue:value withRow:row withCol:index++];
     
@@ -232,7 +232,7 @@
         value = @"----";
     }
     else{
-        value = [NSString stringWithFormat:@"%@ 元",value];
+        value = [NSString stringWithFormat:@"%0.2lf元",[value floatValue]];
     }
     [cell setCellItemValue:value withRow:row withCol:index++];
     
@@ -422,11 +422,11 @@
         
         finalPrice = [[item objectForKey:@"qpj"]floatValue];
         //finalPrice = @"---";
-        msg = [NSString stringWithFormat:@"请确认是否对下列物资出价\n 场次:%@ \n 品名:%@ \n 出价:%0.2f",sessionId,goodName,finalPrice];
+        msg = [NSString stringWithFormat:@"请确认是否对下列物资出价\n 场次:%@ \n 品名:%@ \n 出价:%0.2lf元",sessionId,goodName,finalPrice];
     }
     else{
         finalPrice = [price floatValue]+currStep;
-        msg = [NSString stringWithFormat:@"请确认是否对下列物资出价\n 场次:%@ \n 品名:%@ \n 出价:%0.2f",sessionId,goodName,finalPrice];
+        msg = [NSString stringWithFormat:@"请确认是否对下列物资出价\n 场次:%@ \n 品名:%@ \n 出价:%0.2lf元",sessionId,goodName,finalPrice];
     }
     //NSString *msg = [NSString stringWithFormat:@"请确认是否对下列物资出价\n 场次:%@ \n 品名:%@ \n 出价:%0.2f",sessionId,goodName,finalPrice];
     

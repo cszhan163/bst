@@ -438,14 +438,16 @@
     index = 0;
     row++;
     
-    value = [netData objectForKey:@"auctionMode"];
+    
+    NSArray *itemsArray = [netData objectForKey:@"data"];
+    value = [itemsArray[0] objectForKey:@"auctionMode"];
     NSString *valueStr = @"自由报价";
     if([value intValue] == 1){
         valueStr = @"公开增价";
     }
     [headerView setCellItemValue:valueStr withRow:row withCol:index++];
     
-    value = [netData objectForKey:@"offerWay"];
+    value = [itemsArray[0] objectForKey:@"offerWay"];
     
     valueStr = @"总价";
     if([value intValue] == 1){
@@ -605,11 +607,11 @@
     [tableView setCellItemValue:value withRow:row withCol:index++];
     
     value = [netData objectForKey:@"weight"];
-     value = [NSString stringWithFormat:@"%@ 吨",value];
+     value = [NSString stringWithFormat:@"%0.2lf吨",value];
     [tableView setCellItemValue:value withRow:row withCol:index++];
     
     value = [netData objectForKey:@"bjtd"];
-    value = [NSString stringWithFormat:@"%@ 元",value];
+    value = [NSString stringWithFormat:@"%0.2lf元",[value floatValue]];
     [tableView setCellItemValue:value withRow:row withCol:index++];
     
     
@@ -623,10 +625,10 @@
     row++;
     
     value = [netData objectForKey:@"startPrice"];
-     value = [NSString stringWithFormat:@"%@ 元",value];
+     value = [NSString stringWithFormat:@"%0.2lf元",[value floatValue]];
     [tableView setCellItemValue:value withRow:row withCol:index++];
     
-    value = [netData objectForKey:@"package"];
+    value = [netData objectForKey:@"packages"];
     [tableView setCellItemValue:value withRow:row withCol:index++];
     value = [netData objectForKey:@"place"];
     [tableView setCellItemValue:value withRow:row withCol:index++];

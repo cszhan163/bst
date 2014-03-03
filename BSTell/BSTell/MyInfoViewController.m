@@ -81,7 +81,7 @@
     
     userAccountLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16]
                                         withTextColor:HexRGB(0, 161, 231)
-                                             withText:@"80,000"
+                                             withText:@"80,000.00"
                                             withFrame:CGRectMake(kLeftPendingX,currY+10.f,300.f, 30.f)];
     currY = currY+30.f;
     userAccountLabel.textAlignment = NSTextAlignmentLeft;
@@ -91,7 +91,7 @@
     
     userAvaiableLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16]
                                          withTextColor:HexRGB(12, 136, 6)
-                                              withText:@"80,000"
+                                              withText:@"80,000.00"
                                              withFrame:CGRectMake(kLeftPendingX,currY+8.f,300.f, 30.f)];
     userAvaiableLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:userAvaiableLabel];
@@ -100,7 +100,7 @@
     currY = currY+30.f;
     userLockLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:14]
                                      withTextColor:HexRGB(194, 11, 33)
-                                          withText:@"0"
+                                          withText:@"0.00"
                                          withFrame:CGRectMake(kLeftPendingX,currY+6.f,300.f, 30.f)];
     userLockLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:userLockLabel];
@@ -231,7 +231,7 @@
 #else
     moneyValue = [netData objectForKey:@"availability"];
     
-    userAccountLabel.text = [NSString stringWithFormat:@" %@ ",moneyValue];
+    userAccountLabel.text = [NSString stringWithFormat:@" %0.2lf ",[moneyValue floatValue]];
     //您的帐户上的自由资金余额:             元
     moneyValue = [netData objectForKey:@"balance"];
     

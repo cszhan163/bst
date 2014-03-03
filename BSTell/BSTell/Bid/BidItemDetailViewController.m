@@ -302,12 +302,12 @@
         value = @"----";
     }
     else{
-        value = [NSString stringWithFormat:@"%@元",value];
+        value = [NSString stringWithFormat:@"%0.2lf元",[value floatValue]];
     }
     currBidPriceLabel.text = [NSString stringWithFormat:@"当前价:%@ ",value];
     
     value = [item objectForKey:@"bjtd"];
-    bidStepPriceLabel.text = [NSString stringWithFormat:@"竞价梯度:%@ 元",value];
+    bidStepPriceLabel.text = [NSString stringWithFormat:@"竞价梯度:%0.2lf 元",[value floatValue]];
     
     value = [item objectForKey:@"wtprice"];
     
@@ -315,7 +315,7 @@
         value = @"----";
     }
     else{
-        value = [NSString stringWithFormat:@"%@元",value];
+        value = [NSString stringWithFormat:@"%0.2lf元",[value floatValue]];
     }
     
     delegateBidPriceLabel.text = [NSString stringWithFormat:@"当前委托:%@ ",value];
@@ -356,12 +356,12 @@
     
     
     value = [item objectForKey:@"qpj"];
-    value = [NSString stringWithFormat:@"%@ 元",value];
+    value = [NSString stringWithFormat:@"%0.2lf元",[value floatValue]];
     [leftTitleCellView setCellItemValue:value withRow:index++];
     
     
     value = [item objectForKey:@"myPrice"];
-    value = [NSString stringWithFormat:@"%@ 元",value];
+    value = [NSString stringWithFormat:@"%0.2lf元",[value floatValue]];
     [leftTitleCellView setCellItemValue:value withRow:index++];
     
     

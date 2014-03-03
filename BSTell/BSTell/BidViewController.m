@@ -253,7 +253,7 @@
 
     //起拍价
     value = [item objectForKey:@"dfyj"];
-    value = [NSString stringWithFormat:@"%@ 元",value];
+    value = [NSString stringWithFormat:@"%0.2lf元",value];
     [cell setCellItemValue:value withIndex:index++];
     
     //

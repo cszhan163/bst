@@ -115,9 +115,9 @@
     [self setNeedsLayout];
 }
 - (void)layoutSubviews{
-    indicTextLabel.text = [NSString stringWithFormat:@"当前价格:%0.2lf 元,梯度价格:%0.2lf 元",self.basePrice,self.stepPrice];
+    indicTextLabel.text = [NSString stringWithFormat:@"当前价格:%0.2lf元,梯度价格:%0.2lf元",self.basePrice,self.stepPrice];
     bidPrice = self.basePrice + self.stepPrice;
-    priceIndictLabel.text = priceIndictLabel.text = [NSString stringWithFormat:@"出价价格为:%0.2lf 元",bidPrice];
+    priceIndictLabel.text = priceIndictLabel.text = [NSString stringWithFormat:@"出价价格为:%0.2lf元",bidPrice];
 }
 - (void)setTarget:(id)target withAction:(SEL)action{
     [rightBtn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
@@ -196,6 +196,6 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     
     bidPrice = self.basePrice +self.stepPrice *(row+1);
-    priceIndictLabel.text = [NSString stringWithFormat:@"出价价格为:%0.2lf 元",bidPrice];
+    priceIndictLabel.text = [NSString stringWithFormat:@"出价价格为:%0.2lf元",bidPrice];
 }
 @end

@@ -124,7 +124,7 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
     noteCenterBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
     noteCenterBtn.frame = CGRectMake(kItemLeftPendingX, currY,kDeviceScreenWidth-2*kItemLeftPendingX, noteCenterBtn.frame.size.height);
     
-    noteCenterBtn.contentEdgeInsets = UIEdgeInsetsMake(0.f,-80.f, 0.f, 0.f);
+    noteCenterBtn.contentEdgeInsets = UIEdgeInsetsMake(0.f,-90.f, 0.f, 0.f);
     SafeRelease(noteCenterBtn);
     [noteCenterBtn addTarget:self action:@selector(pressButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     startY = currY+noteCenterBtn.frame.size.height+kItemPendingY;
@@ -139,7 +139,7 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
             item = [UIComUtil createButtonWithNormalBGImageName:btnImageName withHightBGImageName:btnImageName withTitle:kTitleTextArray[index-1] withTag:index];
             item.frame = CGRectMake(startX, startY,item.frame.size.width, item.frame.size.height);
             item.titleLabel.textAlignment = NSTextAlignmentLeft;
-            item.contentEdgeInsets = UIEdgeInsetsMake(0.f,80.f, 0.f, 0.f);
+            item.contentEdgeInsets = UIEdgeInsetsMake(0.f,70.f, 0.f, 0.f);
             if(index == 4)
                 loginBtn = item;
             [self.view addSubview:item];
@@ -268,6 +268,10 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
     [self.navigationController popToRootViewControllerAnimated:YES];
     [loginBtn setTitle:@"退出登录" forState:UIControlStateNormal];
     [loginBtn setTitle:@"退出登录" forState:UIControlStateSelected];
+}
+- (void)didUserLoginCancel:(NSNotification*)ntf{
+    [self.navigationController popViewControllerAnimated:YES];
+    //[ZCSNotficationMgr postMSG:kNavTabItemMSG obj:[NSNumber numberWithInt:2]];
 }
 - (void)needLoginUser:(NSNotification*)ntf{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
