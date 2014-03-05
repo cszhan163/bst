@@ -11,6 +11,7 @@
 #import "CardShopResignViewController.h"
 #import "CarServiceNetDataMgr.h"
 #import "AppSetting.h"
+#import "DeviceVersion.h"
 /*
  
  
@@ -85,25 +86,29 @@
   
     if(self.txtpassword)
     {
-        NSMutableAttributedString *ms = [[NSMutableAttributedString alloc] initWithString:self.txtpassword.placeholder];
-        UIFont *placeholderFont = self.txtpassword.font;
-        NSRange fullRange = NSMakeRange(0, ms.length);
-        NSDictionary *newProps = @{NSForegroundColorAttributeName: HexRGB(137, 137, 137), NSFontAttributeName:placeholderFont};
-        [ms setAttributes:newProps range:fullRange];
-        self.txtpassword.attributedPlaceholder = ms;
+        if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"6.0")){
+            NSMutableAttributedString *ms = [[NSMutableAttributedString alloc] initWithString:self.txtpassword.placeholder];
+            UIFont *placeholderFont = self.txtpassword.font;
+            NSRange fullRange = NSMakeRange(0, ms.length);
+            NSDictionary *newProps = [NSDictionary dictionaryWithObjectsAndKeys:NSForegroundColorAttributeName,HexRGB(137, 137, 137), NSFontAttributeName,placeholderFont,nil];
+            [ms setAttributes:newProps range:fullRange];
+            self.txtpassword.attributedPlaceholder = ms;
+        }
+
     }
     //self.txtpassword.placeholder
     self.txtpassword.textColor = HexRGB(137, 137, 137);
     if(self.txtusername)
     {
-        
-        NSMutableAttributedString *ms = [[NSMutableAttributedString alloc] initWithString:txtusername.placeholder];
-        UIFont *placeholderFont = self.txtusername.font;
-        NSRange fullRange = NSMakeRange(0, ms.length);
-        NSDictionary *newProps = @{NSForegroundColorAttributeName: HexRGB(137, 137, 137), NSFontAttributeName:placeholderFont};
-        [ms setAttributes:newProps range:fullRange];
-        self.txtusername.attributedPlaceholder = ms;
-        SafeRelease(ms);
+       if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"6.0")){
+           NSMutableAttributedString *ms = [[NSMutableAttributedString alloc] initWithString:txtusername.placeholder];
+           UIFont *placeholderFont = self.txtusername.font;
+           NSRange fullRange = NSMakeRange(0, ms.length);
+           NSDictionary *newProps = @{NSForegroundColorAttributeName: HexRGB(137, 137, 137), NSFontAttributeName:placeholderFont};
+           [ms setAttributes:newProps range:fullRange];
+           self.txtusername.attributedPlaceholder = ms;
+           SafeRelease(ms);
+       }
     }
     
     self.txtusername.textColor = HexRGB(137, 137, 137);

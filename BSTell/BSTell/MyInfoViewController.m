@@ -58,8 +58,7 @@
     CGFloat currY = kMBAppTopToolBarHeight+80.f;
     userNameLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:26] withTextColor:[UIColor blackColor] withText:@"模拟公司" withFrame:CGRectMake(kLeftTextPendingX,currY,300.f, 30.f)];
     userNameLabel.textAlignment = NSTextAlignmentLeft;
-  
-    
+
     [self.view addSubview:userNameLabel];
     SafeRelease(userNameLabel);
       currY = currY+50.f;
