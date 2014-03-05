@@ -32,7 +32,6 @@
     [connect addParam:@"bh1234567" forKey:@"password"];
     [connect addParam:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"] forKey:@"version"];
     [connect sendRequest];
-    UITabBarController
     
     /*
     if (![self.window isKeyWindow]) {
