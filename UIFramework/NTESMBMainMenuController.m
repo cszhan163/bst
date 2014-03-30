@@ -469,7 +469,7 @@ BOOL isFromLowMemory = NO;
     
     
     UIView *item = [tabBar getCurrentSelItem];
-    
+#if 0
     for(int i = 0;i<[tabBar.navTabTextArr count];i++){
         UILabel *subItem = [tabBar.navTabTextArr objectAtIndex:i];
         if(index == i){
@@ -479,7 +479,7 @@ BOOL isFromLowMemory = NO;
             subItem.textColor = kTabItemTextNomalColor;
         }
     }
-    
+#endif
     CGPoint newcenter = [item center];
     
     UILabel *subLabel = [[item subviews]objectAtIndex:0];

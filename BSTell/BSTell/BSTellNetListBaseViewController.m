@@ -13,7 +13,11 @@
 @end
 
 @implementation BSTellNetListBaseViewController
-
+- (void)dealloc{
+    self.dataArray = nil;
+    self.userId = nil;
+    [super dealloc];
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

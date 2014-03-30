@@ -9,5 +9,5 @@
 #import "BSTellNetListBaseViewController.h"
 
 @interface OrderListViewController : BSTellNetListBaseViewController
-
+@property (nonatomic, assign) NSInteger confirmTag;
 @end
