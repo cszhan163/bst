@@ -20,6 +20,8 @@
 
 #import "BidAdjustAlertView.h"
 
+#import "OrderListMainViewController.h"
+
 #define kItemLeftPendingX    5.f
 
 #define kItemPendingY   2.f
@@ -238,12 +240,12 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
         }
             break;
         case 5:{
-            //if(indexPath.row<3)
-            {
-                kUIAlertView(@"提示", @"正在建设,敬请期待!");
-                return;
-            }
-            OrderListViewController *noteListVc = [[OrderListViewController alloc]init];
+//            //if(indexPath.row<3)
+//            {
+//                kUIAlertView(@"提示", @"正在建设,敬请期待!");
+//                return;
+//            }
+            OrderListMainViewController *noteListVc = [[OrderListMainViewController alloc]init];
             //noteListVc.type = 1;
             [noteListVc setNavgationBarTitle:[sender titleLabel].text];
             [self.navigationController pushViewController:noteListVc animated:YES];

@@ -30,7 +30,7 @@
 @"moni04":@{@"hydm":@"007652 ",@"czy":@"U65248"},\
 @"moni05":@{@"hydm":@"007653",@"czy":@"U65249"},\
 @"shanghai_1":@{@"hydm":@"007624",@"czy":@"U64959"},\
-@"shanghai_2":@{@"hydm":@"007625 ",@"czy":@"U64979"},\
+@"shanghai_2":@{@"hydm":@"007625",@"czy":@"U64979"},\
 @"shanghai_3":@{@"hydm":@"007626",@"czy":@"U64982"}\
 }
 @interface CardShopLoginViewController ()

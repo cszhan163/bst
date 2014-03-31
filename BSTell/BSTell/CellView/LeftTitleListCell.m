@@ -152,6 +152,60 @@
 return self;
 
 }
+
+- (id)initWithFrame:(CGRect)frame withTitleArray:(NSArray*)titleArray withTitle:(NSString*)title  withValueAtrArray:(NSArray*)valueArray withItemPending:(CGFloat)yItemPending withOrderCell:(BOOL)isOrder
+{
+    if(self = [super initWithFrame:frame]){
+        
+        self.frame = frame;
+        self.clipsToBounds = YES;
+        if(kDeviceCheckIphone5){
+            //currY = 5.f;
+        }
+        [self setRowLineHidden:YES];
+        [self setClounmLineHidden:YES];
+        //for header title
+        CGRect headRect = CGRectMake(self.xStartLeftPendingX,0.f,kDeviceScreenWidth, 30);
+        self.headerLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:16] withTextColor:[UIColor blackColor] withText:title withFrame:headRect];
+        self.headerLabel.textAlignment = NSTextAlignmentLeft;
+        [self addSubview:self.headerLabel];
+        //headerLabel.backgroundColor = [UIColor blueColor];
+        SafeRelease(self.headerLabel);
+        
+        
+        [self setRowLineHidden:YES];
+        [self setClounmLineHidden:YES];
+        CGFloat currX = self.xStartLeftPendingX;
+        CGFloat currY =35.f;
+        int columCount = [titleArray count];
+        for(int i = 0;i<columCount;i++)
+        {
+            UILabel *itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX,currY,60,15)];
+            itemLabel.font = [UIFont systemFontOfSize:kTitleFontSize];
+            itemLabel.textColor = [UIColor blackColor];
+            itemLabel.backgroundColor = [UIColor clearColor];
+            //itemLabel.textAlignment = NSTextAlignmentCenter;
+            itemLabel.text = titleArray[i];
+            
+            [self addSubview:itemLabel];
+            SafeRelease(itemLabel);
+            
+            itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX+60.f,currY,150,15)];
+            itemLabel.font = [UIFont systemFontOfSize:kTitleFontSize];
+            itemLabel.textColor = [UIColor blackColor];
+            itemLabel.backgroundColor = [UIColor clearColor];
+            //itemLabel.textAlignment = NSTextAlignmentCenter;
+            itemLabel.text = @"";
+            [self addSubview:itemLabel];
+            SafeRelease(itemLabel);
+            [self.mCellItemArray addObject:itemLabel];
+            currY = currY+yItemPending;
+        }
+    }
+    return self;
+    
+}
+
 - (id)initWithFrame:(CGRect)frame withTitleArray:(NSArray*)titleArray withTitleAttributeArray:(NSArray*)titleAtrArray withValueAttributeArray:(NSArray*)valueAtrArray withHeightArray:(NSArray*)heightArray
 {
     

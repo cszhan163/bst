@@ -129,6 +129,8 @@
 #define kCarUserInfo              @"getAccountInfo"
 #define kCarUserOrderList                @"getOrderList"
 
+#define kCarUserOrderComfirmedList          @"getOrderComfirmedList"
+
 #define kCarUserOrderDetail             @"getOrderDetail"
 
 #define kResUserOrderConfirm            @"updateStatus4Move"
