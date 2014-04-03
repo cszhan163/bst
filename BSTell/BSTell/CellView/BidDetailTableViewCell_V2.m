@@ -7,6 +7,8 @@
 //
 
 #import "BidDetailTableViewCell_V2.h"
+
+#define  kItemPendingX   80.f
 @interface BidDetailTableViewCell_V2(){
     UIButton *bidBtn;
     UITextView *bidTextView;
@@ -48,6 +50,57 @@
     }
     return self;
 }
+
+- (id)initWithFrame:(CGRect)frame withHeaderTitle:(NSString *)title withTitleArray:(NSArray*)titleArray withTitleAttributeArray:(NSArray*)titleAtrArray withValueAttributeArray:(NSArray*)valueAtrArray withHeightArray:(NSArray*)heightArray{
+    
+    self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"customCell"];
+    if (self) {
+        //for header title
+        self.frame = frame;
+        self.clipsToBounds = YES;
+        if(kDeviceCheckIphone5){
+            //currY = 5.f;
+        }
+        
+        [self setRowLineHidden:YES];
+        [self setClounmLineHidden:YES];
+        CGFloat currX = 20.f;
+        CGFloat currY = 10.f;
+        int columCount = [titleArray count];
+        for(int i = 0;i<columCount;i++)
+        {
+            NSDictionary *titleDict = titleAtrArray[i];
+            float  height = [heightArray[i]floatValue];
+            UILabel *itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX,currY,kItemPendingX,height)];
+            itemLabel.font = [titleDict objectForKey:@"font"];
+            itemLabel.textColor = [titleDict objectForKey:@"color"];
+            itemLabel.backgroundColor = [UIColor clearColor];
+            //itemLabel.textAlignment = NSTextAlignmentCenter;
+            itemLabel.text = titleArray[i];
+            
+            
+            NSDictionary *valueDict = valueAtrArray[i];
+            
+            [self addSubview:itemLabel];
+            SafeRelease(itemLabel);
+            
+            itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX+kItemPendingX,currY,140,height)];
+            itemLabel.font = [valueDict objectForKey:@"font"];
+            itemLabel.textColor = [valueDict objectForKey:@"color"];
+            itemLabel.backgroundColor = [UIColor clearColor];
+            //itemLabel.textAlignment = NSTextAlignmentCenter;
+            itemLabel.text = @"";
+            itemLabel.numberOfLines = 0;
+            [self addSubview:itemLabel];
+            SafeRelease(itemLabel);
+            [self.mCellItemArray addObject:itemLabel];
+            currY = currY+height;
+        }
+
+
+    }
+    return  self;
+}
 - (void)setActionTarget:(id)actionTarget withSelecotr:(SEL)selector{
     [bidBtn addTarget:actionTarget action:selector forControlEvents:UIControlEventTouchUpInside];
 }
@@ -61,6 +114,9 @@
 #else
     bidTextView.text = string;
 #endif
+}
+- (void)setButtonDisableStatus:(BOOL)status{
+    bidBtn.enabled = !status;
 }
 - (void)setButtonHiddenStatus:(BOOL)status{
     

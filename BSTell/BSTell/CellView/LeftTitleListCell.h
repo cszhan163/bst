@@ -25,6 +25,8 @@
 - (id)initWithFrame:(CGRect)frame withTitleArray:(NSArray*)titleArray withItemPendingArray:(NSArray*)itemArray;
 
 
+- (void)initWithTitleArray:(NSArray*)titleArray withTitleAttributeArray:(NSArray*)titleAtrArray withValueAttributeArray:(NSArray*)valueAtrArray withHeightArray:(NSArray*)heightArray;
+
 - (BOOL)setCellItemValue:(NSString*)value withRow:(NSInteger)row;
 - (BOOL)setCellItemValue:(NSString*)value withRow:(NSInteger)row withCol:(NSInteger)col;
 - (void)setValueColorByIndex:(NSInteger)index withColor:(UIColor*)color;

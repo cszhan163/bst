@@ -184,8 +184,8 @@
     [cell setCellItemValue:value withRow:row withCol:index++];
     
     value = [item objectForKey:@"weight"];
-    //[cell setCellItemValue:value withIndex:index++];
-    [cell setCellItemValue:value withRow:row withCol:index++];
+    value = [NSString stringWithFormat:@"%@ 吨",value];
+    [cell setCellItemValue:value withRow:index++];
     
     value = [item objectForKey:@"seller"];
     //[cell setCellItemValue:value withIndex:index++];
@@ -197,7 +197,7 @@
     [cell setCellItemValue:value withRow:row withCol:index++];
     
     value = [item objectForKey:@"turnover"];
-    value  = [NSString stringWithFormat:@"%0.2lf",[value floatValue]];
+    value  = [NSString stringWithFormat:@"%0.2lf 元",[value floatValue]];
     //[cell setCellItemValue:value withIndex:index++];
     [cell setCellItemValue:value withRow:row withCol:index++];
     
@@ -227,6 +227,8 @@
     }
     else{
         [cell setButtonHiddenStatus:NO];
+        
+        [cell setBidButtonTitle:@"到货\n确认"];
     }
     
     return cell;
@@ -319,6 +321,14 @@
         [self performSelectorOnMainThread:@selector(updateUIData:) withObject:data waitUntilDone:NO];
         
     }
+    if([resKey isEqualToString:kResUserOrderConfirm]){
+        
+        if([[data objectForKey:@"result"] intValue]){
+            kUIAlertView(@"提示",@"确认成功")
+        }
+        //kUIAlertView(<#y#>, <#x#>)
+        //[self dismissModalViewControllerAnimated:YES];
+    }
 }
 - (void)updateUIData:(NSDictionary*)netData{
     
@@ -334,6 +344,29 @@
 - (void)bidConfirmAlert:(id)sender{
     int i = [sender tag];
     NSDictionary *item = self.dataArray[i];
+    CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
+    {
+        /*
+         fphm
+         合同号
+         kplb
+         交易类型
+         hzfs
+         结算方式
+         lx
+         到款状态
+         dhczy
+         操作员
+         
+         */
+        
+        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                 //self.orderId,@"orderId",
+                 [item objectForKey:@"fphm"],@"fphm",
+                 self.userId,@"dhczy",
+                 nil];
+        self.request = [carServiceNetDataMgr  updateStatus4Move:param];
+    }
   
 }
 

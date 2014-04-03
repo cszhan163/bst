@@ -16,7 +16,7 @@
     if (self) {
         // Initialization code
         inset = 9.f;
-        insetY = 9.f;
+        insetY = 0.f;
     }
     return self;
 }

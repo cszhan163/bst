@@ -159,7 +159,7 @@
     
     currY = bgScrollerView.frame.size.height+bgScrollerView.frame.origin.y+5.f;
     
-    LeftTitleListCell *confirmStatusView = [[LeftTitleListCell alloc]initWithFrame:CGRectMake(kPendingX,currY,width,130.f) withTitleArray:@[] withTitle:@"到货确认" withValueAtrArray:@[] withItemPending:15.f ];
+    LeftTitleListCell *confirmStatusView = [[LeftTitleListCell alloc]initWithFrame:CGRectMake(kPendingX,currY,width,130.f) withTitleArray:@[] withTitle:@"状态" withValueAtrArray:@[] withItemPending:15.f ];
     //s[orderInfoView setYItemPendingY:10.f];
     //[orderInfoView   ];
     [self.view addSubview:confirmStatusView];
@@ -174,7 +174,7 @@
     [self.view  addSubview:bidBtn];
     bidBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [bidBtn addTarget:self action:@selector(startConfirmOrderStatus:) forControlEvents:UIControlEventTouchUpInside];
-    bidBtn.frame = CGRectMake(kDeviceScreenWidth-20.f-bidBtn.frame.size.width,currY+15.f, bidBtn.frame.size.width, bidBtn.frame.size.height);
+    bidBtn.frame = CGRectMake(kDeviceScreenWidth-20.f-bidBtn.frame.size.width,currY, bidBtn.frame.size.width, bidBtn.frame.size.height);
     
     
 }
@@ -212,14 +212,11 @@
          操作员
          
          */
+        
         param = [NSDictionary dictionaryWithObjectsAndKeys:
-                 self.orderId,@"orderId",
-                 @"1",@"dhczy",
-                 @"",@"fphm",//[self.orderItem objectForKey:@"fphm"]
-                 @"001",@"kplb",
-                 @"10",@"hzfs",
-                 @"",@"dhczy",
-                 //@"",@"rqEnd",
+                 //self.orderId,@"orderId",
+                 [self.orderItem objectForKey:@"fphm"],@"fphm",
+                 self.userId,@"dhczy",
                  nil];
         self.request = [carServiceNetDataMgr  updateStatus4Move:param];
     }
@@ -275,8 +272,9 @@
     }
     if([resKey isEqualToString:kResUserOrderConfirm]){
     
-        if([[data objectForKey:@"result"] intValue])
-           kNetEndSuccStr(@"确认成功",self.view);
+        if([[data objectForKey:@"result"] intValue]){
+           kUIAlertView(@"提示",@"确认成功")
+        }
         //kUIAlertView(<#y#>, <#x#>)
         //[self dismissModalViewControllerAnimated:YES];
     }
@@ -341,12 +339,30 @@
     value = [netData objectForKey:@"goodName"];
     [orderInfoView setCellItemValue:value withRow:index++];
     value = [netData objectForKey:@"weight"];
+    value = [NSString stringWithFormat:@"%@ 吨",value];
     [orderInfoView setCellItemValue:value withRow:index++];
     value = [netData objectForKey:@"turnover"];
+    value = [NSString stringWithFormat:@"%@ 元",value];
     [orderInfoView setCellItemValue:value withRow:index++];
     value = [netData objectForKey:@"auctionDate"];
     [orderInfoView setCellItemValue:value withRow:index++];
     value = [netData objectForKey:@"result"];
+    /*
+     
+     0：卖家未到款确认
+     1：已完成
+     2：卖家已到款确认
+     */
+    
+    
+    NSString *relResult = @"已完成";
+    if([value intValue] == 0){
+        relResult = @"买家未到款确认";
+    }
+    else if([value intValue] == 2){
+    
+         relResult = @"卖家已到款确认";
+    }
     [orderInfoView setCellItemValue:value withRow:index++];
     
     index = 0;

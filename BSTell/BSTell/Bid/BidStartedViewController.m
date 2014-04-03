@@ -220,10 +220,29 @@
     
     [cell setCellItemValue:value withRow:row withCol:index++];
     
+    
+    
+    value = [item objectForKey:@"auctionStatus"];
+    BOOL isOverTag = NO;
+    if([value intValue] == 3){
+        
+        [cell setBidButtonTitle:@"已经\n结束"];
+        isOverTag = YES;
+        [cell  setButtonDisableStatus:YES];
+        
+    }
+    else{
+        [cell setBidButtonTitle:@"加1\n梯度"];
+        [cell  setButtonDisableStatus:NO];
+    }
+    
+    //sell company
+    value = [item objectForKey:@"myprice"];
+    CGFloat myPrice = [value floatValue];
+    
+    
     //sell company
     value = [item objectForKey:@"dqj"];
-    
-    [cell setBidButtonTitle:@"加1\n梯度"];
     
     CGFloat currPrice = [value floatValue];
     
@@ -232,15 +251,29 @@
         value = @"----";
     }
     else{
-        value = [NSString stringWithFormat:@"%0.2lf元",[value floatValue]];
+        if(isOverTag){
+            
+             if(myPrice<currPrice){
+                 value = @"----";
+             }
+             else {
+             
+                 value = [NSString stringWithFormat:@"%0.2lf元",[value floatValue]];
+                 
+             }
+            
+        }
+        else{
+            value = [NSString stringWithFormat:@"%0.2lf元",[value floatValue]];
+        }
     }
     [cell setCellItemValue:value withRow:row withCol:index++];
+
     
+ 
     
-    //sell company
-    value = [item objectForKey:@"myprice"];
     NSString *statusStr = @"落后";
-    CGFloat myPrice = [value floatValue];
+    
     if(myPrice>=currPrice ){
         statusStr = @"领先";
         [cell  setValueColorByIndex:index withColor:HexRGB(200, 0, 0)];
@@ -250,7 +283,7 @@
     }
     value = [item objectForKey:@"qpj"];
     CGFloat basePrice = [value floatValue];
-    if(myPrice<basePrice){
+    if(currPrice == 0.f){
         statusStr = @"未出价";
         [cell setValueColorByIndex:index withColor:[UIColor blackColor]];
         
@@ -265,6 +298,8 @@
 #endif
     //time
     [cell setBidButtonTag:indexPath.row];
+    
+    
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

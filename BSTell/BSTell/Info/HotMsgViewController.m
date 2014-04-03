@@ -125,7 +125,7 @@
      */
     if(indexPath.row == 2 && self.type == Note_Info && self.isDisable){
     
-        kUIAlertView(@"提示", @"正在建设,敬请期待!");
+        //kUIAlertView(@"提示", @"正在建设,敬请期待!");
         return;
     }
     

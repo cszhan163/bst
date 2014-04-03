@@ -229,20 +229,21 @@
 #else
     moneyValue = [netData objectForKey:@"availability"];
     
-    userAccountLabel.text = [NSString stringWithFormat:@" %0.2lf ",[moneyValue floatValue]];
+    userAccountLabel.text = [NSString stringWithFormat:@" %0.2lf ",[moneyValue doubleValue]];
     //您的帐户上的自由资金余额:             元
     moneyValue = [netData objectForKey:@"balance"];
     
-    userAvaiableLabel.text = [NSString stringWithFormat:@"%@ ",moneyValue];
+    userAvaiableLabel.text = [NSString stringWithFormat:@" %0.2lf ",[moneyValue doubleValue]];
     
     moneyValue = [netData objectForKey:@"locked"];
     
-    userLockLabel.text = [NSString stringWithFormat:@" %@ ",moneyValue];
+    userLockLabel.text = [NSString stringWithFormat:@"  %0.2lf ",[moneyValue doubleValue]];
 #endif
     
     moneyValue = [netData objectForKey:@"unconfirmed"];
     
-    if([moneyValue intValue]>0){
+    if([moneyValue intValue]>=0)
+    {
     
         userAgreeLabel.text = [NSString stringWithFormat:@"您共有%d笔竞购合同未做到货确认",[moneyValue intValue]];
         userAgreeLabel.hidden = NO;

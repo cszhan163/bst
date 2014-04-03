@@ -33,7 +33,7 @@
 //    id value = [keyChainItem2 objectForKey:kSecValueData];
     //[self startLoginRequest];
     
-    [self startLoginRequest];
+    //[self startLoginRequest];
     
     return YES;
 }

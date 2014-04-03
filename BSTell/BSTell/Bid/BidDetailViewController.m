@@ -12,6 +12,7 @@
 
 #import "BidMainViewController.h"
 
+#import "BidDetailTableViewCell_V2.h"
 
 #define kOld    0
 
@@ -38,6 +39,21 @@
 
 #define kCellHeight  18.f;
 #endif
+
+
+#define kCellTitleColorArray @[[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor]]
+
+#define kCellTitleFontArray  @[[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14]]
+
+
+#define kCellValueColorArray @[[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor]]
+
+#define kCellValueFontArray  @[[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14]]
+
+
+#define kCellItemHeightArray @[@20.f,@20.f,@20.f,@20.f,@20.f,@20.f]
+
+
 
 @interface BidDetailViewController (){
 
@@ -283,112 +299,155 @@
     UIImageWithFileName(UIImage *image , @"bid_detail_table.png");
     //CGRect rect = headerView.frame;
     CGFloat currY = 0.f;
+    
+    CGRect headRect = CGRectMake(kLeftPendingX,currY,kDeviceScreenWidth-2*kLeftPendingX,40);
+    UILabel *headerLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"物资信息" withFrame:headRect];
+    [bgGoodsView addSubview:headerLabel];
+    //headerLabel.backgroundColor = [UIColor blueColor];
+    SafeRelease(headerLabel);
+    currY = currY+40.f;
+    
     for(int i = 0;i<[dataArray count];i++){
         NSDictionary *itemData = dataArray[i];
  #if kOld
-     BidDetailTableViewCell   *tableView = [[BidDetailTableViewCell alloc]initWithFrame:CGRectMake(kLeftPendingX, currY,image.size.width/kScale, image.size.height/kScale) withRowCount:5 withColumCount:4 withCellHeight:20 withHeaderTitle:@"物资信息"];
-        tableView.layer.contents = (id)image.CGImage;
-        /*
-         物资编号
-         竞价模式
-         报盘方式
-         计价方式
-         起拍价
-         总量
-         拼盘梯度
-         成交价
-         竞价状态
-         品名
-         包装
-         产地
-         仓库
-         重量
-         计量单位
-         付款方式
-         提货方式
-         交货时间
-         质量标准
-         备注
-         */
-        
-
-        [tableView addColumWithKeyTitleArray:@[@"物资编号",@"竞价模式",@"报盘方式",@"计价方式"] withColumWidthArray:kTableColounmItemWidthArray];
-        
-        [tableView addColumWithKeyTitleArray:@[@"起拍价",@"总量",@"竞价梯度",@"成交价"] withColumWidthArray:kTableColounmItemWidthArray];
-        /*
-         @"竞价状态",
-         @"品名",
-         @"包装",
-         @"产地",
-         */
-        [tableView addColumWithKeyTitleArray:@[@"竞价状态",
-                                               @"品名",
-                                               @"包装",
-                                               @"产地"
-                                               ] withColumWidthArray:kTableColounmItemWidthArray];
-        
-        /*
-         @"仓库",
-         @"重量",
-         @"计量单位",
-         @"付款方式",
-         */
-        [tableView addColumWithKeyTitleArray:@[@"仓库",
-                                               @"重量",
-                                               @"计量单位",
-                                               @"付款方式"
-                                               ] withColumWidthArray:kTableColounmItemWidthArray];
-        
-        /*
-         @"提货方式",
-         @"交货时间",
-         @"质量标准",
-         @"备注",
-         */
-        
-        [tableView addColumWithKeyTitleArray:@[@"提货方式",
-                                               @"交货时间",
-                                               @"质量标准",
-                                               @"备注"
-                                               ] withColumWidthArray:kTableColounmItemWidthArray];
-
-        [self setTableCellView:tableView byData:itemData];
+//     BidDetailTableViewCell   *tableView = [[BidDetailTableViewCell alloc]initWithFrame:CGRectMake(kLeftPendingX, currY,image.size.width/kScale, image.size.height/kScale) withRowCount:5 withColumCount:4 withCellHeight:20 withHeaderTitle:@"物资信息"];
+//        tableView.layer.contents = (id)image.CGImage;
+//        /*
+//         物资编号
+//         竞价模式
+//         报盘方式
+//         计价方式
+//         起拍价
+//         总量
+//         拼盘梯度
+//         成交价
+//         竞价状态
+//         品名
+//         包装
+//         产地
+//         仓库
+//         重量
+//         计量单位
+//         付款方式
+//         提货方式
+//         交货时间
+//         质量标准
+//         备注
+//         */
+//        
+//
+//        [tableView addColumWithKeyTitleArray:@[@"物资编号",@"竞价模式",@"报盘方式",@"计价方式"] withColumWidthArray:kTableColounmItemWidthArray];
+//        
+//        [tableView addColumWithKeyTitleArray:@[@"起拍价",@"总量",@"竞价梯度",@"成交价"] withColumWidthArray:kTableColounmItemWidthArray];
+//        /*
+//         @"竞价状态",
+//         @"品名",
+//         @"包装",
+//         @"产地",
+//         */
+//        [tableView addColumWithKeyTitleArray:@[@"竞价状态",
+//                                               @"品名",
+//                                               @"包装",
+//                                               @"产地"
+//                                               ] withColumWidthArray:kTableColounmItemWidthArray];
+//        
+//        /*
+//         @"仓库",
+//         @"重量",
+//         @"计量单位",
+//         @"付款方式",
+//         */
+//        [tableView addColumWithKeyTitleArray:@[@"仓库",
+//                                               @"重量",
+//                                               @"计量单位",
+//                                               @"付款方式"
+//                                               ] withColumWidthArray:kTableColounmItemWidthArray];
+//        
+//        /*
+//         @"提货方式",
+//         @"交货时间",
+//         @"质量标准",
+//         @"备注",
+//         */
+//        
+//        [tableView addColumWithKeyTitleArray:@[@"提货方式",
+//                                               @"交货时间",
+//                                               @"质量标准",
+//                                               @"备注"
+//                                               ] withColumWidthArray:kTableColounmItemWidthArray];
+//
+//        [self setTableCellView:tableView byData:itemData];
 #else
-      
-        BidDetailTableViewCell   *tableView = [[BidDetailTableViewCell alloc]initWithCustomFrame:CGRectMake(kLeftPendingX, currY,image.size.width/kScale, image.size.height/kScale) withRowCount:5 withColumCount:4 withCellHeight:20 withHeaderTitle:@""];
-        tableView.layer.contents = (id)image.CGImage;
-       
-        CGFloat cellHeight = 20.f;
+     
+//        BidDetailTableViewCell   *tableView = [[BidDetailTableViewCell alloc]initWithCustomFrame:CGRectMake(kLeftPendingX, currY,image.size.width/kScale, image.size.height/kScale) withRowCount:5 withColumCount:4 withCellHeight:20 withHeaderTitle:@""];
+//        tableView.layer.contents = (id)image.CGImage;
+//       
+//        CGFloat cellHeight = 20.f;
+//        
+//        [tableView addColumWithKeyTitleArray:@[@"",
+//                                               ]withColumWidthArray:@[@260]
+//                          withKeyTitleHeight:30 withValueHeight:25];
+//        
+//        
+//        [tableView addColumWithKeyTitleArray:@[@"",@"",@""
+//                                               ]withColumWidthArray:@[@145,
+//                                                                      @60,@55]
+//                          withKeyTitleHeight:cellHeight withValueHeight:cellHeight];
+//        
+//        [tableView addColumWithKeyTitleArray:@[@"",@"",@"",@""
+//                                               ]withColumWidthArray:@[@90,
+//                                                                      @55,@55,@60]
+//                          withKeyTitleHeight:cellHeight withValueHeight:cellHeight];
+//        [tableView addColumWithKeyTitleArray:@[@"",@"",@"",@""
+//                                               ]withColumWidthArray:@[@90,
+//                                                                      @60,@50,@60]
+//                          withKeyTitleHeight:cellHeight withValueHeight:cellHeight];
+//        
+//        [tableView addColumWithKeyTitleArray:@[@"",@""
+//                                               ]withColumWidthArray:@[@145,
+//                                                                      @115]
+//                          withKeyTitleHeight:cellHeight withValueHeight:cellHeight];
+//
+//
         
-        [tableView addColumWithKeyTitleArray:@[@"",
-                                               ]withColumWidthArray:@[@260]
-                          withKeyTitleHeight:30 withValueHeight:25];
+     
+        
+        NSMutableArray *titleArray = [NSMutableArray array];
+        
+        NSMutableArray *valueArray = [NSMutableArray array];
+        for (int i = 0; i<[kCellTitleColorArray count]; i++) {
+            NSMutableDictionary *itemDict = [NSMutableDictionary dictionary];
+            [itemDict setObject:kCellTitleColorArray[i] forKey:@"color"];
+            [itemDict setObject:kCellTitleFontArray[i] forKey:@"font"];
+            [titleArray addObject:itemDict];
+        }
+        
+        for (int i = 0; i<[kCellValueColorArray count]; i++) {
+            NSMutableDictionary *itemDict = [NSMutableDictionary dictionary];
+            [itemDict setObject:kCellValueColorArray[i] forKey:@"color"];
+            [itemDict setObject:kCellValueFontArray[i] forKey:@"font"];
+            [valueArray addObject:itemDict];
+        }
+        
+        BidDetailTableViewCell_V2 *tableView = [[BidDetailTableViewCell_V2 alloc]initWithFrame:CGRectMake(kLeftPendingX,currY,kDeviceScreenWidth-2*kLeftPendingX,130.f) withHeaderTitle:@"物资信息"
+                                                                                withTitleArray:@[
+                                                                                                 @"物资编号",
+                                                                                                 @"品名",
+                                                                                                 @"重量",
+                                                                                                 @"起拍价",
+                                                                                                 @"竞价梯度",
+                                                            ]
+                                                                       withTitleAttributeArray:titleArray
+                                                                       withValueAttributeArray:valueArray
+                                                                               withHeightArray:kCellItemHeightArray];
         
         
-        [tableView addColumWithKeyTitleArray:@[@"",@"",@""
-                                               ]withColumWidthArray:@[@145,
-                                                                      @60,@55]
-                          withKeyTitleHeight:cellHeight withValueHeight:cellHeight];
-        
-        [tableView addColumWithKeyTitleArray:@[@"",@"",@"",@""
-                                               ]withColumWidthArray:@[@90,
-                                                                      @55,@55,@60]
-                          withKeyTitleHeight:cellHeight withValueHeight:cellHeight];
-        [tableView addColumWithKeyTitleArray:@[@"",@"",@"",@""
-                                               ]withColumWidthArray:@[@90,
-                                                                      @60,@50,@60]
-                          withKeyTitleHeight:cellHeight withValueHeight:cellHeight];
-        
-        [tableView addColumWithKeyTitleArray:@[@"",@""
-                                               ]withColumWidthArray:@[@145,
-                                                                      @115]
-                          withKeyTitleHeight:cellHeight withValueHeight:cellHeight];
-
         [self setTableCellView:tableView byData:itemData];
+
 #endif
         [bgGoodsView addSubview:tableView];
         SafeRelease(tableView);
-        currY = currY+image.size.height/2.f;
+        currY = currY+150.f;
     }
     bgGoodsView.contentSize = CGSizeMake(kDeviceScreenWidth, currY);
 }
@@ -587,6 +646,8 @@
     [tableView setCellItemValue:value withRow:row withCol:index++];
 #else
     
+    
+#if 0
     index = 0;
     row = 0;
     //netData = [[netData objectForKey:@"data"]objectAtIndex:0];
@@ -686,7 +747,35 @@
      QS
      note
      */
-   
+#else
+    
+    //id
+    value = [netData objectForKey:@"goodId"];
+    //[cell setCellItemValue:value withIndex:index++];
+    [tableView setCellItemValue:value withRow:row withCol:index++];
+    
+    
+    value = [netData objectForKey:@"goodName"];
+    //[cell setCellItemValue:value withIndex:index++];
+    [tableView setCellItemValue:value withRow:row withCol:index++];
+    
+    value = [netData objectForKey:@"weight"];
+    value = [NSString stringWithFormat:@"%@ 吨",value];
+    [tableView setCellItemValue:value withRow:index++];
+    
+
+    value = [netData objectForKey:@"startPrice"];
+    [tableView setCellItemValue:value withRow:row withCol:index++];
+    
+    value = [netData objectForKey:@"bjtd"];
+    value  = [NSString stringWithFormat:@"%0.2lf 元",[value floatValue]];
+    //[cell setCellItemValue:value withIndex:index++];
+    [tableView setCellItemValue:value withRow:row withCol:index++];
+    
+    tableView.backgroundColor = [UIColor yellowColor];
+    
+    
+#endif
    
     
     
