@@ -8,8 +8,24 @@
 
 #import "OrderListViewController.h"
 #import "OrderTableViewCell.h"
-
+#import "LeftTitleListCell.h"
 #import "OrderDetailViewController.h"
+
+#import "OrderListCell.h"
+
+
+#define kCellTitleColorArray @[[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor]]
+
+#define kCellTitleFontArray  @[[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14]]
+
+
+#define kCellValueColorArray @[[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor]]
+
+#define kCellValueFontArray  @[[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14]]
+
+
+#define kCellItemHeightArray @[@20.f,@20.f,@20.f,@20.f,@20.f,@20.f]
+
 @interface OrderListViewController ()
 
 @end
@@ -69,24 +85,63 @@
     
     if (cell == nil) {
         
-#if 1
+#if 0
         NSArray *nibArr = [[NSBundle mainBundle] loadNibNamed:@"OrderTableViewCell"
                                                         owner:self options:nil];
         for (id oneObject in nibArr)
             if ([oneObject isKindOfClass:[OrderTableViewCell class]])
                 cell = (OrderTableViewCell*)oneObject;
 #else
-        cell = [[InfoClassTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        NSMutableArray *titleArray = [NSMutableArray array];
+        
+        NSMutableArray *valueArray = [NSMutableArray array];
+        for (int i = 0; i<[kCellTitleColorArray count]; i++) {
+            NSMutableDictionary *itemDict = [NSMutableDictionary dictionary];
+            [itemDict setObject:kCellTitleColorArray[i] forKey:@"color"];
+            [itemDict setObject:kCellTitleFontArray[i] forKey:@"font"];
+            [titleArray addObject:itemDict];
+        }
+        
+        for (int i = 0; i<[kCellValueColorArray count]; i++) {
+            NSMutableDictionary *itemDict = [NSMutableDictionary dictionary];
+            [itemDict setObject:kCellValueColorArray[i] forKey:@"color"];
+            [itemDict setObject:kCellValueFontArray[i] forKey:@"font"];
+            [valueArray addObject:itemDict];
+        }
+
+        
+        cell = [[OrderListCell alloc]
+                initWithStyle:UITableViewCellStyleDefault
+                reuseIdentifier:CellIdentifier
+                withTitleArray:@[
+                                 @"品名",
+                                 @"重量",
+                                 @"卖方会员",
+                                 @"成交时间",
+                                 @"成交金额",
+                                 @"订单结果"
+                                 ]
+                withTitleAttributeArray:titleArray
+                withValueAttributeArray:valueArray
+                withHeightArray:kCellItemHeightArray];
+        [cell setActionTarget:self withSelecotr:@selector(bidConfirmAlert:)];
 #endif
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = [UIColor clearColor];
        
         cell.clipsToBounds = YES;
         //cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
-        cell.contentView.frame = CGRectMake(10.f, 0.f, 300, cell.frame.size.height);
+        //cell.contentView.frame = CGRectMake(10.f, 0.f, 300, cell.frame.size.height);
+        UIImageWithFileName(UIImage* image, @"order_cell_bg.png");
+        UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
+        cell.backgroundView = imageView;
+        [cell setPendingX:10.f];
+        [cell setPendingY:5.f];
+        //cell.frame = CGRectMake(0.f, 0.f, 290, 80.f);
         
     }
     NSDictionary *item = self.dataArray[indexPath.row];
+#if 0
     /*
      orderId	订单号
      goodId	物资号
@@ -98,20 +153,88 @@
     cell.orderIdLabel.text  = [item objectForKey:@"orderId"];
     cell.goodsIdLabel.text = [item objectForKey:@"goodId"];
     cell.classNameLabel.text = [item objectForKey:@"goodName"];
+#else
+    /*
+     goodName
+     品名
+     weight
+     合同重量
+     turnover
+     成交金额
+     seller
+     卖方单位
+     
+     dealTime
+     成交时间
+     
+     acutionResult
+     订单结果
+     acutionStatus
+     订单状态
+     fphm
+     合同号
+     */
+    
+    int row = 0;
+    int index = 0;
+    NSString *value = @"";
+    //id
+    value = [item objectForKey:@"goodName"];
+    //[cell setCellItemValue:value withIndex:index++];
+    [cell setCellItemValue:value withRow:row withCol:index++];
+    
+    value = [item objectForKey:@"weight"];
+    //[cell setCellItemValue:value withIndex:index++];
+    [cell setCellItemValue:value withRow:row withCol:index++];
+    
+    value = [item objectForKey:@"seller"];
+    //[cell setCellItemValue:value withIndex:index++];
+    [cell setCellItemValue:value withRow:row withCol:index++];
+    
+    value = [item objectForKey:@"dealTime"];
+    //[cell setCellItemValue:value withIndex:index++];
+    value = [NSDate  dateFormart:value fromFormart:@"yyyyMMdd" toFormart:@"yyyy-MM-dd"];
+    [cell setCellItemValue:value withRow:row withCol:index++];
+    
+    value = [item objectForKey:@"turnover"];
+    value  = [NSString stringWithFormat:@"%0.2lf",[value floatValue]];
+    //[cell setCellItemValue:value withIndex:index++];
+    [cell setCellItemValue:value withRow:row withCol:index++];
+    
+    value = [item objectForKey:@"acutionStatus"];
+    NSString *relResult = @"已完成";
+    if([value intValue] == 0){
+        relResult = @"买家未到款确认";
+    }
+    //[cell setCellItemValue:value withIndex:index++];
+    [cell setCellItemValue:relResult withRow:row withCol:index++];
+#endif
+    
     if([[item objectForKey:@"acutionResult"] intValue]){
         //cell.contentView.backgroundColor =
         //  235
-        cell.contentView.backgroundColor = HexRGB(234, 234, 235);
+        //cell.contentView.backgroundColor = HexRGB(234, 234, 235);
+        cell.contentView.backgroundColor = [UIColor clearColor];
     }
     else{
-        cell.contentView.backgroundColor = HexRGB( 255,254,185);
+        //HexRGB( 255,254,185);
+        cell.contentView.backgroundColor = [UIColor clearColor];
     }
+    [cell setBidButtonTag:indexPath.row];
+    if(self.confirmTag){
+    
+        [cell setButtonHiddenStatus:YES];
+    }
+    else{
+        [cell setButtonHiddenStatus:NO];
+    }
+    
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    return 63.f;
+    return 145.f;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -120,6 +243,16 @@
     NSDictionary *item = self.dataArray[indexPath.row];
     vc.orderId = [item objectForKey:@"orderId"];
     vc.orderItem = item;
+    
+    if([[item objectForKey:@"acutionResult"] intValue]){
+        //cell.contentView.backgroundColor =
+        //  235
+        vc.isConfirmTag = YES;
+    }
+    else{
+        vc.isConfirmTag = NO;
+    }
+
     [vc  setNavgationBarTitle:@"订单详情"];
     
     //[vc  setHiddenTableHeaderView:NO];
@@ -195,4 +328,13 @@
 }- (void)reflushData{
     [self shouldLoadOlderData:nil];
 }
+#pragma mark -
+#pragma mark -button action
+
+- (void)bidConfirmAlert:(id)sender{
+    int i = [sender tag];
+    NSDictionary *item = self.dataArray[i];
+  
+}
+
 @end

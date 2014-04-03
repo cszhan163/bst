@@ -11,4 +11,6 @@
 @interface OrderDetailViewController : BSTellBaseViewController
 @property(nonatomic,strong)NSString *orderId;
 @property(nonatomic,strong)NSDictionary* orderItem;
+
+@property (nonatomic, assign) BOOL isConfirmTag;
 @end

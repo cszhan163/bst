@@ -10,7 +10,10 @@
 
 @interface UICarTableViewCell : UITableViewCell{
     CGFloat inset;
+    CGFloat insetY;
 }
-@property(nonatomic,assign)BOOL isPendingX;
+@property (nonatomic, assign) BOOL isPendingX;
+@property (nonatomic, assign) BOOL isPendingY;
 - (void)setPendingX:(CGFloat)pendingx;
+- (void)setPendingY:(CGFloat)pendingy;
 @end

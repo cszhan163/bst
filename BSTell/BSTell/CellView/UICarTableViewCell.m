@@ -16,6 +16,7 @@
     if (self) {
         // Initialization code
         inset = 9.f;
+        insetY = 9.f;
     }
     return self;
 }
@@ -32,6 +33,8 @@
         if(kIsIOS7Check){
             frame.origin.x += inset;
             frame.size.width -= 2 * inset;
+            frame.origin.y += inset;
+            frame.size.height -= 2 *insetY;
         }
     }
     [super setFrame:frame];
@@ -40,5 +43,9 @@
     self.isPendingX = YES;
     inset = pendingx;
     
+}
+- (void)setPendingY:(CGFloat)pendingy{
+    self.isPendingY = YES;
+    insetY = pendingy;
 }
 @end

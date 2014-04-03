@@ -13,7 +13,8 @@
 
 @interface NoteDetailViewController (){\
     UILabel    *timeLabel;
-    UITextView *contentTextView;
+   // UITextView *contentTextView;
+    UIWebView *contentTextView;
     UILabel *headerView;
 
 }
@@ -48,6 +49,7 @@
     SafeRelease(timeLabel);
     
     currY = currY+timeLabel.frame.size.height+10.f;
+#if 0
     contentTextView = [[UITextView alloc]initWithFrame:CGRectMake(kLeftPendingX,currY,kDeviceScreenWidth-2*kLeftPendingX,kDeviceScreenHeight-kMBAppStatusBar-kMBAppBottomToolBarHeght-currY)];
     contentTextView.font = [UIFont systemFontOfSize:15];
     contentTextView.editable = NO;
@@ -55,6 +57,15 @@
     //contentTextView.scrollEnabled = YES;
     [self.view addSubview:contentTextView];
     SafeRelease(contentTextView);
+#else
+    contentTextView = [[UIWebView alloc]initWithFrame:CGRectMake(kLeftPendingX,currY,kDeviceScreenWidth-2*kLeftPendingX,kDeviceScreenHeight-kMBAppStatusBar-kMBAppBottomToolBarHeght-currY)];
+    contentTextView.backgroundColor = [UIColor clearColor];
+    //contentTextView.scrollEnabled = YES;
+    [self.view addSubview:contentTextView];
+    SafeRelease(contentTextView);
+
+    
+#endif
 
 	// Do any additional setup after loading the view.
 }
@@ -187,7 +198,11 @@
         moneyValue = [NSDate dateFormart:moneyValue fromFormart:@"YYYYMMddHHmmss" toFormart:@"YYYY-MM-dd HH:mm" ];
         
     }
+#if 0
     contentTextView.text = contentText;
+#else
+    [contentTextView loadHTMLString:contentText baseURL:nil];
+#endif
     headerView.text = headerText;
     
     //moneyValue = [netData objectForKey:@"fbsj"];

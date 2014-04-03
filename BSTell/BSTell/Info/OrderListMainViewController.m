@@ -36,6 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setNavgationBarTitle:@"到货确认"];
 	// Do any additional setup after loading the view.
 }
 

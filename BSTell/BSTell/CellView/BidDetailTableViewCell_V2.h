@@ -11,4 +11,6 @@
 @interface BidDetailTableViewCell_V2 : LeftTitleListCell
 - (void)setActionTarget:(id)actionTarget withSelecotr:(SEL)selector;
 - (void)setBidButtonTitle:(NSString*)string;
+- (void)setBidButtonTag:(int)tag;
+- (void)setButtonHiddenStatus:(BOOL)status;
 @end

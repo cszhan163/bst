@@ -101,7 +101,7 @@
     }
     
     
-    orderInfoView = [[LeftTitleListCell alloc]initWithFrame:CGRectMake(kPendingX,currY,width,130.f) withTitleArray:kOrderTitleArray withTitle:@"订单信息" withValueAtrArray:valueArray withItemPending:15.f];
+    orderInfoView = [[LeftTitleListCell alloc]initWithFrame:CGRectMake(kPendingX,currY,width,130.f) withTitleArray:kOrderTitleArray withTitle:@"订单信息" withValueAtrArray:valueArray withItemPending:15.f  withOrderCell:YES];
     //s[orderInfoView setYItemPendingY:10.f];
     //[orderInfoView   ];
     [bgScrollerView addSubview:orderInfoView];
@@ -118,7 +118,7 @@
     currY = currY+1.f;
 #endif
     
-    agreementInfoView = [[LeftTitleListCell alloc]initWithFrame:CGRectMake(kPendingX,currY,width,83.f) withTitleArray:kAgreeTitleArray withTitle:@"合同信息" withValueAtrArray:valueArray withItemPending:15.f];
+    agreementInfoView = [[LeftTitleListCell alloc]initWithFrame:CGRectMake(kPendingX,currY,width,83.f) withTitleArray:kAgreeTitleArray withTitle:@"合同信息" withValueAtrArray:valueArray withItemPending:15.f  withOrderCell:YES];
     //s[orderInfoView setYItemPendingY:10.f];
     //[orderInfoView   ];
     [bgScrollerView addSubview:agreementInfoView];
@@ -135,7 +135,7 @@
 #endif
 
     
-    sellUserInfoView = [[LeftTitleListCell alloc]initWithFrame:CGRectMake(kPendingX,currY,width,130.f) withTitleArray:kSellerTitleArray withTitle:@"卖家信息" withValueAtrArray:valueArray withItemPending:15.f];
+    sellUserInfoView = [[LeftTitleListCell alloc]initWithFrame:CGRectMake(kPendingX,currY,width,130.f) withTitleArray:kSellerTitleArray withTitle:@"卖家信息" withValueAtrArray:valueArray withItemPending:15.f  withOrderCell:YES];
     //s[orderInfoView setYItemPendingY:10.f];
     //[orderInfoView   ];
     [bgScrollerView addSubview:sellUserInfoView];
@@ -159,15 +159,18 @@
     
     currY = bgScrollerView.frame.size.height+bgScrollerView.frame.origin.y+5.f;
     
-    LeftTitleListCell *confirmStatusView = [[LeftTitleListCell alloc]initWithFrame:CGRectMake(kPendingX,currY,width,130.f) withTitleArray:@[] withTitle:@"到货确认" withValueAtrArray:@[] withItemPending:15.f];
+    LeftTitleListCell *confirmStatusView = [[LeftTitleListCell alloc]initWithFrame:CGRectMake(kPendingX,currY,width,130.f) withTitleArray:@[] withTitle:@"到货确认" withValueAtrArray:@[] withItemPending:15.f ];
     //s[orderInfoView setYItemPendingY:10.f];
     //[orderInfoView   ];
     [self.view addSubview:confirmStatusView];
     confirmStatusView.userInteractionEnabled = NO;
     confirmStatusView.backgroundColor = [UIColor clearColor];
     SafeRelease(confirmStatusView);
-    
-    UIButton *bidBtn = [UIComUtil createButtonWithNormalBGImageName:@"bid_price_btn.png" withHightBGImageName:@"bid_price_btn.png" withTitle:@"到货确认" withTag:0];
+    NSString *strTitle = @"到货确认";
+    if(self.isConfirmTag){
+       strTitle = @"已确认";
+    }
+    UIButton *bidBtn = [UIComUtil createButtonWithNormalBGImageName:@"bid_price_btn.png" withHightBGImageName:@"bid_price_btn.png" withTitle:strTitle withTag:0];
     [self.view  addSubview:bidBtn];
     bidBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [bidBtn addTarget:self action:@selector(startConfirmOrderStatus:) forControlEvents:UIControlEventTouchUpInside];
@@ -178,6 +181,8 @@
 
 - (void)startConfirmOrderStatus:(id)sender{
 
+    if(self.isConfirmTag)
+        return;
     kUIAlertConfirmView(@"提示", @"是否确认收货", @"确定", @"取消");
 
 

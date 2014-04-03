@@ -180,7 +180,7 @@ return self;
         int columCount = [titleArray count];
         for(int i = 0;i<columCount;i++)
         {
-            UILabel *itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX,currY,60,15)];
+            UILabel *itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX,currY,80,15)];
             itemLabel.font = [UIFont systemFontOfSize:kTitleFontSize];
             itemLabel.textColor = [UIColor blackColor];
             itemLabel.backgroundColor = [UIColor clearColor];
@@ -190,7 +190,7 @@ return self;
             [self addSubview:itemLabel];
             SafeRelease(itemLabel);
             
-            itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX+60.f,currY,150,15)];
+            itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX+100.f,currY,180,15)];
             itemLabel.font = [UIFont systemFontOfSize:kTitleFontSize];
             itemLabel.textColor = [UIColor blackColor];
             itemLabel.backgroundColor = [UIColor clearColor];

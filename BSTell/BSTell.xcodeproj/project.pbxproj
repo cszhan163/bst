@@ -154,6 +154,8 @@
 		04F854E718B25CF40026BCA4 /* button_gray07.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F854DF18B25CF40026BCA4 /* button_gray07.png */; };
 		04F854E818B25CF40026BCA4 /* button_gray08.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F854E018B25CF40026BCA4 /* button_gray08.png */; };
 		04F854EC18B266820026BCA4 /* MsgClassLevel2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F854EB18B266820026BCA4 /* MsgClassLevel2ViewController.m */; };
+		BD160CE018ED0BA60040DFEE /* OrderListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD160CDF18ED0BA60040DFEE /* OrderListCell.m */; };
+		BD160CE318ED2CF80040DFEE /* order_cell_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BD160CE218ED2CF80040DFEE /* order_cell_bg.png */; };
 		BD593A1418BCAC93007B4F5C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD593A1118BCAC93007B4F5C /* Default-568h@2x.png */; };
 		BD593A1518BCAC93007B4F5C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BD593A1218BCAC93007B4F5C /* Default.png */; };
 		BD593A1618BCAC93007B4F5C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD593A1318BCAC93007B4F5C /* Default@2x.png */; };
@@ -705,6 +707,9 @@
 		04F854E018B25CF40026BCA4 /* button_gray08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_gray08.png; sourceTree = "<group>"; };
 		04F854EA18B266820026BCA4 /* MsgClassLevel2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgClassLevel2ViewController.h; sourceTree = "<group>"; };
 		04F854EB18B266820026BCA4 /* MsgClassLevel2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgClassLevel2ViewController.m; sourceTree = "<group>"; };
+		BD160CDE18ED0BA60040DFEE /* OrderListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListCell.h; sourceTree = "<group>"; };
+		BD160CDF18ED0BA60040DFEE /* OrderListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListCell.m; sourceTree = "<group>"; };
+		BD160CE218ED2CF80040DFEE /* order_cell_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = order_cell_bg.png; sourceTree = "<group>"; };
 		BD593A1118BCAC93007B4F5C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BD593A1218BCAC93007B4F5C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		BD593A1318BCAC93007B4F5C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -882,6 +887,8 @@
 				BD884B0F18B7B53300E354B7 /* OrderTableViewCell.xib */,
 				BD884B0018B50A5800E354B7 /* BidDetailTableViewCell_V2.h */,
 				BD884B0118B50A5800E354B7 /* BidDetailTableViewCell_V2.m */,
+				BD160CDE18ED0BA60040DFEE /* OrderListCell.h */,
+				BD160CDF18ED0BA60040DFEE /* OrderListCell.m */,
 			);
 			path = CellView;
 			sourceTree = "<group>";
@@ -1204,6 +1211,7 @@
 		04F6E5C1189A8C620057BD72 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				BD160CE218ED2CF80040DFEE /* order_cell_bg.png */,
 				BD9EDDFB18C4549500673862 /* image-568h@2x.png */,
 				BD593A4118BF8520007B4F5C /* cell_split_line.png */,
 				BD593A3318BE081B007B4F5C /* bid_money_bg.png */,
@@ -1525,6 +1533,7 @@
 				04F854E118B25CF40026BCA4 /* button_gray01.png in Resources */,
 				04F6E5D1189A8C630057BD72 /* tableitemsel1.png in Resources */,
 				04F6E56F189A864D0057BD72 /* InfoPlist.strings in Resources */,
+				BD160CE318ED2CF80040DFEE /* order_cell_bg.png in Resources */,
 				BD593A3F18BF7648007B4F5C /* client.cer in Resources */,
 				BD884B1A18BADFBD00E354B7 /* SVProgressHUD.bundle in Resources */,
 				BD884AF918B4CBE900E354B7 /* logo57.png in Resources */,
@@ -1630,6 +1639,7 @@
 				BDE7BD9218B10EE400A82198 /* InfoClassTableViewCell.m in Sources */,
 				04E65D2018A269B8008FA65A /* SBJsonWriter.m in Sources */,
 				04E65D0F18A269B8008FA65A /* jqPopSelectList.m in Sources */,
+				BD160CE018ED0BA60040DFEE /* OrderListCell.m in Sources */,
 				04E65C9A18A25C21008FA65A /* BidPrepareViewController.m in Sources */,
 				04F6E575189A864D0057BD72 /* AppDelegate.m in Sources */,
 				04DFD453189D7C9000A3BDDF /* BidMainViewController.m in Sources */,
