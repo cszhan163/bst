@@ -98,7 +98,7 @@
 - (void)loadAnalaysisData{
 
 
-}
+}   
 - (void)selectTopNavItem:(id)navObj{
     [navItemCtrl didSelectorTopNavItem:navObj];
 }

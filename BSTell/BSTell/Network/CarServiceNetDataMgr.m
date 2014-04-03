@@ -95,7 +95,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
 }
 #pragma mark -
 #pragma mark -common
-- (void)sendRequest:(NSString*)method withVersion:(NSString*)ver withParam:(NSDictionary*)param
+- (id)sendRequest:(NSString*)method withVersion:(NSString*)ver withParam:(NSDictionary*)param
          withOkBack:(SEL)okCallBackFun  withFailedBack:(SEL)failedBack
 {
     
@@ -104,6 +104,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
         [connect addParam:[param objectForKey:key] forKey:key];
     }
     [connect sendRequest];
+    return  connect;
 }
 
 - (void)sendFinalOkData:(id)data withKey:(NSString*)key{
@@ -769,7 +770,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
     [self sendFinalFailedData:finalData withKey:kCarUserInfo];
 }
 
-- (void)getOrderList:(NSDictionary*)param{
+- (id)getOrderList:(NSDictionary*)param{
 
     /*
      *
@@ -781,7 +782,24 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
              @"1",@"offset",
              nil];
     }
-    [self sendRequest:@"getOrderList" withVersion:kUrlVer withParam:param withOkBack:@selector(getOrderListOk:) withFailedBack:@selector(getOrderListFailed:)];
+    return [self sendRequest:@"getOrderList" withVersion:kUrlVer withParam:param withOkBack:@selector(getOrderListOk:) withFailedBack:@selector(getOrderListFailed:)];
+
+}
+- (id)getOrderListConfirmed:(NSDictionary*)param{
+
+    
+    return [self sendRequest:@"getOrderList" withVersion:kUrlVer withParam:param withOkBack:@selector(getConfirmedOrderListOk:) withFailedBack:@selector(getConfirmedOrderListFailed:)];
+    
+}
+- (void)getConfirmedOrderListOk:(NSString*)result{
+
+    NSDictionary  *finalData = nil;
+    id data = [result JSONValue];
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kCarUserOrderComfirmedList];
+    
+}
+- (void)getConfirmedOrderListFailed:(NSString*)result{
 
 }
 - (void)getOrderListOk:(NSString*)result{

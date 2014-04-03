@@ -8,7 +8,7 @@
 
 #import "MyInfoViewController.h"
 
-#import "OrderListViewController.h"
+#import "OrderListMainViewController.h"
 
 #define kLeftTextPendingX  28.f
 #define kLeftPendingX 190.f
@@ -145,9 +145,9 @@
 }
 - (void)myInforAction:(id)sender{
 
-     kUIAlertView(@"提示", @"正在建设,敬请期待!");
-    return;
-    OrderListViewController *vc = [[OrderListViewController alloc]initWithNibName:nil bundle:nil];
+//     kUIAlertView(@"提示", @"正在建设,敬请期待!");
+//    return;
+    OrderListMainViewController *vc = [[OrderListMainViewController alloc]initWithNibName:nil bundle:nil];
 //    NSDictionary *item = self.dataArray[indexPath.row];
 //    vc.orderId = [item objectForKey:@""];
 //    [vc  setNavgationBarTitle:@"订单详情"];
@@ -171,7 +171,6 @@
     SafeRelease(vc);
 }
 - (void) shouldLoadData{
-    return;
     [super shouldLoadData];
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            //catStr,@"cat",
@@ -250,7 +249,7 @@
     }
     else{
     
-        userAccountLabel.hidden = YES;
+        userAgreeLabel.hidden = YES;
         
     }
     

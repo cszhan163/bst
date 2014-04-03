@@ -27,6 +27,8 @@
 		0431107318A698A7008109F7 /* BidItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431107218A698A7008109F7 /* BidItemDetailViewController.m */; };
 		0431107618A69A1C008109F7 /* LeftTitleListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0431107518A69A1C008109F7 /* LeftTitleListCell.m */; };
 		0431107818A7E4B6008109F7 /* arrow_detail.png in Resources */ = {isa = PBXBuildFile; fileRef = 0431107718A7E4B6008109F7 /* arrow_detail.png */; };
+		0437FE0418E80CDD00D6C600 /* OrderListMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0437FE0318E80CDD00D6C600 /* OrderListMainViewController.m */; };
+		0437FE0818E80D2B00D6C600 /* OrderListConfirmedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0437FE0718E80D2B00D6C600 /* OrderListConfirmedViewController.m */; };
 		044EE26418A4C5E3007A3EDA /* BSTellNetListBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044EE26318A4C5E3007A3EDA /* BSTellNetListBaseViewController.m */; };
 		04535F9218BCBA8B009FA2C4 /* CardShopLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04535F8B18BCBA8B009FA2C4 /* CardShopLoginViewController.m */; };
 		04535F9318BCBA8B009FA2C4 /* CardShopLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04535F8C18BCBA8B009FA2C4 /* CardShopLoginViewController.xib */; };
@@ -171,7 +173,6 @@
 		BD884AFF18B4CC0500E354B7 /* logo120.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884AFC18B4CC0500E354B7 /* logo120.png */; };
 		BD884B0218B50A5800E354B7 /* BidDetailTableViewCell_V2.m in Sources */ = {isa = PBXBuildFile; fileRef = BD884B0118B50A5800E354B7 /* BidDetailTableViewCell_V2.m */; };
 		BD884B0418B5198300E354B7 /* bid_cell_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884B0318B5198300E354B7 /* bid_cell_btn.png */; };
-		BD884B0B18B7188800E354B7 /* info_account_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884B0A18B7188800E354B7 /* info_account_bg.png */; };
 		BD884B1018B7B53300E354B7 /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD884B0F18B7B53300E354B7 /* OrderTableViewCell.xib */; };
 		BD884B1418B8964900E354B7 /* bid_item_price.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884B1218B8964800E354B7 /* bid_item_price.png */; };
 		BD884B1618B8BFF000E354B7 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = BD884B1518B8BFF000E354B7 /* image.png */; };
@@ -345,7 +346,6 @@
 		BD9EDD7F18C08B1600673862 /* button_gray06.png in Sources */ = {isa = PBXBuildFile; fileRef = 04F854DE18B25CF40026BCA4 /* button_gray06.png */; };
 		BD9EDD8018C08B1600673862 /* button_gray07.png in Sources */ = {isa = PBXBuildFile; fileRef = 04F854DF18B25CF40026BCA4 /* button_gray07.png */; };
 		BD9EDD8118C08B1600673862 /* button_gray08.png in Sources */ = {isa = PBXBuildFile; fileRef = 04F854E018B25CF40026BCA4 /* button_gray08.png */; };
-		BD9EDD8218C08B1600673862 /* info_account_bg.png in Sources */ = {isa = PBXBuildFile; fileRef = BD884B0A18B7188800E354B7 /* info_account_bg.png */; };
 		BD9EDD8318C08B1600673862 /* info_order_cell_bg.png in Sources */ = {isa = PBXBuildFile; fileRef = 042762EE18B6675A006D816A /* info_order_cell_bg.png */; };
 		BD9EDD8418C08B1600673862 /* info_order_cell_bg_all.png in Sources */ = {isa = PBXBuildFile; fileRef = 04255BBA18B3B6F80006F9E0 /* info_order_cell_bg_all.png */; };
 		BD9EDD8518C08B1600673862 /* hotmsg_cell_bg.png in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD8E18B10DC300A82198 /* hotmsg_cell_bg.png */; };
@@ -502,6 +502,10 @@
 		0431107418A69A1C008109F7 /* LeftTitleListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftTitleListCell.h; sourceTree = "<group>"; };
 		0431107518A69A1C008109F7 /* LeftTitleListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftTitleListCell.m; sourceTree = "<group>"; };
 		0431107718A7E4B6008109F7 /* arrow_detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_detail.png; sourceTree = "<group>"; };
+		0437FE0218E80CDD00D6C600 /* OrderListMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListMainViewController.h; sourceTree = "<group>"; };
+		0437FE0318E80CDD00D6C600 /* OrderListMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListMainViewController.m; sourceTree = "<group>"; };
+		0437FE0618E80D2B00D6C600 /* OrderListConfirmedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListConfirmedViewController.h; sourceTree = "<group>"; };
+		0437FE0718E80D2B00D6C600 /* OrderListConfirmedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListConfirmedViewController.m; sourceTree = "<group>"; };
 		044EE26218A4C5E3007A3EDA /* BSTellNetListBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSTellNetListBaseViewController.h; sourceTree = "<group>"; };
 		044EE26318A4C5E3007A3EDA /* BSTellNetListBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSTellNetListBaseViewController.m; sourceTree = "<group>"; };
 		04535F8A18BCBA8B009FA2C4 /* CardShopLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardShopLoginViewController.h; sourceTree = "<group>"; };
@@ -725,7 +729,6 @@
 		BD884B0018B50A5800E354B7 /* BidDetailTableViewCell_V2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidDetailTableViewCell_V2.h; sourceTree = "<group>"; };
 		BD884B0118B50A5800E354B7 /* BidDetailTableViewCell_V2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidDetailTableViewCell_V2.m; sourceTree = "<group>"; };
 		BD884B0318B5198300E354B7 /* bid_cell_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bid_cell_btn.png; sourceTree = "<group>"; };
-		BD884B0A18B7188800E354B7 /* info_account_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = info_account_bg.png; path = "../../../../doc/2-19/切片(iphone5)/我的信息/back/info_account_bg.png"; sourceTree = "<group>"; };
 		BD884B0F18B7B53300E354B7 /* OrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
 		BD884B1218B8964800E354B7 /* bid_item_price.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bid_item_price.png; sourceTree = "<group>"; };
 		BD884B1518B8BFF000E354B7 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
@@ -1303,6 +1306,10 @@
 				04F854D618B25BC00026BCA4 /* MsgClassBaseViewController.m */,
 				04F854EA18B266820026BCA4 /* MsgClassLevel2ViewController.h */,
 				04F854EB18B266820026BCA4 /* MsgClassLevel2ViewController.m */,
+				0437FE0618E80D2B00D6C600 /* OrderListConfirmedViewController.h */,
+				0437FE0718E80D2B00D6C600 /* OrderListConfirmedViewController.m */,
+				0437FE0218E80CDD00D6C600 /* OrderListMainViewController.h */,
+				0437FE0318E80CDD00D6C600 /* OrderListMainViewController.m */,
 				04255BC118B3BB440006F9E0 /* OrderListViewController.h */,
 				04255BC218B3BB440006F9E0 /* OrderListViewController.m */,
 				04255BC418B3BC720006F9E0 /* OrderDetailViewController.h */,
@@ -1317,7 +1324,6 @@
 			isa = PBXGroup;
 			children = (
 				BD9EDE0118C48CBD00673862 /* word.png */,
-				BD884B0A18B7188800E354B7 /* info_account_bg.png */,
 				042762EE18B6675A006D816A /* info_order_cell_bg.png */,
 				04255BBA18B3B6F80006F9E0 /* info_order_cell_bg_all.png */,
 				BDE7BD8E18B10DC300A82198 /* hotmsg_cell_bg.png */,
@@ -1506,7 +1512,6 @@
 				BD884AFF18B4CC0500E354B7 /* logo120.png in Resources */,
 				BD9EDDFC18C4549500673862 /* image-568h@2x.png in Resources */,
 				BD9EDDF318C3064A00673862 /* reflush_btn.png in Resources */,
-				BD884B0B18B7188800E354B7 /* info_account_bg.png in Resources */,
 				04D5358818ABCDBD00728B75 /* myinfo_split_bg.png in Resources */,
 				04DFD413189B83B800A3BDDF /* bid_cell_bg.png in Resources */,
 				04DFD440189D35B200A3BDDF /* button-3.png in Resources */,
@@ -1601,6 +1606,7 @@
 				04E65D1E18A269B8008FA65A /* SBJsonTokeniser.m in Sources */,
 				04F854D718B25BC00026BCA4 /* MsgClassBaseViewController.m in Sources */,
 				04E65D0418A269B8008FA65A /* global.m in Sources */,
+				0437FE0418E80CDD00D6C600 /* OrderListMainViewController.m in Sources */,
 				04D6AF9618AA7FA4002967C4 /* AppMainUIViewMangae.m in Sources */,
 				04E65D1018A269B8008FA65A /* JQSHA256encode.m in Sources */,
 				04E65D1118A269B8008FA65A /* NSData+Gzip.m in Sources */,
@@ -1609,6 +1615,7 @@
 				04DFD431189CEE5900A3BDDF /* NoteDetailViewController.m in Sources */,
 				04255BC018B3B7EF0006F9E0 /* OrderTableViewCell.m in Sources */,
 				04E65D1618A269B8008FA65A /* SBJsonParser.m in Sources */,
+				0437FE0818E80D2B00D6C600 /* OrderListConfirmedViewController.m in Sources */,
 				BD593A1F18BCF538007B4F5C /* LoginViewController.m in Sources */,
 				04535F9418BCBA8B009FA2C4 /* CardShopResignViewController.m in Sources */,
 				04255BC318B3BB440006F9E0 /* OrderListViewController.m in Sources */,
@@ -1843,7 +1850,6 @@
 				BD9EDD7F18C08B1600673862 /* button_gray06.png in Sources */,
 				BD9EDD8018C08B1600673862 /* button_gray07.png in Sources */,
 				BD9EDD8118C08B1600673862 /* button_gray08.png in Sources */,
-				BD9EDD8218C08B1600673862 /* info_account_bg.png in Sources */,
 				BD9EDD8318C08B1600673862 /* info_order_cell_bg.png in Sources */,
 				BD9EDD8418C08B1600673862 /* info_order_cell_bg_all.png in Sources */,
 				BD9EDD8518C08B1600673862 /* hotmsg_cell_bg.png in Sources */,

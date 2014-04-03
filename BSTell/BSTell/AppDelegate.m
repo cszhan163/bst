@@ -19,6 +19,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+  
+    
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     AppMainUIViewManage *appMg = [AppMainUIViewManage getSingleTone];
     appMg.window = self.window;
@@ -30,14 +33,16 @@
 //    id value = [keyChainItem2 objectForKey:kSecValueData];
     //[self startLoginRequest];
     
+    [self startLoginRequest];
+    
     return YES;
 }
 //发起登录请求
 -(void)startLoginRequest
 {
-    JQConnect_bsteelPay *connect = [[JQConnect_bsteelPay alloc] initWithDelegate:self successCallBack:@selector(callBackConnect:) failedCallBack:@selector(callBackFail:) andMethodName:@"login_v10"];
-    [connect addParam:@"bh1" forKey:@"username"];
-    [connect addParam:@"bh1234567" forKey:@"password"];
+    JQConnect_bsteelPay *connect = [[JQConnect_bsteelPay alloc] initWithDelegate:self successCallBack:@selector(callBackConnect:) failedCallBack:@selector(callBackFail:) andMethodName:@"HgbLogin_v1"];
+    [connect addParam:@"shanghai_1" forKey:@"umcLoginName"];
+    [connect addParam:@"123" forKey:@"loginPassword"];
     [connect addParam:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"] forKey:@"version"];
     [connect sendRequest];
     

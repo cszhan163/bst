@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>BSTell_company.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,16 @@
 			<true/>
 		</dict>
 		<key>04F6E581189A864E0057BD72</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BD9EDCB418C08AB200673862</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BD9EDCCA18C08AB300673862</key>
 		<dict>
 			<key>primary</key>
 			<true/>

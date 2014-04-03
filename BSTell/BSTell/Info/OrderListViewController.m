@@ -30,12 +30,23 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    
-    
     [self setNavgationBarTitle:@"我的订单"];
+    CGRect rect =  tweetieTableView.frame;
     tweetieTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    tweetieTableView.frame = CGRectMake(rect.origin.x, rect.origin.y, kDeviceScreenWidth, rect.size.height-43.f);
+    NSString *usrId = [AppSetting getLoginUserId];
+    if(usrId){
+        NSDictionary *usrData = [AppSetting getLoginUserData:usrId];
+        self.userId = [usrData objectForKey:@"hydm"];
+    }
+    
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    //[super viewWillAppear:animated];
+   
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -120,7 +131,7 @@
      vc.mData = item;
      */
 #if 1
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.parentNav pushViewController:vc animated:YES];
 #else
     
     [ZCSNotficationMgr postMSG:kPushNewViewController obj:vc];
@@ -146,6 +157,7 @@
                  //@"",@"wtzt",
                  self.userId,@"hydm",
                  @"10",@"limit",
+                 [NSString stringWithFormat:@"%d",self.confirmTag],@"confirmflag",
                  //@"",@"rqStart",
                  //@"",@"rqEnd",
                  nil];
@@ -180,5 +192,7 @@
     kNetEnd(self.view);
     [tweetieTableView reloadData];
     //contentTextView.text = [netData objectForKey:@"agreement"];
+}- (void)reflushData{
+    [self shouldLoadOlderData:nil];
 }
 @end
