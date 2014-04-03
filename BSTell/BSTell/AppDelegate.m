@@ -11,6 +11,9 @@
 #import "CarServiceNetDataMgr.h"
 
 #import "JQConnect_bsteelPay.h"
+
+#import "KeychainItemWrapper.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -20,6 +23,11 @@
     AppMainUIViewManage *appMg = [AppMainUIViewManage getSingleTone];
     appMg.window = self.window;
     [appMg addMainViewUI];
+//    KeychainItemWrapper *keyChainItem =  [[KeychainItemWrapper alloc] initWithIdentifier:@"cszhan" accessGroup:@"test"];
+//    [keyChainItem setObject:@"1000" forKey:kSecValueData];
+//    
+//    KeychainItemWrapper *keyChainItem2 = [[KeychainItemWrapper alloc] initWithIdentifier:@"cszhan" accessGroup:@"test"];
+//    id value = [keyChainItem2 objectForKey:kSecValueData];
     //[self startLoginRequest];
     
     return YES;

@@ -206,6 +206,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
     NSDictionary  *finalData = nil;
     finalData = data;
     [self sendFinalOkData:finalData withKey:kResNoteInfoData];
+    
 }
 - (void)getHgbZXInfoListFailed:(NSString*)error{
     
