@@ -41,7 +41,7 @@
                   symbolName = "-[ExcellLikeCellBase layoutSubviews]"
                   moduleName = "BSTell"
                   urlString = "file:///Users/mac/Desktop/work/BSTell/code/BSTell/BSTell/CellView/ExcellLikeCellBase.m"
-                  timestampString = "418234654.824495"
+                  timestampString = "418573292.812405"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
@@ -55,7 +55,7 @@
                   symbolName = "-[ExcellLikeCellBase layoutSubviews]"
                   moduleName = "BSTell"
                   urlString = "file:///Users/mac/Desktop/work/BSTell/code/BSTell/BSTell/CellView/ExcellLikeCellBase.m"
-                  timestampString = "418234654.824822"
+                  timestampString = "418573292.812941"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
@@ -110,22 +110,6 @@
             startingLineNumber = "153"
             endingLineNumber = "153"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BSTell/Info/OrderListMainViewController.m"
-            timestampString = "417887960.404922"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "-selectTopNavItem:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

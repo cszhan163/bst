@@ -35,6 +35,7 @@
 		04535F9418BCBA8B009FA2C4 /* CardShopResignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04535F8E18BCBA8B009FA2C4 /* CardShopResignViewController.m */; };
 		04535F9518BCBA8B009FA2C4 /* CardShopResignViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04535F8F18BCBA8B009FA2C4 /* CardShopResignViewController.xib */; };
 		04535F9618BCBA8B009FA2C4 /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04535F9118BCBA8B009FA2C4 /* ResetPasswordViewController.m */; };
+		046FADCA18EFFB430045E91C /* GoodsItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046FADC918EFFB430045E91C /* GoodsItemDetailViewController.m */; };
 		04D5358318ABCD6200728B75 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D5358218ABCD6200728B75 /* search.png */; };
 		04D5358518ABCD8400728B75 /* bid_delegate_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D5358418ABCD8400728B75 /* bid_delegate_bg.png */; };
 		04D5358818ABCDBD00728B75 /* myinfo_split_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D5358718ABCDBD00728B75 /* myinfo_split_bg.png */; };
@@ -518,6 +519,8 @@
 		04535F8F18BCBA8B009FA2C4 /* CardShopResignViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardShopResignViewController.xib; sourceTree = "<group>"; };
 		04535F9018BCBA8B009FA2C4 /* ResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPasswordViewController.h; sourceTree = "<group>"; };
 		04535F9118BCBA8B009FA2C4 /* ResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordViewController.m; sourceTree = "<group>"; };
+		046FADC818EFFB430045E91C /* GoodsItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsItemDetailViewController.h; sourceTree = "<group>"; };
+		046FADC918EFFB430045E91C /* GoodsItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsItemDetailViewController.m; sourceTree = "<group>"; };
 		04D5358218ABCD6200728B75 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
 		04D5358418ABCD8400728B75 /* bid_delegate_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bid_delegate_bg.png; sourceTree = "<group>"; };
 		04D5358718ABCDBD00728B75 /* myinfo_split_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myinfo_split_bg.png; sourceTree = "<group>"; };
@@ -960,6 +963,8 @@
 				04E65C9918A25C21008FA65A /* BidPrepareViewController.m */,
 				0431107118A698A7008109F7 /* BidItemDetailViewController.h */,
 				0431107218A698A7008109F7 /* BidItemDetailViewController.m */,
+				046FADC818EFFB430045E91C /* GoodsItemDetailViewController.h */,
+				046FADC918EFFB430045E91C /* GoodsItemDetailViewController.m */,
 			);
 			path = Bid;
 			sourceTree = "<group>";
@@ -1617,6 +1622,7 @@
 				04E65D0418A269B8008FA65A /* global.m in Sources */,
 				0437FE0418E80CDD00D6C600 /* OrderListMainViewController.m in Sources */,
 				04D6AF9618AA7FA4002967C4 /* AppMainUIViewMangae.m in Sources */,
+				046FADCA18EFFB430045E91C /* GoodsItemDetailViewController.m in Sources */,
 				04E65D1018A269B8008FA65A /* JQSHA256encode.m in Sources */,
 				04E65D1118A269B8008FA65A /* NSData+Gzip.m in Sources */,
 				04D6AF9818AA7FA4002967C4 /* CardShopBaseViewController.m in Sources */,

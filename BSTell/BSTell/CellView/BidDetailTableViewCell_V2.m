@@ -13,6 +13,8 @@
     UIButton *bidBtn;
     UITextView *bidTextView;
 }
+@property (nonatomic, assign)  id      actionTarget;
+@property (nonatomic, assign)  SEL     actionSel;
 @end
 @implementation BidDetailTableViewCell_V2
 
@@ -103,6 +105,8 @@
 }
 - (void)setActionTarget:(id)actionTarget withSelecotr:(SEL)selector{
     [bidBtn addTarget:actionTarget action:selector forControlEvents:UIControlEventTouchUpInside];
+    self.actionTarget = actionTarget;
+    self.actionSel = selector;
 }
 - (void)setBidButtonTag:(int)tag{
     bidBtn.tag = tag;
@@ -130,5 +134,9 @@
     // Drawing code
 }
 */
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
 
+    
+    [self.actionTarget performSelector:self.actionSel withObject:self];
+}
 @end

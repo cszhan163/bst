@@ -14,6 +14,8 @@
 
 #import "BidDetailTableViewCell_V2.h"
 
+#import  "GoodsItemDetailViewController.h"
+
 #define kOld    0
 
 #define kLeftPendingX 25.f
@@ -443,6 +445,7 @@
         
         
         [self setTableCellView:tableView byData:itemData];
+        tableView.tag = i;
 
 #endif
         [bgGoodsView addSubview:tableView];
@@ -517,7 +520,7 @@
     
     
 }
-- (void)setTableCellView:(BidDetailTableViewCell*)tableView byData:(NSDictionary*)netData{
+- (void)setTableCellView:(BidDetailTableViewCell_V2*)tableView byData:(NSDictionary*)netData{
     
     int index = 0;
     int row = 0;
@@ -772,6 +775,8 @@
     //[cell setCellItemValue:value withIndex:index++];
     [tableView setCellItemValue:value withRow:row withCol:index++];
     
+    [tableView setActionTarget:self withSelecotr:@selector(didSElectorGoodsDetailItem:)];
+    
     tableView.backgroundColor = [UIColor yellowColor];
     
     
@@ -815,4 +820,18 @@
     }
 }
 
+#pragma mark -
+
+#pragma mark - selector good item
+
+- (void)didSElectorGoodsDetailItem:(id)sender{
+
+    int index = [sender tag];
+    
+    GoodsItemDetailViewController *goodItemDetailCtl = [[GoodsItemDetailViewController alloc]init];
+    goodItemDetailCtl.data   = [[self.data objectForKey:@"data"] objectAtIndex:index];
+    [self.navigationController pushViewController:goodItemDetailCtl animated:YES];
+    SafeRelease(goodItemDetailCtl);
+
+}
 @end
