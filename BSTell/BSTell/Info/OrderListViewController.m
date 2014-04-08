@@ -241,39 +241,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    OrderDetailViewController *vc = [[OrderDetailViewController alloc]initWithNibName:nil bundle:nil];
-    NSDictionary *item = self.dataArray[indexPath.row];
-    vc.orderId = [item objectForKey:@"orderId"];
-    vc.orderItem = item;
-    
-    if([[item objectForKey:@"acutionResult"] intValue]){
-        //cell.contentView.backgroundColor =
-        //  235
-        vc.isConfirmTag = YES;
-    }
-    else{
-        vc.isConfirmTag = NO;
-    }
-
-    [vc  setNavgationBarTitle:@"订单详情"];
-    
-    //[vc  setHiddenTableHeaderView:NO];
-    //[vc  setH]
-    /*
-     vc.delegate = self;
-     NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
-     //NSDictionary *data = [item objectForKey:@"DayDetailInfo"];
-     vc.mData = item;
-     */
-#if 1
-    [self.parentNav pushViewController:vc animated:YES];
-#else
-    
-    [ZCSNotficationMgr postMSG:kPushNewViewController obj:vc];
-#endif
-    //[self.navigationController pushViewController:vc animated:YES];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    SafeRelease(vc);
+ 
     
 }
 
@@ -343,31 +311,68 @@
 
 - (void)bidConfirmAlert:(id)sender{
     int i = [sender tag];
-    NSDictionary *item = self.dataArray[i];
-    CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
-    {
-        /*
-         fphm
-         合同号
-         kplb
-         交易类型
-         hzfs
-         结算方式
-         lx
-         到款状态
-         dhczy
-         操作员
-         
-         */
+    if([sender isKindOfClass:[UIButton class]]){
         
-        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                 //self.orderId,@"orderId",
-                 [item objectForKey:@"fphm"],@"fphm",
-                 self.userId,@"dhczy",
-                 nil];
-        self.request = [carServiceNetDataMgr  updateStatus4Move:param];
+        NSDictionary *item = self.dataArray[i];
+        CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
+        {
+            /*
+             fphm
+             合同号
+             kplb
+             交易类型
+             hzfs
+             结算方式
+             lx
+             到款状态
+             dhczy
+             操作员
+             
+             */
+            
+            NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   //self.orderId,@"orderId",
+                                   [item objectForKey:@"fphm"],@"fphm",
+                                   self.userId,@"dhczy",
+                                   nil];
+            self.request = [carServiceNetDataMgr  updateStatus4Move:param];
+        }
     }
-  
+    else{
+    
+        OrderDetailViewController *vc = [[OrderDetailViewController alloc]initWithNibName:nil bundle:nil];
+        NSDictionary *item = self.dataArray[i];
+        vc.orderId = [item objectForKey:@"orderId"];
+        vc.orderItem = item;
+        
+        if([[item objectForKey:@"acutionResult"] intValue]){
+            //cell.contentView.backgroundColor =
+            //  235
+            vc.isConfirmTag = YES;
+        }
+        else{
+            vc.isConfirmTag = NO;
+        }
+        
+        [vc  setNavgationBarTitle:@"订单详情"];
+        
+        //[vc  setHiddenTableHeaderView:NO];
+        //[vc  setH]
+        /*
+         vc.delegate = self;
+         NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
+         //NSDictionary *data = [item objectForKey:@"DayDetailInfo"];
+         vc.mData = item;
+         */
+#if 1
+        [self.parentNav pushViewController:vc animated:YES];
+#else
+        
+        [ZCSNotficationMgr postMSG:kPushNewViewController obj:vc];
+#endif
+        SafeRelease(vc);
+    
+    }
 }
 
 @end
