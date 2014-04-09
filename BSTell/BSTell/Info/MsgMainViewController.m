@@ -10,7 +10,7 @@
 #import "BSTellNetListBaseViewController.h"
 
 #import "SearchViewController.h"
-#define kNavViewControllerArray  @[@"HotMsgViewController",@"MarketMsgViewController",@"MediaMsgViewController"]
+#define kNavViewControllerArray  @[@"HotMsgNewViewController",@"MarketMsgViewController",@"MediaMsgViewController"]
 
 
 

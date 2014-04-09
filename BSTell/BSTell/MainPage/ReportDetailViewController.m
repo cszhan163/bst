@@ -27,8 +27,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+   
+    
 }
+- (void)loadImageData{
 
+    //[contentTextView loadHTMLString:<#(NSString *)#> baseURL:<#(NSURL *)#>
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

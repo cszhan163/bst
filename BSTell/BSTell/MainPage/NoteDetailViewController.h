@@ -8,6 +8,9 @@
 
 #import "BSTellBaseViewController.h"
 
-@interface NoteDetailViewController : BSTellBaseViewController
+@interface NoteDetailViewController : BSTellBaseViewController{
+
+      UIWebView *contentTextView;
+}
 @property(nonatomic,strong) NSString *noteId;
 @end

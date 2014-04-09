@@ -48,6 +48,8 @@
         [bidBtn addSubview:bidTextView];
         SafeRelease(bidTextView);
         
+       
+        
         
     }
     return self;
@@ -99,6 +101,11 @@
             currY = currY+height;
         }
 
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTouchCellView:)];
+        
+        [self addGestureRecognizer:tapGesture];
+        SafeRelease(tapGesture);
+        
 
     }
     return  self;
@@ -134,9 +141,13 @@
     // Drawing code
 }
 */
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+//- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+//
+//    
+//    [self.actionTarget performSelector:self.actionSel withObject:self];
+//}
+- (void)didTouchCellView:(UITapGestureRecognizer*)sender{
 
-    
-    [self.actionTarget performSelector:self.actionSel withObject:self];
+     [self.actionTarget performSelector:self.actionSel withObject:self];
 }
 @end

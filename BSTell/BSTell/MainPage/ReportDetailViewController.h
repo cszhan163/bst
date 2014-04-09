@@ -10,4 +10,5 @@
 
 @interface ReportDetailViewController : NoteDetailViewController
 
+- (void)loadImageData;
 @end

@@ -105,7 +105,7 @@
     
     NoteListViewController *vc = [[NoteListViewController alloc]initWithNibName:nil bundle:nil];
     
-    
+    vc.index = indexPath.row;
     [vc  setNavgationBarTitle:self.dataArray[indexPath.row]];
     [vc  setHiddenTableHeaderView:NO];
     vc.type = self.type;

@@ -10,7 +10,7 @@
 #import "NoteItemCell.h"
 
 #import "NoteDetailViewController.h"
-
+#import "ReportDetailViewController.h"
 
 
 @interface NoteListViewController (){
@@ -120,6 +120,8 @@
     
     NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
     if(self.type == Note_Info){
+        
+        if(self.subType == Note_TXT){
         NSString *title = [item objectForKey:@"zxtitle"];
         
         cell.noteTextLabel.text = title;
@@ -127,6 +129,17 @@
         title = [item objectForKey:@"zxpubdate"];
         
         cell.noteDetailTextLabel.text = title;
+        }
+        else{
+            //zxreporttitle
+            NSString *title = [item objectForKey:@"zxreporttitle"];
+            
+            cell.noteTextLabel.text = title;
+            
+            title = [item objectForKey:@"zxreportpubdate"];
+            
+            cell.noteDetailTextLabel.text = title;
+        }
     
     }
     else{
@@ -202,7 +215,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-     NoteDetailViewController *vc = [[NoteDetailViewController alloc]initWithNibName:nil bundle:nil];
+
+    if(self.subType == Note_TXT){
+    NoteDetailViewController *vc = [[NoteDetailViewController alloc]initWithNibName:nil bundle:nil];
     
     NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
     if(self.type == Note_Info){
@@ -228,16 +243,33 @@
         //[vc  setNavgationBarTitle:@""];
     }
      //[vc  setNavgationBarTitle:self.navTitle];
-  
-     #if 1
-     [self.navigationController pushViewController:vc animated:YES];
-     #else
-     
-     [ZCSNotficationMgr postMSG:kPushNewViewController obj:vc];
-     #endif
+#if 1
+        [self.navigationController pushViewController:vc animated:YES];
+#else
+        
+        [ZCSNotficationMgr postMSG:kPushNewViewController obj:vc];
+#endif
+        SafeRelease(vc);
+    }
+    else{
+        ReportDetailViewController *vc = [[NoteDetailViewController alloc]initWithNibName:nil bundle:nil];
+        
+        NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
+        
+        
+        
+#if 1
+        [self.navigationController pushViewController:vc animated:YES];
+#else
+        
+        [ZCSNotficationMgr postMSG:kPushNewViewController obj:vc];
+#endif
+        SafeRelease(vc);
+    }
+   
      //[self.navigationController pushViewController:vc animated:YES];
      [tableView deselectRowAtIndexPath:indexPath animated:YES];
-     SafeRelease(vc);
+    
 }
 
 #pragma mark -
@@ -298,17 +330,37 @@
     }
     else if(self.type == Note_Info){
     
-        param = [NSDictionary dictionaryWithObjectsAndKeys:
-                 @"keu89klW29f9S9323jj3",@"systemId",
-                 pageNumStr, @"offset",
-                 self.classId,@"listids",
-                 //@"",@"wtzt",
-                 //@"001",@"hydm",
-                 @"10",@"limit",
-                 //@"",@"rqStart",
-                 //@"",@"rqEnd",
-                 nil];
-        self.request = [carServiceNetDataMgr  getHgbZXInfoList:param];
+        if(self.subType == Note_TXT){
+        
+            param = [NSDictionary dictionaryWithObjectsAndKeys:
+                     @"keu89klW29f9S9323jj3",@"systemId",
+                     pageNumStr, @"offset",
+                     self.classId,@"listids",
+                     //@"",@"wtzt",
+                     //@"001",@"hydm",
+                     @"10",@"limit",
+                     //@"",@"rqStart",
+                     //@"",@"rqEnd",
+                     nil];
+            self.request = [carServiceNetDataMgr  getHgbZXInfoList:param];
+            
+        }
+        else{
+            //zxreporttype
+            
+           param = [NSDictionary dictionaryWithObjectsAndKeys:
+                    [NSString stringWithFormat:@"%d",self.index],@"zxreporttype",
+            pageNumStr, @"offset",
+            //@"",@"wtzt",
+            //@"001",@"hydm",
+            @"10",@"limit",
+            //@"",@"rqStart",
+            //@"",@"rqEnd",
+            nil];
+            self.request = [carServiceNetDataMgr  getHgbZXReportList:param];
+            
+            
+        }
     
     }
     

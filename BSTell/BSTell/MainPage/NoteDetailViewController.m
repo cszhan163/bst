@@ -14,7 +14,7 @@
 @interface NoteDetailViewController (){\
     UILabel    *timeLabel;
    // UITextView *contentTextView;
-    UIWebView *contentTextView;
+  
     UILabel *headerView;
 
 }
