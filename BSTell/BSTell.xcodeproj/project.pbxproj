@@ -157,6 +157,7 @@
 		04F854EC18B266820026BCA4 /* MsgClassLevel2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F854EB18B266820026BCA4 /* MsgClassLevel2ViewController.m */; };
 		BD160CE018ED0BA60040DFEE /* OrderListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD160CDF18ED0BA60040DFEE /* OrderListCell.m */; };
 		BD160CE318ED2CF80040DFEE /* order_cell_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BD160CE218ED2CF80040DFEE /* order_cell_bg.png */; };
+		BD160CE818F2FD680040DFEE /* ReportDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD160CE718F2FD680040DFEE /* ReportDetailViewController.m */; };
 		BD593A1418BCAC93007B4F5C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD593A1118BCAC93007B4F5C /* Default-568h@2x.png */; };
 		BD593A1518BCAC93007B4F5C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BD593A1218BCAC93007B4F5C /* Default.png */; };
 		BD593A1618BCAC93007B4F5C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD593A1318BCAC93007B4F5C /* Default@2x.png */; };
@@ -713,6 +714,8 @@
 		BD160CDE18ED0BA60040DFEE /* OrderListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListCell.h; sourceTree = "<group>"; };
 		BD160CDF18ED0BA60040DFEE /* OrderListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListCell.m; sourceTree = "<group>"; };
 		BD160CE218ED2CF80040DFEE /* order_cell_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = order_cell_bg.png; sourceTree = "<group>"; };
+		BD160CE618F2FD680040DFEE /* ReportDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportDetailViewController.h; sourceTree = "<group>"; };
+		BD160CE718F2FD680040DFEE /* ReportDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportDetailViewController.m; sourceTree = "<group>"; };
 		BD593A1118BCAC93007B4F5C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BD593A1218BCAC93007B4F5C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		BD593A1318BCAC93007B4F5C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -927,6 +930,8 @@
 				04DFD42E189CEE5900A3BDDF /* NoteDetailViewController.m */,
 				04DFD42F189CEE5900A3BDDF /* NoteListViewController.h */,
 				04DFD430189CEE5900A3BDDF /* NoteListViewController.m */,
+				BD160CE618F2FD680040DFEE /* ReportDetailViewController.h */,
+				BD160CE718F2FD680040DFEE /* ReportDetailViewController.m */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -1617,6 +1622,7 @@
 				04DFD409189B6BEF00A3BDDF /* BidItemCell.m in Sources */,
 				04E65D0D18A269B8008FA65A /* jqLoading.m in Sources */,
 				04D6AF9918AA7FA4002967C4 /* NEMainTabBarController.m in Sources */,
+				BD160CE818F2FD680040DFEE /* ReportDetailViewController.m in Sources */,
 				04E65D1E18A269B8008FA65A /* SBJsonTokeniser.m in Sources */,
 				04F854D718B25BC00026BCA4 /* MsgClassBaseViewController.m in Sources */,
 				04E65D0418A269B8008FA65A /* global.m in Sources */,

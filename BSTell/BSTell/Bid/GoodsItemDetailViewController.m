@@ -77,17 +77,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    CGFloat currY = 0.f;
+    CGFloat currY = kMBAppTopToolBarHeight;
     
     UIScrollView *bgScrollerView = [[UIScrollView alloc]initWithFrame:CGRectMake(0.f,kPendingY+kMBAppTopToolBarHeight,kDeviceScreenWidth,kDeviceScreenHeight-kMBAppBottomToolBarHeght-kMBAppTopToolBarHeight-kMBAppStatusBar-80.f)];
     bgScrollerView.backgroundColor = [UIColor clearColor];
     bgScrollerView.scrollEnabled = YES;
     
-    CGFloat width = bgScrollerView.frame.size.width;
-    LeftTitleListCell *orderInfoView = [[LeftTitleListCell alloc]initWithFrame:CGRectMake(kPendingX,currY,width,409.f) withTitleArray:@[] withTitle:@"" withValueAtrArray:@[] withItemPending:15.f ];
+    CGFloat width = bgScrollerView.frame.size.width-2*kPendingX;
+    LeftTitleListCell *orderInfoView = [[LeftTitleListCell alloc]initWithFrame:CGRectMake(kPendingX,20.f,width,409.f) withTitleArray:kOrderTitleArray withTitle:@"" withValueAtrArray:@[] withItemPending:15.f ];
     //s[orderInfoView setYItemPendingY:10.f];
     //[orderInfoView   ];
-    [self.view addSubview:orderInfoView];
+    orderInfoView.backgroundColor = [UIColor clearColor];
+    [bgScrollerView addSubview:orderInfoView];
     
     NSDictionary *netData = self.data;
     NSInteger index = 0;
@@ -178,7 +179,8 @@
     
    
     value = [netData objectForKey:@"note"];
-    
+    [self.view addSubview:bgScrollerView];
+    SafeRelease(bgScrollerView);
 }
 
 - (void)didReceiveMemoryWarning

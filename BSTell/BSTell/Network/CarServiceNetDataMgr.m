@@ -243,6 +243,38 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
     
 }
 
+//getHgbZXReportList
+- (void)getHgbZXReportList:(NSDictionary*)param{
+    /*
+     zxsearchstr
+     检索内容
+     limit
+     一页的数据条数
+     offset
+     第几页
+     
+     */
+    if(param == nil){
+        param = [NSDictionary dictionaryWithObjectsAndKeys:
+                 @"苯酚",@"zxsearchstr",
+                 @"10",@"limit",
+                 @"1",@"offset",
+                 nil];
+    }
+    [self sendRequest:@"getHgbZXReportList" withVersion:kUrlVer withParam:param withOkBack:@selector(getHgbZXReportListOk:) withFailedBack:@selector(getHgbZXReportListFailed:)];
+}
+- (void)getHgbZXReportListOk:(NSString*)result{
+    
+    id data = [result JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kResNoteSearchData];
+}
+- (void)getHgbZXReportListFailed:(NSString*)error{
+    
+}
+
 #pragma mark -
 #pragma mark -public New
 - (void)querySitePubmsg4Move:(NSDictionary*)param{
