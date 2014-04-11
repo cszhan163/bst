@@ -41,7 +41,6 @@
 @"重量",\
 @"竞价梯度",\
 @"起拍价",\
-@"竞价日",\
 @"包装",\
 @"产地",\
 @"付款方式",\
@@ -76,19 +75,36 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+    [self setHiddenRightBtn:YES];
+    [self setNavgationBarTitle:@"物资信息"];
     CGFloat currY = kMBAppTopToolBarHeight;
+    CGFloat height = 480.f;
     
-    UIScrollView *bgScrollerView = [[UIScrollView alloc]initWithFrame:CGRectMake(0.f,kPendingY+kMBAppTopToolBarHeight,kDeviceScreenWidth,kDeviceScreenHeight-kMBAppBottomToolBarHeght-kMBAppTopToolBarHeight-kMBAppStatusBar-80.f)];
+    UIImageWithFileName(UIImage *image , @"bid_goods_detail_bg.png");
+    
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10.f,kPendingY+kMBAppTopToolBarHeight,kDeviceScreenWidth-20.f,kDeviceScreenHeight-kMBAppBottomToolBarHeght-kMBAppTopToolBarHeight-kMBAppStatusBar-40.f)];
+    imageView.image= image;
+    imageView.userInteractionEnabled = YES;
+    [self.view addSubview:imageView];
+    SafeRelease(imageView);
+    
+    UIScrollView *bgScrollerView = [[UIScrollView alloc]initWithFrame:CGRectMake(0.f,10.f,imageView.frame.size.width,imageView.frame.size.height-20.f)];
     bgScrollerView.backgroundColor = [UIColor clearColor];
     bgScrollerView.scrollEnabled = YES;
+    bgScrollerView.bounces = NO;
+    [imageView addSubview:bgScrollerView];
+    SafeRelease(bgScrollerView);
+    
     
     CGFloat width = bgScrollerView.frame.size.width-2*kPendingX;
-    LeftTitleListCell *orderInfoView = [[LeftTitleListCell alloc]initWithFrame:CGRectMake(kPendingX,20.f,width,409.f) withTitleArray:kOrderTitleArray withTitle:@"" withValueAtrArray:@[] withItemPending:15.f ];
-    //s[orderInfoView setYItemPendingY:10.f];
+    //CGFloat height = bgScrollerView.frame.size.height-20.f;
+    bgScrollerView.contentSize = CGSizeMake(bgScrollerView.frame.size.width,height);
+    LeftTitleListCell *orderInfoView = [[LeftTitleListCell alloc]initWithGoodsDetailFrame:CGRectMake(kPendingX,20.f,width,height) withTitleArray:kOrderTitleArray withTitle:@"" withValueAtrArray:@[] withItemPending:15.f*2];
+    [orderInfoView setXStartLeftPendingX:20.f];
     //[orderInfoView   ];
     orderInfoView.backgroundColor = [UIColor clearColor];
     [bgScrollerView addSubview:orderInfoView];
+    SafeRelease(orderInfoView);
     
     NSDictionary *netData = self.data;
     NSInteger index = 0;
@@ -179,8 +195,7 @@
     
    
     value = [netData objectForKey:@"note"];
-    [self.view addSubview:bgScrollerView];
-    SafeRelease(bgScrollerView);
+   
 }
 
 - (void)didReceiveMemoryWarning

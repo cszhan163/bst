@@ -1,36 +1,30 @@
 //
-//  SettingViewController.m
+//  BSTellHelpListViewController.m
 //  BSTell
 //
-//  Created by cszhan on 14-1-30.
+//  Created by cszhan on 14-4-12.
 //  Copyright (c) 2014年 cszhan. All rights reserved.
 //
 
-#import "SettingViewController.h"
-
-#import "BSTellAboutViewController.h"
 #import "BSTellHelpListViewController.h"
 
-
 #define kSetingTitleArray @[\
-    @"使用帮助",\
-    @"版本更新",\
-    @"关于",\
-    @"客服电话",\
+@"我如何参加竞买？",\
+@"我如何做到货确认？",\
+@"我如何查看交易公告？",\
 ]
 
-@interface SettingViewController ()
+@interface BSTellHelpListViewController ()
 
 @end
 
-@implementation SettingViewController
+@implementation BSTellHelpListViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.isNeedLogin = NO;
     }
     return self;
 }
@@ -38,23 +32,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setHiddenLeftBtn:YES];
-    [self setNavgationBarTitle:@"关于我们"];
+	// Do any additional setup after loading the view.
+    
+    //[self setNavgationBarTitle:@"关于我们"];
+    
     [self setHiddenRightBtn:YES];
-    //for logo
-    UIImageWithFileName(UIImage* image, @"logo.png");
-    
-    UIImageView *logoImageView = [[UIImageView alloc]initWithImage:image];
-    [self.view addSubview:logoImageView];
-    SafeRelease(logoImageView);
-    
-    CGFloat currY = 40.f+kMBAppBottomToolBarHeght;
-    logoImageView.frame = CGRectMake(0.f, 0.f, image.size.width/kScale, image.size.height/kScale);
-    logoImageView.center = CGPointMake(kDeviceScreenWidth/kScale, currY);
-    currY = currY+40.f;
+   
+    CGFloat currY = kMBAppTopToolBarHeight+30.f;
     tweetieTableView.frame = CGRectMake(0.f, currY, kDeviceScreenWidth,200.f);
     
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -111,66 +97,36 @@
      
      */
     cell.textLabel.text = kSetingTitleArray[indexPath.row];
-    if(indexPath.row == [kSetingTitleArray count]-1)
-        cell.detailTextLabel.text = @"400-820-6662";
     
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    return 50.f;
+    return 44.f;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if(indexPath.row<3){
-        //kUIAlertView(@"提示", @"正在建设,敬请期待!");
-        UIBaseViewController *vc = nil;
-        
-        switch (indexPath.row) {
-                
-            case 0:
-                vc = [[BSTellHelpListViewController alloc]init];
-                
-                break;
-            case 1:
-                
-                break;
-            case 2:
-                vc = [[BSTellAboutViewController alloc]init];
-                break;
-                
-            default:
-                break;
-        }
-        [vc setNavgationBarTitle:kSetingTitleArray[indexPath.row]];
-        
-        [self.navigationController pushViewController:vc animated:YES];
-        SafeRelease(vc);
-    }
-    else{
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://4008206662"]];
-    }
-//    
-//    BidDetailViewController *vc = [[BidDetailViewController alloc]initWithNibName:nil bundle:nil];
-//    [vc  setNavgationBarTitle:@"详情"];
-//    /*
-//     vc.delegate = self;
-//     NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
-//     //NSDictionary *data = [item objectForKey:@"DayDetailInfo"];
-//     vc.mData = item;
-//     */
-//#if 1
-//    [self.navigationController pushViewController:vc animated:YES];
-//#else
-//    
-//    [ZCSNotficationMgr postMSG:kPushNewViewController obj:vc];
-//     SafeRelease(vc);
-//#endif
+   
+    //
+    //    BidDetailViewController *vc = [[BidDetailViewController alloc]initWithNibName:nil bundle:nil];
+    //    [vc  setNavgationBarTitle:@"详情"];
+    //    /*
+    //     vc.delegate = self;
+    //     NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
+    //     //NSDictionary *data = [item objectForKey:@"DayDetailInfo"];
+    //     vc.mData = item;
+    //     */
+    //#if 1
+    //    [self.navigationController pushViewController:vc animated:YES];
+    //#else
+    //
+    //    [ZCSNotficationMgr postMSG:kPushNewViewController obj:vc];
+    //     SafeRelease(vc);
+    //#endif
     //[self.navigationController pushViewController:vc animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-   
+    
     
 }
-
 @end

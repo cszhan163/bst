@@ -300,14 +300,18 @@
     NSArray *dataArray = [self.data objectForKey:@"data"];
     UIImageWithFileName(UIImage *image , @"bid_detail_table.png");
     //CGRect rect = headerView.frame;
-    CGFloat currY = 0.f;
-    
+    CGFloat currY = bgGoodsView.frame.origin.y;
     CGRect headRect = CGRectMake(kLeftPendingX,currY,kDeviceScreenWidth-2*kLeftPendingX,40);
     UILabel *headerLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"物资信息" withFrame:headRect];
-    [bgGoodsView addSubview:headerLabel];
+    headerLabel.backgroundColor = [UIColor whiteColor];
+    [self.view  addSubview:headerLabel];
     //headerLabel.backgroundColor = [UIColor blueColor];
     SafeRelease(headerLabel);
-    currY = currY+40.f;
+    CGRect rect = bgGoodsView.frame;
+    
+    bgGoodsView.frame = CGRectMake(rect.origin.x, rect.origin.y+40.f, rect.size.width,rect.size.height-40.f);
+    
+    currY = 0.f;
     
     for(int i = 0;i<[dataArray count];i++){
         NSDictionary *itemData = dataArray[i];
