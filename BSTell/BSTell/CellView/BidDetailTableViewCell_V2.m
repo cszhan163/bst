@@ -49,7 +49,10 @@
         SafeRelease(bidTextView);
         
        
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTouchCellView:)];
         
+        [self addGestureRecognizer:tapGesture];
+        SafeRelease(tapGesture);
         
     }
     return self;

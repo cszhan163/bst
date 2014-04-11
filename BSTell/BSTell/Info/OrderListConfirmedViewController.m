@@ -59,7 +59,7 @@
 }
 -(void)didNetDataOK:(NSNotification*)ntf
 {
-    [super didNetDataOK:ntf];
+    //[super didNetDataOK:ntf];
     id obj = [ntf object];
     id respRequest = [obj objectForKey:@"request"];
     id data = [obj objectForKey:@"data"];

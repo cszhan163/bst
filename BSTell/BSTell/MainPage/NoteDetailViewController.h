@@ -10,7 +10,10 @@
 
 @interface NoteDetailViewController : BSTellBaseViewController{
 
-      UIWebView *contentTextView;
+    UILabel    *timeLabel;
+    // UITextView *contentTextView;
+    UILabel *headerView;
+    UIWebView *contentTextView;
 }
 @property(nonatomic,strong) NSString *noteId;
 @end
