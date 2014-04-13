@@ -20,6 +20,14 @@
 @implementation ExcellLikeCellBase
 @synthesize mCellItemArray;
 @synthesize mClounmWidthArray;
+
+- (void)dealloc{
+    self.mClounmWidthArray = nil;
+    self.mCellTitleArray  = nil;
+    self.mCellItemArray = nil;
+    [super dealloc];
+}
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -28,6 +36,7 @@
         self.mCellItemArray = [NSMutableArray array];
         self.mLineColor = kCellSplitLineColor;
         self.mClounmWidthArray = [NSMutableArray array];
+        self.mCellTitleArray = [NSMutableArray array];
         
     }
     return self;
@@ -97,4 +106,14 @@
     }
     return nil;
 }
+
+- (void)setTitle:(NSString*)title withIndex:(int)index{
+
+    if(index>=[self.mCellTitleArray count])
+        return;
+    UILabel *label = [self.mCellTitleArray objectAtIndex:index];
+    label.text = title;
+
+}
+
 @end

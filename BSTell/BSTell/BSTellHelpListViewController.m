@@ -8,11 +8,15 @@
 
 #import "BSTellHelpListViewController.h"
 
+#import "BSTellHelpDetailViewController.h"
+
 #define kSetingTitleArray @[\
 @"我如何参加竞买？",\
 @"我如何做到货确认？",\
 @"我如何查看交易公告？",\
 ]
+
+#define kSettingLevel2Array @[@6,@3,@3]
 
 @interface BSTellHelpListViewController ()
 
@@ -107,24 +111,13 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-   
-    //
-    //    BidDetailViewController *vc = [[BidDetailViewController alloc]initWithNibName:nil bundle:nil];
-    //    [vc  setNavgationBarTitle:@"详情"];
-    //    /*
-    //     vc.delegate = self;
-    //     NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
-    //     //NSDictionary *data = [item objectForKey:@"DayDetailInfo"];
-    //     vc.mData = item;
-    //     */
-    //#if 1
-    //    [self.navigationController pushViewController:vc animated:YES];
-    //#else
-    //
-    //    [ZCSNotficationMgr postMSG:kPushNewViewController obj:vc];
-    //     SafeRelease(vc);
-    //#endif
-    //[self.navigationController pushViewController:vc animated:YES];
+    
+    BSTellHelpDetailViewController *vc = [[BSTellHelpDetailViewController alloc]initWithNibName:nil bundle:nil];
+    [vc  setNavgationBarTitle:kSetingTitleArray[indexPath.row]];
+    vc.indexType = indexPath.row+1;
+    vc.itemCount = [kSettingLevel2Array[indexPath.row]intValue];
+    [self.navigationController pushViewController:vc animated:YES];
+    SafeRelease(vc);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     

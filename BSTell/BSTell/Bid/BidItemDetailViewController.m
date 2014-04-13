@@ -26,6 +26,11 @@
     UIButton *bidStatusBtn;
     UIButton *bidBtn;
     BidAdjustAlertView *bidAdjustView;
+    
+    UILabel *indictorView;
+    
+    UITextField *bidPriceTextFiled;
+    
     int bidMode;
 }
 @end
@@ -219,6 +224,24 @@
     
     bidAdjustView = [[BidAdjustAlertView alloc]initWithFrame:CGRectMake(0.f, 0.f,300.f,280.f) withHeadTitle:@""];
     bidAdjustView.delegate = self;
+    
+    bidPriceTextFiled = [[UITextField alloc]initWithFrame:CGRectMake(kLeftPendingX,currY,150.f,40.f)];
+    
+    [self.view addSubview:bidPriceTextFiled];
+    
+    SafeRelease(bidPriceTextFiled);
+    
+    bidPriceTextFiled.hidden = YES;
+    
+    indictorView = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:14] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(0.f,0.f,kDeviceScreenWidth, 40.f)];
+    indictorView.backgroundColor = [UIColor whiteColor];
+    
+    bidPriceTextFiled.inputAccessoryView = indictorView;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self    action:@selector(didTapView)];
+    [indictorView addGestureRecognizer:tap];
+    SafeRelease(tap);
+    bidPriceTextFiled.delegate = self;
+    bidPriceTextFiled.keyboardType = UIKeyboardTypeNumberPad;
     
 }
 
@@ -448,6 +471,16 @@
     //@{@"": @"",@"",@""};
     
     
+    value = [item objectForKey:@"jjms"];
+    if([value isEqualToString:@"2"]){
+        bidBtn.hidden = YES;
+        currBidPriceLabel.hidden = YES;
+        bidStepPriceLabel.hidden = YES;
+        delegateBidPriceLabel.hidden = YES;
+        bidPriceTextFiled.hidden = NO;
+    }
+    
+    
 }
 -(void)didNetDataFailed:(NSNotification*)ntf
 {
@@ -638,5 +671,17 @@
     else{
         [self reflushData];
     }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    return YES;
+}
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    indictorView.text = textField.text;
+    return YES;
+}
+- (void)didTapView{
+    [bidPriceTextFiled resignFirstResponder];
 }
 @end

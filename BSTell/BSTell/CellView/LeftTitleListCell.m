@@ -317,6 +317,7 @@ return self;
         NSDictionary *valueDict = valueAtrArray[i];
         
         [self addSubview:itemLabel];
+        [self.mCellTitleArray addObject:itemLabel];
         SafeRelease(itemLabel);
         
         itemLabel = [[UILabel alloc]initWithFrame:CGRectMake(currX+kItemPendingX,currY,140,height)];

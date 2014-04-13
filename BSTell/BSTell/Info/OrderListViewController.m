@@ -240,7 +240,38 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    OrderDetailViewController *vc = [[OrderDetailViewController alloc]initWithNibName:nil bundle:nil];
+    NSDictionary *item = self.dataArray[indexPath.row];
+    vc.orderId = [item objectForKey:@"orderId"];
+    vc.orderItem = item;
     
+    if([[item objectForKey:@"acutionResult"] intValue]){
+        //cell.contentView.backgroundColor =
+        //  235
+        vc.isConfirmTag = YES;
+    }
+    else{
+        vc.isConfirmTag = NO;
+    }
+    
+    [vc  setNavgationBarTitle:@"订单详情"];
+    
+    //[vc  setHiddenTableHeaderView:NO];
+    //[vc  setH]
+    /*
+     vc.delegate = self;
+     NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
+     //NSDictionary *data = [item objectForKey:@"DayDetailInfo"];
+     vc.mData = item;
+     */
+#if 1
+    [self.parentNav pushViewController:vc animated:YES];
+#else
+    
+    [ZCSNotficationMgr postMSG:kPushNewViewController obj:vc];
+#endif
+    SafeRelease(vc);
+
  
     
 }
@@ -340,38 +371,7 @@
     }
     else{
     
-        OrderDetailViewController *vc = [[OrderDetailViewController alloc]initWithNibName:nil bundle:nil];
-        NSDictionary *item = self.dataArray[i];
-        vc.orderId = [item objectForKey:@"orderId"];
-        vc.orderItem = item;
         
-        if([[item objectForKey:@"acutionResult"] intValue]){
-            //cell.contentView.backgroundColor =
-            //  235
-            vc.isConfirmTag = YES;
-        }
-        else{
-            vc.isConfirmTag = NO;
-        }
-        
-        [vc  setNavgationBarTitle:@"订单详情"];
-        
-        //[vc  setHiddenTableHeaderView:NO];
-        //[vc  setH]
-        /*
-         vc.delegate = self;
-         NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
-         //NSDictionary *data = [item objectForKey:@"DayDetailInfo"];
-         vc.mData = item;
-         */
-#if 1
-        [self.parentNav pushViewController:vc animated:YES];
-#else
-        
-        [ZCSNotficationMgr postMSG:kPushNewViewController obj:vc];
-#endif
-        SafeRelease(vc);
-    
     }
 }
 

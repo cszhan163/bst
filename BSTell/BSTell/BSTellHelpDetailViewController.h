@@ -10,4 +10,8 @@
 
 @interface BSTellHelpDetailViewController : BSTellBaseViewController
 
+@property (nonatomic, assign) NSInteger  itemCount;
+
+@property (nonatomic, assign) NSInteger indexType;
+
 @end

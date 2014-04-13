@@ -15,6 +15,8 @@
 #define kButtonWidth    60.f
 #define kButtonHeight   30.f
 
+#define kLeftPendingX  10.f
+
 @interface BidAdjustAlertView()<UIPickerViewDataSource,UIPickerViewDelegate>{
     
     UILabel *headerLabel;
@@ -110,6 +112,50 @@
     }
     return self;
 }
+- (id)initWithAlertFirstViewFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Initialization code
+        CGFloat currY = 20.f;
+        rightBtn = [UIComUtil createButtonWithNormalBGImageName:@"main_first_cancel.png" withHightBGImageName:@"main_first_cancel.png" withTitle:@"" withTag:1];
+        [rightBtn addTarget:self action:@selector(didPressButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        rightBtn.frame = CGRectMake(frame.size.width-kPendingX-10,currY,rightBtn.frame.size.width/8,rightBtn.frame.size.height/8);
+        [self addSubview:rightBtn];
+        
+        currY = currY+rightBtn.frame.size.height;
+        UIScrollView *contentView = [[UIScrollView alloc]initWithFrame:CGRectMake(0.f,currY,kDeviceScreenWidth, frame.size.height-currY-40.f)];
+        [self addSubview:contentView];
+        SafeRelease(contentView);
+        
+        currY = 10.f;
+        
+//        UITextView *contentTextView = [[UITextView alloc]initWithFrame:CGRectMake(kLeftPendingX,currY,kDeviceScreenWidth-2*kLeftPendingX,contentView.frame.size.height)];
+//        currY = currY+320.f;
+        UILabel  *contentLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:15] withTextColor:[UIColor whiteColor] withText:@"以上手机版客户端风险提示，本单位（本人）已阅读，并完全理解，本人是经慎重考虑过后自愿下载使用，由此引起的风险由本人自行负责"withFrame:CGRectMake(kLeftPendingX, currY,contentView.frame.size.width-2*kLeftPendingX,300.f)];
+        contentLabel.text = @"              化工宝手机版客户端风险提示\n\
+        尊敬的客户：\n请您在使用化工宝手机版客户端之前，仔细阅读以下有关化工宝手机版客户端风险提示：\n\
+        1 手机客户端主要通过wifi无线网络、移动互联网等公共网络进行数据传输，基于移动互联网自身特点，存在网络故障、通讯问题以及安全问题等风险。\n\
+        2 通过本手机客户端参加竞价、进行交易，客户应注意智能手机操作方式不同于PC端的操作方式，避免再使用时出现操作失误。\n\
+        3 提醒各位客户，化工宝对于本手机客户端因客户手机的网络故障、通信延迟以及对客户操作错误而导致的损失恕不承担责任，客户可及时联系化工宝予以协助处理。\n";
+        contentLabel.textAlignment = NSTextAlignmentLeft;
+        [contentView addSubview:contentLabel];
+        SafeRelease(contentLabel);
+        currY = currY+contentLabel.frame.size.height-10.f;
+        UILabel  *warningLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:15] withTextColor:[UIColor redColor] withText:@"  以上手机版客户端风险提示，本单位（本人）已阅读，并完全理解，本人是经慎重考虑过后自愿下载使用，由此引起的风险由本人自行负责"withFrame:CGRectMake(kLeftPendingX, currY,contentView.frame.size.width-2*kLeftPendingX,80.f)];
+        warningLabel.textAlignment = NSTextAlignmentLeft;
+        [contentView addSubview:warningLabel];
+        
+        SafeRelease(warningLabel);
+        
+//        contentTextView.contentSize = CGSizeMake(contentView.frame.size.width,warningLabel.frame.size.height+contentTextView.frame.size.height);
+        contentView.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor blackColor];
+        self.alpha = 0.7;
+        
+    }
+
+    return self;
+}
 - (void)updateUILayout{
     [pickView selectRow:0 inComponent:0 animated:NO];
     [self setNeedsLayout];
@@ -132,7 +178,7 @@
             break;
         case 1:{
             //bgView.hidden = YES;
-            if(self.delegate && [self.delegate respondsToSelector:@selector(didClickOkButton:)])
+            if(self.delegate && [self.delegate respondsToSelector:@selector(didClickCancelButton:)])
                 [self.delegate didClickCancelButton:self];
             break;
         }
