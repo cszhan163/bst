@@ -18,7 +18,7 @@
     @"关于",\
     @"客服电话",\
 ]
-
+#define  kAppVersionFormart  @"当前版本:%@"
 @interface SettingViewController ()
 
 @end
@@ -113,8 +113,12 @@
     cell.textLabel.text = kSetingTitleArray[indexPath.row];
     if(indexPath.row == [kSetingTitleArray count]-1)
         cell.detailTextLabel.text = @"400-820-6662";
-    
-    return cell;
+    if(indexPath.row == 1){
+        NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+        NSNumber *number = [[[NSBundle mainBundle]infoDictionary]objectForKey:@"CFBundleShortVersionString"];
+        NSString* strVersionPrompt = [NSString stringWithFormat:kAppVersionFormart,version];
+        cell.detailTextLabel.text = strVersionPrompt;
+    }    return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
