@@ -215,9 +215,9 @@
     
     
     //sell company
-    value = [item objectForKey:@"zys"];
+    value = [item objectForKey:@"weight"];
     
-    value = [NSString stringWithFormat:@"%0.2lf吨",[value floatValue]];
+    value = [NSString stringWithFormat:@"%0.2lf 吨",[value floatValue]];
     
     [cell setCellItemValue:value withRow:row withCol:index++];
     

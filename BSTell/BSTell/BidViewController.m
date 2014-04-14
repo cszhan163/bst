@@ -253,7 +253,7 @@
 
     //起拍价
     value = [item objectForKey:@"dfyj"];
-    value = [NSString stringWithFormat:@"%0.2lf元",value];
+    value = [NSString stringWithFormat:@"%0.2lf元",[value floatValue]];
     [cell setCellItemValue:value withIndex:index++];
     
     //
@@ -354,7 +354,7 @@
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            //catStr,@"cat",
                            pageNumStr, @"offset",
-                           @"1",@"zc",
+                           @"",@"zc",
                            @"3",@"wtzt",
                            self.userId,@"hydm",
                            @"10",@"limit",

@@ -142,7 +142,7 @@
 //    
 //    [cell setCellItemValue:value withRow:row withCol:index++];
     //sell company
-    value = [item objectForKey:@"jssj"];
+    value = [item objectForKey:@"kssj"];
     value = [NSDate  dateFormart:value fromFormart:@"yyyyMMddHHmm" toFormart:@"HH:mm"];
     [cell setCellItemValue:value withRow:row withCol:index++];
     

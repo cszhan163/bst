@@ -339,14 +339,16 @@
     value = [netData objectForKey:@"goodName"];
     [orderInfoView setCellItemValue:value withRow:index++];
     value = [netData objectForKey:@"weight"];
-    value = [NSString stringWithFormat:@"%@ 吨",value];
+    value = [NSString stringWithFormat:@"%0.2lf 吨",[value floatValue]];
     [orderInfoView setCellItemValue:value withRow:index++];
     value = [netData objectForKey:@"turnover"];
-    value = [NSString stringWithFormat:@"%@ 元",value];
+    value = [NSString stringWithFormat:@"%0.2lf 元",[value floatValue]];
     [orderInfoView setCellItemValue:value withRow:index++];
     value = [netData objectForKey:@"auctionDate"];
+    value = [NSDate  dateFormart:value fromFormart:@"yyyyMMdd" toFormart:@"yyyy-MM-dd"];
     [orderInfoView setCellItemValue:value withRow:index++];
-    value = [netData objectForKey:@"result"];
+    value = [netData objectForKey:@"acutionStatus"];
+    //[orderInfoView setCellItemValue:value withRow:index++];
     /*
      
      0：卖家未到款确认
@@ -357,13 +359,13 @@
     
     NSString *relResult = @"已完成";
     if([value intValue] == 0){
-        relResult = @"买家未到款确认";
+        relResult = @"卖家未到款确认";
     }
     else if([value intValue] == 2){
     
          relResult = @"卖家已到款确认";
     }
-    [orderInfoView setCellItemValue:value withRow:index++];
+    [orderInfoView setCellItemValue:relResult withRow:index++];
     
     index = 0;
     /*
@@ -380,9 +382,21 @@
     value = [netData objectForKey:@"fphm"];
     [agreementInfoView setCellItemValue:value withRow:index++];
     value = [netData objectForKey:@"agreementProperty"];
-    [agreementInfoView setCellItemValue:value withRow:index++];
+    NSString *strValue = @"其他";
+    if([value intValue]== 3){
+    
+        strValue = @"场外结算";
+    }
+    
+    [agreementInfoView setCellItemValue:strValue withRow:index++];
     value = [netData objectForKey:@"agreementState"];
-    [agreementInfoView setCellItemValue:value withRow:index++];
+    strValue = @"未生效";
+    if([value intValue]== 2){
+        
+        strValue = @"生效";
+    }
+    
+    [agreementInfoView setCellItemValue:strValue withRow:index++];
     index = 0;
     /*
      seller

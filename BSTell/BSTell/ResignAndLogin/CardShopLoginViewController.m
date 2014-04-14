@@ -101,6 +101,7 @@
     }
     //self.txtpassword.placeholder
     self.txtpassword.textColor = HexRGB(137, 137, 137);
+    
     if(self.txtusername)
     {
        if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"6.0")){

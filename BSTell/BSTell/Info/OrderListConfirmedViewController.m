@@ -27,8 +27,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  
 	// Do any additional setup after loading the view.
 }
+
 - (void) shouldLoadOlderData:(NTESMBTweetieTableView *) tweetieTableView
 {
     NSDictionary *param  = nil;
@@ -74,7 +76,7 @@
         //        [self dismissModalViewControllerAnimated:YES];
         
         [self reloadNetData:data];
-        
+        self.pageNum = self.pageNum +1;
         [self performSelectorOnMainThread:@selector(updateUIData:) withObject:data waitUntilDone:NO];
         
     }

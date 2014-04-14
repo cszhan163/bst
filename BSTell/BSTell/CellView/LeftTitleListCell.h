@@ -43,5 +43,7 @@
 
 - (void)setValueColorByIndex:(NSInteger)index withColor:(UIColor*)color;
 
+- (void)setTitleHidden:(BOOL)status withIndex:(int)index;
+
 @end
 
