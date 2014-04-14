@@ -48,6 +48,19 @@
 -(NSArray*)viewControllersForNavItemController:(BidBaseViewController*)controller{
     NSMutableArray *vcArray = [NSMutableArray array];
     
+    OrderListViewController *vcCtl = [[OrderListViewController alloc]init];
+    /*
+     vcCtl.isNeedInitDateMonth = NO;
+     vcCtl.mCurrDate = self.mCurrDate;
+     */
+    vcCtl.view.backgroundColor = [UIColor clearColor];
+    vcCtl.parentNav = self.navigationController;
+    //vcCtl.view.backgroundColor = [UIColor redColor];
+    [vcArray addObject:vcCtl];
+    SafeRelease(vcCtl);
+    
+    
+    
     OrderListConfirmedViewController *vcGraphCtl = [[OrderListConfirmedViewController alloc]init];
     vcGraphCtl.confirmTag = 1;
     vcGraphCtl.view.backgroundColor = [UIColor clearColor];
@@ -60,16 +73,6 @@
     SafeRelease(vcGraphCtl);
     
     
-    OrderListViewController *vcCtl = [[OrderListViewController alloc]init];
-    /*
-     vcCtl.isNeedInitDateMonth = NO;
-     vcCtl.mCurrDate = self.mCurrDate;
-     */
-    vcCtl.view.backgroundColor = [UIColor clearColor];
-    vcCtl.parentNav = self.navigationController;
-    //vcCtl.view.backgroundColor = [UIColor redColor];
-    [vcArray addObject:vcCtl];
-    SafeRelease(vcCtl);
    
     return  vcArray;
 }
@@ -77,23 +80,30 @@
     
     NSMutableArray *btnArray = [NSMutableArray array];
     CGFloat currX = 40.f;
-    UIButton *btn = [UIComUtil createButtonWithNormalBGImageName:nil withSelectedBGImageName:@"bid_caterlog_mask.png"  withTitle:@"已确认" withTag:0];
+  
+    UIButton *btn = [UIComUtil createButtonWithNormalBGImageName:nil  withSelectedBGImageName:@"bid_caterlog_mask.png" withTitle:@"未确认" withTag:1];
+    
+    btn.frame = CGRectMake(currX, 10.f,btn.frame.size.width, btn.frame.size.height);
     btn.titleLabel.font = [UIFont systemFontOfSize:14];
     [btn setTitleColor:HexRGB(153, 153, 153) forState:UIControlStateNormal];
     [btn setTitleColor:HexRGB(231, 234, 236) forState:UIControlStateSelected];
     
-    btn.frame = CGRectMake(currX, 10.f,btn.frame.size.width, btn.frame.size.height);
-    
     [btnArray addObject:btn];
+
+    
+    
     currX = currX+kOilNavControllerItemWidth;
-    btn = [UIComUtil createButtonWithNormalBGImageName:nil  withSelectedBGImageName:@"bid_caterlog_mask.png" withTitle:@"未确认" withTag:1];
     
-    btn.frame = CGRectMake(currX, 10.f,btn.frame.size.width, btn.frame.size.height);
+    btn = [UIComUtil createButtonWithNormalBGImageName:nil withSelectedBGImageName:@"bid_caterlog_mask.png"  withTitle:@"已确认" withTag:0];
     btn.titleLabel.font = [UIFont systemFontOfSize:14];
     [btn setTitleColor:HexRGB(153, 153, 153) forState:UIControlStateNormal];
     [btn setTitleColor:HexRGB(231, 234, 236) forState:UIControlStateSelected];
     
+    btn.frame = CGRectMake(currX, 10.f,btn.frame.size.width, btn.frame.size.height);
+    
     [btnArray addObject:btn];
+    
+    
     
     NETopNavBar *topNavBar = [[NETopNavBar alloc]initWithFrame:CGRectMake(0.f, 0.f,320.f,40)withBgImage:nil withBtnArray:btnArray selIndex:0];
     topNavBar.backgroundColor = HexRGB(190, 221, 238);
