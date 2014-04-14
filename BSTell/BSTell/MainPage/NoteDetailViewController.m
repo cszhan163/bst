@@ -12,16 +12,17 @@
 
 
 @interface NoteDetailViewController (){\
-    UILabel    *timeLabel;
-   // UITextView *contentTextView;
-  
-    UILabel *headerView;
+ 
 
 }
 @end
 
 @implementation NoteDetailViewController
 
+- (void)dealloc{
+    self.noteId = nil;
+    [super dealloc];
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

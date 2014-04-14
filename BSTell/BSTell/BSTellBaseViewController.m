@@ -13,7 +13,11 @@
 @end
 
 @implementation BSTellBaseViewController
-
+- (void)dealloc{
+    self.userId = nil;
+    self.czy = nil;
+    [super dealloc];
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

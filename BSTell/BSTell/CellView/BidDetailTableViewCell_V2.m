@@ -48,8 +48,11 @@
         [bidBtn addSubview:bidTextView];
         SafeRelease(bidTextView);
         
-       
-        
+//       
+//        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTouchCellView:)];
+//        
+//        [self addGestureRecognizer:tapGesture];
+//        SafeRelease(tapGesture);
         
     }
     return self;
@@ -65,6 +68,15 @@
         if(kDeviceCheckIphone5){
             //currY = 5.f;
         }
+        
+        
+        UIImageWithFileName(UIImage *image , @"arrow_detail.png");
+        
+        UIImageView *detailView = [[UIImageView alloc]initWithImage:image];
+        [self addSubview:detailView];
+        SafeRelease(detailView);
+        detailView.frame = CGRectMake(0.f, 0.f, image.size.width/kScale, image.size.height/kScale);
+        detailView.center = CGPointMake(self.frame.size.width-20.f,52);
         
         [self setRowLineHidden:YES];
         [self setClounmLineHidden:YES];

@@ -22,6 +22,9 @@
 @property (nonatomic,strong)    NSString *priceModeString;
 @property (nonatomic,assign)    id<BidAdjustAlertViewDelegate>delegate;
 - (id)initWithFrame:(CGRect)frame  withHeadTitle:(NSString*)title;
+
+- (id)initWithAlertFirstViewFrame:(CGRect)frame;
+
 - (void)setHeadTitle:(NSString*)title;
 - (void)show;
 - (void)disMiss;

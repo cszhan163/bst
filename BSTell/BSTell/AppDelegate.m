@@ -14,7 +14,14 @@
 
 #import "KeychainItemWrapper.h"
 
+#import "BidAdjustAlertView.h"
+
 @implementation AppDelegate
+
+- (void)didClickCancelButton:(id)sender{
+
+    [sender removeFromSuperview];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -25,6 +32,9 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     AppMainUIViewManage *appMg = [AppMainUIViewManage getSingleTone];
     appMg.window = self.window;
+    
+  
+    
     [appMg addMainViewUI];
 //    KeychainItemWrapper *keyChainItem =  [[KeychainItemWrapper alloc] initWithIdentifier:@"cszhan" accessGroup:@"test"];
 //    [keyChainItem setObject:@"1000" forKey:kSecValueData];
@@ -34,7 +44,14 @@
     //[self startLoginRequest];
     
     //[self startLoginRequest];
-    
+    if([AppSetting getFirstOpen]){
+        
+        BidAdjustAlertView *firstAlertView = [[BidAdjustAlertView alloc]initWithAlertFirstViewFrame:CGRectMake(0.f,0.f,kDeviceScreenWidth,kDeviceScreenHeight)];
+        firstAlertView.delegate = self;
+        [self.window addSubview:firstAlertView];
+        [AppSetting setFirstOpen:NO];
+        
+    }
     return YES;
 }
 //发起登录请求

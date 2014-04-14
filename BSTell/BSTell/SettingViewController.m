@@ -8,13 +8,17 @@
 
 #import "SettingViewController.h"
 
+#import "BSTellAboutViewController.h"
+#import "BSTellHelpListViewController.h"
+
+
 #define kSetingTitleArray @[\
-    @"功能介绍",\
+    @"使用帮助",\
     @"版本更新",\
     @"关于",\
     @"客服电话",\
 ]
-
+#define  kAppVersionFormart  @"当前版本:%@"
 @interface SettingViewController ()
 
 @end
@@ -36,8 +40,7 @@
     [super viewDidLoad];
     [self setHiddenLeftBtn:YES];
     [self setNavgationBarTitle:@"关于我们"];
-    
-    [self setHiddenLeftBtn:YES];
+    [self setHiddenRightBtn:YES];
     //for logo
     UIImageWithFileName(UIImage* image, @"logo.png");
     
@@ -110,8 +113,12 @@
     cell.textLabel.text = kSetingTitleArray[indexPath.row];
     if(indexPath.row == [kSetingTitleArray count]-1)
         cell.detailTextLabel.text = @"400-820-6662";
-    
-    return cell;
+    if(indexPath.row == 1){
+        NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+        NSNumber *number = [[[NSBundle mainBundle]infoDictionary]objectForKey:@"CFBundleShortVersionString"];
+        NSString* strVersionPrompt = [NSString stringWithFormat:kAppVersionFormart,version];
+        cell.detailTextLabel.text = strVersionPrompt;
+    }    return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -121,7 +128,29 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if(indexPath.row<3){
-        kUIAlertView(@"提示", @"正在建设,敬请期待!");
+        //kUIAlertView(@"提示", @"正在建设,敬请期待!");
+        UIBaseViewController *vc = nil;
+        
+        switch (indexPath.row) {
+                
+            case 0:
+                vc = [[BSTellHelpListViewController alloc]init];
+                
+                break;
+            case 1:
+                
+                break;
+            case 2:
+                vc = [[BSTellAboutViewController alloc]init];
+                break;
+                
+            default:
+                break;
+        }
+        [vc setNavgationBarTitle:kSetingTitleArray[indexPath.row]];
+        
+        [self.navigationController pushViewController:vc animated:YES];
+        SafeRelease(vc);
     }
     else{
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://4008206662"]];

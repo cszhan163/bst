@@ -15,17 +15,17 @@
 
 #define kHeaderColounmItemWidthArray @[@80.f,@80.f,@80.f]
 
-#define kCellTitleColorArray @[[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor]]
+#define kCellTitleColorArray @[[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor]]
 
-#define kCellTitleFontArray  @[[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14]]
-
-
-#define kCellValueColorArray @[[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor redColor],[UIColor blackColor]]
-
-#define kCellValueFontArray  @[[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14]]
+#define kCellTitleFontArray  @[[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14]]
 
 
-#define kCellItemHeightArray @[@20.f,@20.f,@20.f,@20.f,@20.f,@20.f]
+#define kCellValueColorArray @[[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor blackColor],[UIColor redColor],[UIColor blackColor],[UIColor blackColor]]
+
+#define kCellValueFontArray  @[[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14]]
+
+
+#define kCellItemHeightArray @[@20.f,@20.f,@20.f,@20.f,@20.f,@20.f,@20.f]
 
 @interface BidStartedViewController(){
 
@@ -135,6 +135,7 @@
                                  @"重量",
                                  @"当前价",
                                  @"报价状态",
+                                 @"竞价模式",
                                  @"结束时间"
                                  ]
                 withTitleAttributeArray:titleArray
@@ -290,6 +291,28 @@
     }
     [cell setCellItemValue:statusStr withRow:row withCol:index++];
     
+    //jjms
+    NSString *bidType = @"公开增价";
+    value = [item objectForKey:@"jjms"];
+    if([value isEqualToString:@"2"]){
+        bidType = @"自由报价";
+        
+        
+        [cell setTitle:@"我的出价" withIndex:index-1];
+        value = @"----";
+        if(myPrice){
+            value = [NSString stringWithFormat:@"%0.2lf元",myPrice];
+        }
+        [cell setCellItemValue:value withRow:row withCol:index-1];
+        
+        [cell setTitle:@"起拍价" withIndex:index-2];
+        value = [NSString stringWithFormat:@"%0.2lf元",basePrice];
+        [cell setCellItemValue:value withRow:row withCol:index-2];
+        [cell setButtonHiddenStatus:YES];
+        
+    }
+    [cell setCellItemValue:bidType withRow:row withCol:index++];
+    
     //sell company
     value = [item objectForKey:@"jssj"];
     value = [NSDate  dateFormart:value fromFormart:@"yyyyMMddHHmm" toFormart:@"HH:mm"];
@@ -305,7 +328,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    return 143.f;//125.f;
+    return 143.f+30.f;//125.f;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     

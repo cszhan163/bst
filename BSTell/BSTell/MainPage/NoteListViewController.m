@@ -252,9 +252,9 @@
         SafeRelease(vc);
     }
     else{
-        ReportDetailViewController *vc = [[NoteDetailViewController alloc]initWithNibName:nil bundle:nil];
+        ReportDetailViewController *vc = [[ReportDetailViewController alloc]initWithNibName:nil bundle:nil];
         
-        NSDictionary *item = [self.dataArray objectAtIndex:indexPath.row];
+        vc.data = [self.dataArray objectAtIndex:indexPath.row];
         
         
         

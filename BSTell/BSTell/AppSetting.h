@@ -12,5 +12,10 @@
 +(void)setLoginUserDetailInfo:(NSDictionary*)dict userId:(NSString*)userId;
 +(NSDictionary*)getLoginUserData:(NSString*)userId;
 +(NSString*)getLoginUserId;
+
++ (BOOL)getFirstOpen;
+
++ (void)setFirstOpen:(BOOL)status;
+
 +(void)setLogoutUser;
 @end

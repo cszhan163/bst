@@ -147,7 +147,7 @@
     currY = 200.f;
     
     CGFloat goodViewHeight = 150.f;
-    if(canLoger){
+    if(canLoger && 0){
         goodViewHeight = goodViewHeight+40.f;
     }
     if(kDeviceCheckIphone5){
@@ -161,7 +161,8 @@
     [self.view addSubview:bgGoodsView];
     
     SafeRelease(bgGoodsView);
-    if(!canLoger){
+    //if(!canLoger)
+    {
         
         [self addFonterView];
     }
@@ -182,9 +183,12 @@
     //    logInfo.frame = CGRectMake(0,kMBAppTopToolBarHeight-self.mainContentViewPendingY,kDeviceScreenWidth,kDeviceScreenHeight-kMBAppTopToolBarHeight-kMBAppStatusBar-kMBAppBottomToolBarHeght- 60 );
     UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0.f,0.f,300.f,80)];
     bgView.backgroundColor = HexRGB(202, 202, 204);
-    
+    NSString *showTitle =  @"参加竞价";
+    if(canLoger){
+        showTitle =  @"退出竞价";
+    }
     CGFloat currY = kDeviceScreenHeight-kMBAppTopToolBarHeight-kMBAppStatusBar-kMBAppBottomToolBarHeght- 60+10.f;
-    oilAnalaysisBtn = [UIComUtil createButtonWithNormalBGImageName:@"bid_start_btn.png" withHightBGImageName:@"bid_start_btn.png" withTitle:@"参加竞价" withTag:0];
+    oilAnalaysisBtn = [UIComUtil createButtonWithNormalBGImageName:@"bid_start_btn.png" withHightBGImageName:@"bid_start_btn.png" withTitle:showTitle withTag:0];
     
     CGSize btnsize= oilAnalaysisBtn.frame.size;
     btnsize = CGSizeMake(btnsize.width-20, btnsize.height);
@@ -253,13 +257,37 @@
 }
 - (void)logOutConfirm:(id)sender{
 
-    BidConfirmViewController *bidConfirmVc = [[BidConfirmViewController alloc]init];
-    bidConfirmVc.wtid = self.wtid;
-    [self.navigationController pushViewController:bidConfirmVc animated:YES];
-
-    SafeRelease(bidConfirmVc);
+    if(canLoger){
+      kUIAlertConfirmView(@"提示", @"是否确认退出竞价", @"确定", @"取消");
+    }
+    else{
+        BidConfirmViewController *bidConfirmVc = [[BidConfirmViewController alloc]init];
+        bidConfirmVc.wtid = self.wtid;
+        [self.navigationController pushViewController:bidConfirmVc animated:YES];
+        
+        SafeRelease(bidConfirmVc);
+    }
 }
-#pragma mark- 
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if(buttonIndex == 0){
+        
+        NSString *operId = [[AppSetting getLoginUserData:[AppSetting getLoginUserId]] objectForKey:@"czy"];
+        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                               self.userId,@"hydm",
+                               self.wtid,@"wtid",
+                               operId,@"czy",
+                               nil];
+        CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
+        self.request = [carServiceNetDataMgr  quitWt4Move:param];
+        
+        
+    }
+    
+}
+
+#pragma mark-
 #pragma mark -net data
 - (void) shouldLoadData{
     
@@ -293,6 +321,12 @@
         [self performSelectorOnMainThread:@selector(updateUIData:) withObject:data waitUntilDone:NO];
         
     }
+    if([resKey isEqualToString:kResBidQuit]){
+         if([[data objectForKey:@"result"]intValue] == 1){
+             kUIAlertView(@"提示", @"退出竞价成功");
+             [self.navigationController popViewControllerAnimated:YES];
+         }
+    }
     
     //self.view.userInteractionEnabled = YES;
 }
@@ -300,14 +334,18 @@
     NSArray *dataArray = [self.data objectForKey:@"data"];
     UIImageWithFileName(UIImage *image , @"bid_detail_table.png");
     //CGRect rect = headerView.frame;
-    CGFloat currY = 0.f;
-    
+    CGFloat currY = bgGoodsView.frame.origin.y;
     CGRect headRect = CGRectMake(kLeftPendingX,currY,kDeviceScreenWidth-2*kLeftPendingX,40);
     UILabel *headerLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"物资信息" withFrame:headRect];
-    [bgGoodsView addSubview:headerLabel];
+    headerLabel.backgroundColor = [UIColor whiteColor];
+    [self.view  addSubview:headerLabel];
     //headerLabel.backgroundColor = [UIColor blueColor];
     SafeRelease(headerLabel);
-    currY = currY+40.f;
+    CGRect rect = bgGoodsView.frame;
+    
+    bgGoodsView.frame = CGRectMake(rect.origin.x, rect.origin.y+40.f, rect.size.width,rect.size.height-40.f);
+    
+    currY = 0.f;
     
     for(int i = 0;i<[dataArray count];i++){
         NSDictionary *itemData = dataArray[i];
@@ -777,7 +815,7 @@
     
     [tableView setActionTarget:self withSelecotr:@selector(didSElectorGoodsDetailItem:)];
     
-    tableView.backgroundColor = [UIColor yellowColor];
+    tableView.backgroundColor = HexRGB(254, 254,188);
     
     
 #endif
