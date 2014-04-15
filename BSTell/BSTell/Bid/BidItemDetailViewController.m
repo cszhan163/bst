@@ -28,6 +28,7 @@
     BidAdjustAlertView *bidAdjustView;
     
     UILabel *indictorView;
+    UIControl *indictorViewBg;
     
     UITextField *bidPriceTextFiled;
     
@@ -225,8 +226,8 @@
     bidAdjustView = [[BidAdjustAlertView alloc]initWithFrame:CGRectMake(0.f, 0.f,300.f,280.f) withHeadTitle:@""];
     bidAdjustView.delegate = self;
     
-    bidPriceTextFiled = [[UITextField alloc]initWithFrame:CGRectMake(kLeftPendingX,currY,150.f,40.f)];
-    
+    bidPriceTextFiled = [[UITextField alloc]initWithFrame:CGRectMake(kLeftPendingX,currY+10.f,150.f,40.f)];
+    bidPriceTextFiled.borderStyle = UITextBorderStyleRoundedRect;
     [self.view addSubview:bidPriceTextFiled];
     
     SafeRelease(bidPriceTextFiled);
@@ -235,12 +236,21 @@
     
     indictorView = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:14] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(0.f,0.f,kDeviceScreenWidth, 40.f)];
     indictorView.backgroundColor = [UIColor whiteColor];
-    
-    bidPriceTextFiled.inputAccessoryView = indictorView;
+    /*
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self    action:@selector(didTapView)];
     [indictorView addGestureRecognizer:tap];
-    SafeRelease(tap);
+    //SafeRelease(tap);
+     */
+    indictorViewBg = [[UIControl alloc]initWithFrame:indictorView.frame];
+    [indictorViewBg addSubview:indictorView];
+    [indictorViewBg addTarget:self action:@selector(didTapView) forControlEvents:UIControlEventTouchUpInside];
+    SafeRelease(indictorView);
+    indictorViewBg.backgroundColor = [UIColor clearColor];
+    
+    bidPriceTextFiled.inputAccessoryView = indictorViewBg;
+    [bidPriceTextFiled addTarget:self action:@selector(didchangeTextFiledValue) forControlEvents:UIControlEventEditingChanged];
     bidPriceTextFiled.delegate = self;
+    bidPriceTextFiled.returnKeyType = UIReturnKeyDone;
     bidPriceTextFiled.keyboardType = UIKeyboardTypeNumberPad;
     
 }
@@ -472,7 +482,7 @@
     
     
     value = [item objectForKey:@"jjms"];
-    if([value isEqualToString:@"2"]){
+    if(1||[value isEqualToString:@"2"]){
         bidBtn.hidden = YES;
         currBidPriceLabel.hidden = YES;
         bidStepPriceLabel.hidden = YES;
@@ -678,8 +688,11 @@
     return YES;
 }
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    indictorView.text = textField.text;
+  
     return YES;
+}
+- (void)didchangeTextFiledValue{
+    indictorView.text = bidPriceTextFiled.text;
 }
 - (void)didTapView{
     [bidPriceTextFiled resignFirstResponder];

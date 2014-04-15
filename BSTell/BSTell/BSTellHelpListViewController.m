@@ -43,7 +43,7 @@
     [self setHiddenRightBtn:YES];
    
     CGFloat currY = kMBAppTopToolBarHeight+30.f;
-    tweetieTableView.frame = CGRectMake(0.f, currY, kDeviceScreenWidth,200.f);
+    tweetieTableView.frame = CGRectMake(0.f, currY, kDeviceScreenWidth,132);
     
 }
 
