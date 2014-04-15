@@ -287,6 +287,7 @@
 
 - (void) shouldLoadOlderData:(NTESMBTweetieTableView *) tweetieTableView
 {
+    [super shouldLoadOlderData:nil];
     NSDictionary *param  = nil;
     CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
     {
@@ -348,6 +349,7 @@
     self.pageNum = 1;
     [self.dataArray removeAllObjects];
     //[self shouldLoadOlderData:nil];
+    [tweetieTableView reloadData];
 }
 #pragma mark -
 #pragma mark -button action

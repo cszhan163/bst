@@ -45,6 +45,7 @@
 
     [super viewWillAppear:animated];
     [self setNavgationBarRightButton];
+    self.pageNum = 1;
     [self.dataArray removeAllObjects];
 }
 - (void)viewDidAppear:(BOOL)animated{
@@ -337,10 +338,14 @@
 }
 #pragma mark -
 #pragma mark -network
+- (void) shouldLoadNewerData:(NTESMBTweetieTableView *) tweetieTableView{
+    self.pageNum = 1;
+    [self shouldLoadOlderData:tweetieTableView];
+}
 - (void) shouldLoadOlderData:(NTESMBTweetieTableView *) tweetieTableView{
 
     //NSString *catStr = [NSString stringWithFormat:@"%d",self.goodGroupNum];
-    NSString *pageNumStr = [NSString stringWithFormat:@"%d",currentPageNum];
+    NSString *pageNumStr = [NSString stringWithFormat:@"%d",self.pageNum];
     /*
      @"001",@"hydm",
      @"10",@"limit",
@@ -402,19 +407,11 @@
         self.dataArray = [data objectForKey:@"data"];
 #endif
         //self.dataArray = [data objectForKey:@"data"];
+        if([[data objectForKey:@"data"]count])
+            self.pageNum = self.pageNum +1;
         [self performSelectorOnMainThread:@selector(updateUIData:) withObject:data waitUntilDone:NO];
         
     }
-    if(self.request ==respRequest && [resKey isEqualToString:@"addreply"])
-    {
-        //        if ([self.externDelegate respondsToSelector:@selector(commentDidSendOK:)]) {
-        //            [self.externDelegate commentDidSendOK:self];
-        //        }
-        //        kNetEndSuccStr(@"回复成功",self.view);
-        //        [self dismissModalViewControllerAnimated:YES];
-    }
-    
-    //self.view.userInteractionEnabled = YES;
 }
 
 - (void)updateUIData:(NSDictionary*)netData{
@@ -430,7 +427,7 @@
     //isLogin = NO;
     [self.navigationController popToRootViewControllerAnimated:YES];
     [self.dataArray removeAllObjects];
-    currentPageNum = 0;
+    self.pageNum = 1;
     [AppSetting setLogoutUser];
     
 }

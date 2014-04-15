@@ -91,10 +91,9 @@
     mainView.topBarView.backgroundColor = HexRGB(1, 159, 233);
     mainView.backgroundColor = HexRGB(239, 239, 241);
     self.delegate = self;
-    
     tweetieTableView.bounces = YES;
     [tweetieTableView setDragEffect:YES];
-    tweetieTableView.hasDownDragEffect = YES;
+    tweetieTableView.hasDownDragEffect = NO;
 }
 - (void)setTopNavBarHidden:(BOOL)status{
     if(status){
@@ -116,12 +115,13 @@
 -(void)didNetDataOK:(NSNotification*)ntf
 {
     
-    //[super didNetDataOK:ntf];
+    [super didNetDataOK:ntf];
     isRefreshing = NO;
     currentPageNum = currentPageNum+1;
     if (self.reflushType == Reflush_OLDE)
     {
         [tweetieTableView closeBottomView];
+        //[tweetieTableView closeInfoView];
     }
     else
     {

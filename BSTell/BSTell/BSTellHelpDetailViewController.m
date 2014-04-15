@@ -11,6 +11,8 @@
 
 #define  kImageSize     CGSizeMake(320.f,419)
 
+#define  kIphone4ImageSize   CGSizeMake(320.f,350)
+
 @interface BSTellHelpDetailViewController ()
 
 @property (nonatomic, strong) BSPreviewScrollView *scrollViewPreview;
@@ -42,11 +44,14 @@
 	// Do any additional setup after loading the view.
     [self setHiddenRightBtn:YES];
     CGFloat currY = kMBAppTopToolBarHeight+10.f;
-    
-    self.scrollViewPreview = [[[BSPreviewScrollView alloc]initWithFrame:CGRectMake(0.f,currY,kImageSize.width,kImageSize.height)]autorelease];
+    CGSize size = kIphone4ImageSize;
+    if(kDeviceCheckIphone5){
+        size = kImageSize;
+    }
+    self.scrollViewPreview = [[[BSPreviewScrollView alloc]initWithFrame:CGRectMake(0.f,currY,size.width,size.height)]autorelease];
     NE_LOGRECT(self.scrollViewPreview.frame);
     [self.scrollViewPreview setBackgroundColor:[UIColor clearColor]];
-	self.scrollViewPreview.pageSize = kImageSize;
+	self.scrollViewPreview.pageSize = size;
 	// Important to listen to the delegate methods.
 	self.scrollViewPreview.delegate = self;
   
@@ -82,10 +87,20 @@
 {
 	
     UIImage *image  = nil;
-    NSString *fileName  = [NSString stringWithFormat:@"setting_help%d_%02d.png",self.indexType,index+1];
+    NSString *fileFormart = @"setting_help%d_%02d.png";
+    if(kDeviceCheckIphone5){
+        fileFormart = @"setting_help%d_%02d-568h@2x.png";
+    }
+    NSString *fileName  = [NSString stringWithFormat:fileFormart,self.indexType,index+1];
     UIImageWithFileName(image ,fileName);
     assert(image);
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.f, 0.f,kImageSize.width,kImageSize.height)];
+    
+    CGSize size = kIphone4ImageSize;
+    if(kDeviceCheckIphone5){
+        size = kImageSize;
+    }
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.f, 0.f,size.width,size.height)];
     
     imageView.image = image;
     

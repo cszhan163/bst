@@ -121,6 +121,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
         //data = [tempData JSONValue];
         NSError *error = nil;
         tempData = [tempData stringByReplacingOccurrencesOfString:@"\n" withString:@"\\n"];
+        tempData = [tempData stringByReplacingOccurrencesOfString:@"\r" withString:@"\\r"];
         data = [NSJSONSerialization JSONObjectWithData:[tempData dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:&error];
         if(error){
             NSLog(@"error json data error");

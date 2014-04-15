@@ -8,6 +8,6 @@
 
 #import "OrderListViewController.h"
 
-@interface OrderListConfirmedViewController : OrderListViewController
+@interface OrderListConfirmedViewController : BSTellNetListBaseViewController
 
 @end

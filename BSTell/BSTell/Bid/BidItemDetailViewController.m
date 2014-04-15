@@ -32,6 +32,8 @@
     
     UITextField *bidPriceTextFiled;
     
+    
+    
     int bidMode;
 }
 @end
@@ -253,6 +255,19 @@
     bidPriceTextFiled.returnKeyType = UIReturnKeyDone;
     bidPriceTextFiled.keyboardType = UIKeyboardTypeNumberPad;
     
+    
+    
+    NSString *value = [self.data objectForKey:@"jjms"];
+    if([value isEqualToString:@"2"]){
+        bidBtn.hidden = YES;
+        currBidPriceLabel.hidden = YES;
+        bidStepPriceLabel.hidden = YES;
+        delegateBidPriceLabel.hidden = YES;
+        bidPriceTextFiled.hidden = NO;
+        [bidStatusBtn setTitle:@"出价" forState:UIControlStateNormal];
+        bidMode = 2;
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -343,18 +358,20 @@
     //id
     value = [item objectForKey:@"dqj"];
     //[cell setCellItemValue:value withIndex:index++];
-    if([value floatValue] == 0.f){
-        self.isBasePriceBid = YES;
-        [bidBtn setTitle:@"底价出价" forState:UIControlStateNormal];
-        [bidBtn setTitle:@"底价出价" forState:UIControlStateSelected];
+   
+    {
+        if([value floatValue] == 0.f){
+            self.isBasePriceBid = YES;
+            [bidBtn setTitle:@"底价出价" forState:UIControlStateNormal];
+            [bidBtn setTitle:@"底价出价" forState:UIControlStateSelected];
+        }
+        else{
+            self.isBasePriceBid = NO;
+            [bidBtn setTitle:@"梯度出价" forState:UIControlStateNormal];
+            [bidBtn setTitle:@"梯度出价" forState:UIControlStateSelected];
+            value = [NSString stringWithFormat:@"%0.2lf元",[value floatValue]];
+        }
     }
-    else{
-        self.isBasePriceBid = NO;
-        [bidBtn setTitle:@"梯度出价" forState:UIControlStateNormal];
-        [bidBtn setTitle:@"梯度出价" forState:UIControlStateSelected];
-        value = [NSString stringWithFormat:@"%0.2lf元",[value floatValue]];
-    }
-
     if([value floatValue] == 0){
         value = @"----";
     }
@@ -378,18 +395,21 @@
     delegateBidPriceLabel.text = [NSString stringWithFormat:@"当前委托:%@ ",value];
     
     value = [item objectForKey:@"wtprice"];
-    if([value isEqualToString:@"0"]){
-        
-        [bidStatusBtn setTitle:@"委托出价" forState:UIControlStateNormal];
-        [bidStatusBtn setTitle:@"委托出价" forState:UIControlStateSelected];
-        delegateBidPriceLabel.text = [NSString stringWithFormat:@"当前委托:%@",@"----"];
-    }
-    else{
-        self.isDelegate = NO;
-        [bidStatusBtn setTitle:@"取消委托" forState:UIControlStateNormal];
-        [bidStatusBtn setTitle:@"取消委托" forState:UIControlStateSelected];
-        
-        
+    
+    if(bidMode != 2){
+        if([value isEqualToString:@"0"]){
+            
+            [bidStatusBtn setTitle:@"委托出价" forState:UIControlStateNormal];
+            [bidStatusBtn setTitle:@"委托出价" forState:UIControlStateSelected];
+            delegateBidPriceLabel.text = [NSString stringWithFormat:@"当前委托:%@",@"----"];
+        }
+        else{
+            self.isDelegate = NO;
+            [bidStatusBtn setTitle:@"取消委托" forState:UIControlStateNormal];
+            [bidStatusBtn setTitle:@"取消委托" forState:UIControlStateSelected];
+            
+            
+        }
     }
      value = [item objectForKey:@"wtmc"];
     [leftTitleCellView setCellItemValue:value withRow:index++];
@@ -481,16 +501,6 @@
     //@{@"": @"",@"",@""};
     
     
-    value = [item objectForKey:@"jjms"];
-    if(1||[value isEqualToString:@"2"]){
-        bidBtn.hidden = YES;
-        currBidPriceLabel.hidden = YES;
-        bidStepPriceLabel.hidden = YES;
-        delegateBidPriceLabel.hidden = YES;
-        bidPriceTextFiled.hidden = NO;
-    }
-    
-    
 }
 -(void)didNetDataFailed:(NSNotification*)ntf
 {
@@ -568,25 +578,31 @@
             break;
         case 2:
             
-            if([sender.titleLabel.text isEqualToString:@"取消委托"]){
-                bidMode = 5;
+            if(bidMode == 2){
                 
-                kUIAlertConfirmView(@"提示", @"是否取消委托", @"确定", @"取消");
+                kUIAlertConfirmView(@"提示", @"是否确定出价", @"确定", @"取消");
             }
             else{
-                bidAdjustView.stepPrice = stepPrice;
-                bidAdjustView.basePrice = currPrice;
-                if(self.isBasePriceBid){
-                    bidAdjustView.priceModeString = @"起拍价格";
+                if([sender.titleLabel.text isEqualToString:@"取消委托"]){
+                    bidMode = 5;
+                    
+                    kUIAlertConfirmView(@"提示", @"是否取消委托", @"确定", @"取消");
                 }
                 else{
-                    bidAdjustView.priceModeString = @"当前价格";
+                    bidAdjustView.stepPrice = stepPrice;
+                    bidAdjustView.basePrice = currPrice;
+                    if(self.isBasePriceBid){
+                        bidAdjustView.priceModeString = @"起拍价格";
+                    }
+                    else{
+                        bidAdjustView.priceModeString = @"当前价格";
+                    }
+                    //bidAdjustView.priceModeString =
+                    [bidAdjustView setHeadTitle:@"委托出价确认"];
+                    [bidAdjustView updateUILayout];
+                    [bidAdjustView show];
+                    bidMode = 0;
                 }
-                //bidAdjustView.priceModeString =
-                [bidAdjustView setHeadTitle:@"委托出价确认"];
-                [bidAdjustView updateUILayout];
-                [bidAdjustView show];
-                bidMode = 0;
             }
             break;
         default:
@@ -598,7 +614,12 @@
     
     if(buttonIndex == 0){
         
-        [self startBid:0.f];
+        if(bidMode == 2){
+            [self startBid:[bidPriceTextFiled.text floatValue]];
+        }
+        else{
+            [self startBid:0.f];
+        }
         
     }
     
