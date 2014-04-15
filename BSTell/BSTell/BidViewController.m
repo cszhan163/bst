@@ -407,8 +407,8 @@
         self.dataArray = [data objectForKey:@"data"];
 #endif
         //self.dataArray = [data objectForKey:@"data"];
-        if([[data objectForKey:@"data"]count])
-            self.pageNum = self.pageNum +1;
+//        if([[data objectForKey:@"data"]count])
+//            self.pageNum = self.pageNum +1;
         [self performSelectorOnMainThread:@selector(updateUIData:) withObject:data waitUntilDone:NO];
         
     }

@@ -369,7 +369,6 @@
 
 - (void) shouldLoadOlderData:(NTESMBTweetieTableView *) tweetieTableView{
 
-    
     NSString *usrId = [AppSetting getLoginUserId];
     if(usrId){
         NSDictionary *usrData = [AppSetting getLoginUserData:usrId];

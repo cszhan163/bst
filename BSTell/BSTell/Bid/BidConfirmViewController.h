@@ -8,6 +8,11 @@
 
 #import "BSTellBaseViewController.h"
 
+
 @interface BidConfirmViewController : BSTellBaseViewController
-@property (nonatomic,strong) NSString *wtid;
+
+@property (nonatomic, assign) int agreeType;
+
+@property (nonatomic, strong) NSString *wtid;
+
 @end

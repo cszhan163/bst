@@ -230,14 +230,18 @@
     
     bidPriceTextFiled = [[UITextField alloc]initWithFrame:CGRectMake(kLeftPendingX,currY+10.f,150.f,40.f)];
     bidPriceTextFiled.borderStyle = UITextBorderStyleRoundedRect;
+    
     [self.view addSubview:bidPriceTextFiled];
     
     SafeRelease(bidPriceTextFiled);
     
     bidPriceTextFiled.hidden = YES;
     
-    indictorView = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:14] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(0.f,0.f,kDeviceScreenWidth, 40.f)];
+    indictorView = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(0.f,0.f,kDeviceScreenWidth, 40.f)];
     indictorView.backgroundColor = [UIColor whiteColor];
+    
+ 
+    
     /*
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self    action:@selector(didTapView)];
     [indictorView addGestureRecognizer:tap];
@@ -246,6 +250,14 @@
     indictorViewBg = [[UIControl alloc]initWithFrame:indictorView.frame];
     [indictorViewBg addSubview:indictorView];
     [indictorViewBg addTarget:self action:@selector(didTapView) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    btn.titleLabel.text = @"完成";
+    btn.frame = CGRectMake(kDeviceScreenWidth- 60.f,0.f,40.f, 40.f);
+    [btn addTarget:self action:@selector(didTapView) forControlEvents:UIControlEventTouchUpInside];
+    [indictorViewBg addSubview:btn];
+    
+    
     SafeRelease(indictorView);
     indictorViewBg.backgroundColor = [UIColor clearColor];
     

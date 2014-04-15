@@ -329,7 +329,6 @@
         //        [self dismissModalViewControllerAnimated:YES];
         
         [self reloadNetData:data];
-        self.pageNum = self.pageNum +1;
         [self performSelectorOnMainThread:@selector(updateUIData:) withObject:data waitUntilDone:NO];
         
     }

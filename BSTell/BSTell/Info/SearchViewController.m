@@ -91,7 +91,7 @@
 - (void) shouldLoadOlderData:(NTESMBTweetieTableView *) tweetieTableView{
     
     //NSString *catStr = [NSString stringWithFormat:@"%d",self.goodGroupNum];
-    NSString *pageNumStr = [NSString stringWithFormat:@"%d",currentPageNum];
+    NSString *pageNumStr = [NSString stringWithFormat:@"%d",self.pageNum];
     /*
      @"001",@"hydm",
      @"10",@"limit",

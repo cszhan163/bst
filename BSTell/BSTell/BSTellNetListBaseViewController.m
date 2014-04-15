@@ -81,6 +81,7 @@
        if([self.dataArray count] == 0 &&!isFromViewUnload)
     {
         currentPageNum = 1;
+        self.pageNum = 1;
         [self shouldLoadOlderData:tweetieTableView];
     }
 }
@@ -112,6 +113,11 @@
     [super shouldLoadOlderData:tweetieTableView];
     //[self startShowLoadingView];
 }
+
+-(void)processReturnData:(id)data;{
+
+}
+
 -(void)didNetDataOK:(NSNotification*)ntf
 {
     
@@ -142,6 +148,10 @@
         
         if([retData isKindOfClass:[NSArray class]])
         {
+           
+            if([retData count]>0)
+                self.pageNum = self.pageNum +1;
+            
             [self.dataArray addObjectsFromArray:retData];
         }
         for(id item in self.dataArray){
@@ -153,6 +163,8 @@
         id retData =  data;
         if([retData isKindOfClass:[NSArray class]])
         {
+            if([retData count]>0)
+                self.pageNum = self.pageNum +1;
             [self.dataArray addObjectsFromArray:retData];
         }
         for(id item in self.dataArray){
