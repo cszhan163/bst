@@ -181,14 +181,14 @@
     
     value = [netData objectForKey:@"auctionStatus"];
     NSString *statusStr = @"";
-    if([value intValue] == 1){
+    if([value intValue] == 2){
         statusStr = @"未开始";
     }
     else if([value intValue] == 3){
-        statusStr = @"已结束";   
+        statusStr = @"已开始";
     }
     else {
-        statusStr = @"已开始";
+        statusStr = @"已结束";
     }
     [orderInfoView setCellItemValue:statusStr withRow:index++];
 

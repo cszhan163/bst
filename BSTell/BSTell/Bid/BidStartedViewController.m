@@ -305,11 +305,17 @@
         }
         [cell setCellItemValue:value withRow:row withCol:index-1];
         
-        [cell setTitle:@"起拍价" withIndex:index-2];
+        [cell setTitle:@"起拍价" withIndex:3];
         value = [NSString stringWithFormat:@"%0.2lf元",basePrice];
         [cell setCellItemValue:value withRow:row withCol:index-2];
         [cell setButtonHiddenStatus:YES];
         
+    }
+    else{
+      
+        [cell setTitle:@"当前价" withIndex:3];
+        [cell setTitle:@"报价状态" withIndex:4];
+        [cell setButtonHiddenStatus:NO];
     }
     [cell setCellItemValue:bidType withRow:row withCol:index++];
     
@@ -340,6 +346,7 @@
     BidItemDetailViewController *vc = [[BidItemDetailViewController alloc]initWithNibName:nil bundle:nil];
     vc.bidType = Bid_Prepare;
     vc.goodId = goodId;
+    vc.data = [self.dataArray objectAtIndex:indexPath.row];
     [vc  setNavgationBarTitle:@"交易详情"];
     /*
      vc.delegate = self;

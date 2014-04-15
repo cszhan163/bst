@@ -61,7 +61,8 @@
 #else
     contentTextView = [[UIWebView alloc]initWithFrame:CGRectMake(kLeftPendingX,currY,kDeviceScreenWidth-2*kLeftPendingX,kDeviceScreenHeight-kMBAppStatusBar-kMBAppBottomToolBarHeght-currY)];
     contentTextView.backgroundColor = [UIColor clearColor];
-    //contentTextView.scrollEnabled = YES;
+    //contentTextView.scrollView.zoomScale = 0.5;
+    //contentTextView.scalesPageToFit = YES;
     [self.view addSubview:contentTextView];
     SafeRelease(contentTextView);
 

@@ -253,7 +253,7 @@
     [bidPriceTextFiled addTarget:self action:@selector(didchangeTextFiledValue) forControlEvents:UIControlEventEditingChanged];
     bidPriceTextFiled.delegate = self;
     bidPriceTextFiled.returnKeyType = UIReturnKeyDone;
-    bidPriceTextFiled.keyboardType = UIKeyboardTypeNumberPad;
+    bidPriceTextFiled.keyboardType = UIKeyboardTypeDecimalPad;
     
     
     
@@ -615,7 +615,9 @@
     if(buttonIndex == 0){
         
         if(bidMode == 2){
-            [self startBid:[bidPriceTextFiled.text floatValue]];
+            finalPrice = [bidPriceTextFiled.text floatValue];
+            
+            [self startBid:finalPrice];
         }
         else{
             [self startBid:0.f];
