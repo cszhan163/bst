@@ -49,7 +49,6 @@
 		04535F9518BCBA8B009FA2C4 /* CardShopResignViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04535F8F18BCBA8B009FA2C4 /* CardShopResignViewController.xib */; };
 		04535F9618BCBA8B009FA2C4 /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04535F9118BCBA8B009FA2C4 /* ResetPasswordViewController.m */; };
 		046512DE18F5945F005FCFD1 /* HotMsgNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046512DD18F5945F005FCFD1 /* HotMsgNewViewController.m */; };
-		046512E218F83F7E005FCFD1 /* bid_goods_detail_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 046512E118F83F7E005FCFD1 /* bid_goods_detail_bg.png */; };
 		046FADCA18EFFB430045E91C /* GoodsItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046FADC918EFFB430045E91C /* GoodsItemDetailViewController.m */; };
 		04D5358318ABCD6200728B75 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D5358218ABCD6200728B75 /* search.png */; };
 		04D5358518ABCD8400728B75 /* bid_delegate_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D5358418ABCD8400728B75 /* bid_delegate_bg.png */; };
@@ -92,6 +91,7 @@
 		04E2524618F84EC200F3BEA6 /* BSTellHelpDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E2524518F84EC200F3BEA6 /* BSTellHelpDetailViewController.m */; };
 		04E2524918F84EEC00F3BEA6 /* BSTellAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E2524818F84EEC00F3BEA6 /* BSTellAboutViewController.m */; };
 		04E2525118F97D0000F3BEA6 /* main_first_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E2525018F97D0000F3BEA6 /* main_first_cancel.png */; };
+		04E2526218FC47FB00F3BEA6 /* bid_goods_detail_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E2526118FC47FB00F3BEA6 /* bid_goods_detail_bg.png */; };
 		04E65C80189FF151008FA65A /* bid_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E65C7F189FF151008FA65A /* bid_btn.png */; };
 		04E65C82189FF260008FA65A /* bid_confirm_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E65C81189FF260008FA65A /* bid_confirm_btn.png */; };
 		04E65C84189FF31B008FA65A /* bid_confirm_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E65C83189FF31B008FA65A /* bid_confirm_bg.png */; };
@@ -554,7 +554,6 @@
 		04535F9118BCBA8B009FA2C4 /* ResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordViewController.m; sourceTree = "<group>"; };
 		046512DC18F5945F005FCFD1 /* HotMsgNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotMsgNewViewController.h; sourceTree = "<group>"; };
 		046512DD18F5945F005FCFD1 /* HotMsgNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotMsgNewViewController.m; sourceTree = "<group>"; };
-		046512E118F83F7E005FCFD1 /* bid_goods_detail_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bid_goods_detail_bg.png; path = "../../../../../../../Downloads/20140326/场次详情/back/bid_goods_detail_bg.png"; sourceTree = "<group>"; };
 		046FADC818EFFB430045E91C /* GoodsItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsItemDetailViewController.h; sourceTree = "<group>"; };
 		046FADC918EFFB430045E91C /* GoodsItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsItemDetailViewController.m; sourceTree = "<group>"; };
 		04D5358218ABCD6200728B75 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
@@ -618,6 +617,7 @@
 		04E2524718F84EEC00F3BEA6 /* BSTellAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSTellAboutViewController.h; sourceTree = "<group>"; };
 		04E2524818F84EEC00F3BEA6 /* BSTellAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSTellAboutViewController.m; sourceTree = "<group>"; };
 		04E2525018F97D0000F3BEA6 /* main_first_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_first_cancel.png; sourceTree = "<group>"; };
+		04E2526118FC47FB00F3BEA6 /* bid_goods_detail_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bid_goods_detail_bg.png; sourceTree = "<group>"; };
 		04E65C7F189FF151008FA65A /* bid_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bid_btn.png; sourceTree = "<group>"; };
 		04E65C81189FF260008FA65A /* bid_confirm_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bid_confirm_btn.png; sourceTree = "<group>"; };
 		04E65C83189FF31B008FA65A /* bid_confirm_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bid_confirm_bg.png; sourceTree = "<group>"; };
@@ -1235,9 +1235,9 @@
 				04F6E5DF189A8F160057BD72 /* MyInfoViewController.h */,
 				04F6E5E0189A8F160057BD72 /* MyInfoViewController.m */,
 				04F6E5E8189A8FD50057BD72 /* SettingViewController.h */,
+				04F6E5E9189A8FD50057BD72 /* SettingViewController.m */,
 				04F6E5E2189A8F2E0057BD72 /* MsgInfoViewController.h */,
 				04F6E5E3189A8F2E0057BD72 /* MsgInfoViewController.m */,
-				04F6E5E9189A8FD50057BD72 /* SettingViewController.m */,
 				04DFD416189B94BF00A3BDDF /* BSTellBaseViewController.h */,
 				04DFD417189B94BF00A3BDDF /* BSTellBaseViewController.m */,
 				044EE26218A4C5E3007A3EDA /* BSTellNetListBaseViewController.h */,
@@ -1287,8 +1287,8 @@
 			isa = PBXGroup;
 			children = (
 				04E2525018F97D0000F3BEA6 /* main_first_cancel.png */,
+				04E2526118FC47FB00F3BEA6 /* bid_goods_detail_bg.png */,
 				0435692918F84CE500ACC4D9 /* help */,
-				046512E118F83F7E005FCFD1 /* bid_goods_detail_bg.png */,
 				BD160CE218ED2CF80040DFEE /* order_cell_bg.png */,
 				BD9EDDFB18C4549500673862 /* image-568h@2x.png */,
 				BD593A4118BF8520007B4F5C /* cell_split_line.png */,
@@ -1594,7 +1594,6 @@
 				04F6E5CD189A8C630057BD72 /* tableitem2.png in Resources */,
 				BDE7BD8A18B10D0C00A82198 /* hotmsg_gray01.png in Resources */,
 				04F6E5CC189A8C630057BD72 /* tableitem1.png in Resources */,
-				046512E218F83F7E005FCFD1 /* bid_goods_detail_bg.png in Resources */,
 				BD593A1418BCAC93007B4F5C /* Default-568h@2x.png in Resources */,
 				04255BB418B3AE580006F9E0 /* split_line.png in Resources */,
 				04E65D0618A269B8008FA65A /* test.cer in Resources */,
@@ -1633,6 +1632,7 @@
 				04255BBB18B3B6F80006F9E0 /* info_order_cell_bg_all.png in Resources */,
 				0431106C18A6941A008109F7 /* bid_started_cell_bg.png in Resources */,
 				BD884B0418B5198300E354B7 /* bid_cell_btn.png in Resources */,
+				04E2526218FC47FB00F3BEA6 /* bid_goods_detail_bg.png in Resources */,
 				04DFD43F189D35B200A3BDDF /* button-2.png in Resources */,
 				0435693A18F84D1B00ACC4D9 /* setting_help1_04.png in Resources */,
 				04DFD411189B835A00A3BDDF /* bid_start_btn.png in Resources */,

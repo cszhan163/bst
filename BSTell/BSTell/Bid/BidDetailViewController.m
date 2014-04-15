@@ -608,14 +608,14 @@
     index = 0;
     row++;
     value = [netData objectForKey:@"startPrice"];
-    value = [NSString stringWithFormat:@"%@ 元",value];
+    value = [NSString stringWithFormat:@"%0.2lf 元",[value floatValue]];
     [tableView setCellItemValue:value withRow:row withCol:index++];
     
     value = [netData objectForKey:@"totalCount"];
     [tableView setCellItemValue:value withRow:row withCol:index++];
     
     value = [netData objectForKey:@"bjtd"];
-    value = [NSString stringWithFormat:@"%@ 元",value];
+    value = [NSString stringWithFormat:@"%0.2lf 元",[value floatValue]];
     [tableView setCellItemValue:value withRow:row withCol:index++];
     
     value = @"";//[netData objectForKey:@"soldPrice"];
@@ -659,6 +659,7 @@
     [tableView setCellItemValue:value withRow:row withCol:index++];
     
     value = [netData objectForKey:@"weight"];
+    value = [NSString stringWithFormat:@"%0.2lf吨",[value floatValue]];
     [tableView setCellItemValue:value withRow:row withCol:index++];
     
     value = [netData objectForKey:@"unit"];
@@ -801,17 +802,26 @@
     [tableView setCellItemValue:value withRow:row withCol:index++];
     
     value = [netData objectForKey:@"weight"];
-    value = [NSString stringWithFormat:@"%@ 吨",value];
+    value = [NSString stringWithFormat:@"%0.2lf 吨",[value floatValue]];
     [tableView setCellItemValue:value withRow:index++];
     
 
     value = [netData objectForKey:@"startPrice"];
+     value = [NSString stringWithFormat:@"%0.2lf 元",[value floatValue]];
     [tableView setCellItemValue:value withRow:row withCol:index++];
+    value = [netData objectForKey:@"auctionMode"];
+    if([value intValue] == 1){
+        [tableView setTitleHidden:NO withIndex:index];
+        value = [netData objectForKey:@"bjtd"];
+        value  = [NSString stringWithFormat:@"%0.2lf 元",[value floatValue]];
+        //[cell setCellItemValue:value withIndex:index++];
+        [tableView setCellItemValue:value withRow:row withCol:index++];
     
-    value = [netData objectForKey:@"bjtd"];
-    value  = [NSString stringWithFormat:@"%0.2lf 元",[value floatValue]];
-    //[cell setCellItemValue:value withIndex:index++];
-    [tableView setCellItemValue:value withRow:row withCol:index++];
+    }
+    else{
+        
+        [tableView setTitleHidden:YES withIndex:index++];
+    }
     
     [tableView setActionTarget:self withSelecotr:@selector(didSElectorGoodsDetailItem:)];
     

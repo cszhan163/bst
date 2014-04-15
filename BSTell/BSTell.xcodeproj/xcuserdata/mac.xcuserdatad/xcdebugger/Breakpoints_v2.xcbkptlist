@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../UIFramework/AppMainUIViewMangae.m"
-            timestampString = "413656881.844145"
+            filePath = "BSTell/CellView/LeftTitleListCell.m"
+            timestampString = "419186322.706915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "383"
-            endingLineNumber = "383"
-            landmarkName = "-pushNewViewControllerFromMsg:"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
+            landmarkName = "-initWithFrame:withTitleArray:withTitle:withValueAtrArray:withItemPending:withOrderCell:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BSTell/Bid/BidStartedViewController.m"
-            timestampString = "419093512.012773"
+            filePath = "BSTell/CellView/LeftTitleListCell.m"
+            timestampString = "419186322.706915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "393"
+            endingLineNumber = "393"
+            landmarkName = "-setTitleHidden:withIndex:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,45 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BSTell/Bid/BidStartedViewController.m"
-            timestampString = "419093512.012773"
+            filePath = "BSTell/CellView/LeftTitleListCell.m"
+            timestampString = "419186322.706915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BSTell/Bid/BidStartedViewController.m"
-            timestampString = "419093512.012773"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BSTell/Bid/BidItemDetailViewController.m"
-            timestampString = "419097301.747292"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "685"
-            endingLineNumber = "685"
-            landmarkName = "-didTapView"
+            startingLineNumber = "394"
+            endingLineNumber = "394"
+            landmarkName = "-setTitleHidden:withIndex:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -24,6 +24,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        // Custom initialization
+        //self.needLogin = YES;
     }
     return self;
 }
@@ -48,6 +50,9 @@
 -(NSArray*)viewControllersForNavItemController:(BidBaseViewController*)controller{
     NSMutableArray *vcArray = [NSMutableArray array];
     
+   
+    
+    
     OrderListViewController *vcCtl = [[OrderListViewController alloc]init];
     /*
      vcCtl.isNeedInitDateMonth = NO;
@@ -60,7 +65,6 @@
     SafeRelease(vcCtl);
     
     
-    
     OrderListConfirmedViewController *vcGraphCtl = [[OrderListConfirmedViewController alloc]init];
     vcGraphCtl.confirmTag = 1;
     vcGraphCtl.view.backgroundColor = [UIColor clearColor];
@@ -71,8 +75,6 @@
     vcGraphCtl.parentNav = self.navigationController;
     [vcArray addObject:vcGraphCtl];
     SafeRelease(vcGraphCtl);
-    
-    
    
     return  vcArray;
 }
@@ -80,10 +82,7 @@
     
     NSMutableArray *btnArray = [NSMutableArray array];
     CGFloat currX = 40.f;
-  
-    UIButton *btn = [UIComUtil createButtonWithNormalBGImageName:nil  withSelectedBGImageName:@"bid_caterlog_mask.png" withTitle:@"未确认" withTag:1];
-    
-    btn.frame = CGRectMake(currX, 10.f,btn.frame.size.width, btn.frame.size.height);
+    UIButton *btn = [UIComUtil createButtonWithNormalBGImageName:nil withSelectedBGImageName:@"bid_caterlog_mask.png"  withTitle:@"未确认" withTag:0];
     btn.titleLabel.font = [UIFont systemFontOfSize:14];
     [btn setTitleColor:HexRGB(153, 153, 153) forState:UIControlStateNormal];
     [btn setTitleColor:HexRGB(231, 234, 236) forState:UIControlStateSelected];
@@ -93,6 +92,7 @@
     
     
     currX = currX+kOilNavControllerItemWidth;
+    btn = [UIComUtil createButtonWithNormalBGImageName:nil  withSelectedBGImageName:@"bid_caterlog_mask.png" withTitle:@"已确认" withTag:1];
     
     btn = [UIComUtil createButtonWithNormalBGImageName:nil withSelectedBGImageName:@"bid_caterlog_mask.png"  withTitle:@"已确认" withTag:0];
     btn.titleLabel.font = [UIFont systemFontOfSize:14];

@@ -459,7 +459,7 @@
     [leftTitleCellView setCellItemValue:value withRow:index++];
     
     
-    value = [NSString stringWithFormat:@"%0.2lf%@",[[item objectForKey:@"weight"]floatValue],[item objectForKey:@"priceUnit"]];
+    value = [NSString stringWithFormat:@"%0.2lf %@",[[item objectForKey:@"weight"]floatValue],[item objectForKey:@"priceUnit"]];
     
     [leftTitleCellView setCellItemValue:value withRow:index++];
     

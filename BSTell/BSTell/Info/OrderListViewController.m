@@ -36,7 +36,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -56,6 +56,11 @@
         NSDictionary *usrData = [AppSetting getLoginUserData:usrId];
         self.userId = [usrData objectForKey:@"hydm"];
     }
+    self.pageNum = 1;
+    //searchField.text = @"苯酚";
+    [self.dataArray removeAllObjects];
+    if(self.confirmTag == 0)
+       [self shouldLoadOlderData:nil];
     
 }
 - (void)viewWillAppear:(BOOL)animated{
@@ -204,7 +209,11 @@
     value = [item objectForKey:@"acutionStatus"];
     NSString *relResult = @"已完成";
     if([value intValue] == 0){
-        relResult = @"买家未到款确认";
+        relResult = @"卖家未到款确认";
+    }
+    else if([value intValue] == 2){
+        
+        relResult = @"卖家已到款确认";
     }
     //[cell setCellItemValue:value withIndex:index++];
     [cell setCellItemValue:relResult withRow:row withCol:index++];
@@ -334,8 +343,11 @@
     kNetEnd(self.view);
     [tweetieTableView reloadData];
     //contentTextView.text = [netData objectForKey:@"agreement"];
-}- (void)reflushData{
-    [self shouldLoadOlderData:nil];
+}
+- (void)reflushData{
+    self.pageNum = 1;
+    [self.dataArray removeAllObjects];
+    //[self shouldLoadOlderData:nil];
 }
 #pragma mark -
 #pragma mark -button action

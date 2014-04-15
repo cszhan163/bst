@@ -99,7 +99,7 @@
     CGFloat width = bgScrollerView.frame.size.width-2*kPendingX;
     //CGFloat height = bgScrollerView.frame.size.height-20.f;
     bgScrollerView.contentSize = CGSizeMake(bgScrollerView.frame.size.width,height);
-    LeftTitleListCell *orderInfoView = [[LeftTitleListCell alloc]initWithGoodsDetailFrame:CGRectMake(kPendingX,20.f,width,height) withTitleArray:kOrderTitleArray withTitle:@"" withValueAtrArray:@[] withItemPending:15.f*2];
+    LeftTitleListCell *orderInfoView = [[LeftTitleListCell alloc]initWithGoodsDetailFrame:CGRectMake(kPendingX,20.f,width,height) withTitleArray:kOrderTitleArray withTitle:@"" withValueAtrArray:@[] withItemPending:25.f];
     [orderInfoView setXStartLeftPendingX:20.f];
     //[orderInfoView   ];
     orderInfoView.backgroundColor = [UIColor clearColor];
@@ -150,15 +150,24 @@
     value = [netData objectForKey:@"goodName"];
     [orderInfoView setCellItemValue:value withRow:index++];
     value = [netData objectForKey:@"weight"];
-    value = [NSString stringWithFormat:@"%@ 吨",value];
+    value = [NSString stringWithFormat:@"%0.2lf 吨",[value floatValue]];
     [orderInfoView setCellItemValue:value withRow:index++];
     //bjtd
-    value = [netData objectForKey:@"bjtd"];
-    value = [NSString stringWithFormat:@"%@ 元",value];
-    [orderInfoView setCellItemValue:value withRow:index++];
-    
-    value = [netData objectForKey:@"qpj"];
-    value = [NSString stringWithFormat:@"%@ 元",value];
+    value = [netData objectForKey:@"auctionMode"];
+    if([value intValue] == 1){
+        [orderInfoView setTitleHidden:NO withIndex:index];
+        value = [netData objectForKey:@"bjtd"];
+        value  = [NSString stringWithFormat:@"%0.2lf 元",[value floatValue]];
+        //[cell setCellItemValue:value withIndex:index++];
+        [orderInfoView setCellItemValue:value withRow:index++];
+        
+    }
+    else{
+        
+        [orderInfoView setTitleHidden:YES withIndex:index++];
+    }
+    value = [netData objectForKey:@"startPrice"];
+    value = [NSString stringWithFormat:@"%0.2lf 元",[value floatValue]];
     [orderInfoView setCellItemValue:value withRow:index++];
     
     value = [netData objectForKey:@"packages"];
@@ -171,7 +180,17 @@
     [orderInfoView setCellItemValue:value withRow:index++];
     
     value = [netData objectForKey:@"auctionStatus"];
-    [orderInfoView setCellItemValue:value withRow:index++];
+    NSString *statusStr = @"";
+    if([value intValue] == 1){
+        statusStr = @"未开始";
+    }
+    else if([value intValue] == 3){
+        statusStr = @"已结束";   
+    }
+    else {
+        statusStr = @"已开始";
+    }
+    [orderInfoView setCellItemValue:statusStr withRow:index++];
 
     
     
@@ -195,6 +214,7 @@
     
    
     value = [netData objectForKey:@"note"];
+    [orderInfoView setCellItemValue:value withRow:index++];
    
 }
 

@@ -14,7 +14,6 @@
 
 #define kSetingTitleArray @[\
     @"使用帮助",\
-    @"版本更新",\
     @"关于",\
     @"客服电话",\
 ]
@@ -52,7 +51,7 @@
     logoImageView.frame = CGRectMake(0.f, 0.f, image.size.width/kScale, image.size.height/kScale);
     logoImageView.center = CGPointMake(kDeviceScreenWidth/kScale, currY);
     currY = currY+40.f;
-    tweetieTableView.frame = CGRectMake(0.f, currY, kDeviceScreenWidth,200.f);
+    tweetieTableView.frame = CGRectMake(0.f, currY, kDeviceScreenWidth,44*3.f);
     
 	// Do any additional setup after loading the view.
 }
@@ -113,7 +112,7 @@
     cell.textLabel.text = kSetingTitleArray[indexPath.row];
     if(indexPath.row == [kSetingTitleArray count]-1)
         cell.detailTextLabel.text = @"400-820-6662";
-    if(indexPath.row == 1){
+    if(indexPath.row == 1 && 0){
         NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
         NSNumber *number = [[[NSBundle mainBundle]infoDictionary]objectForKey:@"CFBundleShortVersionString"];
         NSString* strVersionPrompt = [NSString stringWithFormat:kAppVersionFormart,version];
@@ -123,7 +122,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    return 50.f;
+    return 44.f;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -137,10 +136,10 @@
                 vc = [[BSTellHelpListViewController alloc]init];
                 
                 break;
+//            case 1:
+//                
+//                break;
             case 1:
-                
-                break;
-            case 2:
                 vc = [[BSTellAboutViewController alloc]init];
                 break;
                 

@@ -141,7 +141,7 @@
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                            //catStr,@"cat",
                            self.userId,@"hydm",
-                           @"10",@"wtid",
+                           self.wtid,@"wtid",
                            nil];
     CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
     self.request = [carServiceNetDataMgr  showAgreement4Move:param];
@@ -207,10 +207,10 @@
     if(0){
         contentTextView.text = [netData objectForKey:@"agreement"];
         NSString *moneyValue = [netData objectForKey:@"dfyj"];
-        bidMoneyLabel.text = [NSString stringWithFormat:@"所需保证金: %@ 元",moneyValue];
+        bidMoneyLabel.text = [NSString stringWithFormat:@"所需保证金: %0.2lf 元",[moneyValue  doubleValue]];
         //您的帐户上的自由资金余额:             元
         moneyValue = [netData objectForKey:@"kyye"];
-        accoutMoneyLabel.text = [NSString stringWithFormat:@"自由资金: %@ 元",moneyValue];
+        accoutMoneyLabel.text = [NSString stringWithFormat:@"自由资金: %0.2lf 元",[moneyValue  doubleValue]];
     }
 }
 - (void)pressConfirmButton:(id)sender{
