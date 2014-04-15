@@ -252,7 +252,8 @@
     [indictorViewBg addTarget:self action:@selector(didTapView) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    btn.titleLabel.text = @"完成";
+    [btn setTitle:@"完成" forState:UIControlStateNormal];
+    [btn setTitle:@"完成" forState:UIControlStateSelected];
     btn.frame = CGRectMake(kDeviceScreenWidth- 60.f,0.f,40.f, 40.f);
     [btn addTarget:self action:@selector(didTapView) forControlEvents:UIControlEventTouchUpInside];
     [indictorViewBg addSubview:btn];
