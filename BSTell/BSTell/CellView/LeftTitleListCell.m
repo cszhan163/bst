@@ -358,20 +358,27 @@ return self;
     CGFloat curWidth = textLabel.frame.size.width;
     CGFloat curHeight = textLabel.frame.size.height;
     CGRect rect = textLabel.frame;
-    CGFloat height = [value sizeWithFont:curFont forWidth:curWidth lineBreakMode:NSLineBreakByCharWrapping].height;
+    CGSize size = CGSizeMake(curWidth,130.f);
     
-    if(height>curHeight && row ==13){
+    if(kIsIOS7Check){
+        size = [value boundingRectWithSize:size  options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:curFont} context:nil].size;
+    }
+    else{
+        CGFloat height = [value sizeWithFont:curFont forWidth:curWidth lineBreakMode:NSLineBreakByWordWrapping].height;
+        size.height = height;
+    }
+    if(size.height>curHeight && row ==13){
         
-        textLabel.numberOfLines = 0;
+        //textLabel.numberOfLines = 0;
         /*
         textLabel.lineBreakMode = NSLineBreakByWordWrapping;
         textLabel.numberOfLines = 0;
         textLabel.contentMode = UIViewContentModeTopLeft;
          */
-        int num  = height/curHeight;
-        CGFloat realHeight = (num+3)*curFont.pointSize;
+//        int num  = size.height/curHeight;
+//        CGFloat realHeight = (num+3)*curFont.pointSize;
         //textLabel.backgroundColor = [UIColor cl];
-        textLabel.frame = CGRectMake(rect.origin.x-5, rect.origin.y-13.f, rect.size.width, realHeight);
+        textLabel.frame = CGRectMake(rect.origin.x-5, rect.origin.y, rect.size.width, size.height);
         textLabel.backgroundColor = [UIColor clearColor];
     }
 

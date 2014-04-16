@@ -524,6 +524,7 @@
     [leftTitleCellView setCellItemValue:value withRow:index++];
     
     value = [item objectForKey:@"note"];
+    //value = @"撒旦；垃圾开始对尕说；立刻就发生的高考觉得萨流口水；噶蛋糕";
     [leftTitleCellView setCellItemValue:value withRow:index++];
     //@{@"": @"",@"",@""};
     

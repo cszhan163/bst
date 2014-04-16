@@ -214,7 +214,7 @@
     
    
     value = [netData objectForKey:@"note"];
-    //value = @"阿阿撒大煞风景阿隆索；噶速度过撒旦；垃圾时光；阿斯利康给大家阿萨德；发啦大家撒上的；感受";
+    //value = @"阿阿撒大煞风景阿隆索；噶速度过撒旦垃圾时光阿斯利康给大家阿萨德发啦大家撒上的感受asdl;gkasjdg;lasdj级别阿萨德看见阿萨德发阿萨德了就是地方撒";
     //value = @"提供安全生产许可证或危险化学品经营许可证111";
     [orderInfoView setCellItemValue:value withRow:index++];
    
