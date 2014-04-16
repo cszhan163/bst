@@ -242,7 +242,6 @@
     //
     //    oilDataVc.dataArray = [data objectForKey:@"data"];
     //    [oilDataVc updateUIData:nil];
-    
     /*
      CarDriveMannerDataGraphViewController *analysisVc = [navItemCtrl.navControllersArr objectAtIndex:1];
      [analysisVc updateUIData:newData];

@@ -59,6 +59,7 @@
             itemLabel.text = titleArray[i];
            
             [self addSubview:itemLabel];
+            [self.mCellTitleArray addObject:itemLabel];
             SafeRelease(itemLabel);
             
             currValueTextWidth = 150.f;
@@ -397,6 +398,19 @@ return self;
     
 }
 
+- (void)setTitleHidden:(BOOL)status withIndex:(int)index withAdjust:(BOOL)adjust
+{
+    UILabel *textLabel =  self.mCellTitleArray[index];
+    textLabel.hidden = status;
+    textLabel =  self.mCellItemArray[index];
+    textLabel.hidden = status;
+    UILabel *adjustLabel = self.mCellItemArray[index +1];
+    UILabel *adjustValueLabel  = self.mCellTitleArray[index+1];
+    if(adjust){
+        adjustValueLabel.frame = CGRectOffset(adjustValueLabel.frame, 0,-adjustValueLabel.frame.size.height-5);
+        adjustLabel.frame = CGRectOffset(adjustLabel.frame, 0,-adjustLabel.frame.size.height-5);
+    }
+}
 
 
 @end

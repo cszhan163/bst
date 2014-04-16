@@ -308,8 +308,8 @@
 - (void)reflushData{
     self.pageNum = 1;
     [self.dataArray removeAllObjects];
-    //[self shouldLoadOlderData:nil];
     [tweetieTableView reloadData];
+    [self shouldLoadOlderData:nil];
 }
 
 -(void)didNetDataOK:(NSNotification*)ntf

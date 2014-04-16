@@ -261,11 +261,17 @@
       kUIAlertConfirmView(@"提示", @"是否确认退出竞价", @"确定", @"取消");
     }
     else{
-        BidConfirmViewController *bidConfirmVc = [[BidConfirmViewController alloc]init];
-        bidConfirmVc.wtid = self.wtid;
-        [self.navigationController pushViewController:bidConfirmVc animated:YES];
         
-        SafeRelease(bidConfirmVc);
+        //self.userId = [[AppSetting getLoginUserData:[AppSetting getLoginUserId]] objectForKey:@"hydm"];
+        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                               //catStr,@"cat",
+                               self.userId,@"hydm",
+                               self.wtid,@"wtid",
+                               nil];
+        CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
+        self.request = [carServiceNetDataMgr  showAgreement4Move:param];
+        
+        
     }
 }
 
@@ -328,6 +334,24 @@
          }
     }
     
+    if([resKey isEqualToString:kResBidAgreementData])
+    {
+        //        if ([self.externDelegate respondsToSelector:@selector(commentDidSendOK:)]) {
+        //            [self.externDelegate commentDidSendOK:self];
+        //        }
+        //        kNetEndSuccStr(@"评论成功",self.view);
+        //        [self dismissModalViewControllerAnimated:YES];
+        
+        //self.data = data;
+    
+        BidConfirmViewController *bidConfirmVc = [[BidConfirmViewController alloc]init];
+        bidConfirmVc.wtid = self.wtid;
+        bidConfirmVc.data = data;
+        [self.navigationController pushViewController:bidConfirmVc animated:YES];
+        SafeRelease(bidConfirmVc);
+    
+    
+    }
     //self.view.userInteractionEnabled = YES;
 }
 - (void)addTableCellView:(NSDictionary*)netData{

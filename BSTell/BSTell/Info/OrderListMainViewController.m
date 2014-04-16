@@ -14,6 +14,7 @@
 @interface OrderListMainViewController (){
 
     NSInteger currIndex;
+    BOOL first;
 }
 @end
 
@@ -33,11 +34,14 @@
 - (void)viewWillAppear:(BOOL)animated{
 
     [super viewWillAppear:animated];
-    //[self didSelectorNavItem:nil];
+    if(!first)
+        [self didSelectorNavItem:nil];
+    first = NO;
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    first = YES;
     [self setNavgationBarTitle:@"到货确认"];
 	// Do any additional setup after loading the view.
 }

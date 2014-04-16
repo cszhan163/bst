@@ -11,7 +11,7 @@
 
 #define  kImageSize     CGSizeMake(320.f,419)
 
-#define  kIphone4ImageSize   CGSizeMake(320.f,330)
+#define  kIphone4ImageSize   CGSizeMake(320.f,325)
 
 @interface BSTellHelpDetailViewController ()
 

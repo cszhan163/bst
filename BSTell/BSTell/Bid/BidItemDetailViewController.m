@@ -32,7 +32,7 @@
     
     UITextField *bidPriceTextFiled;
     
-    
+    BOOL  adjustOneTime;
     
     int bidMode;
 }
@@ -48,6 +48,7 @@
     if (self) {
         // Custom initialization
         bidMode = 3;
+        adjustOneTime = YES;
     }
     return self;
 }
@@ -240,8 +241,6 @@
     indictorView = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(0.f,0.f,kDeviceScreenWidth, 40.f)];
     indictorView.backgroundColor = [UIColor whiteColor];
     
- 
-    
     /*
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self    action:@selector(didTapView)];
     [indictorView addGestureRecognizer:tap];
@@ -422,6 +421,12 @@
             [bidStatusBtn setTitle:@"取消委托" forState:UIControlStateSelected];
             
             
+        }
+    }
+    else{
+        if(adjustOneTime){
+            [leftTitleCellView setTitleHidden:YES withIndex:6 withAdjust:YES];
+            adjustOneTime = NO;
         }
     }
      value = [item objectForKey:@"wtmc"];
@@ -623,6 +628,7 @@
     }
 
 }
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     if(buttonIndex == 0){

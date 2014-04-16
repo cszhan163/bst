@@ -45,5 +45,9 @@
 
 - (void)setTitleHidden:(BOOL)status withIndex:(int)index;
 
+- (void)setTitleHidden:(BOOL)status withIndex:(int)index withAdjust:(BOOL)adjust;
+
+
+
 @end
 

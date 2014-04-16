@@ -144,15 +144,18 @@
     [self.view addSubview:failedBtn];
     [failedBtn addTarget:self action:@selector(pressConfirmButton:) forControlEvents:UIControlEventTouchUpInside];
     
+    [self updateUIData:self.data];
+    
     if(self.agreeType == 1){
+        
         NSString *moneyValue = [self.data objectForKey:@"dfyj"];
-
         bidMoneyLabel.text = [NSString stringWithFormat:@"%0.2lf",[moneyValue  doubleValue]];
         //您的帐户上的自由资金余额:             元
         moneyValue = [self.data objectForKey:@"kyye"];
         accoutMoneyLabel.text = [NSString stringWithFormat:@"%0.2lf",[moneyValue  doubleValue]];
     
     }
+  
     
 }
 - (void)setHiddenMoneyAgreement{
@@ -170,14 +173,7 @@
     if(self.agreeType == 1){
         return;
     }
-    self.userId = [[AppSetting getLoginUserData:[AppSetting getLoginUserId]] objectForKey:@"hydm"];
-    NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                           //catStr,@"cat",
-                           self.userId,@"hydm",
-                           self.wtid,@"wtid",
-                           nil];
-    CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
-    self.request = [carServiceNetDataMgr  showAgreement4Move:param];
+    
 }
 //
 -(void)didNetDataOK:(NSNotification*)ntf
@@ -189,19 +185,7 @@
     id data = [obj objectForKey:@"data"];
     NSString *resKey = [obj objectForKey:@"key"];//[respRequest resourceKey];
     //NSString *resKey = [respRequest resourceKey];
-    if([resKey isEqualToString:kResBidAgreementData])
-    {
-        //        if ([self.externDelegate respondsToSelector:@selector(commentDidSendOK:)]) {
-        //            [self.externDelegate commentDidSendOK:self];
-        //        }
-        //        kNetEndSuccStr(@"评论成功",self.view);
-        //        [self dismissModalViewControllerAnimated:YES];
-        
-        self.data = data;
-        
-        [self performSelectorOnMainThread:@selector(updateUIData:) withObject:data waitUntilDone:NO];
-        
-    }
+   
     if([resKey isEqualToString:kResBidAgreeAction] ){
         
         //[self.navigationController  popToRootViewControllerAnimated:YES];
@@ -269,12 +253,15 @@
         accoutMoneyLabel.text = [NSString stringWithFormat:@"%0.2lf",[moneyValue  doubleValue]];
     }
     NSString *agreement = [netData objectForKey:@"agreement"];
-    if(agreement && ![agreement isEqualToString:@""]){
+    if(agreement && ![agreement isEqualToString:@""] && (self.agreeType == 0)){
         headerView.text = @"协议条款";
         contentTextView.text = agreement;
         [self setHiddenMoneyAgreement];
         isNextStep = YES;
         
+    }
+    else{
+        self.agreeType = 1;
     }
 }
 - (void)pressConfirmButton:(id)sender{

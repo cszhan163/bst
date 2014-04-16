@@ -183,7 +183,7 @@
 
     if(self.isConfirmTag)
         return;
-    kUIAlertConfirmView(@"提示", @"是否确认收货", @"确定", @"取消");
+    kUIAlertConfirmView(@"提示", @"您确定到货确认后，将释放您的竞买保证金", @"确定", @"取消");
 
 
 }
@@ -272,11 +272,12 @@
     }
     if([resKey isEqualToString:kResUserOrderConfirm]){
     
-        if([[data objectForKey:@"result"] intValue]){
-           kUIAlertView(@"提示",@"确认成功")
-        }
+//        if([[data objectForKey:@"result"] intValue]){
+//           kUIAlertView(@"提示",@"确认成功")
+//        }
         //kUIAlertView(<#y#>, <#x#>)
         //[self dismissModalViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 - (void)updateUIData:(NSDictionary*)netData{

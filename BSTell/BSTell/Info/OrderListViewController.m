@@ -59,8 +59,8 @@
     self.pageNum = 1;
     //searchField.text = @"苯酚";
     [self.dataArray removeAllObjects];
-    if(self.confirmTag == 0)
-       [self shouldLoadOlderData:nil];
+//    if(self.confirmTag == 0)
+//       [self shouldLoadOlderData:nil];
     
 }
 - (void)viewWillAppear:(BOOL)animated{
@@ -335,6 +335,8 @@
         if([[data objectForKey:@"result"] intValue]){
             kUIAlertView(@"提示",@"确认成功")
         }
+        [self reflushData];
+        //[self shouldLoadOlderData:tweetieTableView];
         //kUIAlertView(<#y#>, <#x#>)
         //[self dismissModalViewControllerAnimated:YES];
     }
@@ -348,17 +350,31 @@
 - (void)reflushData{
     self.pageNum = 1;
     [self.dataArray removeAllObjects];
-    //[self shouldLoadOlderData:nil];
     [tweetieTableView reloadData];
+    [self shouldLoadOlderData:nil];
 }
 #pragma mark -
 #pragma mark -button action
+//
 
-- (void)bidConfirmAlert:(id)sender{
+- (void)bidConfirmAlert:(id)sender
+{
     int i = [sender tag];
+    self.data = self.dataArray[i];
     if([sender isKindOfClass:[UIButton class]]){
         
-        NSDictionary *item = self.dataArray[i];
+         kUIAlertConfirmView(@"提示", @"您确定到货确认后，将释放您的竞买保证金", @"确定", @"取消");
+    }
+    else{
+    
+        
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if(buttonIndex == 0){
+        
         CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
         {
             /*
@@ -377,16 +393,15 @@
             
             NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                                    //self.orderId,@"orderId",
-                                   [item objectForKey:@"fphm"],@"fphm",
+                                   [self.data objectForKey:@"fphm"],@"fphm",
                                    self.userId,@"dhczy",
                                    nil];
             self.request = [carServiceNetDataMgr  updateStatus4Move:param];
         }
-    }
-    else{
-    
+
         
     }
+    
 }
 
 @end
