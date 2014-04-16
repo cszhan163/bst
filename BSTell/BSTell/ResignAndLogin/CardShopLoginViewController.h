@@ -19,6 +19,11 @@
 }
 @property(nonatomic,retain) IBOutlet UITextField *txtusername;
 @property(nonatomic,retain) IBOutlet UITextField *txtpassword;
+
+@property (nonatomic, strong) NSString *useId;
+
+@property (nonatomic, strong) NSString *userName;
+
 @property(nonatomic,assign) BOOL isModel;
 - (IBAction)textFieldDidEndEditing:(id)sender ;
 -(IBAction)login_click:(id)sender;

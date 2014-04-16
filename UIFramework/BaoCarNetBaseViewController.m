@@ -20,7 +20,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        //[self addObservers];
+        [self addObservers];
         self.allIconDownloaders = [NSMutableDictionary dictionary];
     }
     return self;

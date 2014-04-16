@@ -41,6 +41,9 @@
 - (void)viewWillAppear:(BOOL)animated{
 
     [super viewWillAppear:animated];
+    NSString *userNameId = [AppSetting getLoginUserId];
+    NSDictionary *data = [AppSetting getLoginUserData:userNameId];
+    userNameLabel.text = [data objectForKey:@"company"];
     
 }
 - (void)viewDidAppear:(BOOL)animated{
@@ -135,6 +138,8 @@
     [self.view addSubview:userAgreeLabel];
     SafeRelease(userAgreeLabel);
     
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -212,7 +217,7 @@
     kNetEnd(self.view);
     //contentTextView.text = [netData objectForKey:@"agreement"];
     
-    userNameLabel.text =  @"上海化工交易公司";
+    //userNameLabel.text =  @"上海化工交易公司";
     NSString *moneyValue = nil;
 #if 0
     moneyValue = [netData objectForKey:@"availability"];

@@ -195,20 +195,20 @@
 -(void)startLogin
 {
     //if([self check])
-    if([kUserDataDict objectForKey:self.txtusername.text]){
-        
-    }
-    else{
-        kUIAlertView(@"提示", @"没有该用户");
-        return;
-    }
-    kNetStartShow(@"登录中...",self.view);
-#if 0
+//    if([kUserDataDict objectForKey:self.txtusername.text]){
+//        
+//    }
+//    else{
+//        kUIAlertView(@"提示", @"没有该用户");
+//        return;
+//    }
+    //kNetStartShow(@"登录中...",self.view);
+#if 1
     CarServiceNetDataMgr *cardShopMgr = [CarServiceNetDataMgr getSingleTone];
     
     NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
-                              self.txtusername.text,@"name",
-                              self.txtpassword.text,@"password",
+                              self.txtusername.text,@"umcLoginName",
+                              self.txtpassword.text,@"loginPassword",
                               nil];
    
     self.request = [cardShopMgr  carUserLogin:param];
@@ -236,10 +236,42 @@
         NE_LOG(@"%@",[data description]);
         //[self stopShowLoadingView];
         //[Ap]
-        kNetEnd(self.view);
+        NSString *useDataString = [data objectForKey:@"dataString"];
+        NSError *error = nil;
+        
+        //kNetEnd(self.view);
 #if 1
         //[AppSetting setCurrentLoginUser:self.txtusername.text];
-        NSDictionary *userData = [kUserDataDict objectForKey:self.txtusername.text];
+        NSDictionary *userReturnData = [NSJSONSerialization JSONObjectWithData:[useDataString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:&error];; //[kUserDataDict objectForKey:self.txtusername.text];
+        if([[userReturnData objectForKey:@"isSuccess"] isEqualToString:@"1"]){
+        
+            //hydm":@"007652 ",@"czy":@"U65248"},
+            CarServiceNetDataMgr *cardShopMgr = [CarServiceNetDataMgr getSingleTone];
+            
+            self.useId = [userReturnData objectForKey:@"bspCompanyCode"];
+            self.userName = [userReturnData objectForKey:@"chineseFullname"];
+            NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   self.useId,@"bspCompanyCode",
+                                   nil];
+           
+            [cardShopMgr  getUserAccountInfo:param];
+            
+            
+        }
+        else{
+            //NSDictionary *msgDict = [userReturnData objectForKey:@"openAppClusters"];
+            NSString *msg = [userReturnData objectForKey:@"resultDesc"];
+            kUIAlertView(@"提示", msg);
+        }
+        
+              //[self findpw_click:nil];
+#endif
+        
+    }
+    if([resKey isEqualToString:kResUserInfoData]){
+        
+        NSDictionary *userData = @{@"hydm":[data objectForKey:@"hydm"],@"czy":self.useId,@"company":self.userName};
+        
         if(userData){
             [AppSetting setLoginUserDetailInfo:userData userId:self.txtusername.text];
             //[AppSetting setLoginUserInfo:];
@@ -247,22 +279,7 @@
             [AppSetting setLoginUserPassword:self.txtpassword.text];
             [ZCSNotficationMgr postMSG:kUserDidLoginOk obj:nil];
         }
-        //[self findpw_click:nil];
-#endif
         
-    }
-    if([resKey isEqualToString:kCarInfoQuery]){
-#if 0
-        if([data objectForKey:@"vin"]){
-            NSString *userId = [AppSetting getCurrentLoginUser];
-            [AppSetting setUserCarId:[data objectForKey:@"vin"] withUserId:userId];
-            
-        }
-#endif
-        kNetEnd(self.view);
-        [ZCSNotficationMgr postMSG:kCheckCardRecentRun obj:nil];
-        [ZCSNotficationMgr postMSG:kDisMissModelViewController obj:nil];
-        //[ZCSNotficationMgr postMSG:kDidUserLoginOK obj:nil];
     }
     
 }

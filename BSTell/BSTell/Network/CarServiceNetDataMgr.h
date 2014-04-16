@@ -21,6 +21,9 @@ ZCSNetClientNetInterfaceMgrDelegate>
 - (id)backDoorRequest:(NSDictionary*)param;
 
 - (id)carUserLogin:(NSDictionary *)param;
+
+- (void)getUserAccountInfo:(NSDictionary *)param;
+
 - (id)carUserRegister:(NSDictionary*)param;
 - (id)carInforQuery:(NSString*)username;
 - (id)carInforUpdate:(NSDictionary*)param withType:(int)type;

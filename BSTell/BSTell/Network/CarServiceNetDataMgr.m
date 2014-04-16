@@ -760,9 +760,30 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
                  @"001",@"hydm",
                  nil];
     }
-    [self sendRequest:@"login" withVersion:kUrlVer withParam:param withOkBack:@selector(carUserLoginOk:) withFailedBack:@selector(carUserLoginFailed:)];
+    [self sendRequest:@"HgbLogin" withVersion:kUrlVer withParam:param withOkBack:@selector(carUserLoginOk:) withFailedBack:@selector(carUserLoginFailed:)];
     return nil;
 }
+
+- (void)getUserAccountInfo:(NSDictionary *)param
+{
+    //getHydmByLoginName
+       [self sendRequest:@"getHydmByLoginName" withVersion:kUrlVer withParam:param withOkBack:@selector(getUserAccountInfoOk:) withFailedBack:@selector(getUserAccountInfoFailed:)];
+}
+
+- (void)getUserAccountInfoOk:(NSString*)result{
+    
+    id data = [result JSONValue];
+    
+    NSDictionary  *finalData = nil;
+    finalData = data;
+    [self sendFinalOkData:finalData withKey:kResUserInfoData];
+}
+- (void)getUserAccountInfoFailed:(NSString*)error{
+    
+    [self sendFinalFailedData:error withKey:kResUserInfoData];
+}
+
+
 - (void)carUserLoginOk:(NSString*)result{
     
     id data = [result JSONValue];

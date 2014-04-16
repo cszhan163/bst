@@ -126,6 +126,8 @@
 #define kCarUserRegister                @"userRegister"
 #define kCarUserLogin                   @"userLogin"
 
+
+
 #define kCarUserInfo              @"getAccountInfo"
 #define kCarUserOrderList                @"getOrderList"
 
@@ -145,6 +147,8 @@
 #define kCarInfoUpdate                  @"updateVehicleInfo"
 
 //bid
+
+#define kResUserInfoData             @"getHydmByLoginName"
 #define kResBidListData              @"queryAuctionWts4Move"
 #define kResBidItemData               @"queryAuctionPpInfo4Move"
 
