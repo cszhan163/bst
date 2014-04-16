@@ -335,7 +335,7 @@ return self;
         itemLabel.backgroundColor = [UIColor clearColor];
         //itemLabel.textAlignment = NSTextAlignmentCenter;
         itemLabel.text = @"";
-        itemLabel.numberOfLines = 0;
+        //itemLabel.numberOfLines = 0;
         [self addSubview:itemLabel];
         SafeRelease(itemLabel);
         [self.mCellItemArray addObject:itemLabel];
@@ -353,22 +353,25 @@ return self;
 */
 - (BOOL)setCellItemValue:(NSString*)value withRow:(NSInteger)row {
     UILabel *textLabel =  self.mCellItemArray[row];
+    
     UIFont *curFont = textLabel.font;
     CGFloat curWidth = textLabel.frame.size.width;
     CGFloat curHeight = textLabel.frame.size.height;
     CGRect rect = textLabel.frame;
-    CGFloat height = [value sizeWithFont:curFont forWidth:curWidth lineBreakMode:NSLineBreakByWordWrapping].height;
+    CGFloat height = [value sizeWithFont:curFont forWidth:curWidth lineBreakMode:NSLineBreakByCharWrapping].height;
     
     if(height>curHeight && row ==13){
+        
+        textLabel.numberOfLines = 0;
         /*
         textLabel.lineBreakMode = NSLineBreakByWordWrapping;
         textLabel.numberOfLines = 0;
         textLabel.contentMode = UIViewContentModeTopLeft;
          */
-        int num  = (height-curHeight)/curHeight;
-        CGFloat realHeight = (num+6)*curHeight;
+        int num  = height/curHeight;
+        CGFloat realHeight = (num+3)*curFont.pointSize;
         //textLabel.backgroundColor = [UIColor cl];
-        textLabel.frame = CGRectMake(rect.origin.x-5, rect.origin.y, rect.size.width, realHeight);
+        textLabel.frame = CGRectMake(rect.origin.x-5, rect.origin.y-13.f, rect.size.width, realHeight);
         textLabel.backgroundColor = [UIColor clearColor];
     }
 
