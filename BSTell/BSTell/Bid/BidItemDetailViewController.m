@@ -239,7 +239,7 @@
     
     SafeRelease(bidPriceTextFiled);
     
-    UILabel *priceUnitLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:14] withTextColor:[UIColor blackColor] withText:@"元" withFrame:CGRectMake(kLeftPendingX+150.f+30.f,currY+10.f,60.f,20.f)];
+    UILabel *priceUnitLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:14] withTextColor:[UIColor blackColor] withText:@"元" withFrame:CGRectMake(kLeftPendingX+150.f+10.f,currY+20.f,60.f,20.f)];
     priceUnitLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:priceUnitLabel];
     SafeRelease(priceUnitLabel);
