@@ -93,9 +93,10 @@
             NSMutableAttributedString *ms = [[NSMutableAttributedString alloc] initWithString:self.txtpassword.placeholder];
             UIFont *placeholderFont = self.txtpassword.font;
             NSRange fullRange = NSMakeRange(0, ms.length);
-            NSDictionary *newProps = [NSDictionary dictionaryWithObjectsAndKeys:NSForegroundColorAttributeName,HexRGB(137, 137, 137), NSFontAttributeName,placeholderFont,nil];
+            NSDictionary *newProps = @{NSForegroundColorAttributeName: HexRGB(137, 137, 137), NSFontAttributeName:placeholderFont};
             [ms setAttributes:newProps range:fullRange];
             self.txtpassword.attributedPlaceholder = ms;
+            SafeRelease(ms);
         }
 
     }
