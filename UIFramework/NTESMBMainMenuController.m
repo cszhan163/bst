@@ -460,6 +460,14 @@ BOOL isFromLowMemory = NO;
     }
     
 }
+-(void)didSelectorNavBarItemSame:(NSInteger)index{
+
+    if(index == 2){
+        
+        [(UINavigationController*)mainTabBarVC.currentViewController popToRootViewControllerAnimated:NO];
+        
+    }
+}
 -(void)didSelectorTabItem:(NSInteger)index
 {
     

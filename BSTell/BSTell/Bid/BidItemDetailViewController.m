@@ -229,13 +229,21 @@
     bidAdjustView = [[BidAdjustAlertView alloc]initWithFrame:CGRectMake(0.f, 0.f,300.f,280.f) withHeadTitle:@""];
     bidAdjustView.delegate = self;
     
+   
+    
     bidPriceTextFiled = [[UITextField alloc]initWithFrame:CGRectMake(kLeftPendingX,currY+10.f,150.f,40.f)];
     bidPriceTextFiled.borderStyle = UITextBorderStyleRoundedRect;
+    
     
     [self.view addSubview:bidPriceTextFiled];
     
     SafeRelease(bidPriceTextFiled);
     
+    UILabel *priceUnitLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:14] withTextColor:[UIColor blackColor] withText:@"元" withFrame:CGRectMake(kLeftPendingX+150.f+30.f,currY+10.f,60.f,20.f)];
+    priceUnitLabel.textAlignment = NSTextAlignmentLeft;
+    [self.view addSubview:priceUnitLabel];
+    SafeRelease(priceUnitLabel);
+    priceUnitLabel.hidden = YES;
     bidPriceTextFiled.hidden = YES;
     
     indictorView = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:16] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(0.f,0.f,kDeviceScreenWidth, 40.f)];
@@ -276,6 +284,7 @@
         bidStepPriceLabel.hidden = YES;
         delegateBidPriceLabel.hidden = YES;
         bidPriceTextFiled.hidden = NO;
+        priceUnitLabel.hidden = NO;
         [bidStatusBtn setTitle:@"出价" forState:UIControlStateNormal];
         bidMode = 2;
     }
@@ -597,6 +606,11 @@
         case 2:
             
             if(bidMode == 2){
+                if([bidPriceTextFiled.text floatValue]<currPrice){
+                    kUIAlertView(@"提示", @"您出的价格必须要高于或者等于底价");
+                    
+                    return;
+                }
                 
                 kUIAlertConfirmView(@"提示", @"是否确定出价", @"确定", @"取消");
             }
