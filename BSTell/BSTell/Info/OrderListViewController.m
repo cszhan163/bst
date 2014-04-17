@@ -59,12 +59,12 @@
     self.pageNum = 1;
     //searchField.text = @"苯酚";
     [self.dataArray removeAllObjects];
-//    if(self.confirmTag == 0)
-//       [self shouldLoadOlderData:nil];
+    if(self.confirmTag == 0)
+       [self shouldLoadOlderData:nil];
     
 }
 - (void)viewWillAppear:(BOOL)animated{
-    //[super viewWillAppear:animated];
+    [super viewWillAppear:animated];
    
     
 }
@@ -287,7 +287,7 @@
 
 - (void) shouldLoadOlderData:(NTESMBTweetieTableView *) tweetieTableView
 {
-    [super shouldLoadOlderData:nil];
+    //[super shouldLoadOlderData:nil];
     NSDictionary *param  = nil;
     CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
     {
@@ -351,7 +351,7 @@
     self.pageNum = 1;
     [self.dataArray removeAllObjects];
     [tweetieTableView reloadData];
-    [self shouldLoadOlderData:nil];
+    //[self shouldLoadOlderData:nil];
 }
 #pragma mark -
 #pragma mark -button action

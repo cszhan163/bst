@@ -78,7 +78,7 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-       if([self.dataArray count] == 0 &&!isFromViewUnload)
+    if([self.dataArray count] == 0 &&!isFromViewUnload)
     {
         currentPageNum = 1;
         self.pageNum = 1;
