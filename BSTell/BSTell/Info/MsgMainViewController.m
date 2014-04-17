@@ -22,7 +22,7 @@
 
 #define kHotClassTitleArray  \
 @[@"交易快报",\
-@"行业焦点",\
+@"市场聚焦",\
 @"分析指南"]
 
 #define kMeidaClassTitleArray \
