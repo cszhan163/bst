@@ -48,7 +48,9 @@
 #else
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:contentText]];
     [contentTextView loadRequest:request];
-    //contentTextView.scalesPageToFit = YES;
+    contentTextView.scalesPageToFit = YES;
+    contentTextView.scrollView.minimumZoomScale = 0.5f;
+    contentTextView.scrollView.maximumZoomScale = 2.f;
 #endif
     headerView.text = headerText;
     
