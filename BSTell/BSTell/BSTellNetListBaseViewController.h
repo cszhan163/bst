@@ -13,6 +13,9 @@
 @interface BSTellNetListBaseViewController : UIImageNetBaseViewController<BSTellTimerReflushDataProcotol>{
     
 }
+
+@property (nonatomic, assign) BOOL isShowLogin;
+
 @property (nonatomic,assign) BOOL isNeedLogin;
 @property (nonatomic,assign) NoteType type;
 @property (nonatomic,assign) UINavigationController *parentNav;

@@ -35,7 +35,18 @@
     [ZCSNotficationMgr addObserver:self call:@selector(didUserLogin:) msgName:kUserDidLoginOk];
     [ZCSNotficationMgr addObserver:self call:@selector(didUserLogout:) msgName:kUserDidLogOut];
     [ZCSNotficationMgr addObserver:self call:@selector(didUserLoginCancel:) msgName:kUserDidLoginCancel];
+    [ZCSNotficationMgr addObserver:self call:@selector(didTabItemChange:) msgName:kTabNavItemChangeMSG];
 }
+
+- (void)didTabItemChange:(NSNotification*)ntf{
+
+    if(self.isShowLogin){
+    
+        [self.navigationController popToRootViewControllerAnimated:NO];
+        self.isShowLogin = NO;
+    }
+}
+
 - (void)didUserLogin:(NSNotification*)ntf{
   
 }
@@ -71,6 +82,7 @@
         
 #endif
         SafeRelease(noteListVc);
+        self.isShowLogin = YES;
         return;
     }
     

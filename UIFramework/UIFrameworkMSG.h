@@ -15,6 +15,7 @@
 #define  kDisMissModelViewController    @"dismissModelViewController"
 
 #define  kNavTabItemMSG                 @"navTabItemMSG"
+#define  kTabNavItemChangeMSG           @"tabNavItemChangeMSG"
 
 #define  kNeedUserLoginMSG               @"needUserLoginMSG"
 

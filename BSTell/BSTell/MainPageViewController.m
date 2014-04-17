@@ -228,6 +228,7 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
                 [ZCSNotficationMgr postMSG:kPresentModelViewController  obj:noteListVc];
                 
 #endif
+                self.isShowLogin = YES;
                 SafeRelease(noteListVc);
             }
             else{

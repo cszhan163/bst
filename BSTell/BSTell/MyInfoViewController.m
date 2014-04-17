@@ -232,11 +232,11 @@
     
     userLockLabel.text = [NSString stringWithFormat:@"您的锁定资金: %@ 元",moneyValue];
 #else
-    moneyValue = [netData objectForKey:@"availability"];
+    moneyValue = [netData objectForKey:@"balance"];
     
     userAccountLabel.text = [NSString stringWithFormat:@" %0.2lf ",[moneyValue doubleValue]];
     //您的帐户上的自由资金余额:             元
-    moneyValue = [netData objectForKey:@"balance"];
+    moneyValue = [netData objectForKey:@"availability"];
     
     userAvaiableLabel.text = [NSString stringWithFormat:@" %0.2lf ",[moneyValue doubleValue]];
     
