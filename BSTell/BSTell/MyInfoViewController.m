@@ -42,8 +42,11 @@
 
     [super viewWillAppear:animated];
     NSString *userNameId = [AppSetting getLoginUserId];
-    NSDictionary *data = [AppSetting getLoginUserData:userNameId];
-    userNameLabel.text = [data objectForKey:@"company"];
+    if(userNameId && ![userNameId isEqual:@""])
+    {
+        NSDictionary *data = [AppSetting getLoginUserData:userNameId];
+        userNameLabel.text = [data objectForKey:@"company"];
+    }
     
 }
 - (void)viewDidAppear:(BOOL)animated{
