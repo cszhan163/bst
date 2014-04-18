@@ -458,6 +458,7 @@ BOOL isFromLowMemory = NO;
         [(UINavigationController*)mainTabBarVC.currentViewController popToRootViewControllerAnimated:NO];
         
     }
+    [ZCSNotficationMgr postMSG:kTabNavItemChangeMSG obj:[NSNumber numberWithInteger:index]];
     
 }
 -(void)didSelectorNavBarItemSame:(NSInteger)index{

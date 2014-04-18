@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BSTell/BSTellNetListBaseViewController.m"
-            timestampString = "419272346.358032"
+            filePath = "BSTell/BSTellBaseViewController.m"
+            timestampString = "419443344.199223"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
-            landmarkName = "-reloadNetData:"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "-didTabItemChange:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

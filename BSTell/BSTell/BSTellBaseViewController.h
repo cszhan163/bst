@@ -11,6 +11,9 @@
 @interface BSTellBaseViewController : UISimpleNetBaseViewController<UIBaseViewControllerDelegate,BSTellTimerReflushDataProcotol>{
    
 }
+
+@property (nonatomic, assign) BOOL isShowLogin;
+
 @property   (nonatomic,strong)  NSTimer *timer;
 @property   (nonatomic,assign) BOOL needLogin;
 @property   (nonatomic,assign) BOOL isLoginOk;
