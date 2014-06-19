@@ -43,6 +43,7 @@
 		0437FE0418E80CDD00D6C600 /* OrderListMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0437FE0318E80CDD00D6C600 /* OrderListMainViewController.m */; };
 		0437FE0818E80D2B00D6C600 /* OrderListConfirmedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0437FE0718E80D2B00D6C600 /* OrderListConfirmedViewController.m */; };
 		044EE26418A4C5E3007A3EDA /* BSTellNetListBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044EE26318A4C5E3007A3EDA /* BSTellNetListBaseViewController.m */; };
+		044F7DF51951D27900D3EE28 /* server.cer in Resources */ = {isa = PBXBuildFile; fileRef = 044F7DF41951D27900D3EE28 /* server.cer */; };
 		04535F9218BCBA8B009FA2C4 /* CardShopLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04535F8B18BCBA8B009FA2C4 /* CardShopLoginViewController.m */; };
 		04535F9318BCBA8B009FA2C4 /* CardShopLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04535F8C18BCBA8B009FA2C4 /* CardShopLoginViewController.xib */; };
 		04535F9418BCBA8B009FA2C4 /* CardShopResignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04535F8E18BCBA8B009FA2C4 /* CardShopResignViewController.m */; };
@@ -556,6 +557,7 @@
 		0437FE0718E80D2B00D6C600 /* OrderListConfirmedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListConfirmedViewController.m; sourceTree = "<group>"; };
 		044EE26218A4C5E3007A3EDA /* BSTellNetListBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSTellNetListBaseViewController.h; sourceTree = "<group>"; };
 		044EE26318A4C5E3007A3EDA /* BSTellNetListBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSTellNetListBaseViewController.m; sourceTree = "<group>"; };
+		044F7DF41951D27900D3EE28 /* server.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = server.cer; sourceTree = "<group>"; };
 		04535F8A18BCBA8B009FA2C4 /* CardShopLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardShopLoginViewController.h; sourceTree = "<group>"; };
 		04535F8B18BCBA8B009FA2C4 /* CardShopLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardShopLoginViewController.m; sourceTree = "<group>"; };
 		04535F8C18BCBA8B009FA2C4 /* CardShopLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardShopLoginViewController.xib; sourceTree = "<group>"; };
@@ -1072,6 +1074,7 @@
 		04E65C9B18A269B8008FA65A /* BSTeelNet */ = {
 			isa = PBXGroup;
 			children = (
+				044F7DF41951D27900D3EE28 /* server.cer */,
 				BD593A3E18BF7648007B4F5C /* client.cer */,
 				04E65C9C18A269B8008FA65A /* arrivalData */,
 				04E65CB418A269B8008FA65A /* Commondefines.h */,
@@ -1642,6 +1645,7 @@
 				04E2525118F97D0000F3BEA6 /* main_first_cancel.png in Resources */,
 				BD6DA5C118FCE6F600961710 /* setting_help1_01.png in Resources */,
 				04DFD456189D7D7B00A3BDDF /* bid_detail_header.png in Resources */,
+				044F7DF51951D27900D3EE28 /* server.cer in Resources */,
 				BD884B1018B7B53300E354B7 /* OrderTableViewCell.xib in Resources */,
 				04DFD43E189D35B200A3BDDF /* button-1.png in Resources */,
 				0431107818A7E4B6008109F7 /* arrow_detail.png in Resources */,
