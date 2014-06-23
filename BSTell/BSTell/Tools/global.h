@@ -10,7 +10,7 @@
 
 #if 1
 
-#define kHttpsRequestUrl    @"https://uatm.b-chem.com:9000/app/"
+#define kHttpsRequestUrl    @"https://uatm.b-chem.com:9002/app/"
 #define kHttpRequestUrl     @"https://uatm.b-chem.com:9000/app/"
 #define CERNAME @"server"
 #else
