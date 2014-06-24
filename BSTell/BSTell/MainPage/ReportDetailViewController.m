@@ -46,6 +46,9 @@
 #if 0
     contentTextView.text = contentText;
 #else
+    headerView.hidden = YES;
+    timeLabel.hidden = YES;
+    contentTextView.frame = CGRectMake(10.f,kMBAppTopToolBarHeight+20.f,contentTextView.frame.size.width,contentTextView.frame.size.height+headerView.frame.size.height+timeLabel.frame.size.height);
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:contentText]];
     [contentTextView loadRequest:request];
     contentTextView.scalesPageToFit = YES;

@@ -275,22 +275,55 @@
     bidPriceTextFiled.returnKeyType = UIReturnKeyDone;
     bidPriceTextFiled.keyboardType = UIKeyboardTypeDecimalPad;
     
-    
-    
-    NSString *value = [self.data objectForKey:@"jjms"];
-    if([value isEqualToString:@"2"]){
+    if(self.bidType == Bid_Prepare)
+    {
+        
+        [leftTitleCellView setTitleHidden:YES withIndex:5];
+        [leftTitleCellView setTitleHidden:YES withIndex:6];
         bidBtn.hidden = YES;
         currBidPriceLabel.hidden = YES;
         bidStepPriceLabel.hidden = YES;
         delegateBidPriceLabel.hidden = YES;
-        bidPriceTextFiled.hidden = NO;
-        priceUnitLabel.hidden = NO;
-        [bidStatusBtn setTitle:@"出价" forState:UIControlStateNormal];
-        bidMode = 2;
+        bidStatusBtn.hidden = YES;
+        
+        CGFloat currY = kDeviceScreenHeight-kMBAppTopToolBarHeight-kMBAppStatusBar-kMBAppBottomToolBarHeght- 60+10.f;
+        UIButton *oilAnalaysisBtn = [UIComUtil createButtonWithNormalBGImageName:@"bid_start_btn.png" withHightBGImageName:@"bid_start_btn.png" withTitle:@"退出竞价" withTag:0];
+        
+        CGSize btnsize= oilAnalaysisBtn.frame.size;
+        btnsize = CGSizeMake(btnsize.width-20, btnsize.height);
+        //currY = 10.f;
+        currY = currY+10.f;
+        oilAnalaysisBtn.frame = CGRectMake((kDeviceScreenWidth-btnsize.width)/2.f,currY,btnsize.width,btnsize.height);
+        [oilAnalaysisBtn addTarget:self action:@selector(logOutConfirm:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.view addSubview:oilAnalaysisBtn];
+    }
+    else
+    {
+    
+        NSString *value = [self.data objectForKey:@"jjms"];
+        if([value isEqualToString:@"2"]){
+            bidBtn.hidden = YES;
+            currBidPriceLabel.hidden = YES;
+            bidStepPriceLabel.hidden = YES;
+            delegateBidPriceLabel.hidden = YES;
+            bidPriceTextFiled.hidden = NO;
+            priceUnitLabel.hidden = NO;
+            [bidStatusBtn setTitle:@"出价" forState:UIControlStateNormal];
+            bidMode = 2;
+        }
     }
     
 }
 
+- (void)logOutConfirm:(id)sender{
+
+    //if(canLoger)
+    {
+        kUIAlertConfirmView(@"提示", @"是否确认退出竞价", @"确定", @"取消");
+    }
+
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -354,7 +387,21 @@
             
             kUIAlertView(@"提示", msg);
         }
+        
         [self shouldLoadData];
+    }
+    
+    if([resKey isEqualToString:kResBidQuit]){
+        NSString *msg = [data objectForKey:@"msg"];
+        if([[data objectForKey:@"result"]intValue] == 1){
+            kUIAlertView(@"提示", @"退出竞价成功");
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        else{
+        
+             kUIAlertView(@"提示", msg);
+        }
+        
     }
     //self.view.userInteractionEnabled = YES;
 }
@@ -647,14 +694,29 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     if(buttonIndex == 0){
+        NSString *operId = [[AppSetting getLoginUserData:[AppSetting getLoginUserId]] objectForKey:@"czy"];
         
-        if(bidMode == 2){
-            finalPrice = [bidPriceTextFiled.text floatValue];
+        if(self.bidType == Bid_Prepare){
+            NSString *operId = [[AppSetting getLoginUserData:[AppSetting getLoginUserId]] objectForKey:@"czy"];
+            NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   self.userId,@"hydm",
+                                   [self.data objectForKey:@"zys"],@"wtid",
+                                   operId,@"czy",
+                                   nil];
+            CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
+            self.request = [carServiceNetDataMgr  quitWt4Move:param];
             
-            [self startBid:finalPrice];
         }
         else{
-            [self startBid:0.f];
+        
+            if(bidMode == 2){
+                finalPrice = [bidPriceTextFiled.text floatValue];
+                
+                [self startBid:finalPrice];
+            }
+            else{
+                [self startBid:0.f];
+            }
         }
         
     }

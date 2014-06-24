@@ -22,7 +22,7 @@
 
 #define kHotClassTitleArray  \
 @[@"交易快报",\
-@"市场聚焦",\
+@"行业焦点",\
 @"分析指南"]
 
 #define kMeidaClassTitleArray \
@@ -121,7 +121,7 @@
     
     
     currX = 40+currX+70.f;
-    btn = [UIComUtil createButtonWithNormalBGImageName:nil  withSelectedBGImageName:@"bid_caterlog_mask.png" withTitle:@"媒体聚焦" withTag:1];
+    btn = [UIComUtil createButtonWithNormalBGImageName:nil  withSelectedBGImageName:@"bid_caterlog_mask.png" withTitle:@"市场聚焦" withTag:1];
     
     btn.frame = CGRectMake(currX, 10.f,btn.frame.size.width, btn.frame.size.height);
     btn.titleLabel.font = [UIFont systemFontOfSize:14];

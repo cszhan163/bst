@@ -328,9 +328,14 @@
         
     }
     if([resKey isEqualToString:kResBidQuit]){
+         NSString *msg = [data objectForKey:@"msg"];
          if([[data objectForKey:@"result"]intValue] == 1){
              kUIAlertView(@"提示", @"退出竞价成功");
              [self.navigationController popViewControllerAnimated:YES];
+         }
+         else{
+         
+              kUIAlertView(@"提示", msg);
          }
     }
     

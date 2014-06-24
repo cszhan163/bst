@@ -335,8 +335,9 @@
         if([[data objectForKey:@"result"] intValue]){
             kUIAlertView(@"提示",@"确认成功")
         }
+        
         [self reflushData];
-        //[self shouldLoadOlderData:tweetieTableView];
+        [self shouldLoadOlderData:tweetieTableView];
         //kUIAlertView(<#y#>, <#x#>)
         //[self dismissModalViewControllerAnimated:YES];
     }

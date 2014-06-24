@@ -42,7 +42,8 @@
 
     [super viewWillAppear:animated];
     NSString *userNameId = [AppSetting getLoginUserId];
-    if(userNameId){
+    if(userNameId && ![userNameId isEqual:@""])
+    {
         NSDictionary *data = [AppSetting getLoginUserData:userNameId];
         userNameLabel.text = [data objectForKey:@"company"];
     }
@@ -129,7 +130,7 @@
     [oilAnalaysisBtn addTarget:self action:@selector(myInforAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:oilAnalaysisBtn];
     
-    SafeRelease(oilAnalaysisBtn);
+    //SafeRelease(oilAnalaysisBtn);
     
     
     currY = currY +30.f;
