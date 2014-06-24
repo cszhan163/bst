@@ -130,7 +130,7 @@
     [oilAnalaysisBtn addTarget:self action:@selector(myInforAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:oilAnalaysisBtn];
     
-    SafeRelease(oilAnalaysisBtn);
+    //SafeRelease(oilAnalaysisBtn);
     
     
     currY = currY +30.f;

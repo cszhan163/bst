@@ -344,7 +344,7 @@
     NSString *goodId = [item objectForKey:@"id"];
     
     BidItemDetailViewController *vc = [[BidItemDetailViewController alloc]initWithNibName:nil bundle:nil];
-    vc.bidType = Bid_Prepare;
+    vc.bidType = Bid_Stated;
     vc.goodId = goodId;
     vc.data = [self.dataArray objectAtIndex:indexPath.row];
     [vc  setNavgationBarTitle:@"交易详情"];
