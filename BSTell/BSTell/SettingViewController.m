@@ -51,7 +51,7 @@
     logoImageView.frame = CGRectMake(0.f, 0.f, image.size.width/kScale, image.size.height/kScale);
     logoImageView.center = CGPointMake(kDeviceScreenWidth/kScale, currY);
     currY = currY+40.f;
-    tweetieTableView.frame = CGRectMake(0.f, currY, kDeviceScreenWidth,44*3.f);
+    tweetieTableView.frame = CGRectMake(0.f, currY+2, kDeviceScreenWidth,44*3.f);
     
 	// Do any additional setup after loading the view.
 }
@@ -126,7 +126,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if(indexPath.row<3){
+    if(indexPath.row<2){
         //kUIAlertView(@"提示", @"正在建设,敬请期待!");
         UIBaseViewController *vc = nil;
         

@@ -187,7 +187,6 @@
 		BD593A3018BDFE6F007B4F5C /* BidAdjustAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD593A2F18BDFE6F007B4F5C /* BidAdjustAlertView.m */; };
 		BD593A3418BE081B007B4F5C /* bid_money_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BD593A3318BE081B007B4F5C /* bid_money_bg.png */; };
 		BD593A3718BE4BD3007B4F5C /* AppSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = BD593A3618BE4BD3007B4F5C /* AppSetting.m */; };
-		BD593A3F18BF7648007B4F5C /* client.cer in Resources */ = {isa = PBXBuildFile; fileRef = BD593A3E18BF7648007B4F5C /* client.cer */; };
 		BD593A4218BF8520007B4F5C /* cell_split_line.png in Resources */ = {isa = PBXBuildFile; fileRef = BD593A4118BF8520007B4F5C /* cell_split_line.png */; };
 		BD6DA5B618FCE6F600961710 /* setting_help3_03.png in Resources */ = {isa = PBXBuildFile; fileRef = BD6DA5AA18FCE6F600961710 /* setting_help3_03.png */; };
 		BD6DA5B718FCE6F600961710 /* setting_help3_02.png in Resources */ = {isa = PBXBuildFile; fileRef = BD6DA5AB18FCE6F600961710 /* setting_help3_02.png */; };
@@ -250,7 +249,6 @@
 		BD9EDCFC18C08B1500673862 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD593A2118BD05E1007B4F5C /* SearchViewController.m */; };
 		BD9EDCFD18C08B1500673862 /* CarServiceNetDataMgr.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65D2518A27457008FA65A /* CarServiceNetDataMgr.h */; };
 		BD9EDCFE18C08B1500673862 /* CarServiceNetDataMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65D2618A27457008FA65A /* CarServiceNetDataMgr.m */; };
-		BD9EDCFF18C08B1500673862 /* client.cer in Sources */ = {isa = PBXBuildFile; fileRef = BD593A3E18BF7648007B4F5C /* client.cer */; };
 		BD9EDD0018C08B1500673862 /* arrivalData.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C9D18A269B8008FA65A /* arrivalData.h */; };
 		BD9EDD0118C08B1500673862 /* arrivalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C9E18A269B8008FA65A /* arrivalData.m */; };
 		BD9EDD0218C08B1500673862 /* arrivalDetailData.h in Sources */ = {isa = PBXBuildFile; fileRef = 04E65C9F18A269B8008FA65A /* arrivalDetailData.h */; };
@@ -472,6 +470,7 @@
 		BD9EDDF418C3064A00673862 /* reflush_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BD9EDDF218C3064A00673862 /* reflush_btn.png */; };
 		BD9EDDFC18C4549500673862 /* image-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD9EDDFB18C4549500673862 /* image-568h@2x.png */; };
 		BD9EDE0218C48CBD00673862 /* word.png in Resources */ = {isa = PBXBuildFile; fileRef = BD9EDE0118C48CBD00673862 /* word.png */; };
+		BDC478D419596B770023167F /* client.cer in Resources */ = {isa = PBXBuildFile; fileRef = BDC478D319596B770023167F /* client.cer */; };
 		BDE7BD7B18B0D16800A82198 /* HotMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */; };
 		BDE7BD7C18B0D16800A82198 /* MarketMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7A18B0D16800A82198 /* MarketMsgViewController.m */; };
 		BDE7BD7F18B0D18400A82198 /* MediaMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE7BD7E18B0D18400A82198 /* MediaMsgViewController.m */; };
@@ -783,7 +782,6 @@
 		BD593A3318BE081B007B4F5C /* bid_money_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bid_money_bg.png; sourceTree = "<group>"; };
 		BD593A3518BE4BD3007B4F5C /* AppSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSetting.h; sourceTree = "<group>"; };
 		BD593A3618BE4BD3007B4F5C /* AppSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSetting.m; sourceTree = "<group>"; };
-		BD593A3E18BF7648007B4F5C /* client.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = client.cer; sourceTree = "<group>"; };
 		BD593A4118BF8520007B4F5C /* cell_split_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_split_line.png; sourceTree = "<group>"; };
 		BD6DA5AA18FCE6F600961710 /* setting_help3_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting_help3_03.png; sourceTree = "<group>"; };
 		BD6DA5AB18FCE6F600961710 /* setting_help3_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting_help3_02.png; sourceTree = "<group>"; };
@@ -819,6 +817,7 @@
 		BD9EDDF218C3064A00673862 /* reflush_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reflush_btn.png; sourceTree = "<group>"; };
 		BD9EDDFB18C4549500673862 /* image-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-568h@2x.png"; sourceTree = "<group>"; };
 		BD9EDE0118C48CBD00673862 /* word.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = word.png; sourceTree = "<group>"; };
+		BDC478D319596B770023167F /* client.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = client.cer; sourceTree = "<group>"; };
 		BDE7BD7718B0D16800A82198 /* HotMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotMsgViewController.h; sourceTree = "<group>"; };
 		BDE7BD7818B0D16800A82198 /* HotMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotMsgViewController.m; sourceTree = "<group>"; };
 		BDE7BD7918B0D16800A82198 /* MarketMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketMsgViewController.h; sourceTree = "<group>"; };
@@ -1072,7 +1071,7 @@
 		04E65C9B18A269B8008FA65A /* BSTeelNet */ = {
 			isa = PBXGroup;
 			children = (
-				BD593A3E18BF7648007B4F5C /* client.cer */,
+				BDC478D319596B770023167F /* client.cer */,
 				04E65C9C18A269B8008FA65A /* arrivalData */,
 				04E65CB418A269B8008FA65A /* Commondefines.h */,
 				04E65CB518A269B8008FA65A /* global.h */,
@@ -1613,6 +1612,7 @@
 				BD6DA5BF18FCE6F600961710 /* setting_help1_03.png in Resources */,
 				04F6E57D189A864D0057BD72 /* Images.xcassets in Resources */,
 				BD593A2518BD85C0007B4F5C /* search_btn.png in Resources */,
+				BDC478D419596B770023167F /* client.cer in Resources */,
 				BD593A1518BCAC93007B4F5C /* Default.png in Resources */,
 				04E65C82189FF260008FA65A /* bid_confirm_btn.png in Resources */,
 				04DFD40A189B6BEF00A3BDDF /* BidItemCell.xib in Resources */,
@@ -1667,7 +1667,6 @@
 				04F6E5D1189A8C630057BD72 /* tableitemsel1.png in Resources */,
 				04F6E56F189A864D0057BD72 /* InfoPlist.strings in Resources */,
 				BD160CE318ED2CF80040DFEE /* order_cell_bg.png in Resources */,
-				BD593A3F18BF7648007B4F5C /* client.cer in Resources */,
 				0435693718F84D1B00ACC4D9 /* setting_help1_01-568h@2x.png in Resources */,
 				BD884B1A18BADFBD00E354B7 /* SVProgressHUD.bundle in Resources */,
 				BD884AF918B4CBE900E354B7 /* logo57.png in Resources */,
@@ -1878,7 +1877,6 @@
 				BD9EDCFC18C08B1500673862 /* SearchViewController.m in Sources */,
 				BD9EDCFD18C08B1500673862 /* CarServiceNetDataMgr.h in Sources */,
 				BD9EDCFE18C08B1500673862 /* CarServiceNetDataMgr.m in Sources */,
-				BD9EDCFF18C08B1500673862 /* client.cer in Sources */,
 				BD9EDD0018C08B1500673862 /* arrivalData.h in Sources */,
 				BD9EDD0118C08B1500673862 /* arrivalData.m in Sources */,
 				BD9EDD0218C08B1500673862 /* arrivalDetailData.h in Sources */,
@@ -2218,8 +2216,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: BAOSTEEL GROUP CORPORATION";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BAOSTEEL GROUP CORPORATION";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BSTell/BSTell-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
@@ -2232,7 +2230,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3D5E80C2-1780-433F-BA2B-1B5B32D2E9DC";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 #if 1
-#define kHttpsRequestUrl  @"https://m.b-chem.com:9000/app/"
-#define kHttpRequestUrl  @"https://m.b-chem.com:9000/app/"
+#define kHttpsRequestUrl  @"https://uatm.b-chem.com:9002/app/"
+#define kHttpRequestUrl  @"https://uatm.b-chem.com:9002/app/"
 #define CERNAME @"client"
 #else
 //https://211.144.193.11:8000/app/queryAuctionWts4Move_V1
