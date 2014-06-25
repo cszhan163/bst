@@ -29,6 +29,7 @@
     CGFloat  bidPrice;
 }
 @property(nonatomic,strong) NSMutableArray  *stepArray;
+
 @end
 @implementation BidAdjustAlertView
 
@@ -108,6 +109,7 @@
         self.center = CGPointMake(bgView.frame.size.width/2.f, bgView.frame.size.height/2.f);
         bgView.hidden = YES;
         SafeRelease(self);
+        self.formartStr = @"出价价格为";
         
     }
     return self;
@@ -163,7 +165,7 @@
 - (void)layoutSubviews{
     indicTextLabel.text = [NSString stringWithFormat:@"%@:%0.2lf元,梯度价格:%0.2lf元",self.priceModeString,self.basePrice,self.stepPrice];
     bidPrice = self.basePrice + self.stepPrice;
-    priceIndictLabel.text = priceIndictLabel.text = [NSString stringWithFormat:@"出价价格为:%0.2lf元",bidPrice];
+    priceIndictLabel.text = priceIndictLabel.text = [NSString stringWithFormat:@"%@:%0.2lf元",self.formartStr,  bidPrice];
 }
 - (void)setTarget:(id)target withAction:(SEL)action{
     [rightBtn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
@@ -242,6 +244,6 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     
     bidPrice = self.basePrice +self.stepPrice *(row+1);
-    priceIndictLabel.text = [NSString stringWithFormat:@"出价价格为:%0.2lf元",bidPrice];
+    priceIndictLabel.text = [NSString stringWithFormat:@"%@:%0.2lf元",self.formartStr,bidPrice];
 }
 @end

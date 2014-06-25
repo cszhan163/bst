@@ -640,6 +640,7 @@
                 bidAdjustView.stepPrice = stepPrice;
                 bidAdjustView.basePrice = currPrice;
                 [bidAdjustView setHeadTitle:@"出价确认"];
+                bidAdjustView.formartStr = @"出价价格为";
                 bidAdjustView.priceModeString = @"当前价格";
                 [bidAdjustView updateUILayout];
                 [bidAdjustView show];
@@ -679,6 +680,7 @@
                     }
                     //bidAdjustView.priceModeString =
                     [bidAdjustView setHeadTitle:@"委托出价确认"];
+                    bidAdjustView.formartStr = @"委托价格为";
                     [bidAdjustView updateUILayout];
                     [bidAdjustView show];
                     bidMode = 0;
