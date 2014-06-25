@@ -125,7 +125,7 @@
         [self addSubview:rightBtn];
         
         currY = currY+rightBtn.frame.size.height;
-        UIScrollView *contentView = [[UIScrollView alloc]initWithFrame:CGRectMake(0.f,currY,kDeviceScreenWidth, frame.size.height-currY-40.f)];
+        UIScrollView *contentView = [[UIScrollView alloc]initWithFrame:CGRectMake(0.f,currY,kDeviceScreenWidth, frame.size.height-currY-40.f+15.f)];
         [self addSubview:contentView];
         SafeRelease(contentView);
         
@@ -143,6 +143,9 @@
         [contentView addSubview:contentLabel];
         SafeRelease(contentLabel);
         currY = currY+contentLabel.frame.size.height-10.f;
+        if(!kDeviceCheckIphone5){
+            currY = currY+ 15.f;
+        }
         UILabel  *warningLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:15] withTextColor:[UIColor redColor] withText:@"  以上手机版客户端风险提示，本单位（本人）已阅读，并完全理解，本人是经慎重考虑过后自愿下载使用，由此引起的风险由本人自行负责"withFrame:CGRectMake(kLeftPendingX, currY,contentView.frame.size.width-2*kLeftPendingX,80.f)];
         warningLabel.textAlignment = NSTextAlignmentLeft;
         [contentView addSubview:warningLabel];

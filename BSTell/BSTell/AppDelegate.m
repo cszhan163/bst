@@ -20,6 +20,7 @@
 
 - (void)didClickCancelButton:(id)sender{
 
+     [AppSetting setFirstOpen:NO];
     [sender removeFromSuperview];
 }
 
@@ -49,7 +50,7 @@
         BidAdjustAlertView *firstAlertView = [[BidAdjustAlertView alloc]initWithAlertFirstViewFrame:CGRectMake(0.f,0.f,kDeviceScreenWidth,kDeviceScreenHeight)];
         firstAlertView.delegate = self;
         [self.window addSubview:firstAlertView];
-        [AppSetting setFirstOpen:NO];
+       
         
     }
     return YES;
