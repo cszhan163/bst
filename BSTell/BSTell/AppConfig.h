@@ -82,6 +82,8 @@
 
 #define kQueryCarInfoMSG        @"queryCarInfoMSG"
 
+#define kTabMainSwitchMSG       @"tabMainSwitchMSG"
+
 
 /**
  login and register

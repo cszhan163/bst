@@ -30,7 +30,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-       
+        [ZCSNotficationMgr addObserver:self call:@selector(switchToBidMain) msgName:kTabMainSwitchMSG];
     }
     return self;
 }
@@ -68,6 +68,11 @@
     
 
     
+}
+- (void)switchToBidMain{
+    BidMainViewController *bidMainVc = [[BidMainViewController alloc]init];
+    [self.navigationController pushViewController:bidMainVc animated:YES];
+    SafeRelease(bidMainVc);
 }
 - (void)setNavgationBarRightButton{
 

@@ -12,6 +12,7 @@
 #import "NoteDetailViewController.h"
 #import "ReportDetailViewController.h"
 
+#import "BidMainViewController.h"
 
 @interface NoteListViewController (){
 
@@ -38,6 +39,10 @@
     [super viewDidLoad];
     
     //UIImageView *sencodLevelBgView = [UIImageView alloc]initWithImage:<#(UIImage *)#>
+    if(self.type == Note_Bid){
+        [self setNavgationBarRightButton];
+        [self setHiddenRightBtn:NO];
+    }
     [self setHiddenLeftBtn:NO];
     self.secondClassLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:12.f] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(0.f, 0.f, kDeviceScreenWidth, 30.f)];
     self.secondClassLabel.backgroundColor = [UIColor blueColor];
@@ -47,6 +52,19 @@
     tweetieTableView.separatorColor = [UIColor whiteColor];
 	// Do any additional setup after loading the view.
 }
+
+- (void)setNavgationBarRightButton{
+    
+    UIImageWithFileName(UIImage *bgImage, @"bid_btn.png");
+    CGRect newRect = CGRectMake(kDeviceScreenWidth-30.f-bgImage.size.width/2.f, 10.f, bgImage.size.width/kScale, bgImage.size.height/kScale);
+    self.rightBtn.frame = newRect;
+    [self.rightBtn setBackgroundImage:bgImage forState:UIControlStateNormal];
+    [self.rightBtn setBackgroundImage:bgImage forState:UIControlStateSelected];
+    [self.rightBtn setTitle:@"竞价大厅" forState:UIControlStateNormal];
+    [self.rightBtn setTitle:@"竞价大厅" forState:UIControlStateHighlighted];
+    self.rightBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+}
+
 - (void)setHiddenTableHeaderView:(BOOL)status{
 
     if(status){
@@ -61,7 +79,23 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)didSelectorTopNavigationBarItem:(id)sender{
+    
+    
+    if([sender tag] == 1){
+#if 1
+        [ZCSNotficationMgr postMSG:kNavTabItemMSG obj:[NSNumber numberWithInteger:0]];
+        [ZCSNotficationMgr postMSG:kTabMainSwitchMSG obj:nil];
+#else
+        BidMainViewController *bidMainVc = [[BidMainViewController alloc]init];
+        [self.navigationController pushViewController:bidMainVc animated:YES];
+        SafeRelease(bidMainVc);
+#endif
+    }
+    else{
+       
+    }
+}
 
 #pragma mark -
 #pragma mark tableview

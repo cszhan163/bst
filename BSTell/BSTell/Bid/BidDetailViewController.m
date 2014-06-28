@@ -77,6 +77,10 @@
     }
     return self;
 }
+- (void)addObservers
+{
+    
+}
 - (void)setNavgationBarRightButton{
     
     UIImageWithFileName(UIImage *bgImage, @"bid_btn.png");
@@ -87,6 +91,15 @@
     [self.rightBtn setTitle:@"竞价大厅" forState:UIControlStateNormal];
     [self.rightBtn setTitle:@"竞价大厅" forState:UIControlStateHighlighted];
     self.rightBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [super addObservers];
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self removeObservers];
 }
 - (void)viewDidLoad
 {
