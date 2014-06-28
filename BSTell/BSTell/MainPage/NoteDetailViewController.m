@@ -9,7 +9,7 @@
 #import "NoteDetailViewController.h"
 #define  kLeftPendingX 10.f
 
-
+#import "BidConfirmViewController.h"
 
 @interface NoteDetailViewController (){\
  
@@ -161,10 +161,30 @@
         //        kNetEndSuccStr(@"评论成功",self.view);
         //        [self dismissModalViewControllerAnimated:YES];
         
-        
+        self.data = data;
         [self performSelectorOnMainThread:@selector(updateUIData:) withObject:data waitUntilDone:NO];
         
     }
+    
+    if([resKey isEqualToString:kResBidAgreementData])
+    {
+        //        if ([self.externDelegate respondsToSelector:@selector(commentDidSendOK:)]) {
+        //            [self.externDelegate commentDidSendOK:self];
+        //        }
+        //        kNetEndSuccStr(@"评论成功",self.view);
+        //        [self dismissModalViewControllerAnimated:YES];
+        
+        //self.data = data;
+        
+        BidConfirmViewController *bidConfirmVc = [[BidConfirmViewController alloc]init];
+        bidConfirmVc.wtid = self.wtid;
+        bidConfirmVc.data = data;
+        [self.navigationController pushViewController:bidConfirmVc animated:YES];
+        SafeRelease(bidConfirmVc);
+        
+        
+    }
+
     
     //self.view.userInteractionEnabled = YES;
 }
@@ -215,6 +235,34 @@
     moneyValue = [netData objectForKey:@"kyye"];
     accoutMoneyLabel.text = [NSString stringWithFormat:@"您的帐户上的自由资金余额: %@ 元",moneyValue];
     */
+    BOOL canJoin = [[netData objectForKey:@"canJoin"]boolValue];
+    self.wtid = [netData objectForKey:@"wtid"];
+    if(self.type == Note_Bid && canJoin){
+        [self setNavgationBarRightButton:@"进入竞价"];
+        [self setHiddenRightBtn:NO];
+    }
+}
+
+-(void)didSelectorTopNavigationBarItem:(id)sender{
+    
+    
+    if([sender tag] == 1){
+#if 0
+        [ZCSNotficationMgr postMSG:kNavTabItemMSG obj:[NSNumber numberWithInteger:0]];
+        [ZCSNotficationMgr postMSG:kTabMainSwitchMSG obj:nil];
+#else
+        NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
+                               //catStr,@"cat",
+                               self.userId,@"hydm",
+                               self.wtid,@"wtid",
+                               nil];
+        CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
+        self.request = [carServiceNetDataMgr  showAgreement4Move:param];
+#endif
+    }
+    else{
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 @end

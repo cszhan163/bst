@@ -16,6 +16,8 @@
 
 #import "BidAdjustAlertView.h"
 
+#import "MobClick.h"
+
 @implementation AppDelegate
 
 - (void)didClickCancelButton:(id)sender{
@@ -29,7 +31,7 @@
     // Override point for customization after application launch.
     
   
-    
+    [MobClick  startWithAppkey:@"53aee53b56240b79860dbaa0"];
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     AppMainUIViewManage *appMg = [AppMainUIViewManage getSingleTone];
     appMg.window = self.window;

@@ -28,6 +28,20 @@
     }
     return self;
 }
+
+- (void)setNavgationBarRightButton:(NSString*)title
+{
+    
+    UIImageWithFileName(UIImage *bgImage, @"bid_btn.png");
+    CGRect newRect = CGRectMake(kDeviceScreenWidth-30.f-bgImage.size.width/2.f, 10.f, bgImage.size.width/kScale, bgImage.size.height/kScale);
+    self.rightBtn.frame = newRect;
+    [self.rightBtn setBackgroundImage:bgImage forState:UIControlStateNormal];
+    [self.rightBtn setBackgroundImage:bgImage forState:UIControlStateSelected];
+    [self.rightBtn setTitle:title forState:UIControlStateNormal];
+    [self.rightBtn setTitle:title forState:UIControlStateHighlighted];
+    self.rightBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+}
+
 - (void)addObservers{
     [super addObservers];
     [ZCSNotficationMgr addObserver:self call:@selector(didUserLogin:) msgName:kUserDidLoginOk];

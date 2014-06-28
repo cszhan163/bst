@@ -39,10 +39,7 @@
     [super viewDidLoad];
     
     //UIImageView *sencodLevelBgView = [UIImageView alloc]initWithImage:<#(UIImage *)#>
-    if(self.type == Note_Bid){
-        [self setNavgationBarRightButton];
-        [self setHiddenRightBtn:NO];
-    }
+  
     [self setHiddenLeftBtn:NO];
     self.secondClassLabel = [UIComUtil createLabelWithFont:[UIFont systemFontOfSize:12.f] withTextColor:[UIColor blackColor] withText:@"" withFrame:CGRectMake(0.f, 0.f, kDeviceScreenWidth, 30.f)];
     self.secondClassLabel.backgroundColor = [UIColor blueColor];
@@ -53,17 +50,7 @@
 	// Do any additional setup after loading the view.
 }
 
-- (void)setNavgationBarRightButton{
-    
-    UIImageWithFileName(UIImage *bgImage, @"bid_btn.png");
-    CGRect newRect = CGRectMake(kDeviceScreenWidth-30.f-bgImage.size.width/2.f, 10.f, bgImage.size.width/kScale, bgImage.size.height/kScale);
-    self.rightBtn.frame = newRect;
-    [self.rightBtn setBackgroundImage:bgImage forState:UIControlStateNormal];
-    [self.rightBtn setBackgroundImage:bgImage forState:UIControlStateSelected];
-    [self.rightBtn setTitle:@"竞价大厅" forState:UIControlStateNormal];
-    [self.rightBtn setTitle:@"竞价大厅" forState:UIControlStateHighlighted];
-    self.rightBtn.titleLabel.font = [UIFont systemFontOfSize:13];
-}
+
 
 - (void)setHiddenTableHeaderView:(BOOL)status{
 
@@ -83,7 +70,7 @@
     
     
     if([sender tag] == 1){
-#if 1
+#if 0
         [ZCSNotficationMgr postMSG:kNavTabItemMSG obj:[NSNumber numberWithInteger:0]];
         [ZCSNotficationMgr postMSG:kTabMainSwitchMSG obj:nil];
 #else
@@ -93,7 +80,7 @@
 #endif
     }
     else{
-       
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 

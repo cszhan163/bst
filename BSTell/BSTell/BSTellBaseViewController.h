@@ -11,13 +11,22 @@
 @interface BSTellBaseViewController : UISimpleNetBaseViewController<UIBaseViewControllerDelegate,BSTellTimerReflushDataProcotol>{
    
 }
+@property(nonatomic,strong)NSString *wtid;
 
 @property (nonatomic, assign) BOOL isShowLogin;
 
 @property   (nonatomic,strong)  NSTimer *timer;
+
 @property   (nonatomic,assign) BOOL needLogin;
+
 @property   (nonatomic,assign) BOOL isLoginOk;
+
 @property   (nonatomic,assign) NoteType type;
+
 @property   (nonatomic,strong) NSString *userId;
+
 @property   (nonatomic,strong) NSString *czy;
+
+- (void)setNavgationBarRightButton:(NSString*)title;
+
 @end

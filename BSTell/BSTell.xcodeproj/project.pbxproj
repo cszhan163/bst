@@ -59,6 +59,7 @@
 		04D6AF9818AA7FA4002967C4 /* CardShopBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D6AF8F18AA7FA4002967C4 /* CardShopBaseViewController.m */; };
 		04D6AF9918AA7FA4002967C4 /* NEMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D6AF9118AA7FA4002967C4 /* NEMainTabBarController.m */; };
 		04D6AF9A18AA7FA4002967C4 /* NTESMBMainMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D6AF9318AA7FA4002967C4 /* NTESMBMainMenuController.m */; };
+		04DACC8B195F1CEB0071CAF3 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DACC89195F1CEB0071CAF3 /* libMobClickLibrary.a */; };
 		04DFD3FD189B5FB800A3BDDF /* tabbarbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DFD3FC189B5FB800A3BDDF /* tabbarbg.png */; };
 		04DFD400189B641B00A3BDDF /* tabitemtopsplit.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DFD3FF189B641B00A3BDDF /* tabitemtopsplit.png */; };
 		04DFD405189B6BC300A3BDDF /* UICarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DFD404189B6BC300A3BDDF /* UICarTableViewCell.m */; };
@@ -555,7 +556,6 @@
 		0437FE0718E80D2B00D6C600 /* OrderListConfirmedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListConfirmedViewController.m; sourceTree = "<group>"; };
 		044EE26218A4C5E3007A3EDA /* BSTellNetListBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSTellNetListBaseViewController.h; sourceTree = "<group>"; };
 		044EE26318A4C5E3007A3EDA /* BSTellNetListBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSTellNetListBaseViewController.m; sourceTree = "<group>"; };
-		044F7DF41951D27900D3EE28 /* server.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = server.cer; sourceTree = "<group>"; };
 		04535F8A18BCBA8B009FA2C4 /* CardShopLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardShopLoginViewController.h; sourceTree = "<group>"; };
 		04535F8B18BCBA8B009FA2C4 /* CardShopLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardShopLoginViewController.m; sourceTree = "<group>"; };
 		04535F8C18BCBA8B009FA2C4 /* CardShopLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardShopLoginViewController.xib; sourceTree = "<group>"; };
@@ -584,6 +584,8 @@
 		04D6AF9318AA7FA4002967C4 /* NTESMBMainMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTESMBMainMenuController.m; sourceTree = "<group>"; };
 		04D6AF9418AA7FA4002967C4 /* UIFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFramework.h; sourceTree = "<group>"; };
 		04D6AF9518AA7FA4002967C4 /* UIFrameworkMSG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFrameworkMSG.h; sourceTree = "<group>"; };
+		04DACC89195F1CEB0071CAF3 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		04DACC8A195F1CEB0071CAF3 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		04DFD3FC189B5FB800A3BDDF /* tabbarbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbarbg.png; path = ../tabbarbg.png; sourceTree = "<group>"; };
 		04DFD3FF189B641B00A3BDDF /* tabitemtopsplit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabitemtopsplit.png; path = ../tabitemtopsplit.png; sourceTree = "<group>"; };
 		04DFD403189B6BC300A3BDDF /* UICarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICarTableViewCell.h; sourceTree = "<group>"; };
@@ -850,6 +852,7 @@
 				04F6E567189A864D0057BD72 /* CoreGraphics.framework in Frameworks */,
 				04F6E569189A864D0057BD72 /* UIKit.framework in Frameworks */,
 				04F6E565189A864D0057BD72 /* Foundation.framework in Frameworks */,
+				04DACC8B195F1CEB0071CAF3 /* libMobClickLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1208,6 +1211,8 @@
 		04F6E558189A864D0057BD72 = {
 			isa = PBXGroup;
 			children = (
+				04DACC89195F1CEB0071CAF3 /* libMobClickLibrary.a */,
+				04DACC8A195F1CEB0071CAF3 /* MobClick.h */,
 				BD884B1918BADFBD00E354B7 /* SVProgressHUD.bundle */,
 				04D6AF8918AA7FA4002967C4 /* UIFramework */,
 				04F6E599189A87480057BD72 /* ZCSUIFrameWork.xcodeproj */,
@@ -1643,7 +1648,6 @@
 				04E2525118F97D0000F3BEA6 /* main_first_cancel.png in Resources */,
 				BD6DA5C118FCE6F600961710 /* setting_help1_01.png in Resources */,
 				04DFD456189D7D7B00A3BDDF /* bid_detail_header.png in Resources */,
-				044F7DF51951D27900D3EE28 /* server.cer in Resources */,
 				BD884B1018B7B53300E354B7 /* OrderTableViewCell.xib in Resources */,
 				04DFD43E189D35B200A3BDDF /* button-1.png in Resources */,
 				0431107818A7E4B6008109F7 /* arrow_detail.png in Resources */,
@@ -2230,6 +2234,10 @@
 				);
 				INFOPLIST_FILE = "BSTell/BSTell-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/mac/Desktop/work/BSTell/code/BSTell,
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3D5E80C2-1780-433F-BA2B-1B5B32D2E9DC";
@@ -2253,6 +2261,10 @@
 				);
 				INFOPLIST_FILE = "BSTell/BSTell-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/mac/Desktop/work/BSTell/code/BSTell,
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "B8A65E37-8906-4CE5-AC5B-9BEF8017E7D2";

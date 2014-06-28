@@ -15,5 +15,9 @@
     UILabel *headerView;
     UIWebView *contentTextView;
 }
-@property(nonatomic,strong) NSString *noteId;
+
+@property (nonatomic, strong) NSString *noteId;
+
+
+
 @end
