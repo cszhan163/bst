@@ -134,19 +134,21 @@
 //        UITextView *contentTextView = [[UITextView alloc]initWithFrame:CGRectMake(kLeftPendingX,currY,kDeviceScreenWidth-2*kLeftPendingX,contentView.frame.size.height)];
 //        currY = currY+320.f;
         UILabel  *contentLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:15] withTextColor:[UIColor whiteColor] withText:@"以上手机版客户端风险提示，本单位（本人）已阅读，并完全理解，本人是经慎重考虑过后自愿下载使用，由此引起的风险由本人自行负责"withFrame:CGRectMake(kLeftPendingX, currY,contentView.frame.size.width-2*kLeftPendingX,300.f)];
-        contentLabel.text = @"              化工宝手机版客户端风险提示\n\
+        contentLabel.text = @"              化工宝手机版客户端风险提示\n\n\
         尊敬的客户：\n请您在使用化工宝手机版客户端之前，仔细阅读以下有关化工宝手机版客户端风险提示：\n\
         1 手机客户端主要通过wifi无线网络、移动互联网等公共网络进行数据传输，基于移动互联网自身特点，存在网络故障、通讯问题以及安全问题等风险。\n\
         2 通过本手机客户端参加竞价、进行交易，客户应注意智能手机操作方式不同于PC端的操作方式，避免再使用时出现操作失误。\n\
         3 提醒各位客户，化工宝对于本手机客户端因客户手机的网络故障、通信延迟以及对客户操作错误而导致的损失恕不承担责任，客户可及时联系化工宝予以协助处理。\n";
+        contentLabel.font = [UIFont systemFontOfSize:14];
         contentLabel.textAlignment = NSTextAlignmentLeft;
         [contentView addSubview:contentLabel];
         SafeRelease(contentLabel);
         currY = currY+contentLabel.frame.size.height-10.f;
-        if(!kDeviceCheckIphone5){
+        if(!kIsIOS7Check){
             currY = currY+ 15.f;
         }
-        UILabel  *warningLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:15] withTextColor:[UIColor redColor] withText:@"  以上手机版客户端风险提示，本单位（本人）已阅读，并完全理解，本人是经慎重考虑过后自愿下载使用，由此引起的风险由本人自行负责"withFrame:CGRectMake(kLeftPendingX, currY,contentView.frame.size.width-2*kLeftPendingX,80.f)];
+        UILabel  *warningLabel = [UIComUtil createLabelWithFont:[UIFont boldSystemFontOfSize:15] withTextColor:[UIColor redColor] withText:@"      以上手机版客户端风险提示，本单位（本人）已阅读，并完全理解，本人是经慎重考虑过后自愿下载使用，由此引起的风险由本人自行负责"withFrame:CGRectMake(kLeftPendingX, currY,contentView.frame.size.width-2*kLeftPendingX,80.f)];
+        warningLabel.font = [UIFont systemFontOfSize:14];
         warningLabel.textAlignment = NSTextAlignmentLeft;
         [contentView addSubview:warningLabel];
         
