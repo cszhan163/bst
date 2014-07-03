@@ -371,10 +371,16 @@
         //        }
         //        kNetEndSuccStr(@"评论成功",self.view);
         //        [self dismissModalViewControllerAnimated:YES];
-        
-        
-        self.data = data;
-        [self performSelectorOnMainThread:@selector(updateUIData:) withObject:data waitUntilDone:NO];
+        NSString *msg = [data objectForKey:@"msg"];
+        if([[data objectForKey:@"ret"]intValue] == 1){
+            self.data = data;
+            [self performSelectorOnMainThread:@selector(updateUIData:) withObject:data waitUntilDone:NO];
+        }
+        else{
+            
+            kUIAlertView(@"提示", msg);
+            [self.navigationController performSelector:@selector(popViewControllerAnimated:) withObject:@1 afterDelay:1];
+        }
         
     }
     
