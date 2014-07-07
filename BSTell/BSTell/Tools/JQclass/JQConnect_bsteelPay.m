@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "JSON.h"
 
+
 @implementation JQConnect_bsteelPay
 @synthesize postString;
 @synthesize appCode;
@@ -165,7 +166,8 @@
         if (userName!=nil&&passWord!=nil) {
             if (isHTTPS) {
                 failedHTTPSConnect = connect;
-                NSURL *URL=[NSURL URLWithString:@"https://211.144.193.11/demo/login_v10"];
+                NSURL *URL=[NSURL URLWithString:[NSString stringWithFormat:@"%@/%@_%@",kHttpsRequestUrl,@"HgbLogin",kUrlVer]];
+                
                 connect = [[JQHTTPSConnect alloc] initWithURL:URL];
                 connect.delegate=self;
                 [connect setSuccessCallBack:@selector(autoLoginCallBack:)];
@@ -273,7 +275,7 @@
             [self AutoLogin];
         }
     } else if (alertView.tag==101) {
-        [[AppDelegate shareApp] setLoginView];
+        [AppDelegate needUserRelogin];
         [self release];
     }
 }
@@ -283,6 +285,7 @@
     if ([conn.responseData rangeOfString:@"SessionNotFound"].length>0) {
     //if ([conn.responseData rangeOfString:@"操作成功"].length>0&&count==1) {
         [self AutoLogin];
+        
     } else {
         if (obj &&[obj respondsToSelector:finishSelector]) {
             [obj performSelector:finishSelector withObject:conn.responseData];

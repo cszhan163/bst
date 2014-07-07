@@ -18,6 +18,9 @@
 ZCSNetClientNetInterfaceMgrDelegate>
 /*user*/
 +(id)getSingleTone;
+
+- (void)needRelogin;
+
 - (id)backDoorRequest:(NSDictionary*)param;
 
 - (id)carUserLogin:(NSDictionary *)param;

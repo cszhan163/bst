@@ -32,6 +32,7 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
     }
     return sharedInstance;
 }
+
 -(id)init
 {
     if(self = [super init])
@@ -137,7 +138,10 @@ static ZCSNetClientNetInterfaceMgr *dressMemoInterfaceMgr = nil;
 #else
     
 #endif
-    
+    /*
+     {"code":"4003","messsage":"requncname: /app/ZYgetSourceList_v1 post data is not available.","name":"SessionNotFound"}
+
+     */
     NSDictionary *item = [NSDictionary dictionaryWithObjectsAndKeys:
                           data,@"data",
                           key,@"key",

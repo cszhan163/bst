@@ -55,7 +55,7 @@ static  NSString* kTitleTextArray[] = {@"资讯中心",@"网站公告",@"交易�
 }
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    if([AppSetting getLoginUserId]&&![[AppSetting getLoginUserId]isEqualToString:@""] && !isLogin){
+    if([AppSetting getLoginUserId]&&![[AppSetting getLoginUserId]isEqualToString:@""]){
         //[ZCSNotficationMgr postMSG: obj:<#(id)#>]
         
         [self didUserLogin:nil];

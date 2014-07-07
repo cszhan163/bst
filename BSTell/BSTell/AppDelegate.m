@@ -55,8 +55,25 @@
        
         
     }
+    if([AppSetting getLoginUserId]&&![[AppSetting getLoginUserId]isEqualToString:@""]){
+        //[ZCSNotficationMgr postMSG: obj:<#(id)#>]
+        
+    }
+    else
+    {
+        [self performSelector:@selector(needLogin) withObject:nil afterDelay:0.f];
+    }
     return YES;
 }
+- (void)needLogin{
+    [[self class] needUserRelogin];
+}
++ (void)needUserRelogin
+{
+    [ZCSNotficationMgr postMSG:kUserDidLogOut obj:nil];
+    [ZCSNotficationMgr postMSG:kUserDidLoginCancel obj:nil];
+}
+
 //发起登录请求
 -(void)startLoginRequest
 {
