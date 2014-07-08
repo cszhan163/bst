@@ -37,7 +37,7 @@
 //    if(first)
 //        [self didSelectorNavItem:nil];
 //    first = NO;
-    if(kIsIOS7Check)
+    //if(kIsIOS7Check)
     {
         [navItemCtrl.currentViewController viewWillAppear:animated];
     }
