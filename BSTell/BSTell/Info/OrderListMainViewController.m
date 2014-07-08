@@ -48,7 +48,7 @@
     //    if(first)
     //        [self didSelectorNavItem:nil];
     //    first = NO;
-    if(kIsIOS7Check)
+    //if(kIsIOS7Check)
     {
         [navItemCtrl.currentViewController viewDidAppear:animated];
     }
@@ -58,7 +58,7 @@
     //    if(first)
     //        [self didSelectorNavItem:nil];
     //    first = NO;
-    if(kIsIOS7Check)
+    //if(kIsIOS7Check)
     {
         [navItemCtrl.currentViewController viewWillDisappear:animated];
     }
@@ -69,7 +69,7 @@
     //    if(first)
     //        [self didSelectorNavItem:nil];
     //    first = NO;
-    if(kIsIOS7Check)
+    //if(kIsIOS7Check)
     {
         [navItemCtrl.currentViewController viewDidDisappear:animated];
     }

@@ -281,6 +281,7 @@
      */
 #if 1
     [self.parentNav pushViewController:vc animated:YES];
+    [self.dataArray removeAllObjects];
 #else
     
     [ZCSNotficationMgr postMSG:kPushNewViewController obj:vc];
@@ -309,7 +310,7 @@
     self.pageNum = 1;
     [self.dataArray removeAllObjects];
     [tweetieTableView reloadData];
-    [self shouldLoadOlderData:nil];
+    //[self shouldLoadOlderData:nil];
 }
 
 -(void)didNetDataOK:(NSNotification*)ntf

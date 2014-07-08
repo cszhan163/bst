@@ -276,6 +276,7 @@
      */
 #if 1
     [self.parentNav pushViewController:vc animated:YES];
+    [self.dataArray removeAllObjects];
 #else
     
     [ZCSNotficationMgr postMSG:kPushNewViewController obj:vc];
