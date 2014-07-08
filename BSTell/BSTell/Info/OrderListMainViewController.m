@@ -34,9 +34,46 @@
 - (void)viewWillAppear:(BOOL)animated{
 
     [super viewWillAppear:animated];
-    if(!first)
-        [self didSelectorNavItem:nil];
-    first = NO;
+//    if(first)
+//        [self didSelectorNavItem:nil];
+//    first = NO;
+    if(kIsIOS7Check)
+    {
+        [navItemCtrl.currentViewController viewWillAppear:animated];
+    }
+}
+- (void)viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:animated];
+    //    if(first)
+    //        [self didSelectorNavItem:nil];
+    //    first = NO;
+    if(kIsIOS7Check)
+    {
+        [navItemCtrl.currentViewController viewDidAppear:animated];
+    }
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    //    if(first)
+    //        [self didSelectorNavItem:nil];
+    //    first = NO;
+    if(kIsIOS7Check)
+    {
+        [navItemCtrl.currentViewController viewWillDisappear:animated];
+    }
+    
+}
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    //    if(first)
+    //        [self didSelectorNavItem:nil];
+    //    first = NO;
+    if(kIsIOS7Check)
+    {
+        [navItemCtrl.currentViewController viewDidDisappear:animated];
+    }
+    
 }
 - (void)viewDidLoad
 {
