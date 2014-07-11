@@ -341,7 +341,7 @@
         [backString appendString:@"\"encryptdata\":\"false\","];
     }
     
-    [backString appendString:@"\"keycode\":\"jkznf7585535556160675056460853260\","];
+    [backString appendString:[NSString stringWithFormat:@"\"keycode\":\"%@\",",kKeyCode]];
     //MethodString = @"report";
 #if 1
     if (MethodString) {

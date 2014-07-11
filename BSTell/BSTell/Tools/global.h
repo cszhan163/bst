@@ -16,6 +16,9 @@
  #define kHttpsRequestUrl  @"https://m.b-chem.com:9005/app/"
  #define kHttpRequestUrl  @"https://m.b-chem.com:9005/app/"
  */
+
+#define kKeyCode   @"jkznf7585535556160675056460853260"
+
 #if 1
 
 #define kHttpsRequestUrl  @"https://uatm.b-chem.com:9002/app/"
