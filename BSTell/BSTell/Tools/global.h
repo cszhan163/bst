@@ -11,11 +11,16 @@
  test:
  #define kHttpsRequestUrl  @"https://uatm.b-chem.com:9002/app/"
  #define kHttpRequestUrl  @"https://uatm.b-chem.com:9002/app/"
- app store:m.b-chem.com:9005
+ app store:
+ 
+ #define kHttpsRequestUrl  @"https://m.b-chem.com:9005/app/"
+ #define kHttpRequestUrl  @"https://m.b-chem.com:9005/app/"
  */
 #if 1
-#define kHttpsRequestUrl  @"https://m.b-chem.com:9005/app/"
-#define kHttpRequestUrl  @"https://m.b-chem.com:9005/app/"
+
+#define kHttpsRequestUrl  @"https://uatm.b-chem.com:9002/app/"
+#define kHttpRequestUrl  @"https://uatm.b-chem.com:9002/app/"
+
 #define CERNAME @"client"
 #else
 //https://211.144.193.11:8000/app/queryAuctionWts4Move_V1

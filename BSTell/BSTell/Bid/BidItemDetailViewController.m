@@ -721,7 +721,7 @@
             NSString *operId = [[AppSetting getLoginUserData:[AppSetting getLoginUserId]] objectForKey:@"czy"];
             NSDictionary *param = [NSDictionary dictionaryWithObjectsAndKeys:
                                    self.userId,@"hydm",
-                                   [self.data objectForKey:@"zys"],@"wtid",
+                                   [self.data objectForKey:@"wtid"],@"wtid",
                                    operId,@"czy",
                                    nil];
             CarServiceNetDataMgr *carServiceNetDataMgr = [CarServiceNetDataMgr getSingleTone];
