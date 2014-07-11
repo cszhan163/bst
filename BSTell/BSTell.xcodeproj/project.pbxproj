@@ -145,9 +145,6 @@
 		04F6E575189A864D0057BD72 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E574189A864D0057BD72 /* AppDelegate.m */; };
 		04F6E57B189A864D0057BD72 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6E57A189A864D0057BD72 /* ViewController.m */; };
 		04F6E57D189A864D0057BD72 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F6E57C189A864D0057BD72 /* Images.xcassets */; };
-		04F6E584189A864E0057BD72 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F6E583189A864E0057BD72 /* XCTest.framework */; };
-		04F6E585189A864E0057BD72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F6E564189A864D0057BD72 /* Foundation.framework */; };
-		04F6E586189A864E0057BD72 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F6E568189A864D0057BD72 /* UIKit.framework */; };
 		04F6E5CC189A8C630057BD72 /* tableitem1.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F6E5C3189A8C630057BD72 /* tableitem1.png */; };
 		04F6E5CD189A8C630057BD72 /* tableitem2.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F6E5C4189A8C630057BD72 /* tableitem2.png */; };
 		04F6E5CE189A8C630057BD72 /* tableitem3.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F6E5C5189A8C630057BD72 /* tableitem3.png */; };
@@ -216,9 +213,6 @@
 		BD9EDCB718C08AB200673862 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F6E566189A864D0057BD72 /* CoreGraphics.framework */; };
 		BD9EDCB818C08AB200673862 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F6E568189A864D0057BD72 /* UIKit.framework */; };
 		BD9EDCBE18C08AB200673862 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD9EDCBC18C08AB200673862 /* InfoPlist.strings */; };
-		BD9EDCCC18C08AB300673862 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F6E583189A864E0057BD72 /* XCTest.framework */; };
-		BD9EDCCD18C08AB300673862 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F6E564189A864D0057BD72 /* Foundation.framework */; };
-		BD9EDCCE18C08AB300673862 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F6E568189A864D0057BD72 /* UIKit.framework */; };
 		BD9EDCE018C08B1500673862 /* SVProgressHUD.bundle in Sources */ = {isa = PBXBuildFile; fileRef = BD884B1918BADFBD00E354B7 /* SVProgressHUD.bundle */; };
 		BD9EDCE118C08B1500673862 /* BidAdjustAlertView.h in Sources */ = {isa = PBXBuildFile; fileRef = BD593A2E18BDFE6F007B4F5C /* BidAdjustAlertView.h */; };
 		BD9EDCE218C08B1500673862 /* BidAdjustAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD593A2F18BDFE6F007B4F5C /* BidAdjustAlertView.m */; };
@@ -485,26 +479,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		04F6E587189A864E0057BD72 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 04F6E559189A864D0057BD72 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 04F6E560189A864D0057BD72;
-			remoteInfo = BSTell;
-		};
 		04F6E59D189A87480057BD72 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 04F6E599189A87480057BD72 /* ZCSUIFrameWork.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 044E74C7158C8A590048CB70;
 			remoteInfo = ZCSUIFrameWork;
-		};
-		BD9EDCCF18C08AB300673862 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 04F6E559189A864D0057BD72 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BD9EDCB418C08AB200673862;
-			remoteInfo = BSTell_company;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -730,7 +710,6 @@
 		04F6E579189A864D0057BD72 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		04F6E57A189A864D0057BD72 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		04F6E57C189A864D0057BD72 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		04F6E582189A864E0057BD72 /* BSTellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BSTellTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F6E583189A864E0057BD72 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		04F6E599189A87480057BD72 /* ZCSUIFrameWork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZCSUIFrameWork.xcodeproj; path = ../../BaseLib/UIFramework/ZCSUIFrameWork/ZCSUIFrameWork.xcodeproj; sourceTree = "<group>"; };
 		04F6E5C3189A8C630057BD72 /* tableitem1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tableitem1.png; sourceTree = "<group>"; };
@@ -815,7 +794,6 @@
 		BD9EDCBD18C08AB200673862 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BD9EDCBF18C08AB200673862 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BD9EDCC118C08AB200673862 /* BSTell_company-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BSTell_company-Prefix.pch"; sourceTree = "<group>"; };
-		BD9EDCCB18C08AB300673862 /* BSTell_companyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BSTell_companyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9EDDED18C1B58B00673862 /* BSTellTimerReflushDataProcotol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSTellTimerReflushDataProcotol.h; sourceTree = "<group>"; };
 		BD9EDDF218C3064A00673862 /* reflush_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reflush_btn.png; sourceTree = "<group>"; };
 		BD9EDDFB18C4549500673862 /* image-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-568h@2x.png"; sourceTree = "<group>"; };
@@ -856,16 +834,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		04F6E57F189A864E0057BD72 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				04F6E584189A864E0057BD72 /* XCTest.framework in Frameworks */,
-				04F6E586189A864E0057BD72 /* UIKit.framework in Frameworks */,
-				04F6E585189A864E0057BD72 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BD9EDCB218C08AB200673862 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -873,16 +841,6 @@
 				BD9EDCB718C08AB200673862 /* CoreGraphics.framework in Frameworks */,
 				BD9EDCB818C08AB200673862 /* UIKit.framework in Frameworks */,
 				BD9EDCB618C08AB200673862 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BD9EDCC818C08AB300673862 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BD9EDCCC18C08AB300673862 /* XCTest.framework in Frameworks */,
-				BD9EDCCE18C08AB300673862 /* UIKit.framework in Frameworks */,
-				BD9EDCCD18C08AB300673862 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1227,9 +1185,7 @@
 			isa = PBXGroup;
 			children = (
 				04F6E561189A864D0057BD72 /* BSTell.app */,
-				04F6E582189A864E0057BD72 /* BSTellTests.xctest */,
 				BD9EDCB518C08AB200673862 /* BSTell_company.app */,
-				BD9EDCCB18C08AB300673862 /* BSTell_companyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1484,24 +1440,6 @@
 			productReference = 04F6E561189A864D0057BD72 /* BSTell.app */;
 			productType = "com.apple.product-type.application";
 		};
-		04F6E581189A864E0057BD72 /* BSTellTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 04F6E596189A864E0057BD72 /* Build configuration list for PBXNativeTarget "BSTellTests" */;
-			buildPhases = (
-				04F6E57E189A864E0057BD72 /* Sources */,
-				04F6E57F189A864E0057BD72 /* Frameworks */,
-				04F6E580189A864E0057BD72 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				04F6E588189A864E0057BD72 /* PBXTargetDependency */,
-			);
-			name = BSTellTests;
-			productName = BSTellTests;
-			productReference = 04F6E582189A864E0057BD72 /* BSTellTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		BD9EDCB418C08AB200673862 /* BSTell_company */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD9EDCDE18C08AB300673862 /* Build configuration list for PBXNativeTarget "BSTell_company" */;
@@ -1519,24 +1457,6 @@
 			productReference = BD9EDCB518C08AB200673862 /* BSTell_company.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BD9EDCCA18C08AB300673862 /* BSTell_companyTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BD9EDCDF18C08AB300673862 /* Build configuration list for PBXNativeTarget "BSTell_companyTests" */;
-			buildPhases = (
-				BD9EDCC718C08AB300673862 /* Sources */,
-				BD9EDCC818C08AB300673862 /* Frameworks */,
-				BD9EDCC918C08AB300673862 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BD9EDCD018C08AB300673862 /* PBXTargetDependency */,
-			);
-			name = BSTell_companyTests;
-			productName = BSTell_companyTests;
-			productReference = BD9EDCCB18C08AB300673862 /* BSTell_companyTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1548,12 +1468,6 @@
 				TargetAttributes = {
 					04F6E560189A864D0057BD72 = {
 						DevelopmentTeam = A8RA93G2CJ;
-					};
-					04F6E581189A864E0057BD72 = {
-						TestTargetID = 04F6E560189A864D0057BD72;
-					};
-					BD9EDCCA18C08AB300673862 = {
-						TestTargetID = BD9EDCB418C08AB200673862;
 					};
 				};
 			};
@@ -1577,9 +1491,7 @@
 			projectRoot = "";
 			targets = (
 				04F6E560189A864D0057BD72 /* BSTell */,
-				04F6E581189A864E0057BD72 /* BSTellTests */,
 				BD9EDCB418C08AB200673862 /* BSTell_company */,
-				BD9EDCCA18C08AB300673862 /* BSTell_companyTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1716,26 +1628,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		04F6E580189A864E0057BD72 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BD9EDCB318C08AB200673862 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BD9EDDF418C3064A00673862 /* reflush_btn.png in Resources */,
 				BD9EDCBE18C08AB200673862 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BD9EDCC918C08AB300673862 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1838,13 +1736,6 @@
 				04255BC618B3BC720006F9E0 /* OrderDetailViewController.m in Sources */,
 				04E65D2718A27457008FA65A /* CarServiceNetDataMgr.m in Sources */,
 				04535F9218BCBA8B009FA2C4 /* CardShopLoginViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		04F6E57E189A864E0057BD72 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2103,27 +1994,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BD9EDCC718C08AB300673862 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		04F6E588189A864E0057BD72 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 04F6E560189A864D0057BD72 /* BSTell */;
-			targetProxy = 04F6E587189A864E0057BD72 /* PBXContainerItemProxy */;
-		};
-		BD9EDCD018C08AB300673862 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BD9EDCB418C08AB200673862 /* BSTell_company */;
-			targetProxy = BD9EDCCF18C08AB300673862 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		04F6E56D189A864D0057BD72 /* InfoPlist.strings */ = {
@@ -2222,8 +2093,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: BAOSTEEL GROUP CORPORATION";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BAOSTEEL GROUP CORPORATION";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BSTell/BSTell-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
@@ -2236,7 +2107,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/mac/Desktop/work/BSTell/code/BSTell,
+					"./**",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2263,54 +2134,12 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/mac/Desktop/work/BSTell/code/BSTell,
+					"./**",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "B8A65E37-8906-4CE5-AC5B-9BEF8017E7D2";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		04F6E597189A864E0057BD72 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BSTell.app/BSTell";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BSTell/BSTell-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "BSTellTests/BSTellTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		04F6E598189A864E0057BD72 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BSTell.app/BSTell";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BSTell/BSTell-Prefix.pch";
-				INFOPLIST_FILE = "BSTellTests/BSTellTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -2350,50 +2179,6 @@
 			};
 			name = Release;
 		};
-		BD9EDCDB18C08AB300673862 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BSTell_company.app/BSTell_company";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BSTell_company/BSTell_company-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "BSTell_companyTests/BSTell_companyTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		BD9EDCDC18C08AB300673862 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BSTell_company.app/BSTell_company";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BSTell_company/BSTell_company-Prefix.pch";
-				INFOPLIST_FILE = "BSTell_companyTests/BSTell_companyTests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2415,29 +2200,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		04F6E596189A864E0057BD72 /* Build configuration list for PBXNativeTarget "BSTellTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				04F6E597189A864E0057BD72 /* Debug */,
-				04F6E598189A864E0057BD72 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		BD9EDCDE18C08AB300673862 /* Build configuration list for PBXNativeTarget "BSTell_company" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD9EDCD918C08AB300673862 /* Debug */,
 				BD9EDCDA18C08AB300673862 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BD9EDCDF18C08AB300673862 /* Build configuration list for PBXNativeTarget "BSTell_companyTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BD9EDCDB18C08AB300673862 /* Debug */,
-				BD9EDCDC18C08AB300673862 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
