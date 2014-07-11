@@ -94,6 +94,9 @@
     {
         currentPageNum = 1;
         self.pageNum = 1;
+        if(isRefreshing)
+            return;
+        isRefreshing = YES;
         [self shouldLoadOlderData:tweetieTableView];
     }
 }

@@ -59,13 +59,14 @@
     self.pageNum = 1;
     //searchField.text = @"苯酚";
     [self.dataArray removeAllObjects];
+#if 0
     if(self.confirmTag == 0)
        [self shouldLoadOlderData:nil];
+#endif
     
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-   
     
 }
 - (void)didReceiveMemoryWarning
@@ -275,6 +276,7 @@
      */
 #if 1
     [self.parentNav pushViewController:vc animated:YES];
+    [self.dataArray removeAllObjects];
 #else
     
     [ZCSNotficationMgr postMSG:kPushNewViewController obj:vc];
