@@ -17,7 +17,7 @@
  #define kHttpRequestUrl  @"https://m.b-chem.com:9005/app/"
  */
 
-#define kKeyCode   @"jkznf7585535556160675056460853260"
+#define kKeyCode   @"zkznf7585535557260675056148317780"
 
 #if 1
 
